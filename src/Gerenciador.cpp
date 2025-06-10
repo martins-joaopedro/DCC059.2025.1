@@ -3,6 +3,8 @@
 
 
 void Gerenciador::comandos(Grafo* grafo) {
+    cout << "\n----------------------------------------" << endl;
+    cout << "Comandos disponiveis:" << endl;
     cout<<"Digite uma das opcoes abaixo e pressione enter:"<<endl<<endl;
     cout<<"(a) Fecho transitivo direto de um no;"<<endl;
     cout<<"(b) Fecho transitivo indireto de um no;"<<endl;
@@ -164,7 +166,7 @@ void Gerenciador::comandos(Grafo* grafo) {
             exit(0);
         }
         default: {
-            cout<<"Opção inválida"<<endl;
+            cout<<"Opcao invalida"<<endl;
         }
     }
 
