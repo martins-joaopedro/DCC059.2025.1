@@ -1,13 +1,16 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <vector>
 
 #include "Gerenciador.h"
+#include "No.h"
 using namespace std;
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     
+    Grafo* grafo = new Grafo();
+
     if(argc < 2) {
         cout << "Nenhum arquivo de entrada foi informado." << endl;
         cout << "Execucao finalizada!" << endl;
@@ -40,8 +43,17 @@ int main(int argc, char *argv[])
             iss >> direcionado >> ponderado_aresta >> ponderado_vertice;
 
             cout << "Grafo " << (direcionado ? "direcionado" : "nao direcionado") << endl;
+            grafo->in_direcionado = direcionado;
+            cout << "TESTE DIRECIONADO: " << grafo->in_direcionado << endl;
+
             cout << "Grafo " << (ponderado_aresta ? "ponderado nas arestas" : "nao ponderado nas arestas") << endl;
+            grafo->in_ponderado_aresta = ponderado_aresta;
+            cout << "TESTE ponderado atesta: " << grafo->in_ponderado_aresta << endl;
+            
             cout << "Grafo " << (ponderado_vertice ? "ponderado nos vertices" : "nao ponderado nos vertices") << endl;
+            grafo->in_ponderado_vertice = ponderado_vertice;
+            cout << "TESTE ponderado vertice: " << grafo->in_ponderado_vertice << endl;
+
             cout << "----------------------------------------" << endl;
             // Avança para a leitura de outras informações
             header++;
@@ -49,39 +61,58 @@ int main(int argc, char *argv[])
         // Lendo ordem do grafo
         else if (header == 1) {
             iss >> ordem;
-            cout << "Grafo de Ordem: " << ordem << endl;
+
+            grafo->ordem = ordem;
+            cout << "Grafo de Ordem: " << grafo->ordem << endl;
 
             header++;
         }
         // Lendo vertices do grafo
         else if (header == 2) {
             iss >> id;
-            cout << "Vertice [ " << id << " ] ";
+
+            No* no = new No();//novo no
+            no->id = id;
+            cout << "Vertice [ " << no->id << " ] ";
 
             if(ponderado_vertice) {
                 iss >> peso;
-                cout << "possui peso igual a " << peso << endl;
-            } else cout << endl;
+                
+                no->peso = peso;
+                cout << "possui peso igual a " << no->peso << endl;
+            } else {
+                no->peso = -1; //colocar null ou -1 ou 0????????
+                cout << endl;
+            }
+
+            grafo->lista_adj.push_back(no); //adiciona novo vertice no fim da lista
 
             // Lê todos os vertices
             k++;
             if(k == ordem)
                 header++;
         }
+        
         // Lendo arestas do grafo
         else if (header == 3) {
             iss >> id_no_a >> id_no_b;
+
+
+
             cout << "Existe uma aresta de " << id_no_a << " para " << id_no_b;
 
             if(ponderado_aresta) {
                 iss >> peso;
                 cout << " com peso: " << peso << endl;
             }
-            else cout << endl; 
-        }
+            else cout << endl;
+        }        
+    }
+    cout << "TESTE LISTA: " ;
+    for(No* no : grafo->lista_adj ){
+        cout << no->id << " peso vertice: " << no->peso << endl;
     }
     
-    Grafo* grafo = new Grafo();
     Gerenciador::comandos(grafo);
 
     file.close();
