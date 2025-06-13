@@ -4,7 +4,6 @@
 #include <vector>
 
 #include "Gerenciador.h"
-#include "No.h"
 using namespace std;
 
 int main(int argc, char *argv[]) {
@@ -44,15 +43,12 @@ int main(int argc, char *argv[]) {
 
             cout << "Grafo " << (direcionado ? "direcionado" : "nao direcionado") << endl;
             grafo->in_direcionado = direcionado;
-            cout << "TESTE DIRECIONADO: " << grafo->in_direcionado << endl;
 
             cout << "Grafo " << (ponderado_aresta ? "ponderado nas arestas" : "nao ponderado nas arestas") << endl;
             grafo->in_ponderado_aresta = ponderado_aresta;
-            cout << "TESTE ponderado atesta: " << grafo->in_ponderado_aresta << endl;
             
             cout << "Grafo " << (ponderado_vertice ? "ponderado nos vertices" : "nao ponderado nos vertices") << endl;
             grafo->in_ponderado_vertice = ponderado_vertice;
-            cout << "TESTE ponderado vertice: " << grafo->in_ponderado_vertice << endl;
 
             cout << "----------------------------------------" << endl;
             // Avança para a leitura de outras informações
@@ -73,16 +69,12 @@ int main(int argc, char *argv[]) {
 
             No* no = new No();//novo no
             no->id = id;
-            cout << "Vertice [ " << no->id << " ] ";
 
             if(ponderado_vertice) {
                 iss >> peso;
-                
                 no->peso = peso;
-                cout << "possui peso igual a " << no->peso << endl;
             } else {
-                no->peso = -1; //colocar null ou -1 ou 0????????
-                cout << endl;
+                no->peso = -1; //colocar null ou -1 ou 0 ou não colocar????????
             }
 
             grafo->lista_adj.push_back(no); //adiciona novo vertice no fim da lista
@@ -97,20 +89,47 @@ int main(int argc, char *argv[]) {
         else if (header == 3) {
             iss >> id_no_a >> id_no_b;
 
-
-
-            cout << "Existe uma aresta de " << id_no_a << " para " << id_no_b;
+            Aresta* aresta = new Aresta();
+            
+            //adiciona aresta de a pra b
+            for(No* no : grafo->lista_adj ){
+                if(no->id == id_no_a){                        
+                    aresta->id_no_alvo = id_no_b;
+                    no->arestas.push_back(aresta);
+                }
+            }
 
             if(ponderado_aresta) {
                 iss >> peso;
-                cout << " com peso: " << peso << endl;
+                aresta->peso = peso;
+            } else {
+                aresta->peso = -1;
             }
-            else cout << endl;
+            
+            //se nao direcionado, adiciona aresta de b pra a
+            if(!grafo->in_direcionado){
+                Aresta* aresta_b = new Aresta();
+                
+                for(No* no : grafo->lista_adj){
+                    if(no->id == id_no_b){                        
+                        aresta_b->id_no_alvo = id_no_a;
+                        aresta_b->peso = aresta->peso;
+                        no->arestas.push_back(aresta_b);
+                    }
+                }
+            }
         }        
     }
-    cout << "TESTE LISTA: " ;
+
+    cout << "\nLISTA DE ADJ: " << endl ;
     for(No* no : grafo->lista_adj ){
-        cout << no->id << " peso vertice: " << no->peso << endl;
+        cout << "Vertice: [" << no->id << "] com peso: " << no->peso << endl;
+
+        for(Aresta* aresta : no->arestas){
+            cout << "   Existe uma aresta de [" << no->id << "] para [" << aresta->id_no_alvo
+                << "] com peso: " << aresta->peso << endl;
+        }
+        cout << endl;
     }
     
     Gerenciador::comandos(grafo);
