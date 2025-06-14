@@ -8,6 +8,7 @@
 #include "No.h"
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 
 
 using namespace std;
@@ -30,6 +31,7 @@ public:
     vector<char> vertices_de_articulacao(); // i
     tuple<No*, Aresta*> aresta_menor_peso();
     Aresta* custo(No* no, char id_alvo);
+    tuple<No*, Aresta*>minimo_prox(unordered_map<No*, Aresta*>& prox);
 
     int ordem;
     bool in_direcionado;

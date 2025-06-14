@@ -1,6 +1,7 @@
 #include "Grafo.h"
 #include <tuple>
 #include <limits>
+#include <unordered_map>
 
 Grafo::Grafo() {
 }
@@ -59,10 +60,25 @@ Aresta* Grafo::custo(No* no, char id_alvo){
     return aresta;
 }
 
+tuple<No*, Aresta*> Grafo::minimo_prox(unordered_map<No*, Aresta*>& prox){
+    No* no_min = nullptr;
+    Aresta* aresta_min = nullptr;
+    int menor_peso = numeric_limits<int>::max();
+
+    for(const auto& par : prox){
+        if(par.second != nullptr && par.second->peso < aresta_min->peso){
+            no_min = par.first;
+            aresta_min = par.second;
+        }
+    }
+
+    return make_tuple(no_min, aresta_min);
+}
+
 Grafo * Grafo::arvore_geradora_minima_prim(vector<char> ids_nos) {
     cout<<"Metodo nao implementado"<<endl;
 
-    if(!this->in_direcionado){
+    if(!this->in_ponderado_aresta){
         cout << "there's nothing we can do" << endl;
         return nullptr;
     }
@@ -76,7 +92,7 @@ Grafo * Grafo::arvore_geradora_minima_prim(vector<char> ids_nos) {
     raiz->arestas.push_back(aresta_menor);
     arvore->lista_adj.push_back(raiz);
 
-    No* u = raiz;
+    No* u = raiz; 
     No* v;
     for(No* no : this->lista_adj){
         if(no->id == aresta_menor->id_no_alvo){
@@ -84,15 +100,48 @@ Grafo * Grafo::arvore_geradora_minima_prim(vector<char> ids_nos) {
         }
     }
 
-    vector<Aresta*> prox;
+    unordered_map<No*, Aresta*> prox;
 
     for(No* no : this->lista_adj){
-        if(custo(u, no->id)->peso < custo(v, no->id)->peso){
-            
+        Aresta* aresta_u = custo(no, u->id);
+        Aresta* aresta_v = custo(no, v->id);
+        
+        if(aresta_u->peso < aresta_v->peso){
+            prox.emplace(no, aresta_u);
+        } else {
+            prox.emplace(no, aresta_v);
         }
     }
+    prox.at(u) = nullptr;
+    prox.at(v) = nullptr;
+    
+    int cont = 0;
 
-    return nullptr;
+    while(cont < this->lista_adj.size() - 2){
+        min = minimo_prox(prox);
+
+        No* novo_no = get<0>(min);
+        Aresta* novo_aresta = get<1>(min);
+        novo_no->arestas.push_back(novo_aresta);
+        arvore->lista_adj.push_back(novo_no);
+
+        prox.at(novo_no) = nullptr;
+
+        for(No* no : this->lista_adj){
+            Aresta* aresta_prox_i = custo(no, prox.at(no)->id_no_alvo);
+            Aresta* aresta_j = custo(no, novo_no->id);
+            
+            if(aresta_prox_i->peso < aresta_j->peso){
+                prox.emplace(no, aresta_prox_i);
+            } else {
+                prox.emplace(no, aresta_j);
+            }
+        }
+
+        cont++;
+    }
+
+    return arvore;
 }
 
 Grafo * Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos) {
