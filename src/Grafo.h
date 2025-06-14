@@ -28,7 +28,8 @@ public:
     vector<char> centro(); // h 3
     vector<char> periferia(); // h 4
     vector<char> vertices_de_articulacao(); // i
-
+    tuple<No*, Aresta*> aresta_menor_peso();
+    Aresta* custo(No* no, char id_alvo);
 
     int ordem;
     bool in_direcionado;
