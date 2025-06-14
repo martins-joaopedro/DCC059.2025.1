@@ -1,13 +1,15 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <vector>
 
 #include "Gerenciador.h"
 using namespace std;
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     
+    Grafo* grafo = new Grafo();
+
     if(argc < 2) {
         cout << "Nenhum arquivo de entrada foi informado." << endl;
         cout << "Execucao finalizada!" << endl;
@@ -40,8 +42,14 @@ int main(int argc, char *argv[])
             iss >> direcionado >> ponderado_aresta >> ponderado_vertice;
 
             cout << "Grafo " << (direcionado ? "direcionado" : "nao direcionado") << endl;
+            grafo->in_direcionado = direcionado;
+
             cout << "Grafo " << (ponderado_aresta ? "ponderado nas arestas" : "nao ponderado nas arestas") << endl;
+            grafo->in_ponderado_aresta = ponderado_aresta;
+            
             cout << "Grafo " << (ponderado_vertice ? "ponderado nos vertices" : "nao ponderado nos vertices") << endl;
+            grafo->in_ponderado_vertice = ponderado_vertice;
+
             cout << "----------------------------------------" << endl;
             // Avança para a leitura de outras informações
             header++;
@@ -49,39 +57,81 @@ int main(int argc, char *argv[])
         // Lendo ordem do grafo
         else if (header == 1) {
             iss >> ordem;
-            cout << "Grafo de Ordem: " << ordem << endl;
+
+            grafo->ordem = ordem;
+            cout << "Grafo de Ordem: " << grafo->ordem << endl;
 
             header++;
         }
         // Lendo vertices do grafo
         else if (header == 2) {
             iss >> id;
-            cout << "Vertice [ " << id << " ] ";
+
+            No* no = new No();//novo no
+            no->id = id;
 
             if(ponderado_vertice) {
                 iss >> peso;
-                cout << "possui peso igual a " << peso << endl;
-            } else cout << endl;
+                no->peso = peso;
+            } else {
+                no->peso = 1;
+            }
+
+            grafo->lista_adj.push_back(no); //adiciona novo vertice no fim da lista
 
             // Lê todos os vertices
             k++;
             if(k == ordem)
                 header++;
         }
+        
         // Lendo arestas do grafo
         else if (header == 3) {
             iss >> id_no_a >> id_no_b;
-            cout << "Existe uma aresta de " << id_no_a << " para " << id_no_b;
+
+            Aresta* aresta = new Aresta();
+            
+            //adiciona aresta de a pra b
+            for(No* no : grafo->lista_adj ){
+                if(no->id == id_no_a){                        
+                    aresta->id_no_alvo = id_no_b;
+                    no->arestas.push_back(aresta);
+                }
+            }
 
             if(ponderado_aresta) {
                 iss >> peso;
-                cout << " com peso: " << peso << endl;
+                aresta->peso = peso;
+            } else {
+                aresta->peso = 1;
             }
-            else cout << endl; 
+            
+            //se nao direcionado, adiciona aresta de b pra a
+            if(!grafo->in_direcionado){
+                Aresta* aresta_b = new Aresta();
+                
+                for(No* no : grafo->lista_adj){
+                    if(no->id == id_no_b){                        
+                        aresta_b->id_no_alvo = id_no_a;
+                        aresta_b->peso = aresta->peso;
+                        no->arestas.push_back(aresta_b);
+                    }
+                }
+            }
+        }        
+    }
+
+    cout << "\nLISTA DE ADJ: " << endl ;
+    for(No* no : grafo->lista_adj ){
+        cout << "Vertice: [" << no->id << "] com peso: " << no->peso << endl;
+
+        for(Aresta* aresta : no->arestas){
+            cout << "   Existe uma aresta de [" << no->id << "] para [" << aresta->id_no_alvo
+                << "] com peso: " << aresta->peso << endl;
         }
+        cout << endl;
     }
     
-    Grafo* grafo = new Grafo();
     Gerenciador::comandos(grafo);
 
     file.close();
