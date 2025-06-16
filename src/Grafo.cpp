@@ -47,6 +47,25 @@ char encontrar(map<char,Subconjunto> & conjuntos, char id ){
     return conjuntos[id].pai;
 }
 
+void unir(map<char,Subconjunto> & conjuntos, char id1, char id2){
+    char raiz1 = encontrar(conjuntos, id1);
+    char raiz2 = encontrar(conjuntos, id2);
+
+    if(raiz1 == raiz2) return;
+
+    if (conjuntos[raiz1].rank< conjuntos[raiz2].rank){
+        conjuntos[raiz1].pai = raiz2;
+    }
+    else if (conjuntos[raiz1].rank> conjuntos[raiz2].rank){
+        conjuntos[raiz2].pai=raiz1;
+    }
+    //se tem a mesma altura nn importa o pai??? -> conferir
+    else{
+        conjuntos[raiz2].pai = raiz1;
+        conjuntos[raiz1].rank++;
+    }
+}
+
 Grafo * Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos) {
 
     //configura infos agm
@@ -98,6 +117,7 @@ Grafo * Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos) {
         }
 
     }
+
     //ordena arestas por peso
     sort(arestas.begin(),arestas.end());
 
@@ -113,13 +133,62 @@ Grafo * Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos) {
 
 
     //verificar se os nós do subconjunto se conectam (ciclos) e add arestas válidas
-    
-    //função de unir
-    
 
+    //Inicializa conjuntos
+    map<char,Subconjunto> conjuntos;
+    for (char id: ids_nos){
+        conjuntos[id] = {id,0};
+    }
 
-    cout<<"Metodo nao implementado"<<endl;
-    return nullptr;
+    //Adiciona arestas sem formar ciclos
+    for(const tuple<int, char, char>& element: arestas){
+        
+        int peso = get<0>(element);
+        char id_a = get<1>(element);
+        char id_b = get<2>(element);
+        
+        char raiz_a = encontrar (conjuntos, id_a);
+        char raiz_b = encontrar (conjuntos, id_b);
+
+        if(raiz_a != raiz_b){
+            unir(conjuntos,raiz_a, raiz_b);
+
+            Aresta*nova = new Aresta();
+            nova->id_no_alvo= id_b;
+            nova-> peso = peso;
+
+            for(No* no: agm->lista_adj){
+                if(no->id == id_a){
+                    no->arestas.push_back(nova);
+                    break;
+                }
+            }
+            //se nao é digrafo tem que add na lista de adj do outro tmb
+            if(!this->in_direcionado){
+                Aresta* nova_b = new Aresta();
+                nova_b->id_no_alvo = id_a;
+                nova_b->peso = peso;
+
+                for(No* no: agm->lista_adj){
+                    if(no->id == id_b){
+                        no->arestas.push_back(nova_b);
+                        break;
+                    }
+                }
+            }
+        }    
+    }
+
+    //TESTE3 - Imprimir
+    cout <<endl<< "AGM - LISTA DE ADJACENCIA:"<<endl;
+    for (No* no : agm->lista_adj) {
+        cout << "Vertice: [" << no->id << "] com peso: " << no->peso << endl;
+        for (Aresta* aresta : no->arestas) {
+            cout << "   Aresta para [" << aresta->id_no_alvo << "] com peso: " << aresta->peso << endl;
+        }
+    }
+
+    return agm;
 }
 
 Grafo * Grafo::arvore_caminhamento_profundidade(int id_no) {
