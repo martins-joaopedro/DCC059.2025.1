@@ -76,7 +76,7 @@ Grafo * Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos) {
     agm->ordem = ids_nos.size();
 
     //ver se os parametros vieram certinho
-    cout<< "TESTE 1 - Parâmetros Grafo " <<endl <<agm->in_direcionado<<agm->in_ponderado_aresta<<agm->in_ponderado_vertice<<agm->ordem;
+    cout<< "TESTE 1 - Parametros Grafo " <<endl <<agm->in_direcionado<<agm->in_ponderado_aresta<<agm->in_ponderado_vertice<<agm->ordem;
 
     //copiar nos escolhidos pra lista da agm
     for(char id:ids_nos){
@@ -179,15 +179,22 @@ Grafo * Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos) {
         }    
     }
 
-    //TESTE3 - Imprimir
-    cout <<endl<< "AGM - LISTA DE ADJACENCIA:"<<endl;
-    for (No* no : agm->lista_adj) {
-        cout << "Vertice: [" << no->id << "] com peso: " << no->peso << endl;
-        for (Aresta* aresta : no->arestas) {
-            cout << "   Aresta para [" << aresta->id_no_alvo << "] com peso: " << aresta->peso << endl;
+    //verifica se o conjunto é conexo
+    if ((int)arestas.size() != ids_nos.size() - 1) {
+    cout << "Nao foi possivel gerar uma AGM com os vertices fornecidos: o subconjunto dado nao eh conexo." << endl;
+    delete agm;
+    return nullptr;
+    }
+    else{
+        cout <<endl<< "AGM - LISTA DE ADJACENCIA:"<<endl;
+        for (No* no : agm->lista_adj) {
+            cout << "Vertice: [" << no->id << "] com peso: " << no->peso << endl;
+            for (Aresta* aresta : no->arestas) {
+                cout << "   Aresta para [" << aresta->id_no_alvo << "] com peso: " << aresta->peso << endl;
+            }
         }
     }
-
+    
     return agm;
 }
 
