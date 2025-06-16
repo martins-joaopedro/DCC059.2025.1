@@ -121,16 +121,16 @@ int main(int argc, char *argv[]) {
         }        
     }
 
-    cout << "\nLISTA DE ADJ: " << endl ;
-    for(No* no : grafo->lista_adj ){
-        cout << "Vertice: [" << no->id << "] com peso: " << no->peso << endl;
+    // cout << "\nLISTA DE ADJ: " << endl ;
+    // for(No* no : grafo->lista_adj ){
+    //     cout << "Vertice: [" << no->id << "] com peso: " << no->peso << endl;
 
-        for(Aresta* aresta : no->arestas){
-            cout << "   Existe uma aresta de [" << no->id << "] para [" << aresta->id_no_alvo
-                << "] com peso: " << aresta->peso << endl;
-        }
-        cout << endl;
-    }
+    //     for(Aresta* aresta : no->arestas){
+    //         cout << "   Existe uma aresta de [" << no->id << "] para [" << aresta->id_no_alvo
+    //             << "] com peso: " << aresta->peso << endl;
+    //     }
+    //     cout << endl;
+    // }
     
     Gerenciador::comandos(grafo);
 

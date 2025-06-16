@@ -29,9 +29,11 @@ public:
     vector<char> centro(); // h 3
     vector<char> periferia(); // h 4
     vector<char> vertices_de_articulacao(); // i
-    tuple<No*, Aresta*> aresta_menor_peso();
+    tuple<No*, Aresta*> aresta_menor_peso(vector<No*>& lista);
     Aresta* custo(No* no, char id_alvo);
     tuple<No*, Aresta*>minimo_prox(unordered_map<No*, Aresta*>& prox);
+    No* acha_no(char id, vector<No*>& lista);
+    void imprime_lista_adj(vector<No*>& lista);
 
     int ordem;
     bool in_direcionado;
