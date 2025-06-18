@@ -1,14 +1,8 @@
 #include "Grafo.h"
 #include <tuple>
-#include <limits>
-#include <map>
 #include <set>
-#include <unordered_map>
-#include <algorithm>
 #include <queue>
-#include <vector>
-#include <functional> //
-#define INFINITO = numeric_limits<int>::max();
+#include <functional>
 
 Grafo::Grafo() {
 }
@@ -57,7 +51,7 @@ bool Grafo::insere_aresta(tuple<int, char, char>& aresta_info, vector<No*>& list
         else if(cont == 2){break;}
     }
     
-    if(cont != 2){//grafo desconexo
+    if(cont != 2){
         return false;
     }
 
@@ -104,8 +98,7 @@ Grafo * Grafo::arvore_geradora_minima_prim(vector<char> ids_nos) {
     char inicial = ids_nos[0];
     visitados.insert(inicial);
 
-    // Insere arestas do nó inicial
-    for (No* no : this->lista_adj){
+    for(No* no : this->lista_adj){
         if (no->id == inicial){
             for (Aresta* a : no->arestas){
                 if (find(ids_nos.begin(), ids_nos.end(), a->id_no_alvo) != ids_nos.end())
@@ -115,22 +108,22 @@ Grafo * Grafo::arvore_geradora_minima_prim(vector<char> ids_nos) {
         }
     }
 
-    while (visitados.size() < ids_nos.size() && !pq.empty()){
+    while(visitados.size() < ids_nos.size() && !pq.empty()){
         auto [peso, u, v] = pq.top(); pq.pop();
-        if (visitados.count(v)) continue;
+        if(visitados.count(v)) continue;
+        
         auto tupla = make_tuple(peso, u, v);
 
-        if (!insere_aresta(tupla, arvore->lista_adj)){
+        if(!insere_aresta(tupla, arvore->lista_adj)){
             cout << "Erro ao inserir aresta: " << u << " - " << v << endl;
             return nullptr;
         }
 
         visitados.insert(v);
 
-        // Adiciona novas arestas do nó recém-inserido
-        for (No* no : this->lista_adj){
-            if (no->id == v) {
-                for (Aresta* a : no->arestas) {
+        for(No* no : this->lista_adj){
+            if (no->id == v){
+                for (Aresta* a : no->arestas){
                     if (!visitados.count(a->id_no_alvo) &&
                         find(ids_nos.begin(), ids_nos.end(), a->id_no_alvo) != ids_nos.end()){
                         pq.push({a->peso, v, a->id_no_alvo});
@@ -141,11 +134,11 @@ Grafo * Grafo::arvore_geradora_minima_prim(vector<char> ids_nos) {
         }
     }
 
-    if (visitados.size() != ids_nos.size()){
+    if(visitados.size() != ids_nos.size()){
         cout << "Subgrafo desconexo.\n";
         return nullptr;
     }
-    
+
     return arvore;
 }
 
