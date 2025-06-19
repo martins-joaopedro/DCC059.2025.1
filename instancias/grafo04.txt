@@ -1,0 +1,21 @@
+1 1 0
+7
+a
+b
+c
+d
+e
+f
+g
+a b 4
+a c 2
+b d 3
+b e 1
+b c -3
+c d 2
+c e 3
+d f 3
+d g 3
+e d -2
+e g 4
+f g 1
