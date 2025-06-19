@@ -1,6 +1,6 @@
 #include "Gerenciador.h"
 #include <fstream>
-
+#include <iostream>
 
 void Gerenciador::comandos(Grafo* grafo) {
     cout << "\n----------------------------------------" << endl;
@@ -229,4 +229,54 @@ bool Gerenciador::pergunta_imprimir_arquivo(string nome_arquivo) {
             cout<<"Resposta invalida"<<endl;
             return pergunta_imprimir_arquivo(nome_arquivo);
     }
+}
+
+void Gerenciador::salvar_grafo(Grafo* grafo, string nome_arquivo) {
+    ofstream arquivo(nome_arquivo);
+
+    if (!arquivo.is_open()) {
+        cout << "Erro ao abrir o arquivo: " << nome_arquivo << endl;
+        return;
+    }
+
+    arquivo << grafo->in_direcionado << " "
+            << grafo->in_ponderado_aresta << " "
+            << grafo->in_ponderado_vertice << "\n";
+
+    arquivo << grafo->ordem << "\n";
+
+    for (No* no : grafo->lista_adj) {
+        string conteudo = string(1, no->id) + " " + to_string(no->peso) + "\n";
+        arquivo << conteudo;
+    }
+
+    for (No* no : grafo->lista_adj) {
+        for (Aresta* aresta : no->arestas) {
+            string conteudo = string(1, no->id) + " " + string(1, aresta->id_no_alvo) + " " + to_string(aresta->peso) + "\n";
+            arquivo << conteudo;
+        }
+    }
+
+    arquivo.close();
+    cout << "Grafo salvo em " << nome_arquivo << endl;
+
+}
+
+void Gerenciador::salvar_lista(vector<No*> lista, string nome_arquivo) {
+    ofstream arquivo(nome_arquivo);
+
+    if (!arquivo.is_open()) {
+        cout << "Erro ao abrir o arquivo: " << nome_arquivo << endl;
+        return;
+    }
+
+    for (No* no : lista) {
+        for (Aresta* aresta : no->arestas) {
+            string conteudo = string(1, no->id) + " " + string(1, aresta->id_no_alvo) + " " + to_string(aresta->peso) + "\n";
+            arquivo << conteudo;
+        }
+    }
+
+    arquivo.close();
+    cout << "Lista salva em " << nome_arquivo << endl;
 }
