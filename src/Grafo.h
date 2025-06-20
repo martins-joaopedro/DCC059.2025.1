@@ -8,6 +8,7 @@
 #include "No.h"
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 
 
 using namespace std;
@@ -28,7 +29,8 @@ public:
     vector<char> centro(); // h 3
     vector<char> periferia(); // h 4
     vector<char> vertices_de_articulacao(); // i
-
+    void imprime_lista_adj(vector<No*>& lista);
+    bool insere_aresta(tuple<int, char, char>& aresta_info, vector<No*>& lista);
 
     int ordem;
     bool in_direcionado;
