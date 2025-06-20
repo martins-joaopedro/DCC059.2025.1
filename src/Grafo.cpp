@@ -110,8 +110,7 @@ Grafo * Grafo::arvore_geradora_minima_prim(vector<char> ids_nos) {
 
     while(visitados.size() < ids_nos.size() && !pq.empty()){
         auto [peso, u, v] = pq.top(); pq.pop();
-        if(!visitados.count(v))
-            break;
+        if(visitados.count(v)) continue;
         
         auto tupla = make_tuple(peso, u, v);
 
