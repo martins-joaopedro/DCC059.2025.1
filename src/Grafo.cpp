@@ -68,7 +68,8 @@ vector<char> Grafo::caminho_minimo_dijkstra(char id_no_a, char id_no_b)
         }
 
         // caso o ultimo vertice acessado nao alcançar mais ninguem, o proximo atual terá distancia infinita, podendo parar o loop
-        if(menorDistancia == INT_MAX){
+        if (menorDistancia == INT_MAX)
+        {
             break;
         }
 
@@ -126,9 +127,51 @@ vector<char> Grafo::caminho_minimo_dijkstra(char id_no_a, char id_no_b)
     return caminho;
 }
 
-vector<char> Grafo::caminho_minimo_floyd(int id_no, int id_no_b)
+vector<char> Grafo::caminho_minimo_floyd(char id_no, char id_no_b)
 {
-    cout << "Metodo nao implementado" << endl;
+    int n = this->lista_adj.size();
+    vector<vector<int>> distancia(n, vector<int>(n, INT_MAX));
+    map<char, int> mapa_indice;
+    int valor = 0;
+
+    for (No *no : this->lista_adj)
+    {
+        mapa_indice[no->id] = valor;
+        valor++;
+    }
+
+    for (No *no : this->lista_adj)
+    {
+        for (Aresta *a : no->arestas)
+        {
+            distancia[mapa_indice[no->id]][mapa_indice[a->id_no_alvo]] = a->peso;
+        }
+        distancia[mapa_indice[no->id]][mapa_indice[no->id]] = 0;
+    }
+
+    for (int k = 0; k < n; k++)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                if ( distancia[i][k] !=INT_MAX  && distancia[k][j] != INT_MAX && distancia[i][k] + distancia[k][j] < distancia[i][j])
+                    distancia[i][j] = distancia[i][k] + distancia[k][j];
+            }
+        }
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if(distancia[i][j] == INT_MAX)
+                cout<< "*" << " | ";
+            else
+                cout << distancia[i][j] << " | ";
+        }
+        cout << endl;
+    }
     return {};
 }
 
