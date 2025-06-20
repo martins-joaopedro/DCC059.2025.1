@@ -99,10 +99,10 @@ Grafo * Grafo::arvore_geradora_minima_prim(vector<char> ids_nos) {
     visitados.insert(inicial);
 
     for(No* no : this->lista_adj){
-        if (no->id == inicial){
-            for (Aresta* a : no->arestas){
-                if (find(ids_nos.begin(), ids_nos.end(), a->id_no_alvo) != ids_nos.end())
-                    pq.push({a->peso, inicial, a->id_no_alvo});
+        if(no->id == inicial){
+            for(Aresta* aresta : no->arestas){
+                if(find(ids_nos.begin(), ids_nos.end(), aresta->id_no_alvo) != ids_nos.end())
+                    pq.push({aresta->peso, inicial, aresta->id_no_alvo});
             }
             break;
         }
@@ -110,7 +110,8 @@ Grafo * Grafo::arvore_geradora_minima_prim(vector<char> ids_nos) {
 
     while(visitados.size() < ids_nos.size() && !pq.empty()){
         auto [peso, u, v] = pq.top(); pq.pop();
-        if(visitados.count(v)) continue;
+        if(!visitados.count(v))
+            break;
         
         auto tupla = make_tuple(peso, u, v);
 
@@ -122,11 +123,12 @@ Grafo * Grafo::arvore_geradora_minima_prim(vector<char> ids_nos) {
         visitados.insert(v);
 
         for(No* no : this->lista_adj){
-            if (no->id == v){
-                for (Aresta* a : no->arestas){
-                    if (!visitados.count(a->id_no_alvo) &&
-                        find(ids_nos.begin(), ids_nos.end(), a->id_no_alvo) != ids_nos.end()){
-                        pq.push({a->peso, v, a->id_no_alvo});
+            if(no->id == v){
+                for (Aresta* aresta : no->arestas){
+                    if(!visitados.count(aresta->id_no_alvo) &&
+                        find(ids_nos.begin(), ids_nos.end(), aresta->id_no_alvo) != ids_nos.end()){
+                        
+                        pq.push({aresta->peso, v, aresta->id_no_alvo});
                     }
                 }
                 break;
@@ -135,7 +137,7 @@ Grafo * Grafo::arvore_geradora_minima_prim(vector<char> ids_nos) {
     }
 
     if(visitados.size() != ids_nos.size()){
-        cout << "Subgrafo desconexo.\n";
+        cout << "Subgrafo desconexo.\n\n";
         return nullptr;
     }
 
