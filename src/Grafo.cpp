@@ -14,14 +14,14 @@ Grafo::Grafo() {
 Grafo::~Grafo() {
 }
 
-void Grafo::aux_fecho_transitivo_indireto(map<char, bool> &C, char descendente){
+void Grafo::aux_fecho_transitivo_direto(map<char, bool> &C, char descendente){
     for(No* no : this->lista_adj){
         if(no->id == descendente){
             for(Aresta* aresta : no->arestas){
                 char filho = aresta->id_no_alvo;
                 if(!C[aresta->id_no_alvo]){
                     C[aresta->id_no_alvo] = true;
-                    aux_fecho_transitivo_indireto(C, filho);
+                    aux_fecho_transitivo_direto(C, filho);
                 }
             }
             break;
@@ -39,7 +39,7 @@ vector<char> Grafo::fecho_transitivo_direto(char id_no) {
 
     map<char, bool> C;
     C[id_no] = true;
-    aux_fecho_transitivo_indireto(C, id_no);
+    aux_fecho_transitivo_direto(C, id_no);
 
     for (const auto& par : C) {
         if (par.second && par.first != id_no) {
@@ -50,7 +50,7 @@ vector<char> Grafo::fecho_transitivo_direto(char id_no) {
     return fecho;
 }
 
-vector<char> Grafo::fecho_transitivo_indireto(int id_no) {
+vector<char> Grafo::fecho_transitivo_indireto(char id_no) {
     cout<<"Metodo nao implementado"<<endl;
     return {};
 }
