@@ -14,14 +14,14 @@ Grafo::Grafo() {
 Grafo::~Grafo() {
 }
 
-void Grafo::DFS(map<char, bool> &C, char descendente){
+void Grafo::aux_fecho_transitivo_indireto(map<char, bool> &C, char descendente){
     for(No* no : this->lista_adj){
         if(no->id == descendente){
             for(Aresta* aresta : no->arestas){
                 char filho = aresta->id_no_alvo;
                 if(!C[aresta->id_no_alvo]){
                     C[aresta->id_no_alvo] = true;
-                    DFS(C, filho);
+                    aux_fecho_transitivo_indireto(C, filho);
                 }
             }
             break;
@@ -39,7 +39,7 @@ vector<char> Grafo::fecho_transitivo_direto(char id_no) {
 
     map<char, bool> C;
     C[id_no] = true;
-    DFS(C, id_no);
+    aux_fecho_transitivo_indireto(C, id_no);
 
     for (const auto& par : C) {
         if (par.second && par.first != id_no) {

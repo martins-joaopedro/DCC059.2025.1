@@ -32,13 +32,14 @@ public:
     void imprime_lista_adj(vector<No*>& lista);
     bool insere_aresta(tuple<int, char, char>& aresta_info, vector<No*>& lista);
     void imprime_fecho(vector<char> &fecho);
+    void aux_fecho_transitivo_indireto(map<char, bool> &C, char descendente);
+
 
     int ordem;
     bool in_direcionado;
     bool in_ponderado_aresta;
     bool in_ponderado_vertice;
     vector<No*> lista_adj;
-    void DFS(map<char, bool> &C, char descendente);
 };
 
 
