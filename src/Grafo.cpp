@@ -3,6 +3,10 @@
 #include <set>
 #include <queue>
 #include <functional>
+#include <climits>
+#include <map>
+
+#define INF INT_MAX
 
 Grafo::Grafo() {
 }
@@ -10,9 +14,40 @@ Grafo::Grafo() {
 Grafo::~Grafo() {
 }
 
-vector<char> Grafo::fecho_transitivo_direto(int id_no) {
-    cout<<"Metodo nao implementado"<<endl;
-    return {};
+void Grafo::DFS(map<char, bool> &C, char descendente){
+    for(No* no : this->lista_adj){
+        if(no->id == descendente){
+            for(Aresta* aresta : no->arestas){
+                char filho = aresta->id_no_alvo;
+                if(!C[aresta->id_no_alvo]){
+                    C[aresta->id_no_alvo] = true;
+                    DFS(C, filho);
+                }
+            }
+            break;
+        }
+    }
+}
+
+vector<char> Grafo::fecho_transitivo_direto(char id_no) {
+    vector<char> fecho;
+    
+    if(!this->in_direcionado){
+        cout << "O grafo não é direcionado." << endl<<endl;
+        return {};
+    }
+
+    map<char, bool> C;
+    C[id_no] = true;
+    DFS(C, id_no);
+
+    for (const auto& par : C) {
+        if (par.second && par.first != id_no) {
+            fecho.push_back(par.first);
+        }
+    }
+
+    return fecho;
 }
 
 vector<char> Grafo::fecho_transitivo_indireto(int id_no) {
@@ -188,4 +223,12 @@ void Grafo::imprime_lista_adj(vector<No*>& lista){
         }
         cout << endl;
     }
+}
+
+void Grafo::imprime_fecho(vector<char> &fecho){
+    
+    for (char c : fecho) {
+        cout << c << " ";
+    }
+    cout << endl<<endl;
 }
