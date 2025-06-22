@@ -76,8 +76,8 @@ Grafo * Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos) {
     agm->ordem = ids_nos.size();
 
     if(agm->in_direcionado==true){
-        cout<< "Não é possível aplicar este algoritmo em digrafos";
-        return;
+        cout<< "Nao eh possivel aplicar este algoritmo em digrafos";
+        return nullptr;
     }
 
     //ver se os parametros vieram certinho
@@ -97,7 +97,7 @@ Grafo * Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos) {
     }
 
     //Copia apenas arestas presentes no subconjunto agm
-    vector<tuple<int,char,char>>arestas;
+   map<pair<char, char>, int> melhor_arestas;
     
     for(char id_a:ids_nos){
         No* no_a = nullptr;
@@ -114,9 +114,14 @@ Grafo * Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos) {
 
             //ve se o id b ta no ids nos selecionados
             if(find(ids_nos.begin(),ids_nos.end(),id_b)!= ids_nos.end()){
-                //evita duplicado -> conferir dps multiaresta
-                if(id_a < id_b){
-                    arestas.push_back({a->peso,id_a,id_b});
+                //evita duplicado (deixa sempre em ordem alfabética)
+                pair<char, char> par = minmax(id_a, id_b);
+                
+                if(melhor_arestas.find(par) == melhor_arestas.end()){
+                    melhor_arestas[par]=a->peso;
+                }
+                else{
+                    melhor_arestas[par]=min(melhor_arestas[par],a->peso);
                 }
             }
         }
@@ -124,6 +129,10 @@ Grafo * Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos) {
     }
 
     //ordena arestas por peso
+    vector<tuple<int, char, char>> arestas;
+    for(const pair<pair<char, char>, int>& entrada: melhor_arestas){
+        arestas.push_back({entrada.second, entrada.first.first, entrada.first.second});
+    }
     sort(arestas.begin(),arestas.end());
 
     cout<<"TESTE2 - Imprimir Arestas e pesos "<< endl;
