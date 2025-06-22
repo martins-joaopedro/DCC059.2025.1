@@ -1,0 +1,18 @@
+1 1 1
+10
+a 1
+b 2
+c 3
+d 4
+e 5
+f 0
+g 0
+h 0
+a b 5
+a c 1
+b d 1
+b e 1
+e f 1
+f g 1
+g h 1
+h e 1 (retorno)

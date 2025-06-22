@@ -40,7 +40,7 @@ void Gerenciador::comandos(Grafo* grafo) {
             cout<<"Metodo de impressao em tela nao implementado"<<endl<<endl;
 
             if(pergunta_imprimir_arquivo("fecho_trans_indir.txt")) {
-                cout<<"Metodo de impressao em arquivo nao implementado"<<endl;
+                salvar_lista(fecho_transitivo_indireto, "fecho_trans_indir.txt");
             }
 
 ;
@@ -133,7 +133,7 @@ void Gerenciador::comandos(Grafo* grafo) {
             cout<<"Metodo de impressao em tela nao implementado"<<endl<<endl;
 
             if(pergunta_imprimir_arquivo("arvore_caminhamento_profundidade.txt")) {
-                cout<<"Metodo de impressao em arquivo nao implementado"<<endl;
+                salvar_grafo(arvore_caminhamento_profundidade, "arvore_caminhamento_profundidade.txt");
             }
 
             delete arvore_caminhamento_profundidade;
@@ -231,6 +231,17 @@ bool Gerenciador::pergunta_imprimir_arquivo(string nome_arquivo) {
     }
 }
 
+// SALVAR EM ARQUIVO
+bool comparar_nos(No* a, No* b) {
+    return a->id < b->id;
+}
+
+// Função auxiliar para ordenar as arestas pelo id do nó alvo
+bool comparar_arestas(Aresta* a, Aresta* b) {
+    return a->id_no_alvo < b->id_no_alvo;
+}
+
+// TODO: corrigir quando o grafo é ponderado e direcionado
 void Gerenciador::salvar_grafo(Grafo* grafo, string nome_arquivo) {
     ofstream arquivo(nome_arquivo);
 
@@ -245,24 +256,44 @@ void Gerenciador::salvar_grafo(Grafo* grafo, string nome_arquivo) {
 
     arquivo << grafo->ordem << "\n";
 
-    for (No* no : grafo->lista_adj) {
-        string conteudo = string(1, no->id) + " " + to_string(no->peso) + "\n";
+    // Ordena a lista de nós pelo id
+    vector<No*> nos_ordenados = grafo->lista_adj;
+    sort(nos_ordenados.begin(), nos_ordenados.end(), comparar_nos);
+
+    for (No* no : nos_ordenados) {
+        string conteudo = string(1, no->id);
+
+        // so adiciona o peso se o grafo for ponderado
+        if(grafo->in_ponderado_vertice) {
+            conteudo += " " + to_string(no->peso) + "\n";
+        } else {
+            conteudo += "\n";
+        }
         arquivo << conteudo;
     }
 
-    for (No* no : grafo->lista_adj) {
-        for (Aresta* aresta : no->arestas) {
-            string conteudo = string(1, no->id) + " " + string(1, aresta->id_no_alvo) + " " + to_string(aresta->peso) + "\n";
+    // Ordena as arestas de cada nó pelo id do nó alvo
+    for (No* no : nos_ordenados) {
+        vector<Aresta*> arestas_ordenadas = no->arestas;
+        sort(arestas_ordenadas.begin(), arestas_ordenadas.end(), comparar_arestas);
+        
+        for (Aresta* aresta : arestas_ordenadas) {
+            string conteudo = string(1, no->id) + " " + string(1, aresta->id_no_alvo);
+            if(grafo->in_ponderado_aresta) {
+                conteudo += " " + to_string(aresta->peso);    
+            } 
+            if(aresta->retorno) {
+                conteudo += " (retorno)\n"; 
+            } else conteudo += "\n";
             arquivo << conteudo;
         }
     }
 
     arquivo.close();
     cout << "Grafo salvo em " << nome_arquivo << endl;
-
 }
 
-void Gerenciador::salvar_lista(vector<No*> lista, string nome_arquivo) {
+void Gerenciador::salvar_lista(vector<char> lista, string nome_arquivo) {
     ofstream arquivo(nome_arquivo);
 
     if (!arquivo.is_open()) {
@@ -270,11 +301,8 @@ void Gerenciador::salvar_lista(vector<No*> lista, string nome_arquivo) {
         return;
     }
 
-    for (No* no : lista) {
-        for (Aresta* aresta : no->arestas) {
-            string conteudo = string(1, no->id) + " " + string(1, aresta->id_no_alvo) + " " + to_string(aresta->peso) + "\n";
-            arquivo << conteudo;
-        }
+    for(char c : lista) {
+        arquivo << c << "\n";
     }
 
     arquivo.close();
