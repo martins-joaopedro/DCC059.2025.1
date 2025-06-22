@@ -5,9 +5,9 @@
 #include <functional>
 #include <climits>
 #include <map>
+#include <algorithm>
 
-#define INF INT_MAX#include <algorithm>
-#include <map>
+#define INF INT_MAX
 
 Grafo::Grafo()
 {
