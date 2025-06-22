@@ -24,8 +24,12 @@ void Gerenciador::comandos(Grafo* grafo) {
 
             char id_no = get_id_entrada();
             vector<char> fecho_transitivo_direto = grafo->fecho_transitivo_direto(id_no);
-            cout<<"Metodo de impressao em tela nao implementado"<<endl<<endl;
-
+            
+            if(!fecho_transitivo_direto.empty()){
+                cout << "Fecho transitivo direto de " << id_no << " :" << endl;
+                grafo->imprime_fecho(fecho_transitivo_direto);
+            }
+            
             if(pergunta_imprimir_arquivo("fecho_trans_dir.txt")) {
                 cout<<"Metodo de impressao em arquivo nao implementado"<<endl<<endl;
             }
@@ -87,7 +91,8 @@ void Gerenciador::comandos(Grafo* grafo) {
 
                 vector<char> ids = get_conjunto_ids(grafo,tam);
                 Grafo* arvore_geradora_minima_prim = grafo->arvore_geradora_minima_prim(ids);
-                cout<<"Metodo de impressao em tela nao implementado"<<endl<<endl;
+                if(arvore_geradora_minima_prim != nullptr)
+                    arvore_geradora_minima_prim->imprime_lista_adj(arvore_geradora_minima_prim->lista_adj);
 
                 if(pergunta_imprimir_arquivo("agm_prim.txt")) {
                     cout<<"Metodo de impressao em arquivo nao implementado"<<endl;

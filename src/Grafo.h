@@ -17,8 +17,8 @@ public:
     Grafo();
     ~Grafo();
 
-    vector<char> fecho_transitivo_direto(int id_no); // a
-    vector<char> fecho_transitivo_indireto(int id_no); // b
+    vector<char> fecho_transitivo_direto(char id_no); // a
+    vector<char> fecho_transitivo_indireto(char id_no); // b
     vector<char> caminho_minimo_dijkstra(int id_no_a, int id_no_b); // c
     vector<char> caminho_minimo_floyd(int id_no, int id_no_b); // d
     Grafo* arvore_geradora_minima_prim(vector<char> ids_nos); // e
@@ -30,7 +30,11 @@ public:
     vector<char> centro(); // h 3
     vector<char> periferia(); // h 4
     vector<char> vertices_de_articulacao(); // i
-
+    void imprime_lista_adj(vector<No*>& lista);
+    bool insere_aresta(tuple<int, char, char>& aresta_info, vector<No*>& lista);
+    void imprime_fecho(vector<char> &fecho);
+    void aux_fecho_transitivo_direto(map<char, bool> &C, char descendente);
+    //void aux_fecho_transitivo_indireto(map<char, bool> &C, char descendente);
 
     int ordem;
     bool in_direcionado;
