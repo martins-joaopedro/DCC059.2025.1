@@ -29,6 +29,8 @@ public:
     vector<char> periferia(); // h 4
     vector<char> vertices_de_articulacao(); // i
 
+    bool usarFloyd();
+
 
     int ordem;
     bool in_direcionado;

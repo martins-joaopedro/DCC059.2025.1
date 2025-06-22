@@ -193,6 +193,15 @@ Grafo *Grafo::arvore_caminhamento_profundidade(int id_no)
     return nullptr;
 }
 
+bool Grafo::usarFloyd() {
+    for (No* no: this->lista_adj){
+        for(Aresta* aresta:no->arestas){
+            //se tiver aresta negativa tem q usar floyd
+            if(aresta->peso<0) return true;
+        }
+    }
+}
+
 int Grafo::raio()
 {
     cout << "Metodo nao implementado" << endl;
