@@ -29,14 +29,15 @@ public:
     vector<char> periferia(); // h 4
     vector<char> vertices_de_articulacao(); // i
 
-    bool usarFloyd();
-
-
     int ordem;
     bool in_direcionado;
     bool in_ponderado_aresta;
     bool in_ponderado_vertice;
     vector<No*> lista_adj;
+
+    //Funções Criadas
+    bool usarFloyd();
+    vector<vector<int>> matriz_distancias();
 };
 
 

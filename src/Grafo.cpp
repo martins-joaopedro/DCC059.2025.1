@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <map>
 #include <limits.h>
+#include <climits>
+
 
 Grafo::Grafo()
 {
@@ -200,6 +202,23 @@ bool Grafo::usarFloyd() {
             if(aresta->peso<0) return true;
         }
     }
+    int V = this->lista_adj.size();
+    int E = 0;
+    for(No* no: this->lista_adj){
+        //ver pra direcionado e nao direcionado
+        E += no->arestas.size();
+    }
+    //static_cast serve para converção segura, so precisa aplicar em um, pq float e int da float
+    float densidade = static_cast<float>(E)/ (V*(V-1));
+    if (!in_direcionado) densidade /= 2.0f;
+
+    //Se tiver poucos vertices ou for um grafico denso (mais das metade dos pares de vertices estão conectados) é recomendado usar floyd
+    return densidade>0.5f || V<=100;
+}
+
+vector<vector<int>> Grafo::matriz_distancias() {
+    int n = this->lista_adj.size();
+
 }
 
 int Grafo::raio()
