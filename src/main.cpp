@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
                 iss >> peso;
                 no->peso = peso;
             } else {
-                no->peso = -1; //colocar null ou -1 ou 0 ou não colocar????????
+                no->peso = 1;
             }
 
             grafo->lista_adj.push_back(no); //adiciona novo vertice no fim da lista
@@ -103,7 +103,7 @@ int main(int argc, char *argv[]) {
                 iss >> peso;
                 aresta->peso = peso;
             } else {
-                aresta->peso = -1;
+                aresta->peso = 1;
             }
             
             //se nao direcionado, adiciona aresta de b pra a
