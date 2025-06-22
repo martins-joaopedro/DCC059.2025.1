@@ -196,6 +196,8 @@ Grafo *Grafo::arvore_caminhamento_profundidade(int id_no)
 }
 
 bool Grafo::usarFloyd() {
+    return false;
+
     for (No* no: this->lista_adj){
         for(Aresta* aresta:no->arestas){
             //se tiver aresta negativa tem q usar floyd
@@ -218,13 +220,75 @@ bool Grafo::usarFloyd() {
 
 vector<vector<int>> Grafo::matriz_distancias() {
     int n = this->lista_adj.size();
+    //Cria matriz nxn com valor inicial sendo infinito
+    vector<vector<int>> dist(n, vector<int>(n, INT_MAX));
+
+    //indices??
+    map<char,int> idx;
+    map<int,char> inv;
+    int i = 0;
+    for(No*no: this->lista_adj){
+        idx[no->id]=i;
+        inv[i]=no->id;
+        i++;
+    }
+
+    for (int i = 0; i < n; i++) {
+        char origem = inv[i];
+        for(int j =0; j<n;j++) {
+            char destino = inv[j];
+            if(origem == destino){
+                dist[i][j]=0;
+                continue;
+            }
+            vector<char> caminho;
+            if(usarFloyd()){
+                caminho= caminho_minimo_floyd(origem,destino);
+            }
+            else{
+                caminho= caminho_minimo_dijkstra(origem,destino);
+            }
+            if(!caminho.empty()){
+                int custo = 0;
+                for(int k = 0; k< caminho.size()-1;k++){
+                    
+                    char u = caminho[k];
+                    char v = caminho[k+1];
+
+                    for(No* no: this->lista_adj){
+                        if(no->id ==u){
+                            for(Aresta* a: no->arestas){
+                                if(a->id_no_alvo==v){
+                                    custo+=a->peso;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                }
+                dist[i][j]= custo;
+            }
+        }
+        
+    }
+    return dist;
 
 }
 
 int Grafo::raio()
 {
-    cout << "Metodo nao implementado" << endl;
-    return 0;
+    vector<vector<int>> dist = matriz_distancias();
+    int menor_excentricidade = INT_MAX;
+    for (int i = 0; i < dist.size(); i++) {
+        int excentricidade = 0;
+        for (int j = 0; j < dist.size(); j++) {
+            if (dist[i][j] != INT_MAX) excentricidade = max(excentricidade, dist[i][j]);
+        }
+        menor_excentricidade = min(menor_excentricidade, excentricidade);
+    }
+    cout << "Menor Excentricidade" <<menor_excentricidade<< endl;
+    return menor_excentricidade;
 }
 
 int Grafo::diametro()

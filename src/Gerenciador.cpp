@@ -141,6 +141,7 @@ void Gerenciador::comandos(Grafo* grafo) {
         }
 
         case 'h': {
+            grafo->raio();
             vector<char> articulacao = grafo->vertices_de_articulacao();
             cout<<"Metodo de impressao em tela nao implementado"<<endl<<endl;
 
