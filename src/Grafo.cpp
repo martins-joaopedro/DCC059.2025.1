@@ -492,7 +492,7 @@ Grafo * Grafo::caminho_profundidade(No* no, Grafo* grafo_saida, map<char, bool>&
                         nova_aresta->retorno = false; 
                     no_saida->arestas.push_back(nova_aresta);
                     
-                // marca como aresta de retorno caso esteja num nivel menor e não seja o pai -> melhoria pra grafos direcionados e não direcionados
+                // marca como aresta de retorno caso esteja num nivel maior e não seja o pai do no atual
                 } else if(id_no_pai != no_alvo->id and profundidades[no->id] > profundidades[no_alvo->id]) {
                     Aresta* nova_aresta = new Aresta();
                         nova_aresta->id_no_alvo = no_alvo->id;
@@ -500,7 +500,6 @@ Grafo * Grafo::caminho_profundidade(No* no, Grafo* grafo_saida, map<char, bool>&
                         nova_aresta->retorno = true;
                     no_saida->arestas.push_back(nova_aresta);
                 } 
-
                 break;
             }   
         }
