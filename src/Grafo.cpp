@@ -75,6 +75,11 @@ Grafo * Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos) {
     agm->in_ponderado_vertice = this->in_ponderado_vertice;
     agm->ordem = ids_nos.size();
 
+    if(agm->in_direcionado==true){
+        cout<< "Não é possível aplicar este algoritmo em digrafos";
+        return;
+    }
+
     //ver se os parametros vieram certinho
     cout<< "TESTE 1 - Parametros Grafo " <<endl <<agm->in_direcionado<<agm->in_ponderado_aresta<<agm->in_ponderado_vertice<<agm->ordem;
 
@@ -110,7 +115,7 @@ Grafo * Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos) {
             //ve se o id b ta no ids nos selecionados
             if(find(ids_nos.begin(),ids_nos.end(),id_b)!= ids_nos.end()){
                 //evita duplicado -> conferir dps multiaresta
-                if(id_a < id_b || this->in_direcionado){
+                if(id_a < id_b){
                     arestas.push_back({a->peso,id_a,id_b});
                 }
             }
