@@ -24,6 +24,7 @@ public:
     Grafo* arvore_geradora_minima_prim(vector<char> ids_nos); // e
     Grafo* arvore_geradora_minima_kruskal(vector<char> ids_nos); // f
     Grafo* arvore_caminhamento_profundidade(int id_no); // g
+    Grafo* caminho_profundidade(No* no, Grafo* grafo, map<char, bool>& visitados, char pai, map<char, int>& profundidade); // 
     int raio(); // h 1
     int diametro(); // h 2
     vector<char> centro(); // h 3
@@ -33,7 +34,7 @@ public:
     bool insere_aresta(tuple<int, char, char>& aresta_info, vector<No*>& lista);
     void imprime_fecho(vector<char> &fecho);
     void aux_fecho_transitivo_direto(map<char, bool> &C, char descendente);
-    void aux_fecho_transitivo_indireto(map<char, bool> &C, char descendente);
+    //void aux_fecho_transitivo_indireto(map<char, bool> &C, char descendente);
 
     int ordem;
     bool in_direcionado;

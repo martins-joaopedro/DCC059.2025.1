@@ -132,10 +132,6 @@ int main(int argc, char *argv[]) {
     //     cout << endl;
     // }
     
-    // TODO: Finalizar corrigindo o salvamento de acordo com os formatos especificados
-    Gerenciador::salvar_lista(grafo->lista_adj, "TESTE_lista_adj.txt");
-    Gerenciador::salvar_grafo(grafo, "TESTE_grafo.txt");
-
     Gerenciador::comandos(grafo);
 
     file.close();
