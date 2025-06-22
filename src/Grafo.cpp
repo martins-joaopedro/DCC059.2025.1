@@ -35,7 +35,6 @@ vector<char> Grafo::fecho_transitivo_indireto(int id_no) {
         if(no->id == id_no) {
             fila.push(no);
             marcados[no->id] = true;
-            cout << "Iniciando busca pelo fecho transitivo indireto do nó: " << id_no << endl;
             break;
         }
     
@@ -49,10 +48,10 @@ vector<char> Grafo::fecho_transitivo_indireto(int id_no) {
             for (Aresta* aresta : no->arestas) {
                 if(aresta->id_no_alvo == no_atual->id) {
                     if(!marcados[no->id]) {
-                        // significa que esse vertice vai pro meu atual
+                        // significa que esse vertice vai pro nó atual
                         fila.push(no); 
                         saida.emplace_back(no->id);    
-                        marcados[no->id] = true; 
+                        marcados[no->id] = true; // evita repetição
                     }
                 }
             }

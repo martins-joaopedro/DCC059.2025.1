@@ -1,0 +1,18 @@
+1 0 0
+8
+a
+b
+c
+d
+e
+f
+g
+h
+a b
+a c
+b d
+b e
+e f
+f g
+g h
+h e (retorno)

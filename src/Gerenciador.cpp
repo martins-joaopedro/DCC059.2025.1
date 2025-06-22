@@ -1,6 +1,7 @@
 #include "Gerenciador.h"
 #include <fstream>
 #include <iostream>
+#include <math.h>
 
 void Gerenciador::comandos(Grafo* grafo) {
     cout << "\n----------------------------------------" << endl;
@@ -242,7 +243,8 @@ bool comparar_arestas(Aresta* a, Aresta* b) {
 }
 
 void Gerenciador::salvar_grafo(Grafo* grafo, string nome_arquivo) {
-    ofstream arquivo(nome_arquivo);
+    // pra ficar no inicio dos arquivos
+    ofstream arquivo("0_"+nome_arquivo);
 
     if (!arquivo.is_open()) {
         cout << "Erro ao abrir o arquivo: " << nome_arquivo << endl;
@@ -253,9 +255,11 @@ void Gerenciador::salvar_grafo(Grafo* grafo, string nome_arquivo) {
             << grafo->in_ponderado_aresta << " "
             << grafo->in_ponderado_vertice << "\n";
 
-    arquivo << grafo->ordem << "\n";
+    // ajuda pra caso alguma arvore tenha tamanho menor
+    int ordem = grafo->lista_adj.size() < grafo->ordem ? grafo->lista_adj.size() : grafo->ordem;
+    arquivo << ordem << "\n";
 
-    // Ordena a lista de nós pelo id
+    // ordena a lista de nós pelo id
     vector<No*> nos_ordenados = grafo->lista_adj;
     sort(nos_ordenados.begin(), nos_ordenados.end(), comparar_nos);
 
@@ -271,7 +275,7 @@ void Gerenciador::salvar_grafo(Grafo* grafo, string nome_arquivo) {
         arquivo << conteudo;
     }
 
-    // Ordena as arestas de cada nó pelo id do nó alvo
+    // ordena as arestas de cada nó pelo id do nó alvo
     for (No* no : nos_ordenados) {
         vector<Aresta*> arestas_ordenadas = no->arestas;
         sort(arestas_ordenadas.begin(), arestas_ordenadas.end(), comparar_arestas);
@@ -297,12 +301,15 @@ void Gerenciador::salvar_grafo(Grafo* grafo, string nome_arquivo) {
 }
 
 void Gerenciador::salvar_lista(vector<char> lista, string nome_arquivo) {
-    ofstream arquivo(nome_arquivo);
+    // pra ficar no inicio dos arquivos
+    ofstream arquivo("0_"+nome_arquivo);
 
     if (!arquivo.is_open()) {
         cout << "Erro ao abrir o arquivo: " << nome_arquivo << endl;
         return;
     }
+
+    arquivo << lista.size() << "\n";
 
     for(char c : lista) {
         arquivo << c << "\n";
