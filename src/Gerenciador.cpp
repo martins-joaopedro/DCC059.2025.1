@@ -241,7 +241,6 @@ bool comparar_arestas(Aresta* a, Aresta* b) {
     return a->id_no_alvo < b->id_no_alvo;
 }
 
-// TODO: corrigir quando o grafo é ponderado e direcionado
 void Gerenciador::salvar_grafo(Grafo* grafo, string nome_arquivo) {
     ofstream arquivo(nome_arquivo);
 
@@ -261,8 +260,8 @@ void Gerenciador::salvar_grafo(Grafo* grafo, string nome_arquivo) {
     sort(nos_ordenados.begin(), nos_ordenados.end(), comparar_nos);
 
     for (No* no : nos_ordenados) {
+        
         string conteudo = string(1, no->id);
-
         // so adiciona o peso se o grafo for ponderado
         if(grafo->in_ponderado_vertice) {
             conteudo += " " + to_string(no->peso) + "\n";
@@ -278,19 +277,23 @@ void Gerenciador::salvar_grafo(Grafo* grafo, string nome_arquivo) {
         sort(arestas_ordenadas.begin(), arestas_ordenadas.end(), comparar_arestas);
         
         for (Aresta* aresta : arestas_ordenadas) {
+            
             string conteudo = string(1, no->id) + " " + string(1, aresta->id_no_alvo);
+            
+            // so adiciona o peso se a aresta for ponderada
             if(grafo->in_ponderado_aresta) {
                 conteudo += " " + to_string(aresta->peso);    
             } 
             if(aresta->retorno) {
                 conteudo += " (retorno)\n"; 
             } else conteudo += "\n";
+            
             arquivo << conteudo;
         }
     }
 
-    arquivo.close();
     cout << "Grafo salvo em " << nome_arquivo << endl;
+    arquivo.close();
 }
 
 void Gerenciador::salvar_lista(vector<char> lista, string nome_arquivo) {
@@ -305,6 +308,6 @@ void Gerenciador::salvar_lista(vector<char> lista, string nome_arquivo) {
         arquivo << c << "\n";
     }
 
-    arquivo.close();
     cout << "Lista salva em " << nome_arquivo << endl;
+    arquivo.close();
 }

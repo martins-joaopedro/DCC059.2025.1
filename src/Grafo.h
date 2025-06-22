@@ -24,7 +24,7 @@ public:
     Grafo* arvore_geradora_minima_prim(vector<char> ids_nos); // e
     Grafo* arvore_geradora_minima_kruskal(vector<char> ids_nos); // f
     Grafo* arvore_caminhamento_profundidade(int id_no); // g
-    Grafo* busca(No* no, Grafo* grafo, map<char, bool>& visitados, char pai, map<char, int>& profundidade); // 
+    Grafo* caminho_profundidade(No* no, Grafo* grafo, map<char, bool>& visitados, char pai, map<char, int>& profundidade); // 
     int raio(); // h 1
     int diametro(); // h 2
     vector<char> centro(); // h 3

@@ -86,8 +86,6 @@ Grafo * Grafo::arvore_caminhamento_profundidade(int id_no) {
     
     map<char, bool> visitados;
     map<char, int> profundidades;
-    stack<No*> pilha;
-    Grafo* grafo_saida = new Grafo();
 
     for(No* no : lista_adj) {
         visitados[no->id] = false;
@@ -95,27 +93,22 @@ Grafo * Grafo::arvore_caminhamento_profundidade(int id_no) {
     }
     
     // mantenho configurações do grafo original
-    grafo_saida->ordem = ordem;
-    grafo_saida->in_direcionado = in_direcionado;
-    grafo_saida->in_ponderado_aresta = in_ponderado_aresta; 
-    grafo_saida->in_ponderado_vertice = in_ponderado_vertice;
+    Grafo* grafo_saida = new Grafo();
+        grafo_saida->ordem = ordem;
+        grafo_saida->in_direcionado = in_direcionado;
+        grafo_saida->in_ponderado_aresta = in_ponderado_aresta; 
+        grafo_saida->in_ponderado_vertice = in_ponderado_vertice;
 
-    // percorre até encontrar no no alvo
+    // percorre até encontrar o no alvo para iniciar 
     for(No* no : lista_adj)
-        if(no->id == id_no) {
-            // inicia algoritmo
-            return busca(no, grafo_saida, visitados, id_no, profundidades);
-        }
-
-    // se não encontrar o nó, retorna grafo vazio
+        if(no->id == id_no) 
+            return caminho_profundidade(no, grafo_saida, visitados, id_no, profundidades);
+    
     return grafo_saida; 
 }
 
-Grafo * Grafo::busca(No* no, Grafo* grafo_saida, map<char, bool>& visitados, char id_no_pai, map<char, int>& profundidades) {
+Grafo * Grafo::caminho_profundidade(No* no, Grafo* grafo_saida, map<char, bool>& visitados, char id_no_pai, map<char, int>& profundidades) {
 
-    cout << "Visitando nó: " << no->id << endl;
-    cout << "Pai: " << id_no_pai << endl;
-    
     No* no_saida = new No();
     no_saida->id = no->id;
     no_saida->peso = no->peso;
@@ -125,9 +118,7 @@ Grafo * Grafo::busca(No* no, Grafo* grafo_saida, map<char, bool>& visitados, cha
 
     // pra cada aresta, adiciono os aprofundamentos
     for(Aresta* aresta : no->arestas) {
-        
-        cout << "Aresta: " << no->id << " -> " << aresta->id_no_alvo << endl;
-        
+
         // ignora aresta que leva de volta ao pai
         if(aresta->id_no_alvo == id_no_pai)
             continue; 
@@ -137,23 +128,20 @@ Grafo * Grafo::busca(No* no, Grafo* grafo_saida, map<char, bool>& visitados, cha
             if(no_alvo->id == aresta->id_no_alvo) {
                 if(!visitados[no_alvo->id]) {
                     // chama recursivamente para o nó alvo
-                    cout << "Aprofundando em " << no_alvo->id << endl;
-                    busca(no_alvo, grafo_saida, visitados, no->id, profundidades); 
+                    caminho_profundidade(no_alvo, grafo_saida, visitados, no->id, profundidades); 
 
                     Aresta* nova_aresta = new Aresta();
-                    nova_aresta->id_no_alvo = no_alvo->id;
-                    nova_aresta->peso = aresta->peso; 
-                    nova_aresta->retorno = false; 
+                        nova_aresta->id_no_alvo = no_alvo->id;
+                        nova_aresta->peso = aresta->peso; 
+                        nova_aresta->retorno = false; 
                     no_saida->arestas.push_back(nova_aresta);
                     
-                // retorno no grafo direcionado é quando ele está 
+                // marca como aresta de retorno caso esteja num nivel menor e não seja o pai -> melhoria pra grafos direcionados e não direcionados
                 } else if(id_no_pai != no_alvo->id and profundidades[no->id] > profundidades[no_alvo->id]) {
-                    cout << "Estou em " << no->id << " No alvo ja visitado: " << no_alvo->id << endl;
-                    cout << "aqui ele adiciona retorno" << endl;
                     Aresta* nova_aresta = new Aresta();
-                    nova_aresta->id_no_alvo = no_alvo->id;
-                    nova_aresta->peso = aresta->peso;
-                    nova_aresta->retorno = true;
+                        nova_aresta->id_no_alvo = no_alvo->id;
+                        nova_aresta->peso = aresta->peso;
+                        nova_aresta->retorno = true;
                     no_saida->arestas.push_back(nova_aresta);
                 } 
 
