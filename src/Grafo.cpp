@@ -25,13 +25,18 @@ vector<char> Grafo::fecho_transitivo_indireto(int id_no)
     return {};
 }
 
-// antes estava como int nos ids, não faz sentido
-vector<char> Grafo::caminho_minimo_dijkstra(char id_no_a, char id_no_b)
+bool Grafo::execoes(char id_no_a, char id_no_b)
 {
+    if (id_no_a == id_no_b)
+    {
+        cout << "O caminho entre os mesmos vertices eh zero." << endl;
+        return false;
+    }
+
     if (this->lista_adj.empty())
     {
         cout << "Grafo vazio." << endl;
-        return {};
+        return false;
     }
 
     for (No *no : this->lista_adj)
@@ -39,14 +44,20 @@ vector<char> Grafo::caminho_minimo_dijkstra(char id_no_a, char id_no_b)
         if (no->id == id_no_a && no->arestas.empty())
         {
             cout << "Vertice inicial nao possui conexao com nenhum outro vertice" << endl;
-            return {};
+            return false;
         }
     }
-
+    return true;
+}
+// antes estava como int nos ids, não faz sentido
+vector<char> Grafo::caminho_minimo_dijkstra(char id_no_a, char id_no_b)
+{
     vector<char> visitados;
     map<char, int> distancia;
     map<char, char> anterior;
-    vector<char> caminho;
+
+    if (!execoes(id_no_a, id_no_b))
+        return {};
 
     for (No *no : this->lista_adj)
     {
@@ -76,7 +87,6 @@ vector<char> Grafo::caminho_minimo_dijkstra(char id_no_a, char id_no_b)
         }
 
         visitados.push_back(atual);
-        cout << atual << " aq" << endl;
 
         for (No *no : this->lista_adj)
         {
@@ -86,8 +96,6 @@ vector<char> Grafo::caminho_minimo_dijkstra(char id_no_a, char id_no_b)
                 {
                     char vizinho = a->id_no_alvo;
                     int peso = a->peso;
-
-                    cout << "vizinhos: " << vizinho << "-- " << "peso: " << peso << endl;
                     int novaDist = distancia[atual] + peso;
                     // verifica todos os seus vizinhos, mesmo aqueles que já foram visitados
                     if (novaDist < distancia[vizinho])
@@ -111,8 +119,9 @@ vector<char> Grafo::caminho_minimo_dijkstra(char id_no_a, char id_no_b)
         return {};
     }
 
-    cout << "distancia de: " << id_no_a << " ate " << id_no_b << ": " << distancia[id_no_b] << endl;
+    cout << "distancia de " << id_no_a << " ate " << id_no_b << ": " << distancia[id_no_b] << endl;
 
+    vector<char> caminho;
     for (char v = id_no_b; v != id_no_a; v = anterior[v])
     {
         caminho.insert(caminho.begin(), v);
@@ -129,11 +138,17 @@ vector<char> Grafo::caminho_minimo_dijkstra(char id_no_a, char id_no_b)
     return caminho;
 }
 
-vector<char> Grafo::caminho_minimo_floyd(char id_no, char id_no_b)
+vector<char> Grafo::caminho_minimo_floyd(char id_no_a, char id_no_b)
 {
     int n = this->lista_adj.size();
     vector<vector<int>> distancia(n, vector<int>(n, INT_MAX));
     map<char, int> mapa_indice;
+
+    vector<vector<char>> penultimo(n, vector<char>(n, '-'));
+
+    if (!execoes(id_no_a, id_no_b))
+        return {};
+
     int valor = 0;
 
     for (No *no : this->lista_adj)
@@ -147,6 +162,7 @@ vector<char> Grafo::caminho_minimo_floyd(char id_no, char id_no_b)
         for (Aresta *a : no->arestas)
         {
             distancia[mapa_indice[no->id]][mapa_indice[a->id_no_alvo]] = a->peso;
+            penultimo[mapa_indice[no->id]][mapa_indice[a->id_no_alvo]] = no->id;
         }
         distancia[mapa_indice[no->id]][mapa_indice[no->id]] = 0;
     }
@@ -157,8 +173,11 @@ vector<char> Grafo::caminho_minimo_floyd(char id_no, char id_no_b)
         {
             for (int j = 0; j < n; j++)
             {
-                if ( distancia[i][k] !=INT_MAX  && distancia[k][j] != INT_MAX && distancia[i][k] + distancia[k][j] < distancia[i][j])
+                if (distancia[i][k] != INT_MAX && distancia[k][j] != INT_MAX && distancia[i][k] + distancia[k][j] < distancia[i][j])
+                {
                     distancia[i][j] = distancia[i][k] + distancia[k][j];
+                    penultimo[i][j] = penultimo[k][j];
+                }
             }
         }
     }
@@ -167,14 +186,50 @@ vector<char> Grafo::caminho_minimo_floyd(char id_no, char id_no_b)
     {
         for (int j = 0; j < n; j++)
         {
-            if(distancia[i][j] == INT_MAX)
-                cout<< "*" << " | ";
+            cout << penultimo[i][j] << " | ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+
+    if (distancia[mapa_indice[id_no_a]][mapa_indice[id_no_b]] == INT_MAX)
+    {
+        cout << "Nao exite caminho entre esses vertices!" << endl;
+        return {};
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (distancia[i][j] == INT_MAX)
+                cout << "*" << " | ";
             else
                 cout << distancia[i][j] << " | ";
         }
         cout << endl;
     }
-    return {};
+
+    vector<char> caminho;
+    char inicio = id_no_a;
+    char fim = id_no_b;
+
+    caminho.insert(caminho.begin(), fim);
+    while (inicio != fim)
+    {
+        char p = penultimo[mapa_indice[inicio]][mapa_indice[fim]];
+        caminho.insert(caminho.begin(), p);
+        fim = p;
+    }
+
+    for (char c : caminho)
+    {
+        cout << c << " --- ";
+    }
+    cout << endl;
+
+    cout << "Caminho de " << id_no_a << " ate " << id_no_b << " eh: " << distancia[mapa_indice[id_no_a]][mapa_indice[id_no_b]] << endl;
+    return caminho;
 }
 
 Grafo *Grafo::arvore_geradora_minima_prim(vector<char> ids_nos)
