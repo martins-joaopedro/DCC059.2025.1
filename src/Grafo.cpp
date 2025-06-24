@@ -273,28 +273,6 @@ bool Grafo::usarFloyd() {
     return densidade>0.5f || V<=100;
 }
 
-map<char, int> Grafo::calcular_excentricidades() {
-    vector<vector<int>> dist = matriz_distancias();
-    map<char,int> excentricidades;
-    
-    map<int,char> id_por_indice;
-    int i = 0; 
-    for(No*no: this->lista_adj){
-        id_por_indice[i] = no->id;
-        i++;
-    }
-
-    for(int i=0;i<dist.size();i++){
-        int excentricidade=0;
-        for (int j=0; j<dist.size();j++){
-            if(dist[i][j]!= INT_MAX){
-                excentricidade=max(excentricidade,dist[i][j]);
-            }
-        }
-        excentricidades[id_por_indice[i]] = excentricidade;
-    }
-    return excentricidades;
-}
 
 vector<vector<int>> Grafo::matriz_distancias() {
     int n = this->lista_adj.size();
