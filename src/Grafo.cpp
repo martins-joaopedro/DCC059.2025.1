@@ -275,18 +275,24 @@ bool Grafo::usarFloyd() {
 
 vector<vector<int>> Grafo::matriz_distancias() {
     int n = this->lista_adj.size();
-    //Cria matriz nxn com valor inicial sendo infinito
+    
+    //Cria matriz nxn com valor inicial infinito
     vector<vector<int>> dist(n, vector<int>(n, INT_MAX));
 
-    //indices??
+    //indices
+    //esse converte char para indice
     map<char,int> idx;
+    //esse converte indice para o char
     map<int,char> inv;
+
+    //preenche esses indices
     int i = 0;
     for(No*no: this->lista_adj){
         idx[no->id]=i;
         inv[i]=no->id;
         i++;
     }
+
 
     for (int i = 0; i < n; i++) {
         char origem = inv[i];
@@ -346,10 +352,24 @@ int Grafo::raio()
     return menor_excentricidade;
 }
 
+//Maior caminho entre os menores caminhos
 int Grafo::diametro()
 {
-    cout << "Metodo nao implementado" << endl;
-    return 0;
+    // Calcula todas as distâncias mínimas entre pares de vértices
+    vector<vector<int>> dist = matriz_distancias();
+    int maior_excentricidade = INT_MIN;
+    
+    //Percorre a matriz
+    for (int i = 0; i < dist.size(); i++) {
+        int excentricidade = 0;
+        for (int j = 0; j < dist.size(); j++) {
+            //ignora os que a distancia é infinito, e guarda as maiores excentricidades
+            if (dist[i][j] != INT_MAX) excentricidade = max(excentricidade, dist[i][j]);
+        }
+        maior_excentricidade = max(maior_excentricidade, excentricidade);
+    }
+    cout << "Maior Excentricidade" <<maior_excentricidade<< endl;
+    return maior_excentricidade;
 }
 
 vector<char> Grafo::centro()
