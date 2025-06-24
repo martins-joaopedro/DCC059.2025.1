@@ -250,27 +250,50 @@ Grafo *Grafo::arvore_caminhamento_profundidade(int id_no)
     return nullptr;
 }
 
-bool Grafo::usarFloyd() {
-    return false;
+// bool Grafo::usarFloyd() {
+//     return false;
 
-    for (No* no: this->lista_adj){
-        for(Aresta* aresta:no->arestas){
-            //se tiver aresta negativa tem q usar floyd
-            if(aresta->peso<0) return true;
+//     for (No* no: this->lista_adj){
+//         for(Aresta* aresta:no->arestas){
+//             //se tiver aresta negativa tem q usar floyd
+//             if(aresta->peso<0) return true;
+//         }
+//     }
+//     int V = this->lista_adj.size();
+//     int E = 0;
+//     for(No* no: this->lista_adj){
+//         //ver pra direcionado e nao direcionado
+//         E += no->arestas.size();
+//     }
+//     //static_cast serve para converção segura, so precisa aplicar em um, pq float e int da float
+//     float densidade = static_cast<float>(E)/ (V*(V-1));
+//     if (!in_direcionado) densidade /= 2.0f;
+
+//     //Se tiver poucos vertices ou for um grafico denso (mais das metade dos pares de vertices estão conectados) é recomendado usar floyd
+//     return densidade>0.5f || V<=100;
+// }
+
+map<char, int> Grafo::calcular_excentricidades() {
+    vector<vector<int>> dist = matriz_distancias();
+    map<char,int> excentricidades;
+    
+    map<int,char> id_por_indice;
+    int i = 0; 
+    for(No*no: this->lista_adj){
+        id_por_indice[i] = no->id;
+        i++;
+    }
+
+    for(int i=0;i<dist.size();i++){
+        int excentricidade=0;
+        for (int j=0; j<dist.size();j++){
+            if(dist[i][j]!= INT_MAX){
+                excentricidade=max(excentricidade,dist[i][j]);
+            }
         }
+        excentricidades[id_por_indice[i]] = excentricidade;
     }
-    int V = this->lista_adj.size();
-    int E = 0;
-    for(No* no: this->lista_adj){
-        //ver pra direcionado e nao direcionado
-        E += no->arestas.size();
-    }
-    //static_cast serve para converção segura, so precisa aplicar em um, pq float e int da float
-    float densidade = static_cast<float>(E)/ (V*(V-1));
-    if (!in_direcionado) densidade /= 2.0f;
-
-    //Se tiver poucos vertices ou for um grafico denso (mais das metade dos pares de vertices estão conectados) é recomendado usar floyd
-    return densidade>0.5f || V<=100;
+    return excentricidades;
 }
 
 
@@ -305,7 +328,7 @@ vector<vector<int>> Grafo::matriz_distancias() {
             }
             vector<char> caminho;
             if(usarFloyd()){
-                caminho= caminho_minimo_floyd(origem,destino);
+                caminho= caminho_minimo_floyd(origem, destino);
             }
             else{
                 caminho= caminho_minimo_dijkstra(origem,destino);
@@ -335,8 +358,8 @@ vector<vector<int>> Grafo::matriz_distancias() {
         
     }
     return dist;
-
 }
+
 
 int Grafo::raio()
 {
