@@ -39,6 +39,7 @@ public:
     //Funções Criadas
     bool usarFloyd();
     vector<vector<int>> matriz_distancias();
+    map<char, int> calcular_excentricidades() ;
 };
 
 
