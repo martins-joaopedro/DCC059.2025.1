@@ -28,10 +28,11 @@ void Gerenciador::comandos(Grafo* grafo) {
             if(!fecho_transitivo_direto.empty()){
                 cout << "Fecho transitivo direto de " << id_no << " :" << endl;
                 grafo->imprime_fecho(fecho_transitivo_direto);
-            }
-            
-            if(pergunta_imprimir_arquivo("fecho_trans_dir.txt")) {
-                cout<<"Metodo de impressao em arquivo nao implementado"<<endl<<endl;
+
+                if(pergunta_imprimir_arquivo("fecho_trans_dir.txt")) 
+                    salvar_lista(fecho_transitivo_direto, "fecho_trans_dir.txt");
+            } else{
+                cout << "O nó " << id_no << " não tem fecho transitivo direto." << endl<<endl;
             }
 
 
@@ -91,11 +92,12 @@ void Gerenciador::comandos(Grafo* grafo) {
 
                 vector<char> ids = get_conjunto_ids(grafo,tam);
                 Grafo* arvore_geradora_minima_prim = grafo->arvore_geradora_minima_prim(ids);
-                if(arvore_geradora_minima_prim != nullptr)
+                if(arvore_geradora_minima_prim != nullptr){
                     arvore_geradora_minima_prim->imprime_lista_adj(arvore_geradora_minima_prim->lista_adj);
 
-                if(pergunta_imprimir_arquivo("agm_prim.txt")) {
-                    cout<<"Metodo de impressao em arquivo nao implementado"<<endl;
+                    if(pergunta_imprimir_arquivo("agm_prim.txt")) {
+                        salvar_grafo(arvore_geradora_minima_prim, "agm_prim.txt");
+                    }
                 }
 
                 delete arvore_geradora_minima_prim;
