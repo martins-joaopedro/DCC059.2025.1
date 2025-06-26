@@ -38,8 +38,8 @@ public:
     vector<No*> lista_adj;
 
     //Funções Criadas
-    bool usarFloyd();
-    vector<vector<int>> matriz_distancias();
+    //bool usarFloyd();
+    //vector<vector<int>> matriz_distancias();
     map<char, int> calcular_excentricidades() ;
 };
 

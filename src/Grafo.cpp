@@ -276,7 +276,8 @@ Grafo *Grafo::arvore_caminhamento_profundidade(int id_no)
 // }
 
 map<char, int> Grafo::calcular_excentricidades() {
-    vector<vector<int>> dist = matriz_distancias();
+    vector<vector<int>> dist;
+    cria_matriz_floyd(dist, false);
     map<char,int> excentricidades;
     
     map<int,char> id_por_indice;
@@ -299,68 +300,68 @@ map<char, int> Grafo::calcular_excentricidades() {
 }
 
 
-vector<vector<int>> Grafo::matriz_distancias() {
-    int n = this->lista_adj.size();
-    //Cria matriz nxn com valor inicial infinito
-    vector<vector<int>> dist(n, vector<int>(n, INT_MAX));
+// vector<vector<int>> Grafo::matriz_distancias() {
+//     int n = this->lista_adj.size();
+//     //Cria matriz nxn com valor inicial infinito
+//     vector<vector<int>> dist(n, vector<int>(n, INT_MAX));
 
 
-    //indices
-    //esse converte char para indice
-    map<char,int> idx;
-    //esse converte indice para o char
-    map<int,char> inv;
+//     //indices
+//     //esse converte char para indice
+//     map<char,int> idx;
+//     //esse converte indice para o char
+//     map<int,char> inv;
 
-    //preenche esses indices
-    int i = 0;
-    for(No*no: this->lista_adj){
-        idx[no->id]=i;
-        inv[i]=no->id;
-        i++;
-    }
+//     //preenche esses indices
+//     int i = 0;
+//     for(No*no: this->lista_adj){
+//         idx[no->id]=i;
+//         inv[i]=no->id;
+//         i++;
+//     }
 
     
-    for (int i = 0; i < n; i++) {
-        char origem = inv[i];
-        for(int j =0; j<n;j++) {
-            char destino = inv[j];
-            if(origem == destino){
-                dist[i][j]=0;
-                continue;
-            }
-            vector<char> caminho;
-            if(usarFloyd()){
-                caminho= caminho_minimo_floyd(origem, destino);
-            }
-            else{
-                caminho= caminho_minimo_dijkstra(origem,destino);
-            }
-            if(!caminho.empty()){
-                int custo = 0;
-                for(int k = 0; k< caminho.size()-1;k++){
+//     for (int i = 0; i < n; i++) {
+//         char origem = inv[i];
+//         for(int j =0; j<n;j++) {
+//             char destino = inv[j];
+//             if(origem == destino){
+//                 dist[i][j]=0;
+//                 continue;
+//             }
+//             vector<char> caminho;
+//             if(usarFloyd()){
+//                 caminho= caminho_minimo_floyd(origem, destino);
+//             }
+//             else{
+//                 caminho= caminho_minimo_dijkstra(origem,destino);
+//             }
+//             if(!caminho.empty()){
+//                 int custo = 0;
+//                 for(int k = 0; k< caminho.size()-1;k++){
                     
-                    char u = caminho[k];
-                    char v = caminho[k+1];
+//                     char u = caminho[k];
+//                     char v = caminho[k+1];
 
-                    for(No* no: this->lista_adj){
-                        if(no->id ==u){
-                            for(Aresta* a: no->arestas){
-                                if(a->id_no_alvo==v){
-                                    custo+=a->peso;
-                                    break;
-                                }
-                            }
-                        }
-                    }
+//                     for(No* no: this->lista_adj){
+//                         if(no->id ==u){
+//                             for(Aresta* a: no->arestas){
+//                                 if(a->id_no_alvo==v){
+//                                     custo+=a->peso;
+//                                     break;
+//                                 }
+//                             }
+//                         }
+//                     }
 
-                }
-                dist[i][j]= custo;
-            }
-        }
+//                 }
+//                 dist[i][j]= custo;
+//             }
+//         }
         
-    }
-    return dist;
-}
+//     }
+//     return dist;
+// }
 
 
 int Grafo::raio()
