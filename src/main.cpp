@@ -50,7 +50,6 @@ int main(int argc, char *argv[]) {
             cout << "Grafo " << (ponderado_vertice ? "ponderado nos vertices" : "nao ponderado nos vertices") << endl;
             grafo->in_ponderado_vertice = ponderado_vertice;
 
-            cout << "----------------------------------------" << endl;
             // Avança para a leitura de outras informações
             header++;
         }
@@ -120,17 +119,6 @@ int main(int argc, char *argv[]) {
             }
         }        
     }
-
-    // cout << "\nLISTA DE ADJ: " << endl ;
-    // for(No* no : grafo->lista_adj ){
-    //     cout << "Vertice: [" << no->id << "] com peso: " << no->peso << endl;
-
-    //     for(Aresta* aresta : no->arestas){
-    //         cout << "   Existe uma aresta de [" << no->id << "] para [" << aresta->id_no_alvo
-    //             << "] com peso: " << aresta->peso << endl;
-    //     }
-    //     cout << endl;
-    // }
     
     Gerenciador::comandos(grafo);
 

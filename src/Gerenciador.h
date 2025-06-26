@@ -14,8 +14,10 @@ public:
     static bool pergunta_imprimir_arquivo(string nome_arquivo);
     static void salvar_grafo(Grafo* grafo, string nome_arquivo);
     static void imprimir_grafo(Grafo* grafo);
-    static void salvar_lista(vector<char> lista, string nome_arquivo);
-    static void imprimir_lista(vector<char> lista);
+    static void salvar_lista_nos(vector<char> lista, string nome_arquivo);
+    static void imprimir_lista_nos(vector<char> lista);
+    static void imprimir_lista_adj(Grafo* grafo);
+    static void salvar_lista_adj(Grafo* grafo, string nome_arquivo);
 };
 
 
