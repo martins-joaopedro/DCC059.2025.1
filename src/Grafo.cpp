@@ -252,16 +252,32 @@ Grafo *Grafo::arvore_caminhamento_profundidade(int id_no)
     return nullptr;
 }
 
+//Evita ter que construir excentricidades 4x para um mesmo grafo
+const map<char, int>& Grafo::get_excentricidades() {
+    if (!excentricidades_validas) {
+        armazena_excentricidades.clear();
+        armazena_excentricidades = calcular_excentricidades();
+        excentricidades_validas = true;
+    }
+    return armazena_excentricidades;
+}
+
 
 map<char, int> Grafo::calcular_excentricidades() {
+    if(lista_adj.empty()){
+        cout << "Grafo vazio - nao e possivel calcular excentricidades." << endl;
+        return {};
+    }
+
     int n = this->lista_adj.size();
+    
     vector<vector<int>> dist(n, vector<int>(n, INT_MAX));
-    
     cria_matriz_floyd(dist, false);
+
     map<char,int> excentricidades;
-    
     map<int,char> id_por_indice;
     int i = 0; 
+
     for(No*no: this->lista_adj){
         id_por_indice[i] = no->id;
         i++;
@@ -269,12 +285,21 @@ map<char, int> Grafo::calcular_excentricidades() {
 
     for(int i=0;i<dist.size();i++){
         int excentricidade=0;
+        //evita vertice isolado recebe exc 0
+        bool alcanca_algum=false;
+
         for (int j=0; j<dist.size();j++){
-            if(dist[i][j]!= INT_MAX){
+            if( i!=j && dist[i][j]!= INT_MAX){
                 excentricidade=max(excentricidade,dist[i][j]);
+                alcanca_algum=true;
             }
         }
-        excentricidades[id_por_indice[i]] = excentricidade;
+        if(alcanca_algum) {
+            excentricidades[id_por_indice[i]] = excentricidade;
+        }
+        else{
+            excentricidades[id_por_indice[i]] = 0;
+        }       
     }
     return excentricidades;
 }
@@ -284,7 +309,13 @@ map<char, int> Grafo::calcular_excentricidades() {
 
 int Grafo::raio()
 {
-    map<char, int> excentricidades = calcular_excentricidades();
+    map<char, int> excentricidades = get_excentricidades();
+
+    if (excentricidades.empty()) {
+        cout << "Raio indefinido - grafo sem vertices ou excentricidades." << endl;
+        return -1;
+    }
+
     int menor_excentricidade = INT_MAX;
 
     for (pair<const char, int>& par : excentricidades) {
@@ -298,7 +329,13 @@ int Grafo::raio()
 //Maior caminho entre os menores caminhos
 int Grafo::diametro()
 {
-    map<char, int> excentricidades = calcular_excentricidades();
+    map<char, int> excentricidades = get_excentricidades();
+
+    if (excentricidades.empty()) {
+        cout << "Diametro indefinido - grafo sem vertices ou excentricidades." << endl;
+        return -1;
+    }
+
     int maior_excentricidade = INT_MIN;
     
     for (pair<const char, int>& par : excentricidades) {
@@ -311,7 +348,7 @@ int Grafo::diametro()
 
 vector<char> Grafo::centro()
 {
-    map<char,int> excentricidades = calcular_excentricidades();
+    map<char,int> excentricidades = get_excentricidades();
     int raio = this->raio();
     vector<char> vertices_centro;
 
@@ -331,7 +368,7 @@ vector<char> Grafo::centro()
 
 vector<char> Grafo::periferia()
 {
-    map<char,int> excentricidades = calcular_excentricidades();
+    map<char,int> excentricidades = get_excentricidades();
     int diametro = this->diametro();
     vector<char> vertices_diamerto;
 

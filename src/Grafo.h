@@ -38,6 +38,13 @@ public:
 
     //Funções Criadas
     map<char, int> calcular_excentricidades() ;
+    const map<char, int>& get_excentricidades();
+    
+    //Tinha q ser privado, deixei aqui pela padronizaçao
+    map<char,int> armazena_excentricidades;
+    //lembrar de aplicar para limpar o armazenamento se editar grafo
+    bool excentricidades_validas = false;
+
 };
 
 
