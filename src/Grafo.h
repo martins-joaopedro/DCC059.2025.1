@@ -29,7 +29,6 @@ public:
     int diametro(); // h 2
     vector<char> centro(); // h 3
     vector<char> periferia(); // h 4
-    vector<char> vertices_de_articulacao(); // i
 
     int ordem;
     bool in_direcionado;
@@ -38,8 +37,6 @@ public:
     vector<No*> lista_adj;
 
     //Funções Criadas
-    //bool usarFloyd();
-    //vector<vector<int>> matriz_distancias();
     map<char, int> calcular_excentricidades() ;
 };
 

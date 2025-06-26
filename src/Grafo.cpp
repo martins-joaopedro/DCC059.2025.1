@@ -252,31 +252,11 @@ Grafo *Grafo::arvore_caminhamento_profundidade(int id_no)
     return nullptr;
 }
 
-// bool Grafo::usarFloyd() {
-//     return false;
-
-//     for (No* no: this->lista_adj){
-//         for(Aresta* aresta:no->arestas){
-//             //se tiver aresta negativa tem q usar floyd
-//             if(aresta->peso<0) return true;
-//         }
-//     }
-//     int V = this->lista_adj.size();
-//     int E = 0;
-//     for(No* no: this->lista_adj){
-//         //ver pra direcionado e nao direcionado
-//         E += no->arestas.size();
-//     }
-//     //static_cast serve para converção segura, so precisa aplicar em um, pq float e int da float
-//     float densidade = static_cast<float>(E)/ (V*(V-1));
-//     if (!in_direcionado) densidade /= 2.0f;
-
-//     //Se tiver poucos vertices ou for um grafico denso (mais das metade dos pares de vertices estão conectados) é recomendado usar floyd
-//     return densidade>0.5f || V<=100;
-// }
 
 map<char, int> Grafo::calcular_excentricidades() {
-    vector<vector<int>> dist;
+    int n = this->lista_adj.size();
+    vector<vector<int>> dist(n, vector<int>(n, INT_MAX));
+    
     cria_matriz_floyd(dist, false);
     map<char,int> excentricidades;
     
@@ -300,68 +280,6 @@ map<char, int> Grafo::calcular_excentricidades() {
 }
 
 
-// vector<vector<int>> Grafo::matriz_distancias() {
-//     int n = this->lista_adj.size();
-//     //Cria matriz nxn com valor inicial infinito
-//     vector<vector<int>> dist(n, vector<int>(n, INT_MAX));
-
-
-//     //indices
-//     //esse converte char para indice
-//     map<char,int> idx;
-//     //esse converte indice para o char
-//     map<int,char> inv;
-
-//     //preenche esses indices
-//     int i = 0;
-//     for(No*no: this->lista_adj){
-//         idx[no->id]=i;
-//         inv[i]=no->id;
-//         i++;
-//     }
-
-    
-//     for (int i = 0; i < n; i++) {
-//         char origem = inv[i];
-//         for(int j =0; j<n;j++) {
-//             char destino = inv[j];
-//             if(origem == destino){
-//                 dist[i][j]=0;
-//                 continue;
-//             }
-//             vector<char> caminho;
-//             if(usarFloyd()){
-//                 caminho= caminho_minimo_floyd(origem, destino);
-//             }
-//             else{
-//                 caminho= caminho_minimo_dijkstra(origem,destino);
-//             }
-//             if(!caminho.empty()){
-//                 int custo = 0;
-//                 for(int k = 0; k< caminho.size()-1;k++){
-                    
-//                     char u = caminho[k];
-//                     char v = caminho[k+1];
-
-//                     for(No* no: this->lista_adj){
-//                         if(no->id ==u){
-//                             for(Aresta* a: no->arestas){
-//                                 if(a->id_no_alvo==v){
-//                                     custo+=a->peso;
-//                                     break;
-//                                 }
-//                             }
-//                         }
-//                     }
-
-//                 }
-//                 dist[i][j]= custo;
-//             }
-//         }
-        
-//     }
-//     return dist;
-// }
 
 
 int Grafo::raio()
@@ -372,7 +290,7 @@ int Grafo::raio()
     for (pair<const char, int>& par : excentricidades) {
         menor_excentricidade = min(menor_excentricidade, par.second);
     }
-    cout << "Menor Excentricidade" <<menor_excentricidade<< endl;
+    cout << "Menor Excentricidade: " <<menor_excentricidade<< endl;
     return menor_excentricidade;
 
 }
@@ -387,7 +305,7 @@ int Grafo::diametro()
         maior_excentricidade = max(maior_excentricidade, par.second);
     }
 
-    cout << "Maior Excentricidade" <<maior_excentricidade<< endl;
+    cout << "Maior Excentricidade: " <<maior_excentricidade<< endl;
     return maior_excentricidade;
 }
 
@@ -405,7 +323,7 @@ vector<char> Grafo::centro()
 
     cout<<"Centro: ";
     for (char v : vertices_centro) {
-        cout << v << " ";
+        cout << v << ", ";
     }
 
     return vertices_centro;
@@ -425,14 +343,10 @@ vector<char> Grafo::periferia()
 
     cout<<"Diametro: ";
     for (char v : vertices_diamerto) {
-        cout << v << " ";
+        cout << v << ", ";
     }
 
     return vertices_diamerto;
 }
 
-vector<char> Grafo::vertices_de_articulacao()
-{
-    cout << "Metodo nao implementado" << endl;
-    return {};
-}
+
