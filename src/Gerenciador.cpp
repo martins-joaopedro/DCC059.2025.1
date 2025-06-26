@@ -91,11 +91,10 @@ void Gerenciador::comandos(Grafo* grafo) {
 
                 vector<char> ids = get_conjunto_ids(grafo,tam);
                 Grafo* arvore_geradora_minima_prim = grafo->arvore_geradora_minima_prim(ids);
-                if(arvore_geradora_minima_prim != nullptr)
-                    arvore_geradora_minima_prim->imprime_lista_adj(arvore_geradora_minima_prim->lista_adj);
+                imprimir_grafo(arvore_geradora_minima_prim);
 
                 if(pergunta_imprimir_arquivo("agm_prim.txt")) {
-                    cout<<"Metodo de impressao em arquivo nao implementado"<<endl;
+                    salvar_grafo(arvore_geradora_minima_prim, "agm_prim.txt");
                 }
 
                 delete arvore_geradora_minima_prim;
@@ -117,10 +116,10 @@ void Gerenciador::comandos(Grafo* grafo) {
 
                 vector<char> ids = get_conjunto_ids(grafo,tam);
                 Grafo* arvore_geradora_minima_kruskal = grafo->arvore_geradora_minima_kruskal(ids);
-                cout<<"Metodo de impressao em tela nao implementado"<<endl<<endl;
+                imprimir_grafo(arvore_geradora_minima_kruskal);
 
                 if(pergunta_imprimir_arquivo("agm_kruskal.txt")) {
-                    cout<<"Metodo de impressao em arquivo nao implementado"<<endl;
+                    salvar_grafo(arvore_geradora_minima_kruskal, "agm_kruskal.txt");
                 }
 
                 delete arvore_geradora_minima_kruskal;
@@ -136,7 +135,7 @@ void Gerenciador::comandos(Grafo* grafo) {
 
             char id_no = get_id_entrada();
             Grafo* arvore_caminhamento_profundidade = grafo->arvore_caminhamento_profundidade(id_no);
-            cout<<"Metodo de impressao em tela nao implementado"<<endl<<endl;
+            imprimir_grafo(arvore_caminhamento_profundidade);
 
             if(pergunta_imprimir_arquivo("arvore_caminhamento_profundidade.txt")) {
                 salvar_grafo(arvore_caminhamento_profundidade, "arvore_caminhamento_profundidade.txt");
@@ -151,18 +150,18 @@ void Gerenciador::comandos(Grafo* grafo) {
             cout<<"Metodo de impressao em tela nao implementado"<<endl<<endl;
 
             if(pergunta_imprimir_arquivo("arvore_caminhamento_profundidade.txt")) {
-                cout<<"Metodo de impressao em arquivo nao implementado"<<endl;
+                salvar_lista(articulacao, "vertices_de_articulacao.txt");
             }
 
             break;
         }
         case 'i': {
-
+            
             vector<char> articulacao = grafo->vertices_de_articulacao();
             cout<<"Metodo de impressao em tela nao implementado"<<endl<<endl;
 
             if(pergunta_imprimir_arquivo("arvore_caminhamento_profundidade.txt")) {
-                cout<<"Metodo de impressao em arquivo nao implementado"<<endl;
+                salvar_lista(articulacao, "vertices_de_articulacao.txt");
             }
 
             break;
@@ -305,6 +304,53 @@ void Gerenciador::salvar_grafo(Grafo* grafo, string nome_arquivo) {
     arquivo.close();
 }
 
+void Gerenciador::imprimir_grafo(Grafo* grafo) {
+
+    if(grafo != nullptr) {
+        cout << "\n----------------------------------------" << endl;
+        cout << "Grafo:" << endl;
+        int ordem = grafo->lista_adj.size() < grafo->ordem ? grafo->lista_adj.size() : grafo->ordem;
+        cout << ordem << "\n";
+    
+        // ordena a lista de nós pelo id
+        vector<No*> nos_ordenados = grafo->lista_adj;
+        sort(nos_ordenados.begin(), nos_ordenados.end(), comparar_nos);
+    
+        for (No* no : nos_ordenados) {
+            
+            string conteudo = string(1, no->id);
+    
+            if(grafo->in_ponderado_vertice) {
+                conteudo += " " + to_string(no->peso) + "\n";
+            } else {
+                conteudo += "\n";
+            }
+            cout << conteudo;
+        }
+    
+        // ordena as arestas de cada nó pelo id do nó alvo
+        for (No* no : nos_ordenados) {
+            vector<Aresta*> arestas_ordenadas = no->arestas;
+            sort(arestas_ordenadas.begin(), arestas_ordenadas.end(), comparar_arestas);
+            
+            for (Aresta* aresta : arestas_ordenadas) {
+                
+                string conteudo = string(1, no->id) + " " + string(1, aresta->id_no_alvo);
+                
+                // so adiciona o peso se a aresta for ponderada
+                if(grafo->in_ponderado_aresta) {
+                    conteudo += " " + to_string(aresta->peso);    
+                } 
+                if(aresta->retorno) {
+                    conteudo += " (retorno)\n"; 
+                } else conteudo += "\n";
+                
+                cout << conteudo;
+            }
+        }
+    }
+}
+
 void Gerenciador::salvar_lista(vector<char> lista, string nome_arquivo) {
     // pra ficar no inicio dos arquivos
     ofstream arquivo("0_"+nome_arquivo);
@@ -317,9 +363,19 @@ void Gerenciador::salvar_lista(vector<char> lista, string nome_arquivo) {
     arquivo << lista.size() << "\n";
 
     for(char c : lista) {
-        arquivo << c << "\n";
+        arquivo << c;
     }
 
     cout << "Lista salva em " << nome_arquivo << endl;
     arquivo.close();
+}
+
+void Gerenciador::imprimir_lista(vector<char> lista) {
+
+    cout << lista.size() << "\n";
+
+    for(char c : lista) {
+        cout << c;
+    }
+
 }
