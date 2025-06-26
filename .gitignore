@@ -31,4 +31,7 @@
 *.out
 *.app
 
+#output files at src
+/src/*.txt
+
 .vscode/
