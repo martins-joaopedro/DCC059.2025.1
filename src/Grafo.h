@@ -20,7 +20,8 @@ public:
     vector<char> fecho_transitivo_indireto(int id_no); // b
     vector<char> caminho_minimo_dijkstra(char id_no_a, char id_no_b); // c
     vector<char> caminho_minimo_floyd(char id_no_a, char id_no_b); // d
-    bool execoes(char id_no_a, char id_no_b);
+    bool execoes_caminho_minimo(char id_no_a, char id_no_b);
+    vector<vector<char>> cria_matriz_floyd(vector<vector<int>>& distancia, bool teste);
     Grafo* arvore_geradora_minima_prim(vector<char> ids_nos); // e
     Grafo* arvore_geradora_minima_kruskal(vector<char> ids_nos); // f
     Grafo* arvore_caminhamento_profundidade(int id_no); // g
