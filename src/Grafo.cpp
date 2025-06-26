@@ -42,7 +42,7 @@ vector<char> Grafo::fecho_transitivo_direto(char id_no) {
     vector<char> fecho;
     
     if(!this->in_direcionado){
-        cout << "O grafo não é direcionado." << endl<<endl;
+        cout << "Grafo nao direcionado!" << endl<<endl;
         return {};
     }
 
@@ -148,7 +148,7 @@ Grafo * Grafo::arvore_geradora_minima_prim(vector<char> ids_nos) {
     }
 
     if(this->in_direcionado){
-        cout << "O grafo é direcionado." << endl;
+        cout << "O grafo eh direcionado." << endl;
         return nullptr;
     }
 
@@ -445,7 +445,8 @@ Grafo *Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos)
 }
 
 Grafo * Grafo::arvore_caminhamento_profundidade(int id_no) {
-    
+
+    map<char, No*> mapa_nos;
     map<char, bool> visitados;
     map<char, int> profundidades;
 
@@ -463,14 +464,48 @@ Grafo * Grafo::arvore_caminhamento_profundidade(int id_no) {
 
     // percorre até encontrar o no alvo para iniciar 
     for(No* no : lista_adj)
-        if(no->id == id_no) 
-            return caminho_profundidade(no, grafo_saida, visitados, id_no, profundidades);
+        if(no->id == id_no) {
+            grafo_saida = caminho_profundidade(no, grafo_saida, visitados, id_no, profundidades);
+            break;
+        }
     
+        // pos processamento pra cada tornar a lista de adj simétrica
+        if(grafo_saida != nullptr and !grafo_saida->in_direcionado) {
+            for(No* no_saida : grafo_saida->lista_adj) {
+            // uso pra evitar replicações
+            visitados.clear();
+        
+            // estrutura aux pra facilitar montar as simetrias 
+            for(No* no : grafo_saida->lista_adj)
+                mapa_nos[no->id] = no;
+
+            for(Aresta* aresta : no_saida->arestas) {
+                if(!visitados[aresta->id_no_alvo]) {
+                    bool itExists = false;
+
+                    // se a aresta que eu quero criar ja existe
+                    for(Aresta* aresta : mapa_nos[aresta->id_no_alvo]->arestas)
+                        if(aresta->id_no_alvo == no_saida->id)
+                            itExists = true;
+
+                    if(!itExists) {
+                        Aresta* nova_aresta = new Aresta();
+                            nova_aresta->id_no_alvo = no_saida->id;
+                            nova_aresta->peso = aresta->peso; 
+                            nova_aresta->retorno = aresta->retorno; 
+                        mapa_nos[aresta->id_no_alvo]->arestas.push_back(nova_aresta);
+                    }
+                }
+            }
+            visitados[no_saida->id] = true;
+        }
+    }
     return grafo_saida; 
 }
 
 Grafo * Grafo::caminho_profundidade(No* no, Grafo* grafo_saida, map<char, bool>& visitados, char id_no_pai, map<char, int>& profundidades) {
 
+    // de onde saio para me aprofundar
     No* no_saida = new No();
     no_saida->id = no->id;
     no_saida->peso = no->peso;
@@ -497,7 +532,7 @@ Grafo * Grafo::caminho_profundidade(No* no, Grafo* grafo_saida, map<char, bool>&
                         nova_aresta->peso = aresta->peso; 
                         nova_aresta->retorno = false; 
                     no_saida->arestas.push_back(nova_aresta);
-                    
+            
                 // marca como aresta de retorno caso esteja num nivel maior e não seja o pai do no atual
                 } else if(id_no_pai != no_alvo->id and profundidades[no->id] > profundidades[no_alvo->id]) {
                     Aresta* nova_aresta = new Aresta();
@@ -544,24 +579,4 @@ vector<char> Grafo::vertices_de_articulacao()
 {
     cout << "Metodo nao implementado" << endl;
     return {};
-}
-
-void Grafo::imprime_lista_adj(vector<No*>& lista){
-    for(No* no : lista){
-        cout << "Vertice: [" << no->id << "] com peso: " << no->peso << endl;
-
-        for(Aresta* aresta : no->arestas){
-            cout << "   Existe uma aresta de [" << no->id << "] para [" << aresta->id_no_alvo
-                << "] com peso: " << aresta->peso << endl;
-        }
-        cout << endl;
-    }
-}
-
-void Grafo::imprime_fecho(vector<char> &fecho){
-    
-    for (char c : fecho) {
-        cout << c << " ";
-    }
-    cout << endl<<endl;
 }
