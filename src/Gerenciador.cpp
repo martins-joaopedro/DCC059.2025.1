@@ -138,10 +138,7 @@ void Gerenciador::comandos(Grafo* grafo) {
             imprimir_lista_adj(arvore_caminhamento_profundidade);
 
             if(pergunta_imprimir_arquivo("arvore_caminhamento_profundidade.txt")) {
-                salvar_grafo(arvore_caminhamento_profundidade, "arvore_caminhamento_profundidade.txt");
-
-                //TODO: verificar qual formato salvar
-                //salvar_lista_adj(arvore_caminhamento_profundidade, "arvore_caminhamento_profundidade.txt");
+                salvar_lista_adj(arvore_caminhamento_profundidade, "arvore_caminhamento_profundidade.txt");
             }
 
             delete arvore_caminhamento_profundidade;
@@ -249,7 +246,7 @@ void Gerenciador::salvar_grafo(Grafo* grafo, string nome_arquivo) {
     if(grafo != nullptr) {
        
         // pra ficar no inicio dos arquivos
-        ofstream arquivo("0_"+nome_arquivo);
+        ofstream arquivo("output/"+nome_arquivo);
     
         if (!arquivo.is_open()) {
             cout << "Erro ao abrir o arquivo: " << nome_arquivo << endl;
@@ -357,7 +354,7 @@ void Gerenciador::salvar_lista_nos(vector<char> lista, string nome_arquivo) {
 
     if(!lista.empty()) {
         // pra ficar no inicio dos arquivos
-        ofstream arquivo("0_"+nome_arquivo);
+        ofstream arquivo("output/" + nome_arquivo);
     
         if (!arquivo.is_open()) {
             cout << "Erro ao abrir o arquivo: " << nome_arquivo << endl;
@@ -398,7 +395,7 @@ void Gerenciador::imprimir_lista_nos(vector<char> lista) {
 void Gerenciador::salvar_lista_adj(Grafo* grafo, string nome_arquivo) {
 
     if(grafo != nullptr) {
-        ofstream arquivo("0_"+nome_arquivo);
+        ofstream arquivo("output/"+nome_arquivo);
 
         // ordena a lista de nós pelo id
         vector<No*> nos_ordenados = grafo->lista_adj;
