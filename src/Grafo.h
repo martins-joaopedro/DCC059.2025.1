@@ -25,10 +25,11 @@ public:
     Grafo* arvore_geradora_minima_prim(vector<char> ids_nos); // e
     Grafo* arvore_geradora_minima_kruskal(vector<char> ids_nos); // f
     Grafo* arvore_caminhamento_profundidade(int id_no); // g
-    int raio(); // h 1
-    int diametro(); // h 2
-    vector<char> centro(); // h 3
-    vector<char> periferia(); // h 4
+    //comentei pq é inutil :/ dps apaga
+    // int raio(); // h 1
+    // int diametro(); // h 2
+    // vector<char> centro(); // h 3
+    // vector<char> periferia(); // h 4
 
     int ordem;
     bool in_direcionado;
@@ -45,6 +46,12 @@ public:
     //lembrar de aplicar para limpar o armazenamento se editar grafo
     bool excentricidades_validas = false;
 
+    //cria caracteristicas como atributos do garfo
+    int raio;
+    int diametro;
+    vector<char> centro;
+    vector<char> periferia;
+    void calcula_caracteristicas();//calcula os trem tudo de uma vez
 };
 
 

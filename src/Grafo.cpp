@@ -304,86 +304,34 @@ map<char, int> Grafo::calcular_excentricidades() {
     return excentricidades;
 }
 
-
-
-
-int Grafo::raio()
-{
-    map<char, int> excentricidades = get_excentricidades();
+void Grafo::calcula_caracteristicas(){
+    map<char, int> excentricidades = calcular_excentricidades();
 
     if (excentricidades.empty()) {
         cout << "Raio indefinido - grafo sem vertices ou excentricidades." << endl;
-        return -1;
+        return;
     }
 
-    int menor_excentricidade = INT_MAX;
+    //calcula raio e diametro
+    this->raio = INT_MAX;
+    this->diametro = INT_MIN;
 
     for (pair<const char, int>& par : excentricidades) {
-        menor_excentricidade = min(menor_excentricidade, par.second);
-    }
-    cout << "Menor Excentricidade: " <<menor_excentricidade<< endl;
-    return menor_excentricidade;
-
-}
-
-//Maior caminho entre os menores caminhos
-int Grafo::diametro()
-{
-    map<char, int> excentricidades = get_excentricidades();
-
-    if (excentricidades.empty()) {
-        cout << "Diametro indefinido - grafo sem vertices ou excentricidades." << endl;
-        return -1;
+        if(par.second > 0)
+            this->raio = min(this->raio, par.second);
+        
+        this->diametro = max(this->diametro, par.second);
     }
 
-    int maior_excentricidade = INT_MIN;
-    
+    if(this->raio == INT_MAX) raio = 0;
+
+    //calcula centro e periferia
     for (pair<const char, int>& par : excentricidades) {
-        maior_excentricidade = max(maior_excentricidade, par.second);
-    }
-
-    cout << "Maior Excentricidade: " <<maior_excentricidade<< endl;
-    return maior_excentricidade;
-}
-
-vector<char> Grafo::centro()
-{
-    map<char,int> excentricidades = get_excentricidades();
-    int raio = this->raio();
-    vector<char> vertices_centro;
-
-    for (pair<const char, int>& par : excentricidades) {
-        if(par.second==raio){
-            vertices_centro.push_back(par.first);
+        if(par.second==this->diametro){
+            periferia.push_back(par.first);
+        }
+        if(par.second==this->raio){
+            centro.push_back(par.first);
         }
     }
-
-    cout<<"Centro: ";
-    for (char v : vertices_centro) {
-        cout << v << ", ";
-    }
-
-    return vertices_centro;
 }
-
-vector<char> Grafo::periferia()
-{
-    map<char,int> excentricidades = get_excentricidades();
-    int diametro = this->diametro();
-    vector<char> vertices_diamerto;
-
-    for (pair<const char, int>& par : excentricidades) {
-        if(par.second==diametro){
-            vertices_diamerto.push_back(par.first);
-        }
-    }
-
-    cout<<"Diametro: ";
-    for (char v : vertices_diamerto) {
-        cout << v << ", ";
-    }
-
-    return vertices_diamerto;
-}
-
-

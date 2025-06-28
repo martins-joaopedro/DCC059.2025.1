@@ -142,16 +142,19 @@ void Gerenciador::comandos(Grafo* grafo) {
 
         case 'h': {
 
-            cout<<"--------RAIO: "<<endl;
-            grafo->raio();
-            cout<<endl<<"--------CENTRO: "<<endl;
-            grafo->centro();
-            cout<<endl<<"--------DIAMETRO: "<<endl;
-            grafo->diametro();
-            cout<<endl<<"--------PERIFERIA: "<<endl;
-            grafo->periferia();
+            grafo->calcula_caracteristicas();
             
-
+            cout<<"--------RAIO: "<<grafo->raio;            
+            cout<<endl<<"--------CENTRO: ";
+            for (char v : grafo->centro)
+                cout << v << " ";  
+            
+            cout<<endl<<"--------DIAMETRO: "<<grafo->diametro;            
+            cout<<endl<<"--------PERIFERIA: ";
+            for (char v : grafo->periferia)
+                cout << v << " ";
+            cout<<endl<<endl;
+            
             if(pergunta_imprimir_arquivo("arvore_caminhamento_profundidade.txt")) {
                 cout<<"Metodo de impressao em arquivo nao implementado"<<endl;
             }
