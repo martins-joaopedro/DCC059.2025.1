@@ -274,6 +274,13 @@ map<char, int> Grafo::calcular_excentricidades() {
     vector<vector<int>> dist(n, vector<int>(n, INT_MAX));
     cria_matriz_floyd(dist, false);
 
+    for(int i =0; i<n;i++){
+        for(int j =0; j<n;j++){
+            cout<<dist[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+
     map<char,int> excentricidades;
     map<int,char> id_por_indice;
     int i = 0; 
@@ -287,18 +294,31 @@ map<char, int> Grafo::calcular_excentricidades() {
         int excentricidade=0;
         //evita vertice isolado recebe exc 0
         bool alcanca_algum=false;
+        bool alcanca_todos = true; // para grafos direcionados
 
         for (int j=0; j<dist.size();j++){
-            if( i!=j && dist[i][j]!= INT_MAX){
+            if(i == j) continue;
+
+            if(dist[i][j]!= INT_MAX){
                 excentricidade=max(excentricidade,dist[i][j]);
                 alcanca_algum=true;
+            }else{
+                // Se for direcionado e não alcança algum vértice, marca false
+                if (this->in_direcionado) {
+                    alcanca_todos = false;
+                }
             }
         }
-        if(alcanca_algum) {
-            excentricidades[id_por_indice[i]] = excentricidade;
+        if(!alcanca_algum) { // vértice isolado
+            excentricidades[id_por_indice[i]] = INT_MIN;
         }
         else{
-            excentricidades[id_por_indice[i]] = 0;
+            if(this->in_direcionado && !alcanca_todos) {
+                // Se direcionado e não alcança todos, excentricidade "infinita"
+                excentricidades[id_por_indice[i]] = INT_MAX; 
+            }else{
+                excentricidades[id_por_indice[i]] = excentricidade;
+            }
         }       
     }
     return excentricidades;
@@ -312,18 +332,33 @@ void Grafo::calcula_caracteristicas(){
         return;
     }
 
+    
+    
+    for (pair<const char, int>& par : excentricidades) {
+        cout<<" char: "<<par.first <<" Num: "<<par.second;
+    }
+    cout<<endl;
+
     //calcula raio e diametro
     this->raio = INT_MAX;
     this->diametro = INT_MIN;
+    periferia.clear();
+    centro.clear();
 
     for (pair<const char, int>& par : excentricidades) {
-        if(par.second > 0)
-            this->raio = min(this->raio, par.second);
-        
-        this->diametro = max(this->diametro, par.second);
+        if(par.second != INT_MIN && par.second != INT_MAX)
+            this->diametro = max(this->diametro, par.second);
     }
 
-    if(this->raio == INT_MAX) raio = 0;
+    for (pair<const char, int>& par : excentricidades) {
+        if(par.second != INT_MIN && par.second != INT_MAX && par.second <= this->diametro)
+            this->raio = min(this->raio, par.second);
+    }
+
+    if (this->raio == INT_MAX) {
+        cout << "Raio indefinido — nenhum vértice alcança outro." << endl;
+        this->raio = 0; 
+    }
 
     //calcula centro e periferia
     for (pair<const char, int>& par : excentricidades) {

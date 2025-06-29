@@ -1,12 +1,11 @@
-0 1 1 
+0 1 0 
 5
-a 1
-b 2
-c 3
-d 4
-e 5
-a b 5
-b e 4
-e c 3
-d e 2
-a e 1
+a 
+b 
+c 
+d 
+e 
+a b -1
+b e -1
+e c -1
+d e -1
