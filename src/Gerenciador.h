@@ -18,6 +18,7 @@ public:
     static void imprimir_lista_nos(vector<char> lista);
     static void imprimir_lista_adj(Grafo* grafo);
     static void salvar_lista_adj(Grafo* grafo, string nome_arquivo);
+    static void salvar_letraH(Grafo* grafo, string nome_arquivo);
 };
 
 

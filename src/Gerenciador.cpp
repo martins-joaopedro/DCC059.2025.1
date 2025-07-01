@@ -161,7 +161,7 @@ void Gerenciador::comandos(Grafo* grafo) {
             cout<<endl<<endl;
             
             if(pergunta_imprimir_arquivo("arvore_caminhamento_profundidade.txt")) {
-                //salvar_lista(articulacao, "vertices_de_articulacao.txt");
+                salvar_letraH(grafo, "letraH.txt");
             }
 
             break;
@@ -437,6 +437,30 @@ void Gerenciador::imprimir_lista_adj(Grafo* grafo) {
             }
             cout << endl;
         }
+    } else cout << "Grafo vazio." << endl;
+    cout << endl;
+}
+
+void Gerenciador::salvar_letraH(Grafo* grafo, string nome_arquivo){
+    if(grafo != nullptr) {
+        ofstream arquivo("output/"+nome_arquivo);
+
+        arquivo << "Raio: " << grafo->raio << endl << "Centro: ";
+
+        for(char id : grafo->centro){
+            arquivo << id << ", ";
+        }
+
+        arquivo << endl;
+        
+        arquivo << "Diametro: " << grafo->diametro << endl << "Periferia: ";
+
+        for(char id : grafo->periferia){
+            arquivo << id << ", ";
+        }
+        arquivo << endl;
+
+        cout << "Dados salvos em " << nome_arquivo << endl;
     } else cout << "Grafo vazio." << endl;
     cout << endl;
 }
