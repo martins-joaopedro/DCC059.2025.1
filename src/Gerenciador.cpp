@@ -146,20 +146,20 @@ void Gerenciador::comandos(Grafo* grafo) {
         }
 
         case 'h': {
-            vector<char> articulacao = grafo->vertices_de_articulacao();
-            //cout<<"Metodo de impressao em tela nao implementado"<<endl<<endl;
 
-            if(pergunta_imprimir_arquivo("arvore_caminhamento_profundidade.txt")) {
-                //salvar_lista(articulacao, "vertices_de_articulacao.txt");
-            }
-
-            break;
-        }
-        case 'i': {
+            grafo->calcula_caracteristicas();
             
-            vector<char> articulacao = grafo->vertices_de_articulacao();
-            //cout<<"Metodo de impressao em tela nao implementado"<<endl<<endl;
-
+            cout<<"--------RAIO: "<<grafo->raio;            
+            cout<<endl<<"--------CENTRO: ";
+            for (char v : grafo->centro)
+                cout << v << " ";  
+            
+            cout<<endl<<"--------DIAMETRO: "<<grafo->diametro;            
+            cout<<endl<<"--------PERIFERIA: ";
+            for (char v : grafo->periferia)
+                cout << v << " ";
+            cout<<endl<<endl;
+            
             if(pergunta_imprimir_arquivo("arvore_caminhamento_profundidade.txt")) {
                 //salvar_lista(articulacao, "vertices_de_articulacao.txt");
             }
