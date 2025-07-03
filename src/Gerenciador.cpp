@@ -166,7 +166,6 @@ void Gerenciador::comandos(Grafo* grafo) {
 
             break;
         }
-
         case '0': {
             exit(0);
         }

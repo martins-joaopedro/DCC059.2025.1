@@ -25,12 +25,17 @@ Grafo::~Grafo()
 {
 }
 
-void Grafo::aux_fecho_transitivo_direto(map<char, bool> &C, char descendente){
-    for(No* no : this->lista_adj){
-        if(no->id == descendente){
-            for(Aresta* aresta : no->arestas){
+void Grafo::aux_fecho_transitivo_direto(map<char, bool> &C, char descendente)
+{
+    for (No *no : this->lista_adj)
+    {
+        if (no->id == descendente)
+        {
+            for (Aresta *aresta : no->arestas)
+            {
                 char filho = aresta->id_no_alvo;
-                if(!C[aresta->id_no_alvo]){
+                if (!C[aresta->id_no_alvo])
+                {
                     C[aresta->id_no_alvo] = true;
                     aux_fecho_transitivo_direto(C, filho);
                 }
@@ -40,11 +45,14 @@ void Grafo::aux_fecho_transitivo_direto(map<char, bool> &C, char descendente){
     }
 }
 
-vector<char> Grafo::fecho_transitivo_direto(char id_no) {
+vector<char> Grafo::fecho_transitivo_direto(char id_no)
+{
     vector<char> fecho;
-    
-    if(!this->in_direcionado){
-        cout << "Grafo nao direcionado!" << endl<<endl;
+
+    if (!this->in_direcionado)
+    {
+        cout << "Grafo nao direcionado!" << endl
+             << endl;
         return {};
     }
 
@@ -52,8 +60,10 @@ vector<char> Grafo::fecho_transitivo_direto(char id_no) {
     C[id_no] = true;
     aux_fecho_transitivo_direto(C, id_no);
 
-    for (const auto& par : C) {
-        if (par.second && par.first != id_no) {
+    for (const auto &par : C)
+    {
+        if (par.second && par.first != id_no)
+        {
             fecho.push_back(par.first);
         }
     }
@@ -61,38 +71,46 @@ vector<char> Grafo::fecho_transitivo_direto(char id_no) {
     return fecho;
 }
 
-vector<char> Grafo::fecho_transitivo_indireto(char id_no) {
-    
+vector<char> Grafo::fecho_transitivo_indireto(char id_no)
+{
+
     vector<char> saida;
-    queue<No*> fila;
+    queue<No *> fila;
     map<char, bool> marcados;
 
-    if(!in_direcionado) {
+    if (!in_direcionado)
+    {
         cout << "Grafo nao direcionado!" << endl;
         return saida;
     }
 
     // busca pelo nó inicial
-    for(No* no : lista_adj)
-        if(no->id == id_no) {
+    for (No *no : lista_adj)
+        if (no->id == id_no)
+        {
             fila.push(no);
             marcados[no->id] = true;
             break;
         }
-    
-    while(!fila.empty()) {
 
-        No* no_atual = fila.front();
+    while (!fila.empty())
+    {
+
+        No *no_atual = fila.front();
         fila.pop();
 
         // encontra todas as arestas que vão pro no atual
-        for(No* no : lista_adj) {
-            for (Aresta* aresta : no->arestas) {
-                if(aresta->id_no_alvo == no_atual->id) {
-                    if(!marcados[no->id]) {
+        for (No *no : lista_adj)
+        {
+            for (Aresta *aresta : no->arestas)
+            {
+                if (aresta->id_no_alvo == no_atual->id)
+                {
+                    if (!marcados[no->id])
+                    {
                         // significa que esse vertice vai pro nó atual
-                        fila.push(no); 
-                        saida.emplace_back(no->id);    
+                        fila.push(no);
+                        saida.emplace_back(no->id);
                         marcados[no->id] = true; // evita repetição
                     }
                 }
@@ -103,60 +121,75 @@ vector<char> Grafo::fecho_transitivo_indireto(char id_no) {
     return saida;
 }
 
-bool Grafo::insere_aresta(tuple<int, char, char>& aresta_info, vector<No*>& lista){
-    Aresta* aresta = new Aresta();
+bool Grafo::insere_aresta(tuple<int, char, char> &aresta_info, vector<No *> &lista)
+{
+    Aresta *aresta = new Aresta();
     int cont = 0;
-    
-    for(No* no : lista){
-        if(no->id == get<1>(aresta_info)){
+
+    for (No *no : lista)
+    {
+        if (no->id == get<1>(aresta_info))
+        {
             aresta->peso = get<0>(aresta_info);
             aresta->id_no_alvo = get<2>(aresta_info);
             no->arestas.push_back(aresta);
             cont++;
         }
-        else if(no->id == get<2>(aresta_info)){
-            Aresta* aresta_b = new Aresta();
+        else if (no->id == get<2>(aresta_info))
+        {
+            Aresta *aresta_b = new Aresta();
             aresta_b->id_no_alvo = get<1>(aresta_info);
             aresta_b->peso = get<0>(aresta_info);
             no->arestas.push_back(aresta_b);
             cont++;
         }
-        else if(cont == 2){break;}
+        else if (cont == 2)
+        {
+            break;
+        }
     }
-    
-    if(cont != 2){
+
+    if (cont != 2)
+    {
         return false;
     }
 
     return true;
 }
 
-Grafo * Grafo::arvore_geradora_minima_prim(vector<char> ids_nos) {
-    if(!this->in_ponderado_aresta){
+Grafo *Grafo::arvore_geradora_minima_prim(vector<char> ids_nos)
+{
+    if (!this->in_ponderado_aresta)
+    {
         cout << "O grafo não possui pesos nas arestas." << endl;
         return nullptr;
     }
 
-    if(this->in_direcionado){
+    if (this->in_direcionado)
+    {
         cout << "O grafo eh direcionado." << endl;
         return nullptr;
     }
 
-    if (this->lista_adj.empty()) {
+    if (this->lista_adj.empty())
+    {
         cout << "Grafo vazio." << endl;
         return nullptr;
     }
 
-    Grafo* arvore = new Grafo();
+    Grafo *arvore = new Grafo();
     arvore->in_ponderado_aresta = this->in_ponderado_aresta;
     arvore->in_direcionado = this->in_direcionado;
     arvore->in_ponderado_vertice = this->in_ponderado_vertice;
-    arvore->ordem = ids_nos.size();  
+    arvore->ordem = ids_nos.size();
 
-    for(char id : ids_nos){//preenche lista_adj da arvore
-        for(No* no : this->lista_adj){
-            if(no->id == id){
-                No* novo_no = new No();
+    for (char id : ids_nos)
+    { // preenche lista_adj da arvore
+        for (No *no : this->lista_adj)
+        {
+            if (no->id == id)
+            {
+                No *novo_no = new No();
                 novo_no->id = no->id;
                 novo_no->peso = no->peso;
                 arvore->lista_adj.push_back(novo_no);
@@ -171,41 +204,51 @@ Grafo * Grafo::arvore_geradora_minima_prim(vector<char> ids_nos) {
     char inicial = ids_nos[0];
     visitados.insert(inicial);
 
-    for(No* no : this->lista_adj){
-        if(no->id == inicial){
-            for(Aresta* aresta : no->arestas){
-                if(find(ids_nos.begin(), ids_nos.end(), aresta->id_no_alvo) != ids_nos.end())
+    for (No *no : this->lista_adj)
+    {
+        if (no->id == inicial)
+        {
+            for (Aresta *aresta : no->arestas)
+            {
+                if (find(ids_nos.begin(), ids_nos.end(), aresta->id_no_alvo) != ids_nos.end())
                     pq.push({aresta->peso, inicial, aresta->id_no_alvo});
             }
             break;
         }
     }
 
-    while(visitados.size() < ids_nos.size() && !pq.empty()){
+    while (visitados.size() < ids_nos.size() && !pq.empty())
+    {
         auto aux = pq.top();
         int peso = get<0>(aux);
         char u = get<1>(aux);
         char v = get<2>(aux);
-        
+
         pq.pop();
 
-        if(visitados.count(v)) continue;
-        
+        if (visitados.count(v))
+            continue;
+
         auto tupla = make_tuple(peso, u, v);
 
-        if(!insere_aresta(tupla, arvore->lista_adj)){
+        if (!insere_aresta(tupla, arvore->lista_adj))
+        {
             cout << "Erro ao inserir aresta: " << u << " - " << v << endl;
             return nullptr;
         }
 
         visitados.insert(v);
 
-        for(No* no : this->lista_adj){
-            if(no->id == v){
-                for (Aresta* aresta : no->arestas){
-                    if(!visitados.count(aresta->id_no_alvo) &&
-                        find(ids_nos.begin(), ids_nos.end(), aresta->id_no_alvo) != ids_nos.end()){
-                        
+        for (No *no : this->lista_adj)
+        {
+            if (no->id == v)
+            {
+                for (Aresta *aresta : no->arestas)
+                {
+                    if (!visitados.count(aresta->id_no_alvo) &&
+                        find(ids_nos.begin(), ids_nos.end(), aresta->id_no_alvo) != ids_nos.end())
+                    {
+
                         pq.push({aresta->peso, v, aresta->id_no_alvo});
                     }
                 }
@@ -214,8 +257,8 @@ Grafo * Grafo::arvore_geradora_minima_prim(vector<char> ids_nos) {
         }
     }
 
-        
-    if(visitados.size() != ids_nos.size()){
+    if (visitados.size() != ids_nos.size())
+    {
         cout << "Subgrafo desconexo.\n\n";
         return nullptr;
     }
@@ -393,8 +436,8 @@ Grafo *Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos)
                     break;
                 }
             }
-            
-            //Tem que add na lista de adj do outro tmb
+
+            // Tem que add na lista de adj do outro tmb
             Aresta *nova_b = new Aresta();
             nova_b->id_no_alvo = id_a;
             nova_b->peso = peso;
@@ -435,55 +478,63 @@ Grafo *Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos)
     return agm;
 }
 
-Grafo * Grafo::arvore_caminhamento_profundidade(int id_no) {
+Grafo *Grafo::arvore_caminhamento_profundidade(int id_no)
+{
 
-    map<char, No*> mapa_nos;
+    map<char, No *> mapa_nos;
     map<char, bool> visitados;
     map<char, int> profundidades;
 
-    for(No* no : lista_adj) {
+    for (No *no : lista_adj)
+    {
         visitados[no->id] = false;
-        profundidades[no->id] = 0; 
+        profundidades[no->id] = 0;
     }
-    
-    // mantenho configurações do grafo original
-    Grafo* grafo_saida = new Grafo();
-        grafo_saida->ordem = ordem;
-        grafo_saida->in_direcionado = in_direcionado;
-        grafo_saida->in_ponderado_aresta = in_ponderado_aresta; 
-        grafo_saida->in_ponderado_vertice = in_ponderado_vertice;
 
-    // percorre até encontrar o no alvo para iniciar 
-    for(No* no : lista_adj)
-        if(no->id == id_no) {
+    // mantenho configurações do grafo original
+    Grafo *grafo_saida = new Grafo();
+    grafo_saida->ordem = ordem;
+    grafo_saida->in_direcionado = in_direcionado;
+    grafo_saida->in_ponderado_aresta = in_ponderado_aresta;
+    grafo_saida->in_ponderado_vertice = in_ponderado_vertice;
+
+    // percorre até encontrar o no alvo para iniciar
+    for (No *no : lista_adj)
+        if (no->id == id_no)
+        {
             grafo_saida = caminho_profundidade(no, grafo_saida, visitados, id_no, profundidades);
             break;
         }
-    
-        // pos processamento pra cada tornar a lista de adj simétrica
-        if(grafo_saida != nullptr and !grafo_saida->in_direcionado) {
-            for(No* no_saida : grafo_saida->lista_adj) {
+
+    // pos processamento pra cada tornar a lista de adj simétrica
+    if (grafo_saida != nullptr and !grafo_saida->in_direcionado)
+    {
+        for (No *no_saida : grafo_saida->lista_adj)
+        {
             // uso pra evitar replicações
             visitados.clear();
-        
-            // estrutura aux pra facilitar montar as simetrias 
-            for(No* no : grafo_saida->lista_adj)
+
+            // estrutura aux pra facilitar montar as simetrias
+            for (No *no : grafo_saida->lista_adj)
                 mapa_nos[no->id] = no;
 
-            for(Aresta* aresta : no_saida->arestas) {
-                if(!visitados[aresta->id_no_alvo]) {
+            for (Aresta *aresta : no_saida->arestas)
+            {
+                if (!visitados[aresta->id_no_alvo])
+                {
                     bool itExists = false;
 
                     // se a aresta que eu quero criar ja existe
-                    for(Aresta* aresta : mapa_nos[aresta->id_no_alvo]->arestas)
-                        if(aresta->id_no_alvo == no_saida->id)
+                    for (Aresta *aresta : mapa_nos[aresta->id_no_alvo]->arestas)
+                        if (aresta->id_no_alvo == no_saida->id)
                             itExists = true;
 
-                    if(!itExists) {
-                        Aresta* nova_aresta = new Aresta();
-                            nova_aresta->id_no_alvo = no_saida->id;
-                            nova_aresta->peso = aresta->peso; 
-                            nova_aresta->retorno = aresta->retorno; 
+                    if (!itExists)
+                    {
+                        Aresta *nova_aresta = new Aresta();
+                        nova_aresta->id_no_alvo = no_saida->id;
+                        nova_aresta->peso = aresta->peso;
+                        nova_aresta->retorno = aresta->retorno;
                         mapa_nos[aresta->id_no_alvo]->arestas.push_back(nova_aresta);
                     }
                 }
@@ -491,49 +542,56 @@ Grafo * Grafo::arvore_caminhamento_profundidade(int id_no) {
             visitados[no_saida->id] = true;
         }
     }
-    return grafo_saida; 
+    return grafo_saida;
 }
 
-Grafo * Grafo::caminho_profundidade(No* no, Grafo* grafo_saida, map<char, bool>& visitados, char id_no_pai, map<char, int>& profundidades) {
+Grafo *Grafo::caminho_profundidade(No *no, Grafo *grafo_saida, map<char, bool> &visitados, char id_no_pai, map<char, int> &profundidades)
+{
 
     // de onde saio para me aprofundar
-    No* no_saida = new No();
+    No *no_saida = new No();
     no_saida->id = no->id;
     no_saida->peso = no->peso;
 
-    visitados[no->id] = true; 
-    profundidades[no->id] = profundidades[id_no_pai] + 1; 
+    visitados[no->id] = true;
+    profundidades[no->id] = profundidades[id_no_pai] + 1;
 
     // pra cada aresta, adiciono os aprofundamentos
-    for(Aresta* aresta : no->arestas) {
+    for (Aresta *aresta : no->arestas)
+    {
 
         // ignora aresta que leva de volta ao pai
-        if(aresta->id_no_alvo == id_no_pai)
-            continue; 
+        if (aresta->id_no_alvo == id_no_pai)
+            continue;
 
         // encontra no alvo da aresta
-        for(No* no_alvo : lista_adj) {
-            if(no_alvo->id == aresta->id_no_alvo) {
-                if(!visitados[no_alvo->id]) {
+        for (No *no_alvo : lista_adj)
+        {
+            if (no_alvo->id == aresta->id_no_alvo)
+            {
+                if (!visitados[no_alvo->id])
+                {
                     // chama recursivamente para o nó alvo
-                    caminho_profundidade(no_alvo, grafo_saida, visitados, no->id, profundidades); 
+                    caminho_profundidade(no_alvo, grafo_saida, visitados, no->id, profundidades);
 
-                    Aresta* nova_aresta = new Aresta();
-                        nova_aresta->id_no_alvo = no_alvo->id;
-                        nova_aresta->peso = aresta->peso; 
-                        nova_aresta->retorno = false; 
+                    Aresta *nova_aresta = new Aresta();
+                    nova_aresta->id_no_alvo = no_alvo->id;
+                    nova_aresta->peso = aresta->peso;
+                    nova_aresta->retorno = false;
                     no_saida->arestas.push_back(nova_aresta);
-            
-                // marca como aresta de retorno caso esteja num nivel maior e não seja o pai do no atual
-                } else if(id_no_pai != no_alvo->id and profundidades[no->id] > profundidades[no_alvo->id]) {
-                    Aresta* nova_aresta = new Aresta();
-                        nova_aresta->id_no_alvo = no_alvo->id;
-                        nova_aresta->peso = aresta->peso;
-                        nova_aresta->retorno = true;
+
+                    // marca como aresta de retorno caso esteja num nivel maior e não seja o pai do no atual
+                }
+                else if (id_no_pai != no_alvo->id and profundidades[no->id] > profundidades[no_alvo->id])
+                {
+                    Aresta *nova_aresta = new Aresta();
+                    nova_aresta->id_no_alvo = no_alvo->id;
+                    nova_aresta->peso = aresta->peso;
+                    nova_aresta->retorno = true;
                     no_saida->arestas.push_back(nova_aresta);
-                } 
+                }
                 break;
-            }   
+            }
         }
     }
 
@@ -558,11 +616,12 @@ bool Grafo::execoes_caminho_minimo(char id_no_a, char id_no_b)
             cout << "Vertice inicial nao possui conexao com nenhum outro vertice." << endl;
             return false;
         }
-        if(no->id == id_no_a || no->id == id_no_b)
+        if (no->id == id_no_a || no->id == id_no_b)
             existe = true;
     }
 
-    if(!existe){
+    if (!existe)
+    {
         cout << "Algum vertice digitado nao esta contido no grafo." << endl;
         return false;
     }
@@ -656,7 +715,7 @@ vector<char> Grafo::caminho_minimo_dijkstra(char id_no_a, char id_no_b)
     return caminho;
 }
 
-//matriz utilizada para o desenvolvimento da letra h
+// matriz utilizada para o desenvolvimento da letra h
 vector<vector<char>> Grafo::cria_matriz_floyd(vector<vector<int>> &distancia, bool verificacao)
 {
     int n = this->lista_adj.size();
@@ -751,10 +810,11 @@ vector<char> Grafo::caminho_minimo_floyd(char id_no_a, char id_no_b)
     return caminho;
 }
 
-
-//Evita ter que construir excentricidades 4x para um mesmo grafo
-const map<char, int>& Grafo::get_excentricidades() {
-    if (!excentricidades_validas) {
+// Evita ter que construir excentricidades 4x para um mesmo grafo
+const map<char, int> &Grafo::get_excentricidades()
+{
+    if (!excentricidades_validas)
+    {
         armazena_excentricidades.clear();
         armazena_excentricidades = calcular_excentricidades();
         excentricidades_validas = true;
@@ -762,110 +822,133 @@ const map<char, int>& Grafo::get_excentricidades() {
     return armazena_excentricidades;
 }
 
-
-map<char, int> Grafo::calcular_excentricidades() {
-    if(lista_adj.empty()){
+map<char, int> Grafo::calcular_excentricidades()
+{
+    if (lista_adj.empty())
+    {
         cout << "Grafo vazio - nao e possivel calcular excentricidades." << endl;
         return {};
     }
 
     int n = this->lista_adj.size();
-    
+
     vector<vector<int>> dist(n, vector<int>(n, INT_MAX));
     cria_matriz_floyd(dist, false);
 
-    for(int i =0; i<n;i++){
-        for(int j =0; j<n;j++){
-            cout<<dist[i][j]<<" ";
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cout << dist[i][j] << " ";
         }
-        cout<<endl;
+        cout << endl;
     }
 
-    map<char,int> excentricidades;
-    map<int,char> id_por_indice;
-    int i = 0; 
+    map<char, int> excentricidades;
+    map<int, char> id_por_indice;
+    int i = 0;
 
-    for(No*no: this->lista_adj){
+    for (No *no : this->lista_adj)
+    {
         id_por_indice[i] = no->id;
         i++;
     }
 
-    for(int i=0;i<dist.size();i++){
-        int excentricidade=0;
-        //evita vertice isolado recebe exc 0
-        bool alcanca_algum=false;
+    for (int i = 0; i < dist.size(); i++)
+    {
+        int excentricidade = 0;
+        // evita vertice isolado recebe exc 0
+        bool alcanca_algum = false;
         bool alcanca_todos = true; // para grafos direcionados
 
-        for (int j=0; j<dist.size();j++){
-            if(i == j) continue;
+        for (int j = 0; j < dist.size(); j++)
+        {
+            if (i == j)
+                continue;
 
-            if(dist[i][j]!= INT_MAX){
-                excentricidade=max(excentricidade,dist[i][j]);
-                alcanca_algum=true;
-            }else{
+            if (dist[i][j] != INT_MAX)
+            {
+                excentricidade = max(excentricidade, dist[i][j]);
+                alcanca_algum = true;
+            }
+            else
+            {
                 // Se for direcionado e não alcança algum vértice, marca false
-                if (this->in_direcionado) {
+                if (this->in_direcionado)
+                {
                     alcanca_todos = false;
                 }
             }
         }
-        if(!alcanca_algum) { // vértice isolado
+        if (!alcanca_algum)
+        { // vértice isolado
             excentricidades[id_por_indice[i]] = INT_MIN;
         }
-        else{
-            if(this->in_direcionado && !alcanca_todos) {
+        else
+        {
+            if (this->in_direcionado && !alcanca_todos)
+            {
                 // Se direcionado e não alcança todos, excentricidade "infinita"
-                excentricidades[id_por_indice[i]] = INT_MAX; 
-            }else{
+                excentricidades[id_por_indice[i]] = INT_MAX;
+            }
+            else
+            {
                 excentricidades[id_por_indice[i]] = excentricidade;
             }
-        }       
+        }
     }
     return excentricidades;
 }
 
-void Grafo::calcula_caracteristicas(){
+void Grafo::calcula_caracteristicas()
+{
     map<char, int> excentricidades = calcular_excentricidades();
 
-    if (excentricidades.empty()) {
+    if (excentricidades.empty())
+    {
         cout << "Raio indefinido - grafo sem vertices ou excentricidades." << endl;
         return;
     }
 
-    
-    
-    for (pair<const char, int>& par : excentricidades) {
-        cout<<" char: "<<par.first <<" Num: "<<par.second;
+    for (pair<const char, int> &par : excentricidades)
+    {
+        cout << " char: " << par.first << " Num: " << par.second;
     }
-    cout<<endl;
+    cout << endl;
 
-    //calcula raio e diametro
+    // calcula raio e diametro
     this->raio = INT_MAX;
     this->diametro = INT_MIN;
     periferia.clear();
     centro.clear();
 
-    for (pair<const char, int>& par : excentricidades) {
-        if(par.second != INT_MIN && par.second != INT_MAX)
+    for (pair<const char, int> &par : excentricidades)
+    {
+        if (par.second != INT_MIN && par.second != INT_MAX)
             this->diametro = max(this->diametro, par.second);
     }
 
-    for (pair<const char, int>& par : excentricidades) {
-        if(par.second != INT_MIN && par.second != INT_MAX && par.second <= this->diametro)
+    for (pair<const char, int> &par : excentricidades)
+    {
+        if (par.second != INT_MIN && par.second != INT_MAX && par.second <= this->diametro)
             this->raio = min(this->raio, par.second);
     }
 
-    if (this->raio == INT_MAX) {
+    if (this->raio == INT_MAX)
+    {
         cout << "Raio indefinido — nenhum vértice alcança outro." << endl;
-        this->raio = 0; 
+        this->raio = 0;
     }
 
-    //calcula centro e periferia
-    for (pair<const char, int>& par : excentricidades) {
-        if(par.second==this->diametro){
+    // calcula centro e periferia
+    for (pair<const char, int> &par : excentricidades)
+    {
+        if (par.second == this->diametro)
+        {
             periferia.push_back(par.first);
         }
-        if(par.second==this->raio){
+        if (par.second == this->raio)
+        {
             centro.push_back(par.first);
         }
     }
