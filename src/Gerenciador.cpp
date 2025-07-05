@@ -4,7 +4,7 @@
 #include <math.h>
 #include <set>
 
-void Gerenciador::comandos(Grafo* grafo) {
+void Gerenciador::comandos(Grafo* grafo, string filename) {
     cout << "\n----------------------------------------" << endl;
     cout << "Comandos disponiveis:" << endl;
     cout<<"Digite uma das opcoes abaixo e pressione enter:"<<endl<<endl;
@@ -16,9 +16,10 @@ void Gerenciador::comandos(Grafo* grafo) {
     cout<<"(f) Arvore Geradora Minima (Algoritmo de Kruskal);"<<endl;
     cout<<"(g) Arvore de caminhamento em profundidade;"<<endl;
     cout<<"(h) Raio, diametro, centro e periferia do grafo;"<<endl;
-    cout<<"(0) Sair;"<<endl<<endl;
+    cout<<"(0) Avancar para proximo teste;"<<endl<<endl;
 
     char resp;
+    bool cond = true; 
     cin >> resp;
     switch (resp) {
         case 'a': {
@@ -29,7 +30,7 @@ void Gerenciador::comandos(Grafo* grafo) {
             imprimir_lista_nos(fecho_transitivo_direto);
 
                 if(pergunta_imprimir_arquivo("fecho_trans_dir.txt")) 
-                    salvar_lista_nos(fecho_transitivo_direto, "fecho_trans_dir.txt");
+                    salvar_lista_nos(fecho_transitivo_direto, filename+"_fecho_trans_dir.txt");
             break;
         }
 
@@ -41,7 +42,7 @@ void Gerenciador::comandos(Grafo* grafo) {
             imprimir_lista_nos(fecho_transitivo_indireto);
 
             if(pergunta_imprimir_arquivo("fecho_trans_indir.txt"))
-                salvar_lista_nos(fecho_transitivo_indireto, "fecho_trans_indir.txt");
+                salvar_lista_nos(fecho_transitivo_indireto, filename+"_fecho_trans_indir.txt");
     
             break;
         }
@@ -57,7 +58,7 @@ void Gerenciador::comandos(Grafo* grafo) {
             imprimir_lista_nos(caminho_minimo_dijkstra);
 
             if(pergunta_imprimir_arquivo("caminho_minimo_dijkstra.txt")) {
-                salvar_lista_nos(caminho_minimo_dijkstra, "caminho_minimo_dijkstra.txt");
+                salvar_lista_nos(caminho_minimo_dijkstra, filename+"_caminho_minimo_dijkstra.txt");
             }
 
             break;
@@ -72,7 +73,7 @@ void Gerenciador::comandos(Grafo* grafo) {
             imprimir_lista_nos(caminho_minimo_floyd);
 
             if(pergunta_imprimir_arquivo("caminho_minimo_floyd.txt")) {
-                salvar_lista_nos(caminho_minimo_floyd, "caminho_minimo_floyd.txt");
+                salvar_lista_nos(caminho_minimo_floyd, filename+"_caminho_minimo_floyd.txt");
             }
 
             break;
@@ -92,7 +93,7 @@ void Gerenciador::comandos(Grafo* grafo) {
                 imprimir_lista_adj(arvore_geradora_minima_prim);
                 
                 if(pergunta_imprimir_arquivo("agm_prim.txt")) {
-                    salvar_lista_adj(arvore_geradora_minima_prim, "agm_prim.txt");
+                    salvar_lista_adj(arvore_geradora_minima_prim, filename+"_agm_prim.txt");
                 }
 
                 delete arvore_geradora_minima_prim;
@@ -118,7 +119,7 @@ void Gerenciador::comandos(Grafo* grafo) {
                 imprimir_lista_adj(arvore_geradora_minima_kruskal);
 
                 if(pergunta_imprimir_arquivo("agm_kruskal.txt")) {
-                    salvar_lista_adj(arvore_geradora_minima_kruskal, "agm_kruskal.txt");
+                    salvar_lista_adj(arvore_geradora_minima_kruskal, filename+"_agm_kruskal.txt");
                 }
 
                 delete arvore_geradora_minima_kruskal;
@@ -138,7 +139,7 @@ void Gerenciador::comandos(Grafo* grafo) {
             imprimir_lista_adj(arvore_caminhamento_profundidade);
 
             if(pergunta_imprimir_arquivo("arvore_caminhamento_profundidade.txt")) {
-                salvar_lista_adj(arvore_caminhamento_profundidade, "arvore_caminhamento_profundidade.txt");
+                salvar_lista_adj(arvore_caminhamento_profundidade, filename+"_arvore_caminhamento_profundidade.txt");
             }
 
             delete arvore_caminhamento_profundidade;
@@ -161,21 +162,21 @@ void Gerenciador::comandos(Grafo* grafo) {
             cout<<endl<<endl;
             
             if(pergunta_imprimir_arquivo("arvore_caminhamento_profundidade.txt")) {
-                salvar_letraH(grafo, "letraH.txt");
+                salvar_letraH(grafo, filename+"_letraH.txt");
             }
 
             break;
         }
         case '0': {
-            exit(0);
+            cond = false;
         }
         default: {
             cout<<"Opcao invalida"<<endl;
         }
     }
 
-    comandos(grafo);
-
+    if(cond)
+        comandos(grafo, filename);
 }
 
 char Gerenciador::get_id_entrada() {
@@ -245,7 +246,7 @@ void Gerenciador::salvar_grafo(Grafo* grafo, string nome_arquivo) {
     if(grafo != nullptr) {
        
         // pra ficar no inicio dos arquivos
-        ofstream arquivo("output/"+nome_arquivo);
+        ofstream arquivo("test/output/"+nome_arquivo);
     
         if (!arquivo.is_open()) {
             cout << "Erro ao abrir o arquivo: " << nome_arquivo << endl;
@@ -345,7 +346,7 @@ void Gerenciador::imprimir_grafo(Grafo* grafo) {
                 cout << conteudo;
             }
         }
-    } cout << "Grafo vazio." << endl;
+    } else cout << "Grafo vazio." << endl;
     cout << endl;
 }
 
@@ -353,7 +354,7 @@ void Gerenciador::salvar_lista_nos(vector<char> lista, string nome_arquivo) {
 
     if(!lista.empty()) {
         // pra ficar no inicio dos arquivos
-        ofstream arquivo("output/" + nome_arquivo);
+        ofstream arquivo("test/output/" + nome_arquivo);
     
         if (!arquivo.is_open()) {
             cout << "Erro ao abrir o arquivo: " << nome_arquivo << endl;
@@ -394,7 +395,7 @@ void Gerenciador::imprimir_lista_nos(vector<char> lista) {
 void Gerenciador::salvar_lista_adj(Grafo* grafo, string nome_arquivo) {
 
     if(grafo != nullptr) {
-        ofstream arquivo("output/"+nome_arquivo);
+        ofstream arquivo("test/output/"+nome_arquivo);
 
         // ordena a lista de nós pelo id
         vector<No*> nos_ordenados = grafo->lista_adj;
@@ -442,7 +443,7 @@ void Gerenciador::imprimir_lista_adj(Grafo* grafo) {
 
 void Gerenciador::salvar_letraH(Grafo* grafo, string nome_arquivo){
     if(grafo != nullptr) {
-        ofstream arquivo("output/"+nome_arquivo);
+        ofstream arquivo("test/output/"+nome_arquivo);
 
         arquivo << "Raio: " << grafo->raio << endl << "Centro: ";
 

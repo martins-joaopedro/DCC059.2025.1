@@ -6,23 +6,15 @@
 #include "Gerenciador.h"
 using namespace std;
 
-int main(int argc, char *argv[]) {
+Grafo* ler_grafo(string file_name) {
     
     Grafo* grafo = new Grafo();
-
-    if(argc < 2) {
-        cout << "Nenhum arquivo de entrada foi informado." << endl;
-        cout << "Execucao finalizada!" << endl;
-        return 0;
-    }
     
-    // So lê um arquivo de entrada por vez?
-    string file_name = argv[1];
-    fstream file = fstream(file_name);
+    fstream file = fstream("../instancias/"+file_name);
     
     if (!file.is_open()) {
         cout << "Erro ao abrir o arquivo: " << file_name << endl;
-        return 1;
+        return nullptr;
     }
 
     int header = 0;
@@ -119,9 +111,30 @@ int main(int argc, char *argv[]) {
             }
         }        
     }
-    
-    Gerenciador::comandos(grafo);
 
     file.close();
+
+    return grafo;
+} 
+
+int main(int argc, char *argv[]) {
+    
+    vector<string> arquivos;
+    string src = "test/files.txt";
+    string path = "test/output/";
+
+    string line;
+    fstream file = fstream(src);
+
+    while (getline(file, line, '\n')) {
+        Grafo * grafo = ler_grafo(line);
+        cout << "Grafo atual: " << line << endl;
+        Gerenciador::imprimir_grafo(grafo);
+        Gerenciador::comandos(grafo, line);
+        delete grafo;
+    }
+        
+    file.close();
+    
     return 0;
 }
