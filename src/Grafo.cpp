@@ -706,11 +706,11 @@ vector<char> Grafo::caminho_minimo_dijkstra(char id_no_a, char id_no_b)
 
     caminho.insert(caminho.begin(), id_no_a);
 
-    cout << "Caminho: ";
-    for (char c : caminho)
-    {
-        cout << c << " --- ";
-    }
+    // cout << "Caminho: ";
+    // for (char c : caminho)
+    // {
+    //     cout << c << " --- ";
+    // }
     cout << endl;
     return caminho;
 }
@@ -800,10 +800,10 @@ vector<char> Grafo::caminho_minimo_floyd(char id_no_a, char id_no_b)
         fim = p;
     }
 
-    for (char c : caminho)
-    {
-        cout << c << " --- ";
-    }
+    // for (char c : caminho)
+    // {
+    //     cout << c << " --- ";
+    // }
     cout << endl;
 
     cout << "Caminho de " << id_no_a << " ate " << id_no_b << " eh: " << distancia[mapa_indice[id_no_a]][mapa_indice[id_no_b]] << endl;
