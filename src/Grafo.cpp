@@ -463,16 +463,16 @@ Grafo *Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos)
     }
     else
     {
-        cout << endl
-             << "AGM - LISTA DE ADJACENCIA:" << endl;
-        for (No *no : agm->lista_adj)
-        {
-            cout << "Vertice: [" << no->id << "] com peso: " << no->peso << endl;
-            for (Aresta *aresta : no->arestas)
-            {
-                cout << "   Aresta para [" << aresta->id_no_alvo << "] com peso: " << aresta->peso << endl;
-            }
-        }
+        // cout << endl
+        //      << "AGM - LISTA DE ADJACENCIA:" << endl;
+        // for (No *no : agm->lista_adj)
+        // {
+        //     cout << "Vertice: [" << no->id << "] com peso: " << no->peso << endl;
+        //     for (Aresta *aresta : no->arestas)
+        //     {
+        //         cout << "   Aresta para [" << aresta->id_no_alvo << "] com peso: " << aresta->peso << endl;
+        //     }
+        // }
     }
 
     return agm;
