@@ -323,8 +323,8 @@ Grafo *Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos)
     }
 
     // ver se os parametros vieram certinho
-    cout << "TESTE 1 - Parametros Grafo " << endl
-         << agm->in_direcionado << agm->in_ponderado_aresta << agm->in_ponderado_vertice << agm->ordem;
+    // cout << "TESTE 1 - Parametros Grafo " << endl
+    //      << agm->in_direcionado << agm->in_ponderado_aresta << agm->in_ponderado_vertice << agm->ordem;
 
     // copiar nos escolhidos pra lista da agm
     for (char id : ids_nos)
@@ -389,15 +389,15 @@ Grafo *Grafo::arvore_geradora_minima_kruskal(vector<char> ids_nos)
     }
     sort(arestas.begin(), arestas.end());
 
-    cout << "TESTE2 - Imprimir Arestas e pesos " << endl;
-    for (const tuple<int, char, char> &element : arestas)
-    {
-        cout << "("
-             << get<0>(element) << ", "
-             << get<1>(element) << ", "
-             << get<2>(element)
-             << ") ";
-    }
+    // cout << "TESTE2 - Imprimir Arestas e pesos " << endl;
+    // for (const tuple<int, char, char> &element : arestas)
+    // {
+    //     cout << "("
+    //          << get<0>(element) << ", "
+    //          << get<1>(element) << ", "
+    //          << get<2>(element)
+    //          << ") ";
+    // }
 
     // verificar se os nós do subconjunto se conectam (ciclos) e add arestas válidas
 
@@ -835,14 +835,14 @@ map<char, int> Grafo::calcular_excentricidades()
     vector<vector<int>> dist(n, vector<int>(n, INT_MAX));
     cria_matriz_floyd(dist, false);
 
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            cout << dist[i][j] << " ";
-        }
-        cout << endl;
-    }
+    // for (int i = 0; i < n; i++)
+    // {
+    //     for (int j = 0; j < n; j++)
+    //     {
+    //         cout << dist[i][j] << " ";
+    //     }
+    //     cout << endl;
+    // }
 
     map<char, int> excentricidades;
     map<int, char> id_por_indice;
@@ -910,11 +910,11 @@ void Grafo::calcula_caracteristicas()
         return;
     }
 
-    for (pair<const char, int> &par : excentricidades)
-    {
-        cout << " char: " << par.first << " Num: " << par.second;
-    }
-    cout << endl;
+    // for (pair<const char, int> &par : excentricidades)
+    // {
+    //     cout << " char: " << par.first << " Num: " << par.second;
+    // }
+    // cout << endl;
 
     // calcula raio e diametro
     this->raio = INT_MAX;
