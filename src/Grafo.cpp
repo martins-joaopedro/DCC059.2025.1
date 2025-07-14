@@ -953,3 +953,77 @@ void Grafo::calcula_caracteristicas()
         }
     }
 }
+
+void Grafo::resetar_dominacao()
+{
+    for (auto no : lista_adj)
+    {
+        no->dominado = false;
+    }
+}
+
+No *Grafo::get_no(char id)
+{
+    for (No *no : lista_adj)
+    {
+        if (no->id == id)
+            return no;
+    }
+    return nullptr;
+}
+
+vector<char> Grafo::get_vizinhos(char id_no)
+{
+    vector<char> vizinhos;
+    No *no = get_no(id_no);
+    if (!no)
+        return vizinhos;
+
+    for (Aresta *aresta : no->arestas)
+    {
+        vizinhos.push_back(aresta->id_no_alvo);
+    }
+    return vizinhos;
+}
+
+bool Grafo::conjunto_dominante(const vector<char> &D)
+{
+    resetar_dominacao();
+
+    for (char id : D)
+    {
+        No *no = get_no(id);
+        if (no)
+        {
+            no->dominado = true;
+            for (Aresta *aresta : no->arestas)
+            {
+                No *destino = get_no(aresta->id_no_alvo);
+                if (destino)
+                    destino->dominado = true;
+            }
+        }
+    }
+    for (No *no : lista_adj)
+    {
+        if (!no->dominado)
+            return false;
+    }
+    return true;
+}
+
+bool Grafo::conjunto_independente(const vector<char>& D) {
+    set<char> conjunto(D.begin(), D.end());
+
+    for (char id : D) {
+        No* no = get_no(id);
+        if (!no) continue;
+
+        for (Aresta* aresta : no->arestas) {
+            if (conjunto.count(aresta->id_no_alvo))
+                return false;
+        }
+    }
+
+    return true;
+}
