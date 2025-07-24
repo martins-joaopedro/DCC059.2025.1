@@ -119,26 +119,38 @@ Grafo* ler_grafo(string file_name) {
     return grafo;
 } 
 
-vector<char> heuristic(Grafo* grafo) {
-    vector<char> LC = vector<char>();
+vector<char> heuristic(vector<char> LC, map<char, No*>& mapa_nos, int k) {
+
     map<char, int> grau;
     
-    // calcula o grau de cada nó
-    for(No* no : grafo->lista_adj) {
-        for(Aresta* aresta : no->arestas) {
-            if(grau.find(no->id) != grau.end())
-                grau[no->id]++; 
-            else grau[no->id] = 1; // inicializa o grau do nó se não existir
+    if(k == 0) {
+        // calcula o grau de cada nó
+        for(char no : LC) {
+            for(Aresta* aresta : mapa_nos[no]->arestas) {
+                if(grau.find(no) != grau.end())
+                    grau[no]++; 
+                else grau[no] = 1; // inicializa o grau do nó se não existir
+            }
+        }
+    } else  {
+        // calcula o quanto cada grau pode dominar na lista de candidatos
+        for(char no : LC) {
+            int domain = 0;
+            for(Aresta* aresta : mapa_nos[no]->arestas) {
+                if(!mapa_nos[aresta->id_no_alvo]->dominado)
+                    domain++;
+            }
+            grau[no] = domain;
         }
     }
 
-    // ordena os nós por grau e monta a LC
+    // reordena os nós por grau e monta a LC
+    LC.clear();
     while (!grau.empty()) {
         auto max_it = grau.begin();
         for (auto it = grau.begin(); it != grau.end(); ++it) {
             if (it->second > max_it->second)
                 max_it = it;
-            
         }
 
         LC.push_back(max_it->first);
@@ -151,6 +163,14 @@ vector<char> heuristic(Grafo* grafo) {
     return LC;
 }
 
+void updates_domain(map<char, No*>& mapa_nos, vector<char> S) {
+
+    for (char s : S) {
+        for(Aresta* aresta : mapa_nos[s]->arestas)
+            mapa_nos[aresta->id_no_alvo]->dominado = true;
+    }
+}
+
 // lógica adaptativa de atualização da lista LC 
 vector<char> updates_LC(map<char, No*>& mapa_nos, vector<char> LC, vector<char> S) {
     
@@ -158,12 +178,9 @@ vector<char> updates_LC(map<char, No*>& mapa_nos, vector<char> LC, vector<char> 
 
     // critério de atualização: removo os nós vizinhos de v
     for (char v : S) {
-        if (mapa_nos.find(v) != mapa_nos.end()) {
-            No* no = mapa_nos[v];
-            for (Aresta* aresta : no->arestas) {
-                char vizinho = aresta->id_no_alvo;
-                neighbourhood.insert(vizinho);
-            }
+        for (Aresta* aresta : mapa_nos[v]->arestas) {
+            char vizinho = aresta->id_no_alvo;
+            neighbourhood.insert(vizinho);
         }
     }
 
@@ -184,26 +201,39 @@ vector<char> updates_LC(map<char, No*>& mapa_nos, vector<char> LC, vector<char> 
 void randomized_adaptative_greedy(Grafo* grafo, int randomized) {
     
     map<char, No*> mapa_nos;
+    vector<char> LC;
 
+    // monto o mapa de nos para facilitar e a lista de candidatos
     for (No* no : grafo->lista_adj) {
         mapa_nos[no->id] = no;
+        LC.push_back(no->id);
     }
 
-    // euristica: ordenar os candidatos por grau de forma crescente
-    vector<char> LC = heuristic(grafo);
-
-    // solução
+    // euristica: inicialmente ordena os candidatos por grau do no
+    // depois altera para grau de cobertura de forma crescente
+    int k = 0;
+    LC = heuristic(LC, mapa_nos, k);
+    
     vector<char> S = vector<char>(); 
 
     while(!LC.empty()) {
+        k++;
+
+        //int alfa = 0.2; // 0.2 ou 0.5
+        //int rcl_size = max(1, int(alfa * LC.size()));
+        //int escolhido = rand() % rcl_size;
+        //cout << "ESCOLHIDO" << escolhido << endl;
+        //char no = LC[escolhido];
 
         char no = LC[0];
-        cout << "Escolhendo no: " << no << endl;
+        cout << "Escolhendo no: " << no  << endl;
 
         S.push_back(no);
-
-        LC.erase(LC.begin()); // apago no em questão
+        updates_domain(mapa_nos, S);
+        
+        LC.erase(LC.begin()); 
         LC = updates_LC(mapa_nos, LC, S);
+        LC = heuristic(LC, mapa_nos, k);
 
         cout << "S atual" << endl;
         for (char id : S)
