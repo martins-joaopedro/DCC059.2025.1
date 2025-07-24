@@ -2,27 +2,21 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <map>
+#include <set>
 
 #include "Gerenciador.h"
 using namespace std;
 
-int main(int argc, char *argv[]) {
+Grafo* ler_grafo(string file_name) {
     
     Grafo* grafo = new Grafo();
-
-    if(argc < 2) {
-        cout << "Nenhum arquivo de entrada foi informado." << endl;
-        cout << "Execucao finalizada!" << endl;
-        return 0;
-    }
     
-    // So lê um arquivo de entrada por vez?
-    string file_name = argv[1];
-    fstream file = fstream(file_name);
+    fstream file = fstream("../instancias/"+file_name);
     
     if (!file.is_open()) {
         cout << "Erro ao abrir o arquivo: " << file_name << endl;
-        return 1;
+        return nullptr;
     }
 
     int header = 0;
@@ -119,9 +113,128 @@ int main(int argc, char *argv[]) {
             }
         }        
     }
-    
-    Gerenciador::comandos(grafo);
 
     file.close();
+
+    return grafo;
+} 
+
+vector<char> heuristic(Grafo* grafo) {
+    vector<char> LC = vector<char>();
+    map<char, int> grau;
+    
+    // calcula o grau de cada nó
+    for(No* no : grafo->lista_adj) {
+        for(Aresta* aresta : no->arestas) {
+            if(grau.find(no->id) != grau.end())
+                grau[no->id]++; 
+            else grau[no->id] = 1; // inicializa o grau do nó se não existir
+        }
+    }
+
+    // ordena os nós por grau e monta a LC
+    while (!grau.empty()) {
+        auto max_it = grau.begin();
+        for (auto it = grau.begin(); it != grau.end(); ++it) {
+            if (it->second > max_it->second)
+                max_it = it;
+            
+        }
+
+        LC.push_back(max_it->first);
+        cout << "Escolhido: " << max_it->first << " com grau: " << max_it->second << endl;
+
+        // remove do map
+        grau.erase(max_it);
+    }
+
+    return LC;
+}
+
+// lógica adaptativa de atualização da lista LC 
+vector<char> updates_LC(map<char, No*>& mapa_nos, vector<char> LC, vector<char> S) {
+    
+    set<char> neighbourhood = set<char>();
+
+    // critério de atualização: removo os nós vizinhos de v
+    for (char v : S) {
+        if (mapa_nos.find(v) != mapa_nos.end()) {
+            No* no = mapa_nos[v];
+            for (Aresta* aresta : no->arestas) {
+                char vizinho = aresta->id_no_alvo;
+                neighbourhood.insert(vizinho);
+            }
+        }
+    }
+
+    vector<char> new_LC = vector<char>();
+
+    for (char v : LC) {
+        // se ele for vizinho de algum nó em S, não o adiciono
+        if(find(neighbourhood.begin(), neighbourhood.end(), v) != neighbourhood.end())
+            continue;
+        
+        new_LC.push_back(v);
+    }
+
+    return new_LC;
+}
+
+// algoritmo adaptativo guloso randomizado
+void randomized_adaptative_greedy(Grafo* grafo, int randomized) {
+    
+    map<char, No*> mapa_nos;
+
+    for (No* no : grafo->lista_adj) {
+        mapa_nos[no->id] = no;
+    }
+
+    // euristica: ordenar os candidatos por grau de forma crescente
+    vector<char> LC = heuristic(grafo);
+
+    // solução
+    vector<char> S = vector<char>(); 
+
+    while(!LC.empty()) {
+
+        char no = LC[0];
+        cout << "Escolhendo no: " << no << endl;
+
+        S.push_back(no);
+
+        LC.erase(LC.begin()); // apago no em questão
+        LC = updates_LC(mapa_nos, LC, S);
+
+        cout << "S atual" << endl;
+        for (char id : S)
+            cout << id << " ";
+        cout << endl;
+
+        cout << "LC atual: " << endl;
+        for (char v : LC)
+            cout << v << " ";
+        cout << endl;
+    }
+
+    cout << "Solucao encontrada: ";
+    for (char id : S) {
+        cout << id << " ";
+    }
+}
+
+void run(Grafo* grafo) {
+    randomized_adaptative_greedy(grafo, 0);
+}
+
+int main(int argc, char *argv[]) {
+    
+    string path = "../instancias/teste.txt";
+
+    Grafo * grafo = ler_grafo(path);
+    Gerenciador::imprimir_grafo(grafo);
+    
+    run(grafo);
+    delete grafo;
+            
     return 0;
 }
