@@ -285,8 +285,8 @@ void check_validity(vector<char> S, Grafo* grafo) {
     cout << endl;
 
     cout << "\nSolucao " << endl;
-    for(auto it = domain.begin(); it != domain.end(); *it++)
-        cout << *it << " ";
+    for(auto c : S)
+        cout << c << " ";
     cout << endl;
 
     if(S.size() == V.size() - domain.size())
