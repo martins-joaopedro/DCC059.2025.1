@@ -4,6 +4,8 @@
 #include <vector>
 #include <map>
 #include <set>
+#include <cstdlib>
+#include <ctime>
 
 #include "Gerenciador.h"
 using namespace std;
@@ -154,7 +156,7 @@ vector<char> heuristic(vector<char> LC, map<char, No*>& mapa_nos, int k) {
         }
 
         LC.push_back(max_it->first);
-        cout << "Escolhido: " << max_it->first << " com grau: " << max_it->second << endl;
+        //cout << "Escolhido: " << max_it->first << " com grau: " << max_it->second << endl;
 
         // remove do map
         grau.erase(max_it);
@@ -191,6 +193,10 @@ vector<char> updates_LC(map<char, No*>& mapa_nos, vector<char> LC, vector<char> 
         if(find(neighbourhood.begin(), neighbourhood.end(), v) != neighbourhood.end())
             continue;
         
+        // nao posso recolocar candidatos de S
+        if(find(S.begin(), S.end(), v) != S.end())
+            continue;
+
         new_LC.push_back(v);
     }
 
@@ -198,12 +204,13 @@ vector<char> updates_LC(map<char, No*>& mapa_nos, vector<char> LC, vector<char> 
 }
 
 // algoritmo adaptativo guloso randomizado
-void randomized_adaptative_greedy(Grafo* grafo, int randomized) {
+vector<char> randomized_adaptative_greedy(Grafo* grafo, float alfa) {
     
+    bool debug = false;
     map<char, No*> mapa_nos;
     vector<char> LC;
 
-    // monto o mapa de nos para facilitar e a lista de candidatos
+    // monta o mapa de nos para facilitar e a lista de candidatos
     for (No* no : grafo->lista_adj) {
         mapa_nos[no->id] = no;
         LC.push_back(no->id);
@@ -219,14 +226,13 @@ void randomized_adaptative_greedy(Grafo* grafo, int randomized) {
     while(!LC.empty()) {
         k++;
 
-        //int alfa = 0.2; // 0.2 ou 0.5
-        //int rcl_size = max(1, int(alfa * LC.size()));
-        //int escolhido = rand() % rcl_size;
-        //cout << "ESCOLHIDO" << escolhido << endl;
-        //char no = LC[escolhido];
-
-        char no = LC[0];
-        cout << "Escolhendo no: " << no  << endl;
+        int rcl_size = max(1, int(alfa * LC.size()));
+        int escolhido = rand() % rcl_size;
+        
+        char no = LC[escolhido];
+        
+        if(debug)
+            cout << "Escolhendo no: " << no  << endl;
 
         S.push_back(no);
         updates_domain(mapa_nos, S);
@@ -235,25 +241,74 @@ void randomized_adaptative_greedy(Grafo* grafo, int randomized) {
         LC = updates_LC(mapa_nos, LC, S);
         LC = heuristic(LC, mapa_nos, k);
 
-        cout << "S atual" << endl;
-        for (char id : S)
-            cout << id << " ";
-        cout << endl;
+        if(debug) {
+            cout << "S atual" << endl;
+            for (char id : S)
+                cout << id << " ";
+            cout << endl;
+        }
 
-        cout << "LC atual: " << endl;
-        for (char v : LC)
-            cout << v << " ";
-        cout << endl;
+        if(debug) {
+            cout << "LC atual: " << endl;
+            for (char v : LC)
+                cout << v << " ";
+            cout << endl;
+        }
     }
 
-    cout << "Solucao encontrada: ";
-    for (char id : S) {
-        cout << id << " ";
-    }
+    return S;
+}
+
+void check_validity(vector<char> S, Grafo* grafo) {
+
+    set<char> V = set<char>();
+    set<char> domain = set<char>();
+
+    // para cada v de S ver se ele domina todos
+    for(char v : S)
+        for(No* no : grafo->lista_adj) {
+            V.insert(no->id);
+            if(v == no->id)
+                for(Aresta* aresta : no->arestas)
+                    domain.insert(aresta->id_no_alvo);
+            
+        }
+    
+    cout << "\nDominio " << endl;
+    for(auto it = V.begin(); it != V.end(); *it++)
+        cout << *it << " ";
+    cout << endl;
+
+    cout << "\nDominados " << endl;
+    for(auto it = domain.begin(); it != domain.end(); *it++)
+        cout << *it << " ";
+    cout << endl;
+
+    cout << "\nSolucao " << endl;
+    for(auto it = domain.begin(); it != domain.end(); *it++)
+        cout << *it << " ";
+    cout << endl;
+
+    if(S.size() == V.size() - domain.size())
+        cout << "===> Solucao valida para " << S.size() << " candidatos! " << endl;
+    else cout << "===> Solucao invalida" << endl;
 }
 
 void run(Grafo* grafo) {
-    randomized_adaptative_greedy(grafo, 0);
+    
+
+    float alphas[] = {0.5, 0.2, 0.9};
+    int MAX_IT = 1;
+
+    for (auto alpha : alphas) {
+        cout << "Alpha: " << alpha << endl;
+        for (int i=0; i<MAX_IT; i++) {
+            srand(time(0));
+            //cout << "Iteração: " << i << endl;
+            vector<char> S = randomized_adaptative_greedy(grafo, alpha);
+            check_validity(S, grafo);
+        }
+    }
 }
 
 int main(int argc, char *argv[]) {
