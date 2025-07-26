@@ -6,15 +6,15 @@
 #include <set>
 #include <cstdlib>
 #include <ctime>
-#include <windows.h>
+//#include <windows.h>
 
 #include "Gerenciador.h"
 using namespace std;
 
-void setColor(WORD color) {
-    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(hOut, color);
-}
+// void setColor(WORD color) {
+//     HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+//     SetConsoleTextAttribute(hOut, color);
+// }
 
 Grafo* ler_grafo(string file_name) {
     
@@ -328,7 +328,7 @@ void run(Grafo* grafo) {
     srand(time(0));
 
     for (auto alpha : alphas) {
-        setColor(1 + alpha * 10);
+        //setColor(1 + alpha * 10);
         cout << "Alpha: " << alpha << endl;
         sols[alpha] = vector<int>();
         for (int i=0; i<MAX_IT; i++) {
@@ -364,8 +364,9 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, float* alphas, 
     vector<char> solBest, s, LC;
     int k, i=1;
 
-    float* P = new float[m];
-    float* M = new float[m];
+    float* P = new float[m]; //probabilidade de alphas
+    float* Q = new float[m]; 
+    float* M = new float[m];//média da qualidade
 
     while(i < nIter){
         if(i % bloco == 0){//atualiza prob
