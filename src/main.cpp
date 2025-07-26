@@ -324,7 +324,7 @@ bool check_validity(vector<char> S, Grafo* grafo) {
 void run(Grafo* grafo) {
     map<float, vector<int>> sols;
     float alphas[] = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6};
-    int MAX_IT = 5;
+    int MAX_IT = 10;
     srand(time(0));
 
     for (auto alpha : alphas) {
@@ -342,6 +342,14 @@ void run(Grafo* grafo) {
         }
         cout << endl;
     }
+
+    for(auto alpha : alphas ) {
+        cout << "[ Alpha: " << alpha << " ] ";
+        for(auto S_size : sols[alpha])
+            cout << S_size << " ";
+        cout << endl;
+    } 
+
 }
 
 int main(int argc, char *argv[]) {
