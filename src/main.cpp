@@ -323,3 +323,35 @@ int main(int argc, char *argv[]) {
             
     return 0;
 }
+
+//algoritmo randomizado adaptativo reativo
+vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, float* alphas, int m, int nIter, int bloco){
+    vector<char> solBest, s, LC;
+    int k, i=1;
+
+    float* P = new float[m];
+    float* M = new float[m];
+
+    while(i < nIter){
+        if(i % bloco == 0){//atualiza prob
+        }
+        LC = {};//ordenaCandidatos
+        i++;
+        s ={};
+        float alpha = {};//escolheAlfa(P);
+        // do{
+        //     k = randomRange(0, α *LC.count()-1));
+        //     if(s ⋃ LC[k] ∈ F){
+        //      s = s ⋃ LC[k];
+        //     }
+        //     atualizaListaCandidatos(LC, k);
+        // } while s não finalizada;
+        
+        // atualizaMedias(M, s, alpha );
+        
+        // if (s.val < solBest.val)
+        //     solBest = s;
+    }
+
+    return solBest;
+}
