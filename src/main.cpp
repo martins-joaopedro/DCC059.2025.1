@@ -450,7 +450,7 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
             continue;
         }
 
-        cout<< "\n\e[31mALFA----------------------------------->: "<< alphas[index_alpha] <<"\e[0m"<< endl;
+        cout<< "\n\e[30mALFA----------------------------------->: "<< alphas[index_alpha] <<"\e[0m"<< endl;
         count[index_alpha]++;
         
         s = randomized_adaptative_greedy(grafo, alphas[index_alpha]);
@@ -472,14 +472,15 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
 }
 
 void teste(Grafo* g){
-    int m = 6, nIter = 20, bloco = 2;
+    int m = 6, nIter = 10000, bloco = 50;
     vector<float> alphas = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6};
     vector<char> s = randomized_adaptative_reactive_greedy(g, alphas, m, nIter, bloco);
     //vector<char> s = randomized_adaptative_greedy(g, 1.5);
-    cout << "s:"<< s.size();
+    cout << "\n\e[35mMELHOR SOLUÇÃO:"<< s.size()<<endl;
     for(auto no : s){
         cout << no<<" ";
     }
+    cout<<"\e0m\n";
 }
 
 int main(int argc, char *argv[]) {
