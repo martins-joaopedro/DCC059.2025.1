@@ -7,8 +7,8 @@
 #include <cstdlib>
 #include <ctime>
 //#include <windows.h>
+#include <iomanip>
 
-#include <algorithm>
 #include "Gerenciador.h"
 //#include "Gulosos.h"
 using namespace std;
@@ -354,41 +354,68 @@ void run(Grafo* grafo) {
 
 }
 
-void updates_probability(vector<float>& P, vector<float>& M, int m){
+void updates_probability(vector<float>& P, vector<float>& M, int m, int solBest_size){
     vector<float> scores (m, 0.0);//transfoma media em pontuação, menores medias tem pontuação maior
-    float sum_scores=0;//soma dos sores de todos os alphas
+    float sum_scores = 0.0;//soma dos scores de todos os alphas
     int i;
 
     for(i=0; i<m; i++){
-        if(M[i] !=0)
-            scores[i] = 1/M[i];
+        if(M[i] != 0)
+            scores[i] = float(solBest_size) / M[i];
         else
-            scores[i]=0;
+            scores[i]=0.0;
         
         sum_scores += scores[i];
     }
 
     for(i=0; i<m; i++){
-        P[i] = scores[i]/sum_scores;
+        if(sum_scores > 0.0)
+            P[i] = scores[i]/sum_scores;
+        else P[i] = 1.0f / m;
+        cout<<"score["<<i<<"]: "<< scores[i]<<endl<<"sum: "<< sum_scores<<endl;
     }
 }
 
 void updates_means(vector<float>& M, vector<int>& count, vector<char>& s, int i){
-    // int i = 0;
-    // M[i] = (M[i] * count[i] + s.size()) / (count[i] + 1);
     M[i] = ((M[i] * count[i]) + s.size()) / (count[i]);
     cout << "M[i]: "<<M[i]<< endl;
 }
 
-//escolhe o alfa com maior probabilidade
-int choses_alpha(vector<float>& P){
-    auto it = max_element(P.begin(), P.end());//acha maior valor de probabilidade
-    int index = -1;
+int choose_alpha(vector<float>& P){
+    float r = float(rand() % 100) / 100.0;//numero random de 0 a 1
+    
+    vector<float> P_interval (P.size() + 1);//vetor de intervalo probabilidades
+    P_interval[0] = 0.0;
 
-    if (it != P.end()){
-        index = distance(P.begin(), it);//acha o index do maior valor
+    for(int i=0; i<P.size(); i++){
+        P_interval[i+1] = P_interval[i] + P[i];//acumula probabilidades
     }
-    return index;
+
+    for(int i=0; i<P.size(); i++){
+        if(r > P_interval[i] && r < P_interval[i+1])
+            return i;
+    }
+    return -1;
+}
+
+void imprime_prob(vector<float>& P, vector<float>& M,vector<int> count, vector<int> Q, int m){
+    cout << endl << left; // alinha o texto à esquerda
+    
+    // Cabeçalho
+    cout << setw(15) << "P" 
+        << setw(15) << "M"
+        << setw(15) << "Q"
+        << setw(15) << "count"
+        << endl;
+    std::cout << string(60, '-') << endl;
+
+    for(int i = 0; i < m; i++){
+        cout << setw(15) << P[i]
+        << setw(15) << M[i]
+        << setw(15) << Q[i]
+        << setw(15) << count[i]
+        << endl;
+    }
 }
 
 //algoritmo randomizado adaptativo reativo
@@ -396,87 +423,56 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
     vector<char> solBest, s;
     int i=0;
 
-    vector<float> P (m,0.0); //probabilidade de alphas
+    vector<float> P (m, (1.0/m)); //probabilidade de alphas
     vector<float> M (m,0.0);//média da qualidade
     vector<int> count (m,0.0);//contagem de iterações de cada alpha
     vector<int> Q (m,0.0);//qualidadde de cada solução
     int index_alpha;
 
-    //initializes_arrays(P, M, count, m);
-    cout<<"\e[44mPrimeira it-------------------------\e[0m"<<endl;
-    for(index_alpha=0; index_alpha<m; index_alpha++){
-        cout<< "\e[41m-----------------------------alpha: \e[0m "<<alphas[index_alpha]<<endl;
-        count[index_alpha]++;
-        s = randomized_adaptative_greedy(grafo, alphas[index_alpha]);
-        
-        bool isValid = check_validity(s, grafo);
-        if(true){
-            Q[index_alpha] += s.size();
-            M[index_alpha] = Q[index_alpha] / count[index_alpha];
-            updates_probability(P,M,m);
-            
-            if(solBest.empty() || s.size() < solBest.size())
-                solBest = s;
-        }
-        else cout << "SOLUÇÃO INVALIDA" << endl;
-    }
-    cout<<"\e[42mTabela------------------------\e[0m"<<endl;
-    for(int j=0; j<m; j++){
-        cout<<"P["<<j<<"]: "<< P[j]<<endl;
-        cout<<"M["<<j<<"]: "<< M[j]<<endl;
-        cout<<"count["<<j<<"]: "<< count[j]<<endl;
-        cout<<"Q["<<j<<"]: "<< Q[j]<<endl<<endl;
-
-    }
-
-    cout<<"\e[44mFIM Primeira it------------------------\e[0m"<<endl;
-
-
+    srand(time(0));//inicializa semente com hora atual
 
     while(i < nIter){
-        cout<< "\e[41mi: \e[0m "<<i<<endl;
-        if(i != 0 && i % bloco == 0){//atualiza prob
-            updates_probability(P,M,m);
-            cout << "atualizando";
-        }
-        i++;
-        index_alpha = choses_alpha(P);
-        cout<< "\e[41m-------------------------------------alpha: \e[0m "<<alphas[index_alpha]<<endl;
-        count[index_alpha]++;
-        s = randomized_adaptative_greedy(grafo, alphas[index_alpha]);
+        cout<<"\e[34m========================================================== i = "
+            << i <<" ==========================================================\e[0m"<<endl;
         
+        imprime_prob(P,M,Q,count,m);
+
+        if(i != 0 && i % bloco == 0){//atualiza prob
+            updates_probability(P, M, m, solBest.size());
+            cout << "Atualizando Probabilidades\n\n";
+        }
+
+        i++;
+        index_alpha = choose_alpha(P);
+
+        if(index_alpha == -1){
+            cout << "Alfa invalido" << endl;
+            continue;
+        }
+
+        cout<< "\n\e[31mALFA----------------------------------->: "<< alphas[index_alpha] <<"\e[0m"<< endl;
+        count[index_alpha]++;
+        
+        s = randomized_adaptative_greedy(grafo, alphas[index_alpha]);
         bool isValid = check_validity(s, grafo);
-        if(true){
+
+        if(isValid){//perguntar se tem que calcular mesmo se nao for valida, soluçoes vazias sao validas?
             Q[index_alpha] += s.size();
-            M[index_alpha] = Q[index_alpha] / count[index_alpha];
+            M[index_alpha] = float(Q[index_alpha]) / count[index_alpha];
             
             if(solBest.empty() || s.size() < solBest.size())
                 solBest = s;
         }
         else cout << "SOLUÇÃO INVALIDA" << endl;
 
-
-        // LC = {};//ordenaCandidatos
-        // i++;
-        // s ={};
-        // int alpha = choses_alpha(P);
-        
-        // while(true){
-        //     cout<<"guloso!!!!!!!"<<endl;//aqui chama o randomizado
-        //     break;
-        // } 
-        
-        // atualizaMedias(M, s, alpha );
-        
-        // if (s.val < solBest.val)
-        //     solBest = s;
+        cout << endl;
     }
-
 
     return solBest;
 }
+
 void teste(Grafo* g){
-    int m = 6, nIter = 10, bloco = 2;
+    int m = 6, nIter = 20, bloco = 2;
     vector<float> alphas = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6};
     vector<char> s = randomized_adaptative_reactive_greedy(g, alphas, m, nIter, bloco);
     //vector<char> s = randomized_adaptative_greedy(g, 1.5);
@@ -485,6 +481,7 @@ void teste(Grafo* g){
         cout << no<<" ";
     }
 }
+
 int main(int argc, char *argv[]) {
     
     for(int i=1; i<argc; i++) {
