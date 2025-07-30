@@ -481,11 +481,25 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
     return solBest;
 }
 
-void teste(Grafo* g){
-    int m = 6, nIter = 10, bloco = 2;
+void run_randomized_adaptative_reactive_greedy(Grafo* g){
+    int m, nIter, bloco;
     vector<float> alphas = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6};
 
-    cout<< "\e[31m=============================================================== INICIO"
+    cout << "Numero de iterações: ";
+    cin >> nIter;
+
+    cout << "Tamanho do bloco: ";
+    cin >> bloco;
+
+    cout << "Quantidade de alfas: ";
+    cin >> m;
+    
+    for(int i = 0; i < m; i++){
+        cout << "Alfa[" << i << "]: ";
+        cin >> alphas[i];
+    }
+
+    cout<< "\n\e[31m=============================================================== INICIO"
         << " ===============================================================\e[0m"<<endl;
     
     vector<char> s = randomized_adaptative_reactive_greedy(g, alphas, m, nIter, bloco);
@@ -508,7 +522,7 @@ int main(int argc, char *argv[]) {
         Gerenciador::imprimir_grafo(grafo);
         
         //run(grafo);
-        teste(grafo);
+        run_randomized_adaptative_reactive_greedy(grafo);
 
         delete grafo;
     }
