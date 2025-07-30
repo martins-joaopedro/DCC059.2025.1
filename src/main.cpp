@@ -367,19 +367,25 @@ void updates_probability(vector<float>& P, vector<float>& M, int m, int solBest_
         
         sum_scores += scores[i];
     }
+    cout << endl << left; // alinha o texto à esquerda
+    
+    // Cabeçalho
+    cout << "SCORES: ";
 
     for(i=0; i<m; i++){
         if(sum_scores > 0.0)
             P[i] = scores[i]/sum_scores;
         else P[i] = 1.0f / m;
-        cout<<"score["<<i<<"]: "<< scores[i]<<endl<<"sum: "<< sum_scores<<endl;
+
+        cout << scores[i] <<" ; ";
     }
+    cout << endl << "SUM_SCORES: "<<sum_scores<<endl;
 }
 
-void updates_means(vector<float>& M, vector<int>& count, vector<char>& s, int i){
-    M[i] = ((M[i] * count[i]) + s.size()) / (count[i]);
-    cout << "M[i]: "<<M[i]<< endl;
-}
+// void updates_means(vector<float>& M, vector<int>& count, vector<char>& s, int i){
+//     M[i] = ((M[i] * count[i]) + s.size()) / (count[i]);
+//     cout << "M[i]: "<<M[i]<< endl;
+// }
 
 int choose_alpha(vector<float>& P){
     float r = float(rand() % 100) / 100.0;//numero random de 0 a 1
@@ -398,7 +404,7 @@ int choose_alpha(vector<float>& P){
     return -1;
 }
 
-void imprime_prob(vector<float>& P, vector<float>& M,vector<int> count, vector<int> Q, int m){
+void imprime_prob(vector<float>& P, vector<float>& M,vector<int>& Q, vector<int>& count, int m){
     cout << endl << left; // alinha o texto à esquerda
     
     // Cabeçalho
@@ -407,7 +413,8 @@ void imprime_prob(vector<float>& P, vector<float>& M,vector<int> count, vector<i
         << setw(15) << "Q"
         << setw(15) << "count"
         << endl;
-    std::cout << string(60, '-') << endl;
+    
+        cout << string(60, '-') << endl;
 
     for(int i = 0; i < m; i++){
         cout << setw(15) << P[i]
@@ -425,8 +432,8 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
 
     vector<float> P (m, (1.0/m)); //probabilidade de alphas
     vector<float> M (m,0.0);//média da qualidade
-    vector<int> count (m,0.0);//contagem de iterações de cada alpha
     vector<int> Q (m,0.0);//qualidadde de cada solução
+    vector<int> count (m,0.0);//contagem de iterações de cada alpha
     int index_alpha;
 
     srand(time(0));//inicializa semente com hora atual
@@ -438,8 +445,9 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
         imprime_prob(P,M,Q,count,m);
 
         if(i != 0 && i % bloco == 0){//atualiza prob
+            cout << "\nAtualizando Probabilidades\n";
             updates_probability(P, M, m, solBest.size());
-            cout << "Atualizando Probabilidades\n\n";
+            imprime_prob(P,M,Q,count,m);
         }
 
         i++;
@@ -460,11 +468,13 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
             Q[index_alpha] += s.size();
             M[index_alpha] = float(Q[index_alpha]) / count[index_alpha];
             
-            if(solBest.empty() || s.size() < solBest.size())
+            if(solBest.empty() || s.size() < solBest.size()){
                 solBest = s;
+            }
         }
         else cout << "SOLUÇÃO INVALIDA" << endl;
 
+        cout << "\n\e[30mSOL BEST----------------------------------->: "<<solBest.size()<<"\e[0m\n";
         cout << endl;
     }
 
@@ -472,15 +482,21 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
 }
 
 void teste(Grafo* g){
-    int m = 6, nIter = 10000, bloco = 50;
+    int m = 6, nIter = 10, bloco = 2;
     vector<float> alphas = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6};
+
+    cout<< "\e[31m=============================================================== INICIO"
+        << " ===============================================================\e[0m"<<endl;
+    
     vector<char> s = randomized_adaptative_reactive_greedy(g, alphas, m, nIter, bloco);
-    //vector<char> s = randomized_adaptative_greedy(g, 1.5);
-    cout << "\n\e[35mMELHOR SOLUÇÃO:"<< s.size()<<endl;
-    for(auto no : s){
+    cout << "\e[35mMELHOR SOLUÇÃO: "<< s.size()<<endl;
+    
+    for(auto no : s)
         cout << no<<" ";
-    }
-    cout<<"\e0m\n";
+    cout << endl;
+
+    cout<< "\n\e[31m=============================================================== FIM"
+        << " ===============================================================\e[0m"<<endl;
 }
 
 int main(int argc, char *argv[]) {
