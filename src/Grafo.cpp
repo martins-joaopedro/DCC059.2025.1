@@ -1033,6 +1033,36 @@ bool Grafo::conjunto_independente(const vector<char> &D)
     return true;
 }
 
+void Grafo::reorganiza(vector<pair<char, int>> &vertice_grau_ordenado)
+{
+    for (No *no : lista_adj)
+    {
+        auto it_no = find_if(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(),
+                             [id = no->id](const pair<char, int> &p)
+                             { return p.first == id; });
+
+        if (it_no == vertice_grau_ordenado.end())
+            continue;
+
+        for (Aresta *a : no->arestas)
+        {
+            char vizinho_id = a->id_no_alvo;
+            auto it_viz = find_if(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(),
+                                  [vizinho_id](const pair<char, int> &p)
+                                  { return p.first == vizinho_id; });
+
+            if (it_viz == vertice_grau_ordenado.end())
+            {
+                if (it_no->second > 0)
+                    it_no->second--;
+            }
+        }
+    }
+
+    sort(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(), [](const auto &a, const auto &b)
+         { return a.second > b.second; }); // ordena os vértices em ordem decrescente
+}
+
 vector<char> Grafo::heuristica_gulosa()
 {
     clock_t start_time = clock();
@@ -1047,40 +1077,43 @@ vector<char> Grafo::heuristica_gulosa()
     sort(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(), [](const auto &a, const auto &b)
          { return a.second > b.second; }); // ordena os vértices em ordem decrescente
 
-    for (int i = 0; i < vertice_grau_ordenado.size(); i++)
-    {
-        cout << vertice_grau_ordenado[i].first << " - " << vertice_grau_ordenado[i].second << endl;
-    } // impressão para ver ordenação de acordo com o grau
-
+    int i = 0;
+    cout << "Comeca iteracao" << endl;
     while (!conjunto_dominante(D) && !vertice_grau_ordenado.empty())
     {
-        char candidato = vertice_grau_ordenado[0].first;
-        vector<char> vizinhos = get_vizinhos(candidato);
+        if (i != 0)
+            reorganiza(vertice_grau_ordenado);
+        
+        pair<char, int> candidato = vertice_grau_ordenado[0];
+        vector<char> vizinhos = get_vizinhos(candidato.first);
 
-        bool vizinho_em_D = false;
-        for (char v : vizinhos)
+        D.push_back(candidato.first);
+        vertice_grau_ordenado.erase(remove(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(), candidato), vertice_grau_ordenado.end());
+
+        if (!vizinhos.empty())
         {
-            if (find(D.begin(), D.end(), v) != D.end())
+            for (char v : vizinhos)
             {
-                vizinho_em_D = true;
-                break;
+                for (auto it = vertice_grau_ordenado.begin(); it != vertice_grau_ordenado.end();)
+                {
+                    if (it->first == v)
+                    {
+                        cout << it->first << '-' << it->second << endl;
+                        it = vertice_grau_ordenado.erase(it);
+                    }
+                    else
+                        ++it;
+                }
             }
         }
-
-        // Se nenhum vizinho está em D, então o candidato pode ser um bom vértice para adicionar
-        if (!vizinho_em_D)
-        {
-            D.push_back(candidato);
-        }
-
-        vertice_grau_ordenado.erase(vertice_grau_ordenado.begin());
+        i++;
     }
 
     for (char i : D)
     {
         cout << i << " - ";
     }
-    
+
     clock_t end_time = clock();
     double elapsed_time = double(end_time - start_time) / CLOCKS_PER_SEC;
     cout << "Tempo de execucao: " << elapsed_time << " segundos" << endl;
