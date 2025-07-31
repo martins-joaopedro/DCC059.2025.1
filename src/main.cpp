@@ -404,12 +404,13 @@ int choose_alpha(vector<float>& P){
     return -1;
 }
 
-void imprime_prob(vector<float>& P, vector<float>& M,vector<int>& Q, vector<int>& count, int m){
+void imprime_prob(vector<float>& alphas, vector<float>& P, vector<float>& M,vector<int>& Q, vector<int>& count, int m){
     cout << endl << left; // alinha o texto à esquerda
     
     // Cabeçalho
-    cout << setw(15) << "P" 
-        << setw(15) << "M"
+    cout << setw(10) << "Alfa"
+        << setw(15) << "Probability" 
+        << setw(15) << "Mean"
         << setw(15) << "Q"
         << setw(15) << "count"
         << endl;
@@ -417,11 +418,12 @@ void imprime_prob(vector<float>& P, vector<float>& M,vector<int>& Q, vector<int>
         cout << string(60, '-') << endl;
 
     for(int i = 0; i < m; i++){
-        cout << setw(15) << P[i]
-        << setw(15) << M[i]
-        << setw(15) << Q[i]
-        << setw(15) << count[i]
-        << endl;
+        cout << setw(10) << alphas[i]
+            << setw(15) << P[i]
+            << setw(15) << M[i]
+            << setw(15) << Q[i]
+            << setw(15) << count[i]
+            << endl;
     }
 }
 
@@ -442,12 +444,12 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
         cout<<"\e[34m========================================================== i = "
             << i <<" ==========================================================\e[0m"<<endl;
         
-        imprime_prob(P,M,Q,count,m);
+        imprime_prob(alphas,P,M,Q,count,m);
 
         if(i != 0 && i % bloco == 0){//atualiza prob
-            cout << "\nAtualizando Probabilidades\n";
+            cout << "\n\e[36m---------------- Atualizando Probabilidades ----------------\e[0m\n";
             updates_probability(P, M, m, solBest.size());
-            imprime_prob(P,M,Q,count,m);
+            imprime_prob(alphas,P,M,Q,count,m);
         }
 
         i++;
@@ -458,7 +460,7 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
             continue;
         }
 
-        cout<< "\n\e[30mALFA----------------------------------->: "<< alphas[index_alpha] <<"\e[0m"<< endl;
+        cout<< "\n\e[33mALFA----------------------------------->: "<< alphas[index_alpha] <<"\e[0m"<< endl;
         count[index_alpha]++;
         
         s = randomized_adaptative_greedy(grafo, alphas[index_alpha]);
@@ -474,7 +476,7 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
         }
         else cout << "SOLUÇÃO INVALIDA" << endl;
 
-        cout << "\n\e[30mSOL BEST----------------------------------->: "<<solBest.size()<<"\e[0m\n";
+        cout << "\n\e[32mBEST SOLUTION-------------------------------->: "<<solBest.size()<<"\e[0m\n";
         cout << endl;
     }
 
@@ -482,25 +484,25 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
 }
 
 void run_randomized_adaptative_reactive_greedy(Grafo* g){
-    int m, nIter, bloco;
+    int m=6, nIter=10, bloco=4;
     vector<float> alphas = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6};
 
-    cout << "Numero de iterações: ";
-    cin >> nIter;
+    // cout << "Numero de iterações: ";
+    // cin >> nIter;
 
-    cout << "Tamanho do bloco: ";
-    cin >> bloco;
+    // cout << "Tamanho do bloco: ";
+    // cin >> bloco;
 
-    cout << "Quantidade de alfas: ";
-    cin >> m;
+    // cout << "Quantidade de alfas: ";
+    // cin >> m;
     
-    for(int i = 0; i < m; i++){
-        cout << "Alfa[" << i << "]: ";
-        cin >> alphas[i];
-    }
+    // for(int i = 0; i < m; i++){
+    //     cout << "Alfa[" << i << "]: ";
+    //     cin >> alphas[i];
+    // }
 
-    cout<< "\n\e[31m=============================================================== INICIO"
-        << " ===============================================================\e[0m"<<endl;
+    cout<< "\n\e[31m========================================================= INICIO"
+        << " ==========================================================\e[0m"<<endl;
     
     vector<char> s = randomized_adaptative_reactive_greedy(g, alphas, m, nIter, bloco);
     cout << "\e[35mMELHOR SOLUÇÃO: "<< s.size()<<endl;
@@ -509,8 +511,8 @@ void run_randomized_adaptative_reactive_greedy(Grafo* g){
         cout << no<<" ";
     cout << endl;
 
-    cout<< "\n\e[31m=============================================================== FIM"
-        << " ===============================================================\e[0m"<<endl;
+    cout<< "\n\e[31m========================================================== FIM"
+        << " ===========================================================\e[0m"<<endl;
 }
 
 int main(int argc, char *argv[]) {
