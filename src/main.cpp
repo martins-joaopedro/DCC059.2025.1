@@ -367,11 +367,8 @@ void updates_probability(vector<float>& P, vector<float>& M, int m, int solBest_
         
         sum_scores += scores[i];
     }
-    cout << endl << left; // alinha o texto à esquerda
     
-    // Cabeçalho
-    cout << "SCORES: ";
-
+    cout << "\nSCORES: ";
     for(i=0; i<m; i++){
         if(sum_scores > 0.0)
             P[i] = scores[i]/sum_scores;
@@ -382,10 +379,10 @@ void updates_probability(vector<float>& P, vector<float>& M, int m, int solBest_
     cout << endl << "SUM_SCORES: "<<sum_scores<<endl;
 }
 
-// void updates_means(vector<float>& M, vector<int>& count, vector<char>& s, int i){
-//     M[i] = ((M[i] * count[i]) + s.size()) / (count[i]);
-//     cout << "M[i]: "<<M[i]<< endl;
-// }
+void updates_means(vector<float>& M, vector<int>& sum_sols, vector<int>& count, vector<char>& s, int index_alpha){
+    sum_sols[index_alpha] += s.size();
+    M[index_alpha] = float(sum_sols[index_alpha]) / count[index_alpha];
+}
 
 int choose_alpha(vector<float>& P){
     float r = float(rand() % 100) / 100.0;//numero random de 0 a 1
@@ -404,14 +401,14 @@ int choose_alpha(vector<float>& P){
     return -1;
 }
 
-void imprime_prob(vector<float>& alphas, vector<float>& P, vector<float>& M,vector<int>& Q, vector<int>& count, int m){
+void imprime_prob(vector<float>& alphas, vector<float>& P, vector<float>& M,vector<int>& sum_sols, vector<int>& count, int m){
     cout << endl << left; // alinha o texto à esquerda
     
     // Cabeçalho
     cout << setw(10) << "Alfa"
         << setw(15) << "Probability" 
         << setw(15) << "Mean"
-        << setw(15) << "Q"
+        << setw(15) << "sum_sols"
         << setw(15) << "count"
         << endl;
     
@@ -421,7 +418,7 @@ void imprime_prob(vector<float>& alphas, vector<float>& P, vector<float>& M,vect
         cout << setw(10) << alphas[i]
             << setw(15) << P[i]
             << setw(15) << M[i]
-            << setw(15) << Q[i]
+            << setw(15) << sum_sols[i]
             << setw(15) << count[i]
             << endl;
     }
@@ -430,26 +427,46 @@ void imprime_prob(vector<float>& alphas, vector<float>& P, vector<float>& M,vect
 //algoritmo randomizado adaptativo reativo
 vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& alphas, int m, int nIter, int bloco){
     vector<char> solBest, s;
-    int i=0;
-
+    
     vector<float> P (m, (1.0/m)); //probabilidade de alphas
     vector<float> M (m,0.0);//média da qualidade
-    vector<int> Q (m,0.0);//qualidadde de cada solução
-    vector<int> count (m,0.0);//contagem de iterações de cada alpha
-    int index_alpha;
-
+    vector<int> sum_sols (m,0.0);//somatorio do tamanho da solução
+    vector<int> count (m,0.0);//contagem de quantas vezes cada alpha foi usado
+    int index_alpha = 0;//index para acessar alfa nos vetores
+    
     srand(time(0));//inicializa semente com hora atual
+    int i=0;
 
+    for(; index_alpha<m; index_alpha++){
+        cout<< "\n\e[33mALFA----------------------------------->: "<< alphas[index_alpha] <<"\e[0m"<< endl;
+        count[index_alpha]++;
+
+        s = randomized_adaptative_greedy(grafo, alphas[index_alpha]);
+        bool isValid = check_validity(s, grafo);
+        if(isValid){//perguntar se tem que calcular mesmo se nao for valida, soluçoes vazias sao validas?
+            updates_means(M,sum_sols,count,s,index_alpha);
+            
+            if(solBest.empty() || s.size() < solBest.size()){
+                solBest = s;
+            }
+        }
+        else cout << "SOLUÇÃO INVALIDA" << endl;
+
+        cout << "\n\e[36m---------------- Atualizando Probabilidades ----------------\e[0m\n";
+            updates_probability(P, M, m, solBest.size());
+            imprime_prob(alphas,P,M,sum_sols,count,m);
+    }
+    
     while(i < nIter){
         cout<<"\e[34m========================================================== i = "
             << i <<" ==========================================================\e[0m"<<endl;
         
-        imprime_prob(alphas,P,M,Q,count,m);
+        imprime_prob(alphas,P,M,sum_sols,count,m);
 
         if(i != 0 && i % bloco == 0){//atualiza prob
             cout << "\n\e[36m---------------- Atualizando Probabilidades ----------------\e[0m\n";
             updates_probability(P, M, m, solBest.size());
-            imprime_prob(alphas,P,M,Q,count,m);
+            imprime_prob(alphas,P,M,sum_sols,count,m);
         }
 
         i++;
@@ -467,8 +484,7 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
         bool isValid = check_validity(s, grafo);
 
         if(isValid){//perguntar se tem que calcular mesmo se nao for valida, soluçoes vazias sao validas?
-            Q[index_alpha] += s.size();
-            M[index_alpha] = float(Q[index_alpha]) / count[index_alpha];
+            updates_means(M,sum_sols,count,s,index_alpha);
             
             if(solBest.empty() || s.size() < solBest.size()){
                 solBest = s;
@@ -484,7 +500,7 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
 }
 
 void run_randomized_adaptative_reactive_greedy(Grafo* g){
-    int m=6, nIter=10, bloco=4;
+    int m=6, nIter=10, bloco=2;
     vector<float> alphas = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6};
 
     // cout << "Numero de iterações: ";
