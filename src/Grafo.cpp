@@ -13,6 +13,8 @@
 #include <functional>
 #include <algorithm>
 #include <ctime>
+#include <unordered_map>
+#include <unordered_set>
 
 using namespace std;
 
@@ -1035,32 +1037,42 @@ bool Grafo::conjunto_independente(const vector<char> &D)
 
 void Grafo::reorganiza(vector<pair<char, int>> &vertice_grau_ordenado)
 {
-    for (No *no : lista_adj)
+    unordered_map<char, int> novo_grau;
+    for (const auto &par : vertice_grau_ordenado)
     {
-        auto it_no = find_if(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(),
-                             [id = no->id](const pair<char, int> &p)
-                             { return p.first == id; });
-
-        if (it_no == vertice_grau_ordenado.end())
-            continue;
-
-        for (Aresta *a : no->arestas)
-        {
-            char vizinho_id = a->id_no_alvo;
-            auto it_viz = find_if(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(),
-                                  [vizinho_id](const pair<char, int> &p)
-                                  { return p.first == vizinho_id; });
-
-            if (it_viz == vertice_grau_ordenado.end())
-            {
-                if (it_no->second > 0)
-                    it_no->second--;
-            }
-        }
+        novo_grau[par.first] = 0; // inicializa com 0, para calcular o "grau" depois
     }
 
-    sort(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(), [](const auto &a, const auto &b)
-         { return a.second > b.second; }); // ordena os vértices em ordem decrescente
+    // Recalcula grau baseado apenas nos vértices restantes
+    for (No *no : lista_adj)
+    {
+        char id = no->id;
+
+        // Se o vértice já saiu, deixa o loop achar outro v
+        if (novo_grau.find(id) == novo_grau.end())
+            continue;
+
+        int grau = 0;
+        for (Aresta *a : no->arestas)
+        {
+            if (novo_grau.find(a->id_no_alvo) != novo_grau.end())
+                grau++;
+        }
+
+        novo_grau[id] = grau;
+    }
+
+    // Atualiza o vetor original com os novos graus
+    for (auto &par : vertice_grau_ordenado)
+    {
+        par.second = novo_grau[par.first];
+    }
+
+    sort(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(),
+         [](const auto &a, const auto &b)
+         {
+             return a.second > b.second;
+         });
 }
 
 vector<char> Grafo::heuristica_gulosa()
@@ -1078,12 +1090,11 @@ vector<char> Grafo::heuristica_gulosa()
          { return a.second > b.second; }); // ordena os vértices em ordem decrescente
 
     int i = 0;
-    cout << "Comeca iteracao" << endl;
     while (!conjunto_dominante(D) && !vertice_grau_ordenado.empty())
     {
         if (i != 0)
             reorganiza(vertice_grau_ordenado);
-        
+
         pair<char, int> candidato = vertice_grau_ordenado[0];
         vector<char> vizinhos = get_vizinhos(candidato.first);
 
@@ -1097,10 +1108,7 @@ vector<char> Grafo::heuristica_gulosa()
                 for (auto it = vertice_grau_ordenado.begin(); it != vertice_grau_ordenado.end();)
                 {
                     if (it->first == v)
-                    {
-                        cout << it->first << '-' << it->second << endl;
                         it = vertice_grau_ordenado.erase(it);
-                    }
                     else
                         ++it;
                 }
