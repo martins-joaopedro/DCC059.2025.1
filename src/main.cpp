@@ -355,6 +355,8 @@ void run(Grafo* grafo) {
 }
 
 void updates_probability(vector<float>& P, vector<float>& M, int m, int solBest_size){
+    cout << "\n\e[36m---------------- Atualizando Probabilidades ----------------\e[0m\n";
+   
     vector<float> scores (m, 0.0);//transfoma media em pontuação, menores medias tem pontuação maior
     float sum_scores = 0.0;//soma dos scores de todos os alphas
     int i;
@@ -372,7 +374,8 @@ void updates_probability(vector<float>& P, vector<float>& M, int m, int solBest_
     for(i=0; i<m; i++){
         if(sum_scores > 0.0)
             P[i] = scores[i]/sum_scores;
-        else P[i] = 1.0f / m;
+        else 
+            P[i] = 1.0f / m;
 
         cout << scores[i] <<" ; ";
     }
@@ -380,24 +383,24 @@ void updates_probability(vector<float>& P, vector<float>& M, int m, int solBest_
 }
 
 void updates_means(vector<float>& M, vector<int>& sum_sols, vector<int>& count, vector<char>& s, int index_alpha){
+    count[index_alpha]++;
     sum_sols[index_alpha] += s.size();
     M[index_alpha] = float(sum_sols[index_alpha]) / count[index_alpha];
 }
 
 int choose_alpha(vector<float>& P){
-    float r = float(rand() % 100) / 100.0;//numero random de 0 a 1
-    
     vector<float> P_interval (P.size() + 1);//vetor de intervalo probabilidades
     P_interval[0] = 0.0;
 
-    for(int i=0; i<P.size(); i++){
-        P_interval[i+1] = P_interval[i] + P[i];//acumula probabilidades
-    }
+    float r = float(rand() % 100) / 100.0;//numero random de 0 a 1
 
     for(int i=0; i<P.size(); i++){
-        if(r > P_interval[i] && r < P_interval[i+1])
+        P_interval[i+1] = P_interval[i] + P[i];//acumula probabilidades
+
+        if(r >= P_interval[i] && r <= P_interval[i+1])//coloquei igual tbm caso r for 0 ou 1
             return i;
     }
+    
     return -1;
 }
 
@@ -412,7 +415,7 @@ void imprime_prob(vector<float>& alphas, vector<float>& P, vector<float>& M,vect
         << setw(15) << "count"
         << endl;
     
-        cout << string(60, '-') << endl;
+    cout << string(60, '-') << endl;
 
     for(int i = 0; i < m; i++){
         cout << setw(10) << alphas[i]
@@ -436,55 +439,52 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
     
     srand(time(0));//inicializa semente com hora atual
     int i=0;
+    bool isValid;
 
     for(; index_alpha<m; index_alpha++){
         cout<< "\n\e[33mALFA----------------------------------->: "<< alphas[index_alpha] <<"\e[0m"<< endl;
-        count[index_alpha]++;
 
         s = randomized_adaptative_greedy(grafo, alphas[index_alpha]);
-        bool isValid = check_validity(s, grafo);
+        isValid = check_validity(s, grafo);
+        
         if(isValid){//perguntar se tem que calcular mesmo se nao for valida, soluçoes vazias sao validas?
-            updates_means(M,sum_sols,count,s,index_alpha);
+            updates_means(M, sum_sols, count, s, index_alpha);
             
             if(solBest.empty() || s.size() < solBest.size()){
                 solBest = s;
             }
         }
         else cout << "SOLUÇÃO INVALIDA" << endl;
-
-        cout << "\n\e[36m---------------- Atualizando Probabilidades ----------------\e[0m\n";
-            updates_probability(P, M, m, solBest.size());
-            imprime_prob(alphas,P,M,sum_sols,count,m);
     }
+    
+    updates_probability(P, M, m, solBest.size());
+    imprime_prob(alphas, P, M, sum_sols, count, m);
     
     while(i < nIter){
         cout<<"\e[34m========================================================== i = "
             << i <<" ==========================================================\e[0m"<<endl;
         
-        imprime_prob(alphas,P,M,sum_sols,count,m);
+        imprime_prob(alphas, P, M, sum_sols, count, m);
 
         if(i != 0 && i % bloco == 0){//atualiza prob
-            cout << "\n\e[36m---------------- Atualizando Probabilidades ----------------\e[0m\n";
             updates_probability(P, M, m, solBest.size());
             imprime_prob(alphas,P,M,sum_sols,count,m);
         }
 
         i++;
         index_alpha = choose_alpha(P);
+        cout<< "\n\e[33mALFA----------------------------------->: "<< alphas[index_alpha] <<"\e[0m"<< endl;
 
         if(index_alpha == -1){
             cout << "Alfa invalido" << endl;
             continue;
         }
-
-        cout<< "\n\e[33mALFA----------------------------------->: "<< alphas[index_alpha] <<"\e[0m"<< endl;
-        count[index_alpha]++;
         
         s = randomized_adaptative_greedy(grafo, alphas[index_alpha]);
         bool isValid = check_validity(s, grafo);
 
         if(isValid){//perguntar se tem que calcular mesmo se nao for valida, soluçoes vazias sao validas?
-            updates_means(M,sum_sols,count,s,index_alpha);
+            updates_means(M, sum_sols , count, s, index_alpha);
             
             if(solBest.empty() || s.size() < solBest.size()){
                 solBest = s;
@@ -500,7 +500,7 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
 }
 
 void run_randomized_adaptative_reactive_greedy(Grafo* g){
-    int m=6, nIter=10, bloco=2;
+    int m=6, nIter=5, bloco=1;
     vector<float> alphas = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6};
 
     // cout << "Numero de iterações: ";
@@ -518,7 +518,7 @@ void run_randomized_adaptative_reactive_greedy(Grafo* g){
     // }
 
     cout<< "\n\e[31m========================================================= INICIO"
-        << " ==========================================================\e[0m"<<endl;
+        << " ==========================================================\e[0m\n";
     
     vector<char> s = randomized_adaptative_reactive_greedy(g, alphas, m, nIter, bloco);
     cout << "\e[35mMELHOR SOLUÇÃO: "<< s.size()<<endl;
@@ -528,7 +528,7 @@ void run_randomized_adaptative_reactive_greedy(Grafo* g){
     cout << endl;
 
     cout<< "\n\e[31m========================================================== FIM"
-        << " ===========================================================\e[0m"<<endl;
+        << " ===========================================================\e[0m\n";
 }
 
 int main(int argc, char *argv[]) {
