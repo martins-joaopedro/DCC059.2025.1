@@ -457,7 +457,7 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
         else cout << "SOLUÇÃO INVALIDA" << endl;
     }
     
-    updates_probability(P, M, m, solBest.size());
+    //updates_probability(P, M, m, solBest.size());
     imprime_prob(alphas, P, M, sum_sols, count, m);
     
     while(i < nIter){
@@ -500,8 +500,8 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
 }
 
 void run_randomized_adaptative_reactive_greedy(Grafo* g){
-    int m=6, nIter=5, bloco=1;
-    vector<float> alphas = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6};
+    int m=3, nIter=6, bloco=2;
+    vector<float> alphas = {0.1, 0.5, 0.9};
 
     // cout << "Numero de iterações: ";
     // cin >> nIter;
