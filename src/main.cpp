@@ -450,9 +450,9 @@ vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& 
         if(isValid){//perguntar se tem que calcular mesmo se nao for valida, soluçoes vazias sao validas?
             updates_means(M, sum_sols, count, s, index_alpha);
             
-            if(solBest.empty() || s.size() < solBest.size()){
-                solBest = s;
-            }
+            // if(solBest.empty() || s.size() < solBest.size()){
+            //     solBest = s;
+            // }
         }
         else cout << "SOLUÇÃO INVALIDA" << endl;
     }
