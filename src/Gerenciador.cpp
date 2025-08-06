@@ -16,6 +16,7 @@ void Gerenciador::comandos(Grafo* grafo) {
     cout<<"(f) Arvore Geradora Minima (Algoritmo de Kruskal);"<<endl;
     cout<<"(g) Arvore de caminhamento em profundidade;"<<endl;
     cout<<"(h) Raio, diametro, centro e periferia do grafo;"<<endl;
+    cout<<"(i) Algortimo guloso;"<<endl<<endl;
     cout<<"(0) Sair;"<<endl<<endl;
 
     char resp;
@@ -165,6 +166,9 @@ void Gerenciador::comandos(Grafo* grafo) {
             }
 
             break;
+        }
+        case 'i': {
+            grafo->heuristica_gulosa();
         }
         case '0': {
             exit(0);
