@@ -136,7 +136,7 @@ void Gulosos::reorganiza(vector<pair<char, int>> &vertice_grau_ordenado, Grafo *
          });
 }
 
-vector<char> Gulosos::heuristica_gulosa(Grafo *grafo, ofstream& file)
+void Gulosos::heuristica_gulosa(Grafo *grafo, ofstream& file)
 {
     vector<char> D; // solução vazia inicialmente
 
