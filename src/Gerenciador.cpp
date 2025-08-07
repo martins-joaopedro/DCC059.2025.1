@@ -1,4 +1,5 @@
 #include "Gerenciador.h"
+#include "Gulosos.h"
 #include <fstream>
 #include <iostream>
 #include <math.h>
@@ -169,9 +170,19 @@ void Gerenciador::comandos(Grafo* grafo) {
 
             break;
         }
+
         case 'i': {
-            grafo->heuristica_gulosa();
+            Gulosos::run_greedy(grafo);
         }
+
+        case 'j': {
+            Gulosos::run_randomized_adaptive_greedy(grafo);
+        }
+
+        case 'k': {
+            Gulosos::run_randomized_adaptative_reactive_greedy(grafo);
+        }
+
         case '0': {
             exit(0);
         }
@@ -468,4 +479,10 @@ void Gerenciador::salvar_letraH(Grafo* grafo, string nome_arquivo){
         cout << "Dados salvos em " << nome_arquivo << endl;
     } else cout << "Grafo vazio." << endl;
     cout << endl;
+}
+
+void Gerenciador::run_tests(Grafo* grafo) {
+    Gulosos::run_greedy(grafo);
+    Gulosos::run_randomized_adaptive_greedy(grafo);
+    Gulosos::run_randomized_adaptative_reactive_greedy(grafo);
 }

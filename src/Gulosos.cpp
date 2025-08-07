@@ -16,6 +16,106 @@
 
 using namespace std;
 
+//
+//
+//
+/* GULOSO */
+void Gulosos::reorganiza(vector<pair<char, int>> &vertice_grau_ordenado)
+{
+    unordered_map<char, int> novo_grau;
+    for (const auto &par : vertice_grau_ordenado)
+    {
+        novo_grau[par.first] = 0; // inicializa com 0, para calcular o "grau" depois
+    }
+
+    // Recalcula grau baseado apenas nos vértices restantes
+    for (No *no : lista_adj)
+    {
+        char id = no->id;
+
+        // Se o vértice já saiu, deixa o loop achar outro v
+        if (novo_grau.find(id) == novo_grau.end())
+            continue;
+
+        int grau = 0;
+        for (Aresta *a : no->arestas)
+        {
+            if (novo_grau.find(a->id_no_alvo) != novo_grau.end())
+                grau++;
+        }
+
+        novo_grau[id] = grau;
+    }
+
+    // Atualiza o vetor original com os novos graus
+    for (auto &par : vertice_grau_ordenado)
+    {
+        par.second = novo_grau[par.first];
+    }
+
+    sort(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(),
+         [](const auto &a, const auto &b)
+         {
+             return a.second > b.second;
+         });
+}
+
+vector<char> Gulosos::heuristica_gulosa(Grafo* grafo)
+{
+    clock_t start_time = clock();
+    vector<char> D; // solução vazia inicialmente
+
+    vector<pair<char, int>> vertice_grau_ordenado;
+    for (No *no : grafo->lista_adj)
+    {
+        vertice_grau_ordenado.push_back({no->id, no->arestas.size()});
+    }
+
+    sort(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(), [](const auto &a, const auto &b)
+         { return a.second > b.second; }); // ordena os vértices em ordem decrescente
+
+    int i = 0;
+    while (!Grafo::conjunto_dominante(D) && !vertice_grau_ordenado.empty())
+    {
+        if (i != 0)
+            reorganiza(vertice_grau_ordenado);
+
+        pair<char, int> candidato = vertice_grau_ordenado[0];
+        vector<char> vizinhos = Grafo::get_vizinhos(candidato.first);
+
+        D.push_back(candidato.first);
+        vertice_grau_ordenado.erase(remove(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(), candidato), vertice_grau_ordenado.end());
+
+        if (!vizinhos.empty())
+        {
+            for (char v : vizinhos)
+            {
+                for (auto it = vertice_grau_ordenado.begin(); it != vertice_grau_ordenado.end();)
+                {
+                    if (it->first == v)
+                        it = vertice_grau_ordenado.erase(it);
+                    else
+                        ++it;
+                }
+            }
+        }
+        i++;
+    }
+
+    for (char i : D)
+    {
+        cout << i << " - ";
+    }
+
+    clock_t end_time = clock();
+    double elapsed_time = double(end_time - start_time) / CLOCKS_PER_SEC;
+    cout << "Tempo de execucao: " << elapsed_time << " segundos" << endl;
+}
+
+//
+//
+//
+/* RANDOMIZADO ADAPTATIVO */
 vector<char> Gulosos::randomized_heuristic(vector<char> LC, map<char, No*>& mapa_nos, int k) {
 
     map<char, int> degree;
@@ -207,37 +307,10 @@ bool Gulosos::check_validity(vector<char> S, Grafo* grafo) {
     return false;
 }
 
-void Gulosos::run_randomized_adaptive_greedy(Grafo* grafo) {
-    map<float, vector<int>> sols;
-    float alphas[] = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6};
-    int MAX_IT = 1;
-    srand(time(0));
-
-    for (auto alpha : alphas) {
-        //setColor(1 + alpha * 10);
-        cout << "Alpha: " << alpha << endl;
-        sols[alpha] = vector<int>();
-        for (int i=0; i<MAX_IT; i++) {
-            cout << "\n[ Iteracao: " << i+1 << " ]" << endl;
-            vector<char> S = randomized_adaptative_greedy(grafo, alpha);
-            bool isValid = check_validity(S, grafo);
-
-            if(isValid)
-                sols[alpha].push_back(S.size());
-            else cout << "SOLUÇÃO INVALIDA" << endl;
-        }
-        cout << endl;
-    }
-
-    for(auto alpha : alphas ) {
-        cout << "[ Alpha: " << alpha << " ] ";
-        for(auto S_size : sols[alpha])
-            cout << S_size << " ";
-        cout << endl;
-    } 
-
-}
-
+//
+//
+//
+/* REATIVO */
 void Gulosos::updates_probability(vector<float>& P, vector<float>& M, int m, int solBest_size){
     cout << "\n\e[36m---------------- Atualizando Probabilidades ----------------\e[0m\n";
    
@@ -383,7 +456,50 @@ vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo* grafo, vector
     return solBest;
 }
 
-void run_randomized_adaptative_reactive_greedy(Grafo* g){
+
+//
+//
+//
+/* EXECUÇÃO */
+void Gulosos::run_greedy(Grafo* grafo) {
+    Gulosos g;
+    g.heuristica_gulosa(grafo);
+}
+
+void Gulosos::run_randomized_adaptive_greedy(Grafo* grafo) {
+    Gulosos g;
+    map<float, vector<int>> sols;
+    float alphas[] = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6};
+    int MAX_IT = 1;
+    srand(time(0));
+
+    for (auto alpha : alphas) {
+        //setColor(1 + alpha * 10);
+        cout << "Alpha: " << alpha << endl;
+        sols[alpha] = vector<int>();
+        for (int i=0; i<MAX_IT; i++) {
+            cout << "\n[ Iteracao: " << i+1 << " ]" << endl;
+            vector<char> S = g.randomized_adaptative_greedy(grafo, alpha);
+            bool isValid = g.check_validity(S, grafo);
+
+            if(isValid)
+                sols[alpha].push_back(S.size());
+            else cout << "SOLUÇÃO INVALIDA" << endl;
+        }
+        cout << endl;
+    }
+
+    for(auto alpha : alphas ) {
+        cout << "[ Alpha: " << alpha << " ] ";
+        for(auto S_size : sols[alpha])
+            cout << S_size << " ";
+        cout << endl;
+    } 
+
+}
+
+void Gulosos::run_randomized_adaptative_reactive_greedy(Grafo* grafo){
+    Gulosos g;
     int m=3, nIter=6, bloco=2;
     vector<float> alphas = {0.1, 0.5, 0.9};
 
@@ -404,7 +520,7 @@ void run_randomized_adaptative_reactive_greedy(Grafo* g){
     cout<< "\n\e[31m========================================================= INICIO"
         << " ==========================================================\e[0m\n";
     
-    vector<char> s = randomized_adaptative_reactive_greedy(g, alphas, m, nIter, bloco);
+    vector<char> s = g.randomized_adaptative_reactive_greedy(grafo, alphas, m, nIter, bloco);
     cout << "\e[35mMELHOR SOLUÇÃO: "<< s.size()<<endl;
     
     for(auto no : s)
@@ -413,96 +529,4 @@ void run_randomized_adaptative_reactive_greedy(Grafo* g){
 
     cout<< "\n\e[31m========================================================== FIM"
         << " ===========================================================\e[0m\n";
-}
-
-void Gulosos::reorganiza(vector<pair<char, int>> &vertice_grau_ordenado)
-{
-    unordered_map<char, int> novo_grau;
-    for (const auto &par : vertice_grau_ordenado)
-    {
-        novo_grau[par.first] = 0; // inicializa com 0, para calcular o "grau" depois
-    }
-
-    // Recalcula grau baseado apenas nos vértices restantes
-    for (No *no : lista_adj)
-    {
-        char id = no->id;
-
-        // Se o vértice já saiu, deixa o loop achar outro v
-        if (novo_grau.find(id) == novo_grau.end())
-            continue;
-
-        int grau = 0;
-        for (Aresta *a : no->arestas)
-        {
-            if (novo_grau.find(a->id_no_alvo) != novo_grau.end())
-                grau++;
-        }
-
-        novo_grau[id] = grau;
-    }
-
-    // Atualiza o vetor original com os novos graus
-    for (auto &par : vertice_grau_ordenado)
-    {
-        par.second = novo_grau[par.first];
-    }
-
-    sort(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(),
-         [](const auto &a, const auto &b)
-         {
-             return a.second > b.second;
-         });
-}
-
-vector<char> Gulosos::heuristica_gulosa(Grafo* grafo)
-{
-    clock_t start_time = clock();
-    vector<char> D; // solução vazia inicialmente
-
-    vector<pair<char, int>> vertice_grau_ordenado;
-    for (No *no : grafo->lista_adj)
-    {
-        vertice_grau_ordenado.push_back({no->id, no->arestas.size()});
-    }
-
-    sort(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(), [](const auto &a, const auto &b)
-         { return a.second > b.second; }); // ordena os vértices em ordem decrescente
-
-    int i = 0;
-    while (!Grafo::conjunto_dominante(D) && !vertice_grau_ordenado.empty())
-    {
-        if (i != 0)
-            reorganiza(vertice_grau_ordenado);
-
-        pair<char, int> candidato = vertice_grau_ordenado[0];
-        vector<char> vizinhos = Grafo::get_vizinhos(candidato.first);
-
-        D.push_back(candidato.first);
-        vertice_grau_ordenado.erase(remove(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(), candidato), vertice_grau_ordenado.end());
-
-        if (!vizinhos.empty())
-        {
-            for (char v : vizinhos)
-            {
-                for (auto it = vertice_grau_ordenado.begin(); it != vertice_grau_ordenado.end();)
-                {
-                    if (it->first == v)
-                        it = vertice_grau_ordenado.erase(it);
-                    else
-                        ++it;
-                }
-            }
-        }
-        i++;
-    }
-
-    for (char i : D)
-    {
-        cout << i << " - ";
-    }
-
-    clock_t end_time = clock();
-    double elapsed_time = double(end_time - start_time) / CLOCKS_PER_SEC;
-    cout << "Tempo de execucao: " << elapsed_time << " segundos" << endl;
 }
