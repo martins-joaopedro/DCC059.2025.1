@@ -23,7 +23,7 @@ Grafo* ler_grafo(string file_name) {
     
     Grafo* grafo = new Grafo();
     
-    fstream file = fstream("../instancias/"+file_name);
+    fstream file = fstream(file_name);
     
     if (!file.is_open()) {
         cout << "Erro ao abrir o arquivo: " << file_name << endl;
@@ -139,11 +139,11 @@ int main(int argc, char *argv[]) {
     fstream file = fstream(src);
 
     while (getline(file, line, '\n')) {
-        Grafo * grafo = ler_grafo(line);
+        Grafo * grafo = ler_grafo("../instancias_t2/"+line);
         cout << "Grafo atual: " << line << endl;
         Gerenciador::imprimir_grafo(grafo);
         //Gerenciador::comandos(grafo, line);
-        //Gerenciador::run_tests(grafo);
+        Gerenciador::run_tests(grafo);
         delete grafo;
     }
         
