@@ -137,7 +137,7 @@ void Gulosos::reorganiza(vector<pair<char, int>> &vertice_grau_ordenado, Grafo *
          });
 }
 
-vector<char> Gulosos::heuristica_gulosa(Grafo *grafo)
+void Gulosos::heuristica_gulosa(Grafo *grafo)
 {
     clock_t start_time = clock();
     vector<char> D; // solução vazia inicialmente

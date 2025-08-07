@@ -20,7 +20,7 @@ public:
     vector<char> get_vizinhos(char id_no, Grafo* grafo);
     bool conjunto_dominante(const vector<char> &D, Grafo* grafo);
     void reorganiza(vector<pair<char, int>> &vertice_grau_ordenado, Grafo* grafo);
-    vector<char> heuristica_gulosa(Grafo* grafo);
+    void heuristica_gulosa(Grafo* grafo);
 
     // RANDOMIZADO ADAPTATIVO
     bool check_validity(vector<char> S, Grafo* grafo);
