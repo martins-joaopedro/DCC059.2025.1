@@ -4,6 +4,7 @@
 #include <iostream>
 #include <math.h>
 #include <set>
+#include <ctime>
 
 void Gerenciador::comandos(Grafo* grafo) {
     cout << "\n----------------------------------------" << endl;
@@ -172,20 +173,21 @@ void Gerenciador::comandos(Grafo* grafo) {
         }
 
         case 'i': {
-            Gulosos::run_greedy(grafo);
+            //Gulosos::run_greedy(grafo);
         }
 
         case 'j': {
-            Gulosos::run_randomized_adaptive_greedy(grafo);
+            //Gulosos::run_randomized_adaptive_greedy(grafo);
         }
 
         case 'k': {
-            Gulosos::run_randomized_adaptative_reactive_greedy(grafo);
+            //Gulosos::run_randomized_adaptative_reactive_greedy(grafo);
         }
 
         case '0': {
             exit(0);
         }
+
         default: {
             cout<<"Opcao invalida"<<endl;
         }
@@ -481,8 +483,29 @@ void Gerenciador::salvar_letraH(Grafo* grafo, string nome_arquivo){
     cout << endl;
 }
 
-void Gerenciador::run_tests(Grafo* grafo) {
-    Gulosos::run_greedy(grafo);
-    Gulosos::run_randomized_adaptive_greedy(grafo);
-    Gulosos::run_randomized_adaptative_reactive_greedy(grafo);
+void Gerenciador::run_tests(Grafo* grafo, ofstream& file) {
+    
+    file << "\n__________________________________________________" << endl;
+    file << "GULOSO" << endl;
+    clock_t start_time = clock();
+    Gulosos::run_greedy(grafo, file);
+    clock_t end_time = clock();
+    double elapsed_time = double(end_time - start_time) / CLOCKS_PER_SEC;
+    file << "Tempo de execucao: " << elapsed_time << " segundos" << endl;
+
+    file << "\n__________________________________________________" << endl;
+    file << "GULOSO RANDOMIZADO" << endl;
+    start_time = clock();
+    Gulosos::run_randomized_adaptive_greedy(grafo, file);
+    end_time = clock();
+    elapsed_time = double(end_time - start_time) / CLOCKS_PER_SEC;
+    file << "Tempo de execucao: " << elapsed_time << " segundos" << endl;
+
+    file << "\n__________________________________________________" << endl;
+    file << "GULOSO REATIVO" << endl;
+    start_time = clock();
+    Gulosos::run_randomized_adaptative_reactive_greedy(grafo, file);
+    end_time = clock();
+    elapsed_time = double(end_time - start_time) / CLOCKS_PER_SEC;
+    file << "Tempo de execucao: " << elapsed_time << " segundos" << endl;
 }
