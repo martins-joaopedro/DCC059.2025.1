@@ -49,16 +49,16 @@ public:
     // Parte 2 Trabalho
 
     No* get_no(char id);
-    void resetar_dominacao();
+    static void resetar_dominacao();
 
     // Retorna vizinhos de um nó (para saber quem ele domina)
-    vector<char> get_vizinhos(char id_no);
+    static vector<char> get_vizinhos(char id_no);
 
     //  Verifica se um conjunto D domina todos os vértices
-    bool conjunto_dominante(const vector<char> &D);
+    static bool conjunto_dominante(const vector<char> &D);
 
     // Verifica se um conjunto D é independente (nenhum vértice do conjunto é adjacente entre si)
-    bool conjunto_independente(const vector<char> &D);
+    static bool conjunto_independente(const vector<char> &D);
 
     // Heurística gulosa para conjunto dominante mínimo
     vector<char> heuristica_gulosa();

@@ -323,7 +323,7 @@ bool check_validity(vector<char> S, Grafo* grafo) {
     return false;
 }
 
-void run(Grafo* grafo) {
+void run_randomized_adaptive_greedy(Grafo* grafo) {
     map<float, vector<int>> sols;
     float alphas[] = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6};
     int MAX_IT = 1;
@@ -539,7 +539,8 @@ int main(int argc, char *argv[]) {
         Grafo * grafo = ler_grafo(path);
         Gerenciador::imprimir_grafo(grafo);
         
-        //run(grafo);
+        //run_greedy(grafo);
+        run_randomized_adaptive_greedy(grafo);
         run_randomized_adaptative_reactive_greedy(grafo);
 
         delete grafo;
