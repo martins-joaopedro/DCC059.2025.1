@@ -33,8 +33,9 @@ void Gerenciador::comandos(Grafo* grafo) {
             
             imprimir_lista_nos(fecho_transitivo_direto);
 
-                if(pergunta_imprimir_arquivo("fecho_trans_dir.txt")) 
-                    salvar_lista_nos(fecho_transitivo_direto, "fecho_trans_dir.txt");
+            if(pergunta_imprimir_arquivo("fecho_trans_dir.txt")) 
+                salvar_lista_nos(fecho_transitivo_direto, "fecho_trans_dir.txt");
+            
             break;
         }
 
@@ -173,15 +174,66 @@ void Gerenciador::comandos(Grafo* grafo) {
         }
 
         case 'i': {
-            //Gulosos::run_greedy(grafo);
+            string output = "output/Guloso.txt";
+            ofstream file = ofstream(output);
+
+            file << "\n__________________________________________________" << endl;
+            file << "GULOSO" << endl;
+            clock_t start_time = clock();
+            
+            Gulosos::run_greedy(grafo, file);
+            
+            clock_t end_time = clock();
+            double elapsed_time = double(end_time - start_time) / CLOCKS_PER_SEC;
+            
+            file << "Tempo de execucao: " << elapsed_time << " segundos" << endl;
+            file.close();
+
+            cout << "\n>>>> Saida em " << output << " <<<<\n";
+
+            break;
         }
 
         case 'j': {
-            //Gulosos::run_randomized_adaptive_greedy(grafo);
+            string output = "output/Randomizado.txt";
+            ofstream file = ofstream(output);
+
+            file << "\n__________________________________________________" << endl;
+            file << "GULOSO RANDOMIZADO" << endl;
+            clock_t start_time = clock();
+            
+            Gulosos::run_randomized_adaptive_greedy(grafo, file);
+            
+            clock_t end_time = clock();
+            double elapsed_time = double(end_time - start_time) / CLOCKS_PER_SEC;
+            
+            file << "Tempo de execucao: " << elapsed_time << " segundos" << endl;
+            file.close();
+
+            cout << "\n>>>> Saida em " << output << " <<<<\n";
+
+            break;
         }
 
         case 'k': {
-            //Gulosos::run_randomized_adaptative_reactive_greedy(grafo);
+            string output = "output/Reativo.txt";
+            ofstream file = ofstream(output);
+
+            file << "\n__________________________________________________" << endl;
+            file << "GULOSO REATIVO" << endl;
+            clock_t start_time = clock();
+            
+            Gulosos::run_randomized_adaptative_reactive_greedy(grafo, file);
+            
+            clock_t end_time = clock();
+            double elapsed_time = double(end_time - start_time) / CLOCKS_PER_SEC;
+            
+            file << "Tempo de execucao: " << elapsed_time << " segundos" << endl;
+            file.close();
+
+            cout << "\n>>>> Saida em " << output << " <<<<\n";
+
+            break;
         }
 
         case '0': {

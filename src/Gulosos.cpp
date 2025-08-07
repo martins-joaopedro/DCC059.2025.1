@@ -418,7 +418,7 @@ bool Gulosos::check_validity(vector<char> S, Grafo *grafo, ofstream& file)
 /* REATIVO */
 void Gulosos::updates_probability(vector<float> &P, vector<float> &M, int m, int solBest_size, ofstream& file)
 {
-    file << "\n\e[36m---------------- Atualizando Probabilidades ----------------\e[0m\n";
+    file << "\n---------------- Atualizando Probabilidades ----------------\n";
 
     vector<float> scores(m, 0.0); // transfoma media em pontuação, menores medias tem pontuação maior
     float sum_scores = 0.0;       // soma dos scores de todos os alphas
@@ -516,7 +516,7 @@ vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo *grafo, vector
 
     for (; index_alpha < m; index_alpha++)
     {
-        file << "\n\e[33mALFA----------------------------------->: " << alphas[index_alpha] << "\e[0m" << endl;
+        file << "\nALFA----------------------------------->: " << alphas[index_alpha] << endl;
 
         s = randomized_adaptative_greedy(grafo, alphas[index_alpha], file);
         isValid = check_validity(s, grafo, file);
@@ -538,8 +538,8 @@ vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo *grafo, vector
 
     while (i < nIter)
     {
-        file << "\e[34m========================================================== i = "
-             << i << " ==========================================================\e[0m" << endl;
+        file << "========================================================== i = "
+             << i << " ==========================================================" << endl;
 
         imprime_prob(alphas, P, M, sum_sols, count, m, file);
 
@@ -551,7 +551,7 @@ vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo *grafo, vector
 
         i++;
         index_alpha = choose_alpha(P);
-        file << "\n\e[33mALFA----------------------------------->: " << alphas[index_alpha] << "\e[0m" << endl;
+        file << "\nALFA----------------------------------->: " << alphas[index_alpha] << endl;
 
         if (index_alpha == -1)
         {
@@ -574,9 +574,13 @@ vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo *grafo, vector
         else
             file << "SOLUÇÃO INVALIDA" << endl;
 
-        file << "\n\e[32mBEST SOLUTION-------------------------------->: " << solBest.size() << "\e[0m\n";
+        file << "\nBEST SOLUTION-------------------------------->: " << solBest.size() << endl;
         file << endl;
     }
+    file << "==================================================== RESULTADO FINAL "
+         << "====================================================" << endl;
+    imprime_prob(alphas, P, M, sum_sols, count, m, file);
+    file << endl;
 
     return solBest;
 }
@@ -647,16 +651,16 @@ void Gulosos::run_randomized_adaptative_reactive_greedy(Grafo *grafo, ofstream& 
     //     cin >> alphas[i];
     // }
 
-    file << "\n\e[31m========================================================= INICIO"
-         << " ==========================================================\e[0m\n";
+    file << "\n========================================================= INICIO"
+         << " ==========================================================\n";
 
     vector<char> s = g.randomized_adaptative_reactive_greedy(grafo, alphas, m, nIter, bloco, file);
-    file << "\e[35mMELHOR SOLUÇÃO: " << s.size() << endl;
+    file << "MELHOR SOLUÇÃO: " << s.size() << endl;
 
     for (auto no : s)
         file << no << " ";
     file << endl;
 
-    file << "\n\e[31m========================================================== FIM"
-         << " ===========================================================\e[0m\n";
+    file << "\n========================================================== FIM"
+         << " ===========================================================\n";
 }

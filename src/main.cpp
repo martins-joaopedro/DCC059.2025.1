@@ -132,28 +132,33 @@ Grafo* ler_grafo(string file_name) {
 
 int main(int argc, char *argv[]) {
     
-    string src = "../instancias_t2/files.txt";
-    string output = "../tests/";
+    // while (getline(file, line, '\n')) {
 
-    string line;
-    fstream file = fstream(src);
-    
-    while (getline(file, line, '\n')) {
+    //     ofstream output_file = ofstream(output+line);
+    //     output_file << "TESTE: " << line << endl;
 
-        ofstream output_file = ofstream(output+line);
-        output_file << "TESTE: " << line << endl;
+    //     Grafo * grafo = ler_grafo("../instancias_t2/"+line);
+    //     cout << "Grafo atual: " << line << endl;
+    //     Gerenciador::imprimir_grafo(grafo);
+    //     Gerenciador::comandos(grafo, line);
+    //     Gerenciador::run_tests(grafo, output_file);
+    //     delete grafo;
 
-        Grafo * grafo = ler_grafo("../instancias_t2/"+line);
-        cout << "Grafo atual: " << line << endl;
-        Gerenciador::imprimir_grafo(grafo);
-        //Gerenciador::comandos(grafo, line);
-        Gerenciador::run_tests(grafo, output_file);
-        delete grafo;
+    //     output_file.close();
+    // }
 
-        output_file.close();
-    }
+    // file.close();
+
+    for(int i=1; i<argc; i++) {
+        string path = argv[i];
+        cout << path << endl;
         
-    file.close();
+        Grafo * grafo = ler_grafo(path);
+        Gerenciador::imprimir_grafo(grafo);
+        Gerenciador::comandos(grafo);
+
+        delete grafo;
+    }
     
     return 0;
 }
