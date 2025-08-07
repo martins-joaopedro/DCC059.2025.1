@@ -1,4 +1,5 @@
 #include "Gerenciador.h"
+#include "Gulosos.h"
 #include <fstream>
 #include <iostream>
 #include <math.h>
@@ -16,6 +17,9 @@ void Gerenciador::comandos(Grafo* grafo) {
     cout<<"(f) Arvore Geradora Minima (Algoritmo de Kruskal);"<<endl;
     cout<<"(g) Arvore de caminhamento em profundidade;"<<endl;
     cout<<"(h) Raio, diametro, centro e periferia do grafo;"<<endl;
+    cout<<"(i) Algortimo guloso;"<<endl<<endl;
+    cout<<"(j) Algortimo guloso randomizado adaptativo;"<<endl<<endl;
+    cout<<"(k) Algortimo guloso randomizado adaptativo reativo;"<<endl<<endl;
     cout<<"(0) Sair;"<<endl<<endl;
 
     char resp;
@@ -166,6 +170,19 @@ void Gerenciador::comandos(Grafo* grafo) {
 
             break;
         }
+
+        case 'i': {
+            Gulosos::run_greedy(grafo);
+        }
+
+        case 'j': {
+            Gulosos::run_randomized_adaptive_greedy(grafo);
+        }
+
+        case 'k': {
+            Gulosos::run_randomized_adaptative_reactive_greedy(grafo);
+        }
+
         case '0': {
             exit(0);
         }
@@ -462,4 +479,10 @@ void Gerenciador::salvar_letraH(Grafo* grafo, string nome_arquivo){
         cout << "Dados salvos em " << nome_arquivo << endl;
     } else cout << "Grafo vazio." << endl;
     cout << endl;
+}
+
+void Gerenciador::run_tests(Grafo* grafo) {
+    Gulosos::run_greedy(grafo);
+    Gulosos::run_randomized_adaptive_greedy(grafo);
+    Gulosos::run_randomized_adaptative_reactive_greedy(grafo);
 }

@@ -1,28 +1,33 @@
+#include "Gerenciador.h"
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <map>
+#include <set>
+#include <cstdlib>
+#include <ctime>
+#include <iomanip>
 
-#include "Gerenciador.h"
 using namespace std;
 
-int main(int argc, char *argv[]) {
+// terminal bonitinho
+//#include <windows.h>
+// void setColor(WORD color) {
+//     HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+//     SetConsoleTextAttribute(hOut, color);
+// }
+
+Grafo* ler_grafo(string file_name) {
     
     Grafo* grafo = new Grafo();
-
-    if(argc < 2) {
-        cout << "Nenhum arquivo de entrada foi informado." << endl;
-        cout << "Execucao finalizada!" << endl;
-        return 0;
-    }
     
-    // So lê um arquivo de entrada por vez?
-    string file_name = argv[1];
     fstream file = fstream(file_name);
     
     if (!file.is_open()) {
         cout << "Erro ao abrir o arquivo: " << file_name << endl;
-        return 1;
+        return nullptr;
     }
 
     int header = 0;
@@ -119,9 +124,30 @@ int main(int argc, char *argv[]) {
             }
         }        
     }
-    
-    Gerenciador::comandos(grafo);
 
     file.close();
+
+    return grafo;
+} 
+
+int main(int argc, char *argv[]) {
+    
+    string src = "../instancias_t2/files.txt";
+    string path = "test/output/";
+
+    string line;
+    fstream file = fstream(src);
+
+    while (getline(file, line, '\n')) {
+        Grafo * grafo = ler_grafo("../instancias_t2/"+line);
+        cout << "Grafo atual: " << line << endl;
+        Gerenciador::imprimir_grafo(grafo);
+        //Gerenciador::comandos(grafo, line);
+        Gerenciador::run_tests(grafo);
+        delete grafo;
+    }
+        
+    file.close();
+    
     return 0;
 }

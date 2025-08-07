@@ -63,11 +63,13 @@ public:
     // Heurística gulosa para conjunto dominante mínimo
     vector<char> heuristica_gulosa();
 
+    void reorganiza(vector<pair<char, int>> &vertice_grau_ordenado);
+    
     // Heurística gulosa randomizada adaptativa
-    vector<char> heuristica_gulosa_randomizada_adaptativa(float alpha, int iteracoes);
+    //vector<char> heuristica_gulosa_randomizada_adaptativa(float alpha, int iteracoes);
 
     // Heurística gulosa randomizada adaptativa reativa
-    vector<char> heuristica_gulosa_randomizada_adaptativa_reativa(vector<float> alphas, int iteracoes);
+    //vector<char> heuristica_gulosa_randomizada_adaptativa_reativa(vector<float> alphas, int iteracoes);
 };
 
 #endif // GRAFO_H

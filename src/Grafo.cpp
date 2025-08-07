@@ -12,18 +12,17 @@
 #include <set>
 #include <functional>
 #include <algorithm>
+#include <ctime>
+#include <unordered_map>
+#include <unordered_set>
 
 using namespace std;
 
 #define INF INT_MAX
 
-Grafo::Grafo()
-{
-}
+Grafo::Grafo() {}
 
-Grafo::~Grafo()
-{
-}
+Grafo::~Grafo() {}
 
 void Grafo::aux_fecho_transitivo_direto(map<char, bool> &C, char descendente)
 {
@@ -910,12 +909,6 @@ void Grafo::calcula_caracteristicas()
         return;
     }
 
-    // for (pair<const char, int> &par : excentricidades)
-    // {
-    //     cout << " char: " << par.first << " Num: " << par.second;
-    // }
-    // cout << endl;
-
     // calcula raio e diametro
     this->raio = INT_MAX;
     this->diametro = INT_MIN;
@@ -954,76 +947,3 @@ void Grafo::calcula_caracteristicas()
     }
 }
 
-void Grafo::resetar_dominacao()
-{
-    for (auto no : lista_adj)
-    {
-        no->dominado = false;
-    }
-}
-
-No *Grafo::get_no(char id)
-{
-    for (No *no : lista_adj)
-    {
-        if (no->id == id)
-            return no;
-    }
-    return nullptr;
-}
-
-vector<char> Grafo::get_vizinhos(char id_no)
-{
-    vector<char> vizinhos;
-    No *no = get_no(id_no);
-    if (!no)
-        return vizinhos;
-
-    for (Aresta *aresta : no->arestas)
-    {
-        vizinhos.push_back(aresta->id_no_alvo);
-    }
-    return vizinhos;
-}
-
-bool Grafo::conjunto_dominante(const vector<char> &D)
-{
-    resetar_dominacao();
-
-    for (char id : D)
-    {
-        No *no = get_no(id);
-        if (no)
-        {
-            no->dominado = true;
-            for (Aresta *aresta : no->arestas)
-            {
-                No *destino = get_no(aresta->id_no_alvo);
-                if (destino)
-                    destino->dominado = true;
-            }
-        }
-    }
-    for (No *no : lista_adj)
-    {
-        if (!no->dominado)
-            return false;
-    }
-    return true;
-}
-
-bool Grafo::conjunto_independente(const vector<char>& D) {
-    set<char> conjunto(D.begin(), D.end());
-
-    for (char id : D) {
-        No* no = get_no(id);
-        if (!no) continue;
-
-        for (Aresta* aresta : no->arestas) {
-            if (conjunto.count(aresta->id_no_alvo))
-                return false;
-        }
-    }
-
-    return true;
-}
