@@ -142,8 +142,8 @@ int main(int argc, char *argv[]) {
         Grafo * grafo = ler_grafo("../instancias_t2/"+line);
         cout << "Grafo atual: " << line << endl;
         Gerenciador::imprimir_grafo(grafo);
-        //Gerenciador::comandos(grafo, line);
-        Gerenciador::run_tests(grafo);
+        Gerenciador::comandos(grafo);
+        //Gerenciador::run_tests(grafo);
         delete grafo;
     }
         

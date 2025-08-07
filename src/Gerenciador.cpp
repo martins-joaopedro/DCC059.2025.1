@@ -17,9 +17,9 @@ void Gerenciador::comandos(Grafo* grafo) {
     cout<<"(f) Arvore Geradora Minima (Algoritmo de Kruskal);"<<endl;
     cout<<"(g) Arvore de caminhamento em profundidade;"<<endl;
     cout<<"(h) Raio, diametro, centro e periferia do grafo;"<<endl;
-    cout<<"(i) Algortimo guloso;"<<endl<<endl;
-    cout<<"(j) Algortimo guloso randomizado adaptativo;"<<endl<<endl;
-    cout<<"(k) Algortimo guloso randomizado adaptativo reativo;"<<endl<<endl;
+    cout<<"(i) Algortimo guloso;"<<endl;
+    cout<<"(j) Algortimo guloso randomizado adaptativo;"<<endl;
+    cout<<"(k) Algortimo guloso randomizado adaptativo reativo;"<<endl;
     cout<<"(0) Sair;"<<endl<<endl;
 
     char resp;
