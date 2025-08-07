@@ -188,6 +188,8 @@ vector<char> Gulosos::heuristica_gulosa(Grafo *grafo, ofstream& file)
         file << i << " - ";
     }
 
+    file << "|S| " << D.size() << endl;
+
 }
 
 //
@@ -593,7 +595,7 @@ void Gulosos::run_randomized_adaptive_greedy(Grafo *grafo, ofstream& file)
 {
     Gulosos g;
     map<float, vector<int>> sols;
-    float alphas[] = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6};
+    float alphas[] = {0.1, 0.3, 0.5};
     int MAX_IT = 1;
     srand(time(0));
 
@@ -628,8 +630,8 @@ void Gulosos::run_randomized_adaptive_greedy(Grafo *grafo, ofstream& file)
 void Gulosos::run_randomized_adaptative_reactive_greedy(Grafo *grafo, ofstream& file)
 {
     Gulosos g;
-    int m = 3, nIter = 6, bloco = 2;
-    vector<float> alphas = {0.1, 0.5, 0.9};
+    int m = 3, nIter = 50, bloco = 5;
+    vector<float> alphas = {0.1, 0.3, 0.5};
 
     // cout << "Numero de iterações: ";
     // cin >> nIter;

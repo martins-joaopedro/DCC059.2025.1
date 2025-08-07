@@ -69,7 +69,8 @@ GULOSO
 ------------------------
 (p - 0) 
 ------------------------
-x - b - h - n - i - g - p - Tempo de execucao: 0 segundos
+x - b - h - n - i - g - p - |S| 7
+Tempo de execucao: 0.001 segundos
 
 __________________________________________________
 GULOSO RANDOMIZADO
@@ -79,124 +80,65 @@ Alpha: 0.1
 
 => LC: 0
 (x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
-Escolhendo no: h
+Escolhendo no: x
 
 => LC: 1
-(u ; 7) (x ; 7) (b ; 6) (e ; 6) (n ; 6) (d ; 5) (f ; 5) (i ; 5) (a ; 4) (c ; 4) (k ; 4) (o ; 4) (p ; 4) (y ; 4) (r ; 3) (w ; 3) (g ; 2) 
+(b ; 6) (a ; 5) (c ; 5) (e ; 5) (f ; 5) (h ; 5) (j ; 5) (i ; 4) (l ; 4) (s ; 4) (t ; 4) (n ; 3) (p ; 3) (w ; 3) (g ; 2) 
 [ S:  1 ]
-h 
+x 
 [ LC:  1 ]
-u x b e n d f i a c k o p y r w g 
-Escolhendo no: u
-
-=> LC: 2
-(b ; 5) (e ; 5) (a ; 4) (d ; 4) (c ; 3) (i ; 3) (k ; 2) (r ; 2) (w ; 2) (y ; 2) 
-[ S:  2 ]
-h u 
-[ LC:  2 ]
-b e a d c i k r w y 
+b a c e f h j i l s t n p w g 
 Escolhendo no: b
 
-=> LC: 3
-(d ; 3) (i ; 2) (y ; 2) (k ; 1) (w ; 1) 
-[ S:  3 ]
-h u b 
-[ LC:  3 ]
-d i y k w 
-Escolhendo no: d
-
-=> LC: 4
-(k ; 1) (w ; 1) 
-[ S:  4 ]
-h u b d 
-[ LC:  4 ]
-k w 
-Escolhendo no: k
-
-=> LC: 5
-(w ; 1) 
-[ S:  5 ]
-h u b d k 
-[ LC:  5 ]
-w 
-Escolhendo no: w
-
-=> LC: 6
-
-[ S:  6 ]
-h u b d k w 
-[ LC:  6 ]
-
-Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Solucao: h u b d k w 
-===> Solucao VALIDA! |S| = 6
-
-Alpha: 0.2
-
-[ Iteracao: 1 ]
-
-=> LC: 0
-(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+=> LC: 2
+(h ; 4) (j ; 3) (t ; 3) (g ; 2) (i ; 2) (l ; 2) (n ; 2) (w ; 2) (p ; 1) 
+[ S:  2 ]
+x b 
+[ LC:  2 ]
+h j t g i l n w p 
 Escolhendo no: h
 
-=> LC: 1
-(u ; 7) (x ; 7) (b ; 6) (e ; 6) (n ; 6) (d ; 5) (f ; 5) (i ; 5) (a ; 4) (c ; 4) (k ; 4) (o ; 4) (p ; 4) (y ; 4) (r ; 3) (w ; 3) (g ; 2) 
-[ S:  1 ]
-h 
-[ LC:  1 ]
-u x b e n d f i a c k o p y r w g 
-Escolhendo no: u
-
-=> LC: 2
-(b ; 5) (e ; 5) (a ; 4) (d ; 4) (c ; 3) (i ; 3) (k ; 2) (r ; 2) (w ; 2) (y ; 2) 
-[ S:  2 ]
-h u 
-[ LC:  2 ]
-b e a d c i k r w y 
-Escolhendo no: e
-
 => LC: 3
-(c ; 2) (i ; 2) (r ; 1) (w ; 1) (y ; 1) 
+(n ; 2) (w ; 2) (g ; 1) (i ; 1) (p ; 1) 
 [ S:  3 ]
-h u e 
+x b h 
 [ LC:  3 ]
-c i r w y 
-Escolhendo no: c
+n w g i p 
+Escolhendo no: n
 
 => LC: 4
-(r ; 1) (w ; 1) (y ; 1) 
+(g ; 1) (i ; 1) (p ; 1) 
 [ S:  4 ]
-h u e c 
+x b h n 
 [ LC:  4 ]
-r w y 
-Escolhendo no: r
+g i p 
+Escolhendo no: g
 
 => LC: 5
-(w ; 1) (y ; 1) 
+(i ; 1) (p ; 1) 
 [ S:  5 ]
-h u e c r 
+x b h n g 
 [ LC:  5 ]
-w y 
-Escolhendo no: w
+i p 
+Escolhendo no: i
 
 => LC: 6
-(y ; 1) 
+(p ; 1) 
 [ S:  6 ]
-h u e c r w 
+x b h n g i 
 [ LC:  6 ]
-y 
-Escolhendo no: y
+p 
+Escolhendo no: p
 
 => LC: 7
 
 [ S:  7 ]
-h u e c r w y 
+x b h n g i p 
 [ LC:  7 ]
 
 Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
 Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Solucao: h u e c r w y 
+Solucao: x b h n g i p 
 ===> Solucao VALIDA! |S| = 7
 
 Alpha: 0.3
@@ -205,141 +147,66 @@ Alpha: 0.3
 
 => LC: 0
 (x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: m
+
+=> LC: 1
+(b ; 6) (f ; 6) (u ; 6) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (e ; 4) (p ; 4) (q ; 4) (y ; 4) (o ; 3) (s ; 3) (r ; 2) (t ; 2) (w ; 2) 
+[ S:  1 ]
+m 
+[ LC:  1 ]
+b f u i l n c d e p q y o s r t w 
+Escolhendo no: u
+
+=> LC: 2
+(b ; 5) (d ; 4) (c ; 3) (e ; 3) (i ; 3) (l ; 3) (s ; 3) (y ; 3) (r ; 2) (t ; 1) (w ; 1) 
+[ S:  2 ]
+m u 
+[ LC:  2 ]
+b d c e i l s y r t w 
+Escolhendo no: d
+
+=> LC: 3
+(b ; 4) (s ; 3) (c ; 2) (l ; 2) (r ; 2) (t ; 1) (w ; 1) 
+[ S:  3 ]
+m u d 
+[ LC:  3 ]
+b s c l r t w 
 Escolhendo no: b
 
-=> LC: 1
-(x ; 9) (q ; 8) (h ; 7) (m ; 7) (u ; 7) (j ; 5) (k ; 5) (n ; 5) (v ; 5) (y ; 5) (d ; 4) (g ; 4) (i ; 4) (l ; 4) (o ; 4) (t ; 4) (p ; 3) (w ; 2) 
-[ S:  1 ]
-b 
-[ LC:  1 ]
-x q h m u j k n v y d g i l o t p w 
-Escolhendo no: x
-
-=> LC: 2
-(h ; 4) (j ; 3) (t ; 3) (g ; 2) (i ; 2) (l ; 2) (n ; 2) (w ; 2) (p ; 1) 
-[ S:  2 ]
-b x 
-[ LC:  2 ]
-h j t g i l n w p 
-Escolhendo no: h
-
-=> LC: 3
-(n ; 2) (w ; 2) (g ; 1) (i ; 1) (p ; 1) 
-[ S:  3 ]
-b x h 
-[ LC:  3 ]
-n w g i p 
-Escolhendo no: n
-
 => LC: 4
-(g ; 1) (i ; 1) (p ; 1) 
+(l ; 1) (t ; 1) (w ; 1) 
 [ S:  4 ]
-b x h n 
+m u d b 
 [ LC:  4 ]
-g i p 
-Escolhendo no: g
+l t w 
+Escolhendo no: l
 
 => LC: 5
-(i ; 1) (p ; 1) 
+(t ; 1) (w ; 1) 
 [ S:  5 ]
-b x h n g 
+m u d b l 
 [ LC:  5 ]
-i p 
-Escolhendo no: i
+t w 
+Escolhendo no: t
 
 => LC: 6
-(p ; 1) 
-[ S:  6 ]
-b x h n g i 
-[ LC:  6 ]
-p 
-Escolhendo no: p
-
-=> LC: 7
-
-[ S:  7 ]
-b x h n g i p 
-[ LC:  7 ]
-
-Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Solucao: b x h n g i p 
-===> Solucao VALIDA! |S| = 7
-
-Alpha: 0.4
-
-[ Iteracao: 1 ]
-
-=> LC: 0
-(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
-Escolhendo no: k
-
-=> LC: 1
-(f ; 6) (i ; 6) (a ; 5) (b ; 5) (h ; 5) (u ; 5) (v ; 5) (c ; 4) (j ; 4) (l ; 4) (p ; 4) (t ; 4) (d ; 3) (g ; 3) (o ; 3) (r ; 3) (y ; 3) (w ; 2) 
-[ S:  1 ]
-k 
-[ LC:  1 ]
-f i a b h u v c j l p t d g o r y w 
-Escolhendo no: v
-
-=> LC: 2
-(i ; 6) (f ; 5) (c ; 4) (u ; 4) (b ; 3) (d ; 3) (g ; 3) (j ; 3) (l ; 3) (o ; 3) (y ; 3) (t ; 2) (w ; 1) 
-[ S:  2 ]
-k v 
-[ LC:  2 ]
-i f c u b d g j l o y t w 
-Escolhendo no: c
-
-=> LC: 3
-(u ; 4) (f ; 3) (g ; 3) (l ; 3) (y ; 3) (d ; 2) (o ; 2) (t ; 2) (w ; 1) 
-[ S:  3 ]
-k v c 
-[ LC:  3 ]
-u f g l y d o t w 
-Escolhendo no: g
-
-=> LC: 4
-(l ; 3) (y ; 3) (d ; 2) (f ; 2) (o ; 1) (w ; 1) 
-[ S:  4 ]
-k v c g 
-[ LC:  4 ]
-l y d f o w 
-Escolhendo no: y
-
-=> LC: 5
-(f ; 1) (o ; 1) (w ; 1) 
-[ S:  5 ]
-k v c g y 
-[ LC:  5 ]
-f o w 
-Escolhendo no: f
-
-=> LC: 6
-(o ; 1) (w ; 1) 
-[ S:  6 ]
-k v c g y f 
-[ LC:  6 ]
-o w 
-Escolhendo no: o
-
-=> LC: 7
 (w ; 1) 
-[ S:  7 ]
-k v c g y f o 
-[ LC:  7 ]
+[ S:  6 ]
+m u d b l t 
+[ LC:  6 ]
 w 
 Escolhendo no: w
 
-=> LC: 8
+=> LC: 7
 
-[ S:  8 ]
-k v c g y f o w 
-[ LC:  8 ]
+[ S:  7 ]
+m u d b l t w 
+[ LC:  7 ]
 
 Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
 Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Solucao: k v c g y f o w 
-===> Solucao VALIDA! |S| = 8
+Solucao: m u d b l t w 
+===> Solucao VALIDA! |S| = 7
 
 Alpha: 0.5
 
@@ -347,70 +214,286 @@ Alpha: 0.5
 
 => LC: 0
 (x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
-Escolhendo no: f
+Escolhendo no: q
 
 => LC: 1
-(x ; 9) (m ; 8) (h ; 7) (k ; 7) (a ; 6) (j ; 6) (q ; 6) (v ; 6) (e ; 5) (n ; 5) (t ; 5) (d ; 4) (y ; 4) (c ; 3) (g ; 3) (r ; 3) (s ; 3) (w ; 3) (o ; 2) 
+(b ; 7) (a ; 6) (e ; 5) (i ; 5) (v ; 5) (c ; 4) (d ; 4) (f ; 4) (m ; 4) (n ; 4) (p ; 4) (r ; 3) (w ; 3) (y ; 3) (g ; 2) (o ; 2) (s ; 2) 
 [ S:  1 ]
-f 
+q 
 [ LC:  1 ]
-x m h k a j q v e n t d y c g r s w o 
-Escolhendo no: v
+b a e i v c d f m n p r w y g o s 
+Escolhendo no: b
 
 => LC: 2
-(k ; 5) (n ; 5) (e ; 4) (j ; 4) (q ; 4) (c ; 3) (d ; 3) (t ; 3) (y ; 3) (g ; 2) (s ; 2) (w ; 2) (o ; 1) 
+(d ; 3) (i ; 3) (m ; 3) (n ; 3) (v ; 3) (y ; 3) (g ; 2) (o ; 2) (p ; 2) (w ; 2) 
 [ S:  2 ]
-f v 
+q b 
 [ LC:  2 ]
-k n e j q c d t y g s w o 
-Escolhendo no: e
+d i m n v y g o p w 
+Escolhendo no: d
 
 => LC: 3
-(n ; 4) (t ; 3) (c ; 2) (g ; 2) (q ; 2) (w ; 2) (y ; 2) (o ; 1) (s ; 1) 
+(m ; 3) (v ; 3) (g ; 2) (n ; 2) (p ; 2) (w ; 2) (o ; 1) 
 [ S:  3 ]
-f v e 
+q b d 
 [ LC:  3 ]
-n t c g q w y o s 
-Escolhendo no: n
+m v g n p w o 
+Escolhendo no: v
 
 => LC: 4
-(t ; 3) (g ; 2) (q ; 2) (o ; 1) (s ; 1) 
+(n ; 2) (w ; 2) (g ; 1) (o ; 1) 
 [ S:  4 ]
-f v e n 
+q b d v 
 [ LC:  4 ]
-t g q o s 
-Escolhendo no: t
+n w g o 
+Escolhendo no: w
 
 => LC: 5
-(o ; 1) (s ; 1) 
+(g ; 1) (o ; 1) 
 [ S:  5 ]
-f v e n t 
+q b d v w 
 [ LC:  5 ]
-o s 
-Escolhendo no: o
+g o 
+Escolhendo no: g
 
 => LC: 6
-(s ; 1) 
+(o ; 1) 
 [ S:  6 ]
-f v e n t o 
+q b d v w g 
 [ LC:  6 ]
-s 
-Escolhendo no: s
+o 
+Escolhendo no: o
 
 => LC: 7
 
 [ S:  7 ]
-f v e n t o s 
+q b d v w g o 
 [ LC:  7 ]
 
 Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
 Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Solucao: f v e n t o s 
+Solucao: q b d v w g o 
 ===> Solucao VALIDA! |S| = 7
 
-Alpha: 0.6
+[ Alpha: 0.1 ] 7 
+[ Alpha: 0.3 ] 7 
+[ Alpha: 0.5 ] 7 
+Tempo de execucao: 0.001 segundos
 
-[ Iteracao: 1 ]
+__________________________________________________
+GULOSO REATIVO
+
+[31m========================================================= INICIO ==========================================================[0m
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: x
+
+=> LC: 1
+(b ; 6) (a ; 5) (c ; 5) (e ; 5) (f ; 5) (h ; 5) (j ; 5) (i ; 4) (l ; 4) (s ; 4) (t ; 4) (n ; 3) (p ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+x 
+[ LC:  1 ]
+b a c e f h j i l s t n p w g 
+Escolhendo no: b
+
+=> LC: 2
+(h ; 4) (j ; 3) (t ; 3) (g ; 2) (i ; 2) (l ; 2) (n ; 2) (w ; 2) (p ; 1) 
+[ S:  2 ]
+x b 
+[ LC:  2 ]
+h j t g i l n w p 
+Escolhendo no: h
+
+=> LC: 3
+(n ; 2) (w ; 2) (g ; 1) (i ; 1) (p ; 1) 
+[ S:  3 ]
+x b h 
+[ LC:  3 ]
+n w g i p 
+Escolhendo no: n
+
+=> LC: 4
+(g ; 1) (i ; 1) (p ; 1) 
+[ S:  4 ]
+x b h n 
+[ LC:  4 ]
+g i p 
+Escolhendo no: g
+
+=> LC: 5
+(i ; 1) (p ; 1) 
+[ S:  5 ]
+x b h n g 
+[ LC:  5 ]
+i p 
+Escolhendo no: i
+
+=> LC: 6
+(p ; 1) 
+[ S:  6 ]
+x b h n g i 
+[ LC:  6 ]
+p 
+Escolhendo no: p
+
+=> LC: 7
+
+[ S:  7 ]
+x b h n g i p 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: x b h n g i p 
+===> Solucao VALIDA! |S| = 7
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: m
+
+=> LC: 1
+(b ; 6) (f ; 6) (u ; 6) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (e ; 4) (p ; 4) (q ; 4) (y ; 4) (o ; 3) (s ; 3) (r ; 2) (t ; 2) (w ; 2) 
+[ S:  1 ]
+m 
+[ LC:  1 ]
+b f u i l n c d e p q y o s r t w 
+Escolhendo no: u
+
+=> LC: 2
+(b ; 5) (d ; 4) (c ; 3) (e ; 3) (i ; 3) (l ; 3) (s ; 3) (y ; 3) (r ; 2) (t ; 1) (w ; 1) 
+[ S:  2 ]
+m u 
+[ LC:  2 ]
+b d c e i l s y r t w 
+Escolhendo no: d
+
+=> LC: 3
+(b ; 4) (s ; 3) (c ; 2) (l ; 2) (r ; 2) (t ; 1) (w ; 1) 
+[ S:  3 ]
+m u d 
+[ LC:  3 ]
+b s c l r t w 
+Escolhendo no: b
+
+=> LC: 4
+(l ; 1) (t ; 1) (w ; 1) 
+[ S:  4 ]
+m u d b 
+[ LC:  4 ]
+l t w 
+Escolhendo no: l
+
+=> LC: 5
+(t ; 1) (w ; 1) 
+[ S:  5 ]
+m u d b l 
+[ LC:  5 ]
+t w 
+Escolhendo no: t
+
+=> LC: 6
+(w ; 1) 
+[ S:  6 ]
+m u d b l t 
+[ LC:  6 ]
+w 
+Escolhendo no: w
+
+=> LC: 7
+
+[ S:  7 ]
+m u d b l t w 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: m u d b l t w 
+===> Solucao VALIDA! |S| = 7
+
+[33mALFA----------------------------------->: 0.5[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: q
+
+=> LC: 1
+(b ; 7) (a ; 6) (e ; 5) (i ; 5) (v ; 5) (c ; 4) (d ; 4) (f ; 4) (m ; 4) (n ; 4) (p ; 4) (r ; 3) (w ; 3) (y ; 3) (g ; 2) (o ; 2) (s ; 2) 
+[ S:  1 ]
+q 
+[ LC:  1 ]
+b a e i v c d f m n p r w y g o s 
+Escolhendo no: b
+
+=> LC: 2
+(d ; 3) (i ; 3) (m ; 3) (n ; 3) (v ; 3) (y ; 3) (g ; 2) (o ; 2) (p ; 2) (w ; 2) 
+[ S:  2 ]
+q b 
+[ LC:  2 ]
+d i m n v y g o p w 
+Escolhendo no: d
+
+=> LC: 3
+(m ; 3) (v ; 3) (g ; 2) (n ; 2) (p ; 2) (w ; 2) (o ; 1) 
+[ S:  3 ]
+q b d 
+[ LC:  3 ]
+m v g n p w o 
+Escolhendo no: v
+
+=> LC: 4
+(n ; 2) (w ; 2) (g ; 1) (o ; 1) 
+[ S:  4 ]
+q b d v 
+[ LC:  4 ]
+n w g o 
+Escolhendo no: w
+
+=> LC: 5
+(g ; 1) (o ; 1) 
+[ S:  5 ]
+q b d v w 
+[ LC:  5 ]
+g o 
+Escolhendo no: g
+
+=> LC: 6
+(o ; 1) 
+[ S:  6 ]
+q b d v w g 
+[ LC:  6 ]
+o 
+Escolhendo no: o
+
+=> LC: 7
+
+[ S:  7 ]
+q b d v w g o 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: q b d v w g o 
+===> Solucao VALIDA! |S| = 7
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333333       7              7              1              
+0.3       0.333333       7              7              1              
+0.5       0.333333       7              7              1              
+[34m========================================================== i = 0 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333333       7              7              1              
+0.3       0.333333       7              7              1              
+0.5       0.333333       7              7              1              
+
+[33mALFA----------------------------------->: 0.5[0m
 
 => LC: 0
 (x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
@@ -446,28 +529,28 @@ Escolhendo no: c
 m f e c 
 [ LC:  4 ]
 q t o r s w y 
-Escolhendo no: o
+Escolhendo no: q
 
 => LC: 5
-(q ; 2) (t ; 2) (r ; 1) (s ; 1) (w ; 1) (y ; 1) 
+(o ; 1) (r ; 1) (s ; 1) (w ; 1) (y ; 1) 
 [ S:  5 ]
-m f e c o 
+m f e c q 
 [ LC:  5 ]
-q t r s w y 
-Escolhendo no: r
+o r s w y 
+Escolhendo no: o
 
 => LC: 6
-(q ; 2) (t ; 2) (s ; 1) (w ; 1) (y ; 1) 
+(r ; 1) (s ; 1) (w ; 1) (y ; 1) 
 [ S:  6 ]
-m f e c o r 
+m f e c q o 
 [ LC:  6 ]
-q t s w y 
-Escolhendo no: q
+r s w y 
+Escolhendo no: r
 
 => LC: 7
 (s ; 1) (w ; 1) (y ; 1) 
 [ S:  7 ]
-m f e c o r q 
+m f e c q o r 
 [ LC:  7 ]
 s w y 
 Escolhendo no: s
@@ -475,7 +558,7 @@ Escolhendo no: s
 => LC: 8
 (w ; 1) (y ; 1) 
 [ S:  8 ]
-m f e c o r q s 
+m f e c q o r s 
 [ LC:  8 ]
 w y 
 Escolhendo no: w
@@ -483,7 +566,7 @@ Escolhendo no: w
 => LC: 9
 (y ; 1) 
 [ S:  9 ]
-m f e c o r q s w 
+m f e c q o r s w 
 [ LC:  9 ]
 y 
 Escolhendo no: y
@@ -491,28 +574,25 @@ Escolhendo no: y
 => LC: 10
 
 [ S:  10 ]
-m f e c o r q s w y 
+m f e c q o r s w y 
 [ LC:  10 ]
 
 Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
 Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Solucao: m f e c o r q s w y 
+Solucao: m f e c q o r s w y 
 ===> Solucao VALIDA! |S| = 10
 
-[ Alpha: 0.1 ] 6 
-[ Alpha: 0.2 ] 7 
-[ Alpha: 0.3 ] 7 
-[ Alpha: 0.4 ] 8 
-[ Alpha: 0.5 ] 7 
-[ Alpha: 0.6 ] 10 
-Tempo de execucao: 0.005 segundos
+[32mBEST SOLUTION-------------------------------->: 10[0m
 
-__________________________________________________
-GULOSO REATIVO
+[34m========================================================== i = 1 ==========================================================[0m
 
-[31m========================================================= INICIO ==========================================================[0m
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333333       7              7              1              
+0.3       0.333333       7              7              1              
+0.5       0.333333       8.5            17             2              
 
-[33mALFA----------------------------------->: 0.1[0m
+[33mALFA----------------------------------->: 0.5[0m
 
 => LC: 0
 (x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
@@ -524,52 +604,70 @@ Escolhendo no: h
 h 
 [ LC:  1 ]
 u x b e n d f i a c k o p y r w g 
-Escolhendo no: u
-
-=> LC: 2
-(b ; 5) (e ; 5) (a ; 4) (d ; 4) (c ; 3) (i ; 3) (k ; 2) (r ; 2) (w ; 2) (y ; 2) 
-[ S:  2 ]
-h u 
-[ LC:  2 ]
-b e a d c i k r w y 
-Escolhendo no: b
-
-=> LC: 3
-(d ; 3) (i ; 2) (y ; 2) (k ; 1) (w ; 1) 
-[ S:  3 ]
-h u b 
-[ LC:  3 ]
-d i y k w 
 Escolhendo no: d
 
+=> LC: 2
+(u ; 6) (b ; 5) (n ; 5) (f ; 4) (a ; 3) (c ; 3) (p ; 3) (w ; 3) (g ; 2) (k ; 2) (o ; 2) (r ; 2) 
+[ S:  2 ]
+h d 
+[ LC:  2 ]
+u b n f a c p w g k o r 
+Escolhendo no: n
+
+=> LC: 3
+(b ; 4) (f ; 3) (a ; 2) (p ; 2) (r ; 2) (g ; 1) (o ; 1) 
+[ S:  3 ]
+h d n 
+[ LC:  3 ]
+b f a p r g o 
+Escolhendo no: b
+
 => LC: 4
-(k ; 1) (w ; 1) 
+(g ; 1) (o ; 1) (p ; 1) 
 [ S:  4 ]
-h u b d 
+h d n b 
 [ LC:  4 ]
-k w 
-Escolhendo no: k
+g o p 
+Escolhendo no: g
 
 => LC: 5
-(w ; 1) 
+(o ; 1) (p ; 1) 
 [ S:  5 ]
-h u b d k 
+h d n b g 
 [ LC:  5 ]
-w 
-Escolhendo no: w
+o p 
+Escolhendo no: o
 
 => LC: 6
-
+(p ; 1) 
 [ S:  6 ]
-h u b d k w 
+h d n b g o 
 [ LC:  6 ]
+p 
+Escolhendo no: p
+
+=> LC: 7
+
+[ S:  7 ]
+h d n b g o p 
+[ LC:  7 ]
 
 Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
 Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Solucao: h u b d k w 
-===> Solucao VALIDA! |S| = 6
+Solucao: h d n b g o p 
+===> Solucao VALIDA! |S| = 7
 
-[33mALFA----------------------------------->: 0.5[0m
+[32mBEST SOLUTION-------------------------------->: 7[0m
+
+[34m========================================================== i = 2 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333333       7              7              1              
+0.3       0.333333       7              7              1              
+0.5       0.333333       8              24             3              
+
+[33mALFA----------------------------------->: 0.3[0m
 
 => LC: 0
 (x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
@@ -581,321 +679,505 @@ Escolhendo no: u
 u 
 [ LC:  1 ]
 a h b e j m s v c d i k l r t y w 
-Escolhendo no: e
+Escolhendo no: j
 
 => LC: 2
-(h ; 6) (l ; 4) (v ; 4) (m ; 3) (s ; 3) (c ; 2) (i ; 2) (r ; 2) (t ; 2) (y ; 2) (w ; 1) 
+(a ; 5) (b ; 4) (s ; 4) (l ; 3) (r ; 3) (v ; 3) (y ; 3) (d ; 2) (k ; 2) (t ; 2) (w ; 2) 
 [ S:  2 ]
-u e 
+u j 
 [ LC:  2 ]
-h l v m s c i r t y w 
-Escolhendo no: l
-
-=> LC: 3
-(v ; 3) (c ; 2) (i ; 2) (m ; 2) (r ; 2) (t ; 1) (w ; 1) 
-[ S:  3 ]
-u e l 
-[ LC:  3 ]
-v c i m r t w 
-Escolhendo no: v
-
-=> LC: 4
-(c ; 2) (i ; 2) (t ; 1) (w ; 1) 
-[ S:  4 ]
-u e l v 
-[ LC:  4 ]
-c i t w 
-Escolhendo no: c
-
-=> LC: 5
-(t ; 1) (w ; 1) 
-[ S:  5 ]
-u e l v c 
-[ LC:  5 ]
-t w 
-Escolhendo no: t
-
-=> LC: 6
-(w ; 1) 
-[ S:  6 ]
-u e l v c t 
-[ LC:  6 ]
-w 
-Escolhendo no: w
-
-=> LC: 7
-
-[ S:  7 ]
-u e l v c t w 
-[ LC:  7 ]
-
-Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Solucao: u e l v c t w 
-===> Solucao VALIDA! |S| = 7
-
-[33mALFA----------------------------------->: 0.9[0m
-
-=> LC: 0
-(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
-Escolhendo no: m
-
-=> LC: 1
-(b ; 6) (f ; 6) (u ; 6) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (e ; 4) (p ; 4) (q ; 4) (y ; 4) (o ; 3) (s ; 3) (r ; 2) (t ; 2) (w ; 2) 
-[ S:  1 ]
-m 
-[ LC:  1 ]
-b f u i l n c d e p q y o s r t w 
-Escolhendo no: n
-
-=> LC: 2
-(b ; 5) (f ; 5) (e ; 4) (i ; 4) (l ; 4) (d ; 3) (p ; 3) (q ; 3) (s ; 3) (o ; 2) (r ; 2) (t ; 2) 
-[ S:  2 ]
-m n 
-[ LC:  2 ]
-b f e i l d p q s o r t 
+a b s l r v y d k t w 
 Escolhendo no: s
 
 => LC: 3
-(i ; 4) (d ; 3) (e ; 3) (f ; 3) (p ; 3) (o ; 2) (q ; 2) (t ; 2) (r ; 1) 
+(a ; 4) (v ; 3) (d ; 2) (r ; 2) (t ; 2) (w ; 2) (y ; 2) 
 [ S:  3 ]
-m n s 
+u j s 
 [ LC:  3 ]
-i d e f p o q t r 
-Escolhendo no: d
+a v d r t w y 
+Escolhendo no: a
 
 => LC: 4
-(f ; 2) (p ; 2) (q ; 2) (t ; 2) (o ; 1) (r ; 1) 
+(d ; 2) (y ; 2) (r ; 1) 
 [ S:  4 ]
-m n s d 
+u j s a 
 [ LC:  4 ]
-f p q t o r 
-Escolhendo no: t
+d y r 
+Escolhendo no: d
 
 => LC: 5
-(f ; 2) (p ; 2) (o ; 1) (r ; 1) 
-[ S:  5 ]
-m n s d t 
-[ LC:  5 ]
-f p o r 
-Escolhendo no: f
-
-=> LC: 6
-(o ; 1) (r ; 1) 
-[ S:  6 ]
-m n s d t f 
-[ LC:  6 ]
-o r 
-Escolhendo no: o
-
-=> LC: 7
 (r ; 1) 
-[ S:  7 ]
-m n s d t f o 
-[ LC:  7 ]
+[ S:  5 ]
+u j s a d 
+[ LC:  5 ]
 r 
 Escolhendo no: r
 
-=> LC: 8
-
-[ S:  8 ]
-m n s d t f o r 
-[ LC:  8 ]
-
-Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Solucao: m n s d t f o r 
-===> Solucao VALIDA! |S| = 8
-
-Alfa      Probability    Mean           sum_sols       count          
-------------------------------------------------------------
-0.1       0.333333       6              6              1              
-0.5       0.333333       7              7              1              
-0.9       0.333333       8              8              1              
-[34m========================================================== i = 0 ==========================================================[0m
-
-Alfa      Probability    Mean           sum_sols       count          
-------------------------------------------------------------
-0.1       0.333333       6              6              1              
-0.5       0.333333       7              7              1              
-0.9       0.333333       8              8              1              
-
-[33mALFA----------------------------------->: 0.9[0m
-
-=> LC: 0
-(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
-Escolhendo no: y
-
-=> LC: 1
-(a ; 7) (b ; 7) (h ; 7) (j ; 7) (m ; 7) (e ; 6) (q ; 6) (u ; 6) (v ; 6) (f ; 5) (i ; 5) (k ; 5) (p ; 5) (t ; 5) (c ; 4) (g ; 4) (s ; 4) (o ; 3) (r ; 3) (w ; 2) 
-[ S:  1 ]
-y 
-[ LC:  1 ]
-a b h j m e q u v f i k p t c g s o r w 
-Escolhendo no: m
-
-=> LC: 2
-(b ; 6) (f ; 5) (u ; 5) (i ; 4) (p ; 4) (c ; 3) (e ; 3) (o ; 3) (q ; 3) (r ; 2) (s ; 2) (t ; 2) (w ; 1) 
-[ S:  2 ]
-y m 
-[ LC:  2 ]
-b f u i p c e o q r s t w 
-Escolhendo no: f
-
-=> LC: 3
-(q ; 2) (t ; 2) (c ; 1) (e ; 1) (o ; 1) (r ; 1) (s ; 1) (w ; 1) 
-[ S:  3 ]
-y m f 
-[ LC:  3 ]
-q t c e o r s w 
-Escolhendo no: t
-
-=> LC: 4
-(c ; 1) (e ; 1) (o ; 1) (r ; 1) (s ; 1) (w ; 1) 
-[ S:  4 ]
-y m f t 
-[ LC:  4 ]
-c e o r s w 
-Escolhendo no: e
-
-=> LC: 5
-(c ; 1) (o ; 1) (r ; 1) (s ; 1) (w ; 1) 
-[ S:  5 ]
-y m f t e 
-[ LC:  5 ]
-c o r s w 
-Escolhendo no: s
-
-=> LC: 6
-(c ; 1) (o ; 1) (r ; 1) (w ; 1) 
-[ S:  6 ]
-y m f t e s 
-[ LC:  6 ]
-c o r w 
-Escolhendo no: r
-
-=> LC: 7
-(c ; 1) (o ; 1) (w ; 1) 
-[ S:  7 ]
-y m f t e s r 
-[ LC:  7 ]
-c o w 
-Escolhendo no: c
-
-=> LC: 8
-(o ; 1) (w ; 1) 
-[ S:  8 ]
-y m f t e s r c 
-[ LC:  8 ]
-o w 
-Escolhendo no: o
-
-=> LC: 9
-(w ; 1) 
-[ S:  9 ]
-y m f t e s r c o 
-[ LC:  9 ]
-w 
-Escolhendo no: w
-
-=> LC: 10
-
-[ S:  10 ]
-y m f t e s r c o w 
-[ LC:  10 ]
-
-Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Solucao: y m f t e s r c o w 
-===> Solucao VALIDA! |S| = 10
-
-[32mBEST SOLUTION-------------------------------->: 10[0m
-
-[34m========================================================== i = 1 ==========================================================[0m
-
-Alfa      Probability    Mean           sum_sols       count          
-------------------------------------------------------------
-0.1       0.333333       6              6              1              
-0.5       0.333333       7              7              1              
-0.9       0.333333       9              18             2              
-
-[33mALFA----------------------------------->: 0.1[0m
-
-=> LC: 0
-(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
-Escolhendo no: h
-
-=> LC: 1
-(u ; 7) (x ; 7) (b ; 6) (e ; 6) (n ; 6) (d ; 5) (f ; 5) (i ; 5) (a ; 4) (c ; 4) (k ; 4) (o ; 4) (p ; 4) (y ; 4) (r ; 3) (w ; 3) (g ; 2) 
-[ S:  1 ]
-h 
-[ LC:  1 ]
-u x b e n d f i a c k o p y r w g 
-Escolhendo no: u
-
-=> LC: 2
-(b ; 5) (e ; 5) (a ; 4) (d ; 4) (c ; 3) (i ; 3) (k ; 2) (r ; 2) (w ; 2) (y ; 2) 
-[ S:  2 ]
-h u 
-[ LC:  2 ]
-b e a d c i k r w y 
-Escolhendo no: b
-
-=> LC: 3
-(d ; 3) (i ; 2) (y ; 2) (k ; 1) (w ; 1) 
-[ S:  3 ]
-h u b 
-[ LC:  3 ]
-d i y k w 
-Escolhendo no: d
-
-=> LC: 4
-(k ; 1) (w ; 1) 
-[ S:  4 ]
-h u b d 
-[ LC:  4 ]
-k w 
-Escolhendo no: k
-
-=> LC: 5
-(w ; 1) 
-[ S:  5 ]
-h u b d k 
-[ LC:  5 ]
-w 
-Escolhendo no: w
-
 => LC: 6
 
 [ S:  6 ]
-h u b d k w 
+u j s a d r 
 [ LC:  6 ]
 
 Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
 Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Solucao: h u b d k w 
+Solucao: u j s a d r 
 ===> Solucao VALIDA! |S| = 6
 
 [32mBEST SOLUTION-------------------------------->: 6[0m
 
-[34m========================================================== i = 2 ==========================================================[0m
+[34m========================================================== i = 3 ==========================================================[0m
 
 Alfa      Probability    Mean           sum_sols       count          
 ------------------------------------------------------------
-0.1       0.333333       6              12             2              
-0.5       0.333333       7              7              1              
-0.9       0.333333       9              18             2              
+0.1       0.333333       7              7              1              
+0.3       0.333333       6.5            13             2              
+0.5       0.333333       8              24             3              
+
+[33mALFA----------------------------------->: 0.5[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: a
+
+=> LC: 1
+(u ; 8) (x ; 8) (q ; 7) (i ; 6) (l ; 6) (f ; 5) (h ; 5) (j ; 5) (k ; 5) (n ; 5) (y ; 5) (c ; 4) (d ; 4) (o ; 4) (s ; 4) (p ; 3) (g ; 2) (r ; 2) 
+[ S:  1 ]
+a 
+[ LC:  1 ]
+u x q i l f h j k n y c d o s p g r 
+Escolhendo no: u
+
+=> LC: 2
+(h ; 4) (i ; 4) (j ; 4) (l ; 4) (s ; 4) (c ; 3) (d ; 3) (y ; 3) (k ; 2) (r ; 1) 
+[ S:  2 ]
+a u 
+[ LC:  2 ]
+h i j l s c d y k r 
+Escolhendo no: j
+
+=> LC: 3
+(l ; 3) (s ; 3) (y ; 3) (d ; 2) (k ; 2) (r ; 1) 
+[ S:  3 ]
+a u j 
+[ LC:  3 ]
+l s y d k r 
+Escolhendo no: y
+
+=> LC: 4
+(k ; 2) (s ; 2) (r ; 1) 
+[ S:  4 ]
+a u j y 
+[ LC:  4 ]
+k s r 
+Escolhendo no: k
+
+=> LC: 5
+(r ; 1) 
+[ S:  5 ]
+a u j y k 
+[ LC:  5 ]
+r 
+Escolhendo no: r
+
+=> LC: 6
+
+[ S:  6 ]
+a u j y k r 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: a u j y k r 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 4 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333333       7              7              1              
+0.3       0.333333       6.5            13             2              
+0.5       0.333333       7.5            30             4              
+
+[33mALFA----------------------------------->: 0.5[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: j
+
+=> LC: 1
+(x ; 8) (u ; 7) (a ; 5) (b ; 5) (f ; 5) (n ; 5) (v ; 5) (y ; 5) (k ; 4) (l ; 4) (p ; 4) (r ; 4) (s ; 4) (d ; 3) (g ; 3) (o ; 3) (t ; 3) (w ; 3) 
+[ S:  1 ]
+j 
+[ LC:  1 ]
+x u a b f n v y k l p r s d g o t w 
+Escolhendo no: b
+
+=> LC: 2
+(x ; 7) (u ; 6) (n ; 5) (y ; 5) (d ; 3) (g ; 3) (k ; 3) (o ; 3) (p ; 3) (v ; 3) (l ; 2) (t ; 2) (w ; 2) 
+[ S:  2 ]
+j b 
+[ LC:  2 ]
+x u n y d g k o p v l t w 
+Escolhendo no: n
+
+=> LC: 3
+(x ; 4) (v ; 3) (d ; 2) (g ; 2) (o ; 2) (p ; 2) (t ; 2) (l ; 1) 
+[ S:  3 ]
+j b n 
+[ LC:  3 ]
+x v d g o p t l 
+Escolhendo no: d
+
+=> LC: 4
+(g ; 2) (p ; 2) (t ; 2) (v ; 2) (l ; 1) (o ; 1) 
+[ S:  4 ]
+j b n d 
+[ LC:  4 ]
+g p t v l o 
+Escolhendo no: g
+
+=> LC: 5
+(p ; 2) (v ; 2) (l ; 1) (o ; 1) 
+[ S:  5 ]
+j b n d g 
+[ LC:  5 ]
+p v l o 
+Escolhendo no: v
+
+=> LC: 6
+(l ; 1) (o ; 1) 
+[ S:  6 ]
+j b n d g v 
+[ LC:  6 ]
+l o 
+Escolhendo no: l
+
+=> LC: 7
+(o ; 1) 
+[ S:  7 ]
+j b n d g v l 
+[ LC:  7 ]
+o 
+Escolhendo no: o
+
+=> LC: 8
+
+[ S:  8 ]
+j b n d g v l o 
+[ LC:  8 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: j b n d g v l o 
+===> Solucao VALIDA! |S| = 8
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 5 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333333       7              7              1              
+0.3       0.333333       6.5            13             2              
+0.5       0.333333       7.6            38             5              
 
 [36m---------------- Atualizando Probabilidades ----------------[0m
 
-SCORES: 1 ; 0.857143 ; 0.666667 ; 
-SUM_SCORES: 2.52381
+SCORES: 0.857143 ; 0.923077 ; 0.789474 ; 
+SUM_SCORES: 2.56969
 
 Alfa      Probability    Mean           sum_sols       count          
 ------------------------------------------------------------
-0.1       0.396226       6              12             2              
-0.5       0.339623       7              7              1              
-0.9       0.264151       9              18             2              
+0.1       0.333558       7              7              1              
+0.3       0.359217       6.5            13             2              
+0.5       0.307225       7.6            38             5              
+
+[33mALFA----------------------------------->: 0.5[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: k
+
+=> LC: 1
+(f ; 6) (i ; 6) (a ; 5) (b ; 5) (h ; 5) (u ; 5) (v ; 5) (c ; 4) (j ; 4) (l ; 4) (p ; 4) (t ; 4) (d ; 3) (g ; 3) (o ; 3) (r ; 3) (y ; 3) (w ; 2) 
+[ S:  1 ]
+k 
+[ LC:  1 ]
+f i a b h u v c j l p t d g o r y w 
+Escolhendo no: h
+
+=> LC: 2
+(b ; 5) (f ; 5) (i ; 5) (u ; 5) (a ; 3) (c ; 3) (d ; 3) (o ; 3) (p ; 3) (g ; 2) (r ; 2) (w ; 2) (y ; 2) 
+[ S:  2 ]
+k h 
+[ LC:  2 ]
+b f i u a c d o p g r w y 
+Escolhendo no: c
+
+=> LC: 3
+(u ; 5) (f ; 3) (p ; 3) (a ; 2) (d ; 2) (g ; 2) (o ; 2) (w ; 2) (y ; 2) (r ; 1) 
+[ S:  3 ]
+k h c 
+[ LC:  3 ]
+u f p a d g o w y r 
+Escolhendo no: u
+
+=> LC: 4
+(a ; 2) (d ; 2) (w ; 2) (y ; 2) (r ; 1) 
+[ S:  4 ]
+k h c u 
+[ LC:  4 ]
+a d w y r 
+Escolhendo no: a
+
+=> LC: 5
+(d ; 2) (y ; 2) (r ; 1) 
+[ S:  5 ]
+k h c u a 
+[ LC:  5 ]
+d y r 
+Escolhendo no: d
+
+=> LC: 6
+(r ; 1) 
+[ S:  6 ]
+k h c u a d 
+[ LC:  6 ]
+r 
+Escolhendo no: r
+
+=> LC: 7
+
+[ S:  7 ]
+k h c u a d r 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: k h c u a d r 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 6 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333558       7              7              1              
+0.3       0.359217       6.5            13             2              
+0.5       0.307225       7.5            45             6              
+
+[33mALFA----------------------------------->: 0.5[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: x
+
+=> LC: 1
+(b ; 6) (a ; 5) (c ; 5) (e ; 5) (f ; 5) (h ; 5) (j ; 5) (i ; 4) (l ; 4) (s ; 4) (t ; 4) (n ; 3) (p ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+x 
+[ LC:  1 ]
+b a c e f h j i l s t n p w g 
+Escolhendo no: f
+
+=> LC: 2
+(a ; 4) (h ; 4) (j ; 4) (t ; 4) (c ; 3) (e ; 3) (n ; 3) (w ; 3) (g ; 2) (s ; 2) 
+[ S:  2 ]
+x f 
+[ LC:  2 ]
+a h j t c e n w g s 
+Escolhendo no: t
+
+=> LC: 3
+(c ; 3) (j ; 3) (n ; 3) (e ; 2) (w ; 2) (s ; 1) 
+[ S:  3 ]
+x f t 
+[ LC:  3 ]
+c j n e w s 
+Escolhendo no: n
+
+=> LC: 4
+(e ; 2) (j ; 2) (s ; 1) 
+[ S:  4 ]
+x f t n 
+[ LC:  4 ]
+e j s 
+Escolhendo no: e
+
+=> LC: 5
+(s ; 1) 
+[ S:  5 ]
+x f t n e 
+[ LC:  5 ]
+s 
+Escolhendo no: s
+
+=> LC: 6
+
+[ S:  6 ]
+x f t n e s 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: x f t n e s 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 7 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333558       7              7              1              
+0.3       0.359217       6.5            13             2              
+0.5       0.307225       7.28571        51             7              
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: x
+
+=> LC: 1
+(b ; 6) (a ; 5) (c ; 5) (e ; 5) (f ; 5) (h ; 5) (j ; 5) (i ; 4) (l ; 4) (s ; 4) (t ; 4) (n ; 3) (p ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+x 
+[ LC:  1 ]
+b a c e f h j i l s t n p w g 
+Escolhendo no: b
+
+=> LC: 2
+(h ; 4) (j ; 3) (t ; 3) (g ; 2) (i ; 2) (l ; 2) (n ; 2) (w ; 2) (p ; 1) 
+[ S:  2 ]
+x b 
+[ LC:  2 ]
+h j t g i l n w p 
+Escolhendo no: j
+
+=> LC: 3
+(g ; 2) (n ; 2) (t ; 2) (w ; 2) (l ; 1) (p ; 1) 
+[ S:  3 ]
+x b j 
+[ LC:  3 ]
+g n t w l p 
+Escolhendo no: g
+
+=> LC: 4
+(n ; 2) (w ; 2) (l ; 1) (p ; 1) 
+[ S:  4 ]
+x b j g 
+[ LC:  4 ]
+n w l p 
+Escolhendo no: n
+
+=> LC: 5
+(l ; 1) (p ; 1) 
+[ S:  5 ]
+x b j g n 
+[ LC:  5 ]
+l p 
+Escolhendo no: l
+
+=> LC: 6
+(p ; 1) 
+[ S:  6 ]
+x b j g n l 
+[ LC:  6 ]
+p 
+Escolhendo no: p
+
+=> LC: 7
+
+[ S:  7 ]
+x b j g n l p 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: x b j g n l p 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 8 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333558       7              7              1              
+0.3       0.359217       6.66667        20             3              
+0.5       0.307225       7.28571        51             7              
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: a
+
+=> LC: 1
+(u ; 8) (x ; 8) (q ; 7) (i ; 6) (l ; 6) (f ; 5) (h ; 5) (j ; 5) (k ; 5) (n ; 5) (y ; 5) (c ; 4) (d ; 4) (o ; 4) (s ; 4) (p ; 3) (g ; 2) (r ; 2) 
+[ S:  1 ]
+a 
+[ LC:  1 ]
+u x q i l f h j k n y c d o s p g r 
+Escolhendo no: x
+
+=> LC: 2
+(c ; 4) (f ; 4) (h ; 4) (i ; 4) (j ; 4) (l ; 4) (s ; 3) (n ; 2) (p ; 2) (g ; 1) 
+[ S:  2 ]
+a x 
+[ LC:  2 ]
+c f h i j l s n p g 
+Escolhendo no: f
+
+=> LC: 3
+(c ; 3) (h ; 3) (j ; 3) (n ; 2) (s ; 2) (g ; 1) 
+[ S:  3 ]
+a x f 
+[ LC:  3 ]
+c h j n s g 
+Escolhendo no: c
+
+=> LC: 4
+(h ; 2) (s ; 2) (g ; 1) 
+[ S:  4 ]
+a x f c 
+[ LC:  4 ]
+h s g 
+Escolhendo no: h
+
+=> LC: 5
+(g ; 1) 
+[ S:  5 ]
+a x f c h 
+[ LC:  5 ]
+g 
+Escolhendo no: g
+
+=> LC: 6
+
+[ S:  6 ]
+a x f c h g 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: a x f c h g 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 9 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333558       7              7              1              
+0.3       0.359217       6.5            26             4              
+0.5       0.307225       7.28571        51             7              
 
 [33mALFA----------------------------------->: 0.1[0m
 
@@ -964,15 +1246,101 @@ Solucao: x b h n g i p
 
 [32mBEST SOLUTION-------------------------------->: 6[0m
 
-[34m========================================================== i = 3 ==========================================================[0m
+[34m========================================================== i = 10 ==========================================================[0m
 
 Alfa      Probability    Mean           sum_sols       count          
 ------------------------------------------------------------
-0.1       0.396226       6.33333        19             3              
-0.5       0.339623       7              7              1              
-0.9       0.264151       9              18             2              
+0.1       0.333558       7              14             2              
+0.3       0.359217       6.5            26             4              
+0.5       0.307225       7.28571        51             7              
 
-[33mALFA----------------------------------->: 0.5[0m
+[36m---------------- Atualizando Probabilidades ----------------[0m
+
+SCORES: 0.857143 ; 0.923077 ; 0.823529 ; 
+SUM_SCORES: 2.60375
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.329196       7              14             2              
+0.3       0.354518       6.5            26             4              
+0.5       0.316286       7.28571        51             7              
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: b
+
+=> LC: 1
+(x ; 9) (q ; 8) (h ; 7) (m ; 7) (u ; 7) (j ; 5) (k ; 5) (n ; 5) (v ; 5) (y ; 5) (d ; 4) (g ; 4) (i ; 4) (l ; 4) (o ; 4) (t ; 4) (p ; 3) (w ; 2) 
+[ S:  1 ]
+b 
+[ LC:  1 ]
+x q h m u j k n v y d g i l o t p w 
+Escolhendo no: x
+
+=> LC: 2
+(h ; 4) (j ; 3) (t ; 3) (g ; 2) (i ; 2) (l ; 2) (n ; 2) (w ; 2) (p ; 1) 
+[ S:  2 ]
+b x 
+[ LC:  2 ]
+h j t g i l n w p 
+Escolhendo no: j
+
+=> LC: 3
+(g ; 2) (n ; 2) (t ; 2) (w ; 2) (l ; 1) (p ; 1) 
+[ S:  3 ]
+b x j 
+[ LC:  3 ]
+g n t w l p 
+Escolhendo no: g
+
+=> LC: 4
+(n ; 2) (w ; 2) (l ; 1) (p ; 1) 
+[ S:  4 ]
+b x j g 
+[ LC:  4 ]
+n w l p 
+Escolhendo no: n
+
+=> LC: 5
+(l ; 1) (p ; 1) 
+[ S:  5 ]
+b x j g n 
+[ LC:  5 ]
+l p 
+Escolhendo no: l
+
+=> LC: 6
+(p ; 1) 
+[ S:  6 ]
+b x j g n l 
+[ LC:  6 ]
+p 
+Escolhendo no: p
+
+=> LC: 7
+
+[ S:  7 ]
+b x j g n l p 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: b x j g n l p 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 11 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.329196       7              14             2              
+0.3       0.354518       6.6            33             5              
+0.5       0.316286       7.28571        51             7              
+
+[33mALFA----------------------------------->: 0.1[0m
 
 => LC: 0
 (x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
@@ -984,28 +1352,28 @@ Escolhendo no: x
 x 
 [ LC:  1 ]
 b a c e f h j i l s t n p w g 
-Escolhendo no: h
+Escolhendo no: b
 
 => LC: 2
-(b ; 5) (a ; 4) (c ; 4) (e ; 4) (f ; 4) (i ; 3) (n ; 3) (p ; 3) (w ; 3) (g ; 1) 
+(h ; 4) (j ; 3) (t ; 3) (g ; 2) (i ; 2) (l ; 2) (n ; 2) (w ; 2) (p ; 1) 
 [ S:  2 ]
-x h 
+x b 
 [ LC:  2 ]
-b a c e f i n p w g 
-Escolhendo no: b
+h j t g i l n w p 
+Escolhendo no: h
 
 => LC: 3
 (n ; 2) (w ; 2) (g ; 1) (i ; 1) (p ; 1) 
 [ S:  3 ]
-x h b 
+x b h 
 [ LC:  3 ]
 n w g i p 
-Escolhendo no: w
+Escolhendo no: n
 
 => LC: 4
 (g ; 1) (i ; 1) (p ; 1) 
 [ S:  4 ]
-x h b w 
+x b h n 
 [ LC:  4 ]
 g i p 
 Escolhendo no: g
@@ -1013,7 +1381,7 @@ Escolhendo no: g
 => LC: 5
 (i ; 1) (p ; 1) 
 [ S:  5 ]
-x h b w g 
+x b h n g 
 [ LC:  5 ]
 i p 
 Escolhendo no: i
@@ -1021,7 +1389,7 @@ Escolhendo no: i
 => LC: 6
 (p ; 1) 
 [ S:  6 ]
-x h b w g i 
+x b h n g i 
 [ LC:  6 ]
 p 
 Escolhendo no: p
@@ -1029,34 +1397,267 @@ Escolhendo no: p
 => LC: 7
 
 [ S:  7 ]
-x h b w g i p 
+x b h n g i p 
 [ LC:  7 ]
 
 Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
 Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Solucao: x h b w g i p 
+Solucao: x b h n g i p 
 ===> Solucao VALIDA! |S| = 7
 
 [32mBEST SOLUTION-------------------------------->: 6[0m
 
-[34m========================================================== i = 4 ==========================================================[0m
+[34m========================================================== i = 12 ==========================================================[0m
 
 Alfa      Probability    Mean           sum_sols       count          
 ------------------------------------------------------------
-0.1       0.396226       6.33333        19             3              
-0.5       0.339623       7              14             2              
-0.9       0.264151       9              18             2              
+0.1       0.329196       7              21             3              
+0.3       0.354518       6.6            33             5              
+0.5       0.316286       7.28571        51             7              
+
+[33mALFA----------------------------------->: 0.5[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: u
+
+=> LC: 1
+(a ; 7) (h ; 7) (b ; 6) (e ; 6) (j ; 6) (m ; 6) (s ; 5) (v ; 5) (c ; 4) (d ; 4) (i ; 4) (k ; 4) (l ; 4) (r ; 3) (t ; 3) (y ; 3) (w ; 2) 
+[ S:  1 ]
+u 
+[ LC:  1 ]
+a h b e j m s v c d i k l r t y w 
+Escolhendo no: j
+
+=> LC: 2
+(a ; 5) (b ; 4) (s ; 4) (l ; 3) (r ; 3) (v ; 3) (y ; 3) (d ; 2) (k ; 2) (t ; 2) (w ; 2) 
+[ S:  2 ]
+u j 
+[ LC:  2 ]
+a b s l r v y d k t w 
+Escolhendo no: b
+
+=> LC: 3
+(y ; 3) (d ; 2) (l ; 2) (k ; 1) (t ; 1) (v ; 1) (w ; 1) 
+[ S:  3 ]
+u j b 
+[ LC:  3 ]
+y d l k t v w 
+Escolhendo no: l
+
+=> LC: 4
+(d ; 1) (k ; 1) (t ; 1) (v ; 1) (w ; 1) 
+[ S:  4 ]
+u j b l 
+[ LC:  4 ]
+d k t v w 
+Escolhendo no: k
+
+=> LC: 5
+(d ; 1) (t ; 1) (v ; 1) (w ; 1) 
+[ S:  5 ]
+u j b l k 
+[ LC:  5 ]
+d t v w 
+Escolhendo no: d
+
+=> LC: 6
+(t ; 1) (v ; 1) (w ; 1) 
+[ S:  6 ]
+u j b l k d 
+[ LC:  6 ]
+t v w 
+Escolhendo no: t
+
+=> LC: 7
+(v ; 1) (w ; 1) 
+[ S:  7 ]
+u j b l k d t 
+[ LC:  7 ]
+v w 
+Escolhendo no: v
+
+=> LC: 8
+(w ; 1) 
+[ S:  8 ]
+u j b l k d t v 
+[ LC:  8 ]
+w 
+Escolhendo no: w
+
+=> LC: 9
+
+[ S:  9 ]
+u j b l k d t v w 
+[ LC:  9 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: u j b l k d t v w 
+===> Solucao VALIDA! |S| = 9
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 13 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.329196       7              21             3              
+0.3       0.354518       6.6            33             5              
+0.5       0.316286       7.5            60             8              
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: x
+
+=> LC: 1
+(b ; 6) (a ; 5) (c ; 5) (e ; 5) (f ; 5) (h ; 5) (j ; 5) (i ; 4) (l ; 4) (s ; 4) (t ; 4) (n ; 3) (p ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+x 
+[ LC:  1 ]
+b a c e f h j i l s t n p w g 
+Escolhendo no: a
+
+=> LC: 2
+(c ; 4) (f ; 4) (h ; 4) (i ; 4) (j ; 4) (l ; 4) (s ; 3) (n ; 2) (p ; 2) (g ; 1) 
+[ S:  2 ]
+x a 
+[ LC:  2 ]
+c f h i j l s n p g 
+Escolhendo no: h
+
+=> LC: 3
+(c ; 3) (f ; 3) (i ; 3) (n ; 2) (p ; 2) (g ; 1) 
+[ S:  3 ]
+x a h 
+[ LC:  3 ]
+c f i n p g 
+Escolhendo no: c
+
+=> LC: 4
+(f ; 2) (p ; 2) (g ; 1) 
+[ S:  4 ]
+x a h c 
+[ LC:  4 ]
+f p g 
+Escolhendo no: f
+
+=> LC: 5
+(g ; 1) 
+[ S:  5 ]
+x a h c f 
+[ LC:  5 ]
+g 
+Escolhendo no: g
+
+=> LC: 6
+
+[ S:  6 ]
+x a h c f g 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: x a h c f g 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 14 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.329196       7              21             3              
+0.3       0.354518       6.5            39             6              
+0.5       0.316286       7.5            60             8              
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: b
+
+=> LC: 1
+(x ; 9) (q ; 8) (h ; 7) (m ; 7) (u ; 7) (j ; 5) (k ; 5) (n ; 5) (v ; 5) (y ; 5) (d ; 4) (g ; 4) (i ; 4) (l ; 4) (o ; 4) (t ; 4) (p ; 3) (w ; 2) 
+[ S:  1 ]
+b 
+[ LC:  1 ]
+x q h m u j k n v y d g i l o t p w 
+Escolhendo no: x
+
+=> LC: 2
+(h ; 4) (j ; 3) (t ; 3) (g ; 2) (i ; 2) (l ; 2) (n ; 2) (w ; 2) (p ; 1) 
+[ S:  2 ]
+b x 
+[ LC:  2 ]
+h j t g i l n w p 
+Escolhendo no: h
+
+=> LC: 3
+(n ; 2) (w ; 2) (g ; 1) (i ; 1) (p ; 1) 
+[ S:  3 ]
+b x h 
+[ LC:  3 ]
+n w g i p 
+Escolhendo no: n
+
+=> LC: 4
+(g ; 1) (i ; 1) (p ; 1) 
+[ S:  4 ]
+b x h n 
+[ LC:  4 ]
+g i p 
+Escolhendo no: g
+
+=> LC: 5
+(i ; 1) (p ; 1) 
+[ S:  5 ]
+b x h n g 
+[ LC:  5 ]
+i p 
+Escolhendo no: i
+
+=> LC: 6
+(p ; 1) 
+[ S:  6 ]
+b x h n g i 
+[ LC:  6 ]
+p 
+Escolhendo no: p
+
+=> LC: 7
+
+[ S:  7 ]
+b x h n g i p 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: b x h n g i p 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 15 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.329196       7              21             3              
+0.3       0.354518       6.57143        46             7              
+0.5       0.316286       7.5            60             8              
 
 [36m---------------- Atualizando Probabilidades ----------------[0m
 
-SCORES: 0.947368 ; 0.857143 ; 0.666667 ; 
-SUM_SCORES: 2.47118
+SCORES: 0.857143 ; 0.913043 ; 0.8 ; 
+SUM_SCORES: 2.57019
 
 Alfa      Probability    Mean           sum_sols       count          
 ------------------------------------------------------------
-0.1       0.383367       6.33333        19             3              
-0.5       0.346856       7              14             2              
-0.9       0.269777       9              18             2              
+0.1       0.333494       7              21             3              
+0.3       0.355244       6.57143        46             7              
+0.5       0.311261       7.5            60             8              
 
 [33mALFA----------------------------------->: 0.5[0m
 
@@ -1070,52 +1671,202 @@ Escolhendo no: j
 j 
 [ LC:  1 ]
 x u a b f n v y k l p r s d g o t w 
-Escolhendo no: k
+Escolhendo no: x
 
 => LC: 2
-(a ; 5) (f ; 5) (u ; 5) (b ; 4) (p ; 4) (v ; 4) (g ; 3) (l ; 3) (r ; 3) (t ; 3) (y ; 3) (d ; 2) (o ; 2) (w ; 2) 
+(a ; 4) (b ; 4) (f ; 4) (l ; 3) (s ; 3) (t ; 3) (w ; 3) (g ; 2) (n ; 2) (p ; 2) 
 [ S:  2 ]
-j k 
+j x 
 [ LC:  2 ]
-a f u b p v g l r t y d o w 
-Escolhendo no: f
+a b f l s t w g n p 
+Escolhendo no: b
 
 => LC: 3
-(a ; 4) (t ; 3) (v ; 3) (d ; 2) (g ; 2) (r ; 2) (w ; 2) (y ; 2) (o ; 1) 
+(g ; 2) (n ; 2) (t ; 2) (w ; 2) (l ; 1) (p ; 1) 
 [ S:  3 ]
-j k f 
+j x b 
 [ LC:  3 ]
-a t v d g r w y o 
+g n t w l p 
 Escolhendo no: t
 
 => LC: 4
-(d ; 2) (r ; 2) (v ; 2) (y ; 2) (o ; 1) (w ; 1) 
+(n ; 2) (w ; 2) (l ; 1) (p ; 1) 
 [ S:  4 ]
-j k f t 
+j x b t 
 [ LC:  4 ]
-d r v y o w 
-Escolhendo no: v
+n w l p 
+Escolhendo no: n
 
 => LC: 5
-(d ; 2) (y ; 2) (o ; 1) (w ; 1) 
+(l ; 1) (p ; 1) 
 [ S:  5 ]
-j k f t v 
+j x b t n 
 [ LC:  5 ]
-d y o w 
-Escolhendo no: y
+l p 
+Escolhendo no: l
 
 => LC: 6
-(o ; 1) (w ; 1) 
+(p ; 1) 
 [ S:  6 ]
-j k f t v y 
+j x b t n l 
 [ LC:  6 ]
-o w 
-Escolhendo no: o
+p 
+Escolhendo no: p
+
+=> LC: 7
+
+[ S:  7 ]
+j x b t n l p 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: j x b t n l p 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 16 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333494       7              21             3              
+0.3       0.355244       6.57143        46             7              
+0.5       0.311261       7.44444        67             9              
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: x
+
+=> LC: 1
+(b ; 6) (a ; 5) (c ; 5) (e ; 5) (f ; 5) (h ; 5) (j ; 5) (i ; 4) (l ; 4) (s ; 4) (t ; 4) (n ; 3) (p ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+x 
+[ LC:  1 ]
+b a c e f h j i l s t n p w g 
+Escolhendo no: b
+
+=> LC: 2
+(h ; 4) (j ; 3) (t ; 3) (g ; 2) (i ; 2) (l ; 2) (n ; 2) (w ; 2) (p ; 1) 
+[ S:  2 ]
+x b 
+[ LC:  2 ]
+h j t g i l n w p 
+Escolhendo no: h
+
+=> LC: 3
+(n ; 2) (w ; 2) (g ; 1) (i ; 1) (p ; 1) 
+[ S:  3 ]
+x b h 
+[ LC:  3 ]
+n w g i p 
+Escolhendo no: n
+
+=> LC: 4
+(g ; 1) (i ; 1) (p ; 1) 
+[ S:  4 ]
+x b h n 
+[ LC:  4 ]
+g i p 
+Escolhendo no: g
+
+=> LC: 5
+(i ; 1) (p ; 1) 
+[ S:  5 ]
+x b h n g 
+[ LC:  5 ]
+i p 
+Escolhendo no: i
+
+=> LC: 6
+(p ; 1) 
+[ S:  6 ]
+x b h n g i 
+[ LC:  6 ]
+p 
+Escolhendo no: p
+
+=> LC: 7
+
+[ S:  7 ]
+x b h n g i p 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: x b h n g i p 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 17 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333494       7              28             4              
+0.3       0.355244       6.57143        46             7              
+0.5       0.311261       7.44444        67             9              
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: b
+
+=> LC: 1
+(x ; 9) (q ; 8) (h ; 7) (m ; 7) (u ; 7) (j ; 5) (k ; 5) (n ; 5) (v ; 5) (y ; 5) (d ; 4) (g ; 4) (i ; 4) (l ; 4) (o ; 4) (t ; 4) (p ; 3) (w ; 2) 
+[ S:  1 ]
+b 
+[ LC:  1 ]
+x q h m u j k n v y d g i l o t p w 
+Escolhendo no: u
+
+=> LC: 2
+(h ; 6) (m ; 5) (j ; 4) (d ; 3) (i ; 3) (l ; 3) (v ; 3) (y ; 3) (k ; 2) (t ; 2) (w ; 1) 
+[ S:  2 ]
+b u 
+[ LC:  2 ]
+h m j d i l v y k t w 
+Escolhendo no: j
+
+=> LC: 3
+(y ; 3) (d ; 2) (l ; 2) (k ; 1) (t ; 1) (v ; 1) (w ; 1) 
+[ S:  3 ]
+b u j 
+[ LC:  3 ]
+y d l k t v w 
+Escolhendo no: y
+
+=> LC: 4
+(k ; 1) (t ; 1) (v ; 1) (w ; 1) 
+[ S:  4 ]
+b u j y 
+[ LC:  4 ]
+k t v w 
+Escolhendo no: k
+
+=> LC: 5
+(t ; 1) (v ; 1) (w ; 1) 
+[ S:  5 ]
+b u j y k 
+[ LC:  5 ]
+t v w 
+Escolhendo no: t
+
+=> LC: 6
+(v ; 1) (w ; 1) 
+[ S:  6 ]
+b u j y k t 
+[ LC:  6 ]
+v w 
+Escolhendo no: v
 
 => LC: 7
 (w ; 1) 
 [ S:  7 ]
-j k f t v y o 
+b u j y k t v 
 [ LC:  7 ]
 w 
 Escolhendo no: w
@@ -1123,23 +1874,23 @@ Escolhendo no: w
 => LC: 8
 
 [ S:  8 ]
-j k f t v y o w 
+b u j y k t v w 
 [ LC:  8 ]
 
 Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
 Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
-Solucao: j k f t v y o w 
+Solucao: b u j y k t v w 
 ===> Solucao VALIDA! |S| = 8
 
 [32mBEST SOLUTION-------------------------------->: 6[0m
 
-[34m========================================================== i = 5 ==========================================================[0m
+[34m========================================================== i = 18 ==========================================================[0m
 
 Alfa      Probability    Mean           sum_sols       count          
 ------------------------------------------------------------
-0.1       0.383367       6.33333        19             3              
-0.5       0.346856       7.33333        22             3              
-0.9       0.269777       9              18             2              
+0.1       0.333494       7              28             4              
+0.3       0.355244       6.75           54             8              
+0.5       0.311261       7.44444        67             9              
 
 [33mALFA----------------------------------->: 0.1[0m
 
@@ -1200,8 +1951,2399 @@ Solucao: h u b d k w
 
 [32mBEST SOLUTION-------------------------------->: 6[0m
 
-[35mMELHOR SOLUÇÃO: 6
+[34m========================================================== i = 19 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333494       6.8            34             5              
+0.3       0.355244       6.75           54             8              
+0.5       0.311261       7.44444        67             9              
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: h
+
+=> LC: 1
+(u ; 7) (x ; 7) (b ; 6) (e ; 6) (n ; 6) (d ; 5) (f ; 5) (i ; 5) (a ; 4) (c ; 4) (k ; 4) (o ; 4) (p ; 4) (y ; 4) (r ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+h 
+[ LC:  1 ]
+u x b e n d f i a c k o p y r w g 
+Escolhendo no: u
+
+=> LC: 2
+(b ; 5) (e ; 5) (a ; 4) (d ; 4) (c ; 3) (i ; 3) (k ; 2) (r ; 2) (w ; 2) (y ; 2) 
+[ S:  2 ]
+h u 
+[ LC:  2 ]
+b e a d c i k r w y 
+Escolhendo no: b
+
+=> LC: 3
+(d ; 3) (i ; 2) (y ; 2) (k ; 1) (w ; 1) 
+[ S:  3 ]
+h u b 
+[ LC:  3 ]
+d i y k w 
+Escolhendo no: d
+
+=> LC: 4
+(k ; 1) (w ; 1) 
+[ S:  4 ]
+h u b d 
+[ LC:  4 ]
+k w 
+Escolhendo no: k
+
+=> LC: 5
+(w ; 1) 
+[ S:  5 ]
+h u b d k 
+[ LC:  5 ]
+w 
+Escolhendo no: w
+
+=> LC: 6
+
+[ S:  6 ]
 h u b d k w 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: h u b d k w 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 20 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333494       6.66667        40             6              
+0.3       0.355244       6.75           54             8              
+0.5       0.311261       7.44444        67             9              
+
+[36m---------------- Atualizando Probabilidades ----------------[0m
+
+SCORES: 0.9 ; 0.888889 ; 0.80597 ; 
+SUM_SCORES: 2.59486
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.34684        6.66667        40             6              
+0.3       0.342558       6.75           54             8              
+0.5       0.310603       7.44444        67             9              
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: h
+
+=> LC: 1
+(u ; 7) (x ; 7) (b ; 6) (e ; 6) (n ; 6) (d ; 5) (f ; 5) (i ; 5) (a ; 4) (c ; 4) (k ; 4) (o ; 4) (p ; 4) (y ; 4) (r ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+h 
+[ LC:  1 ]
+u x b e n d f i a c k o p y r w g 
+Escolhendo no: u
+
+=> LC: 2
+(b ; 5) (e ; 5) (a ; 4) (d ; 4) (c ; 3) (i ; 3) (k ; 2) (r ; 2) (w ; 2) (y ; 2) 
+[ S:  2 ]
+h u 
+[ LC:  2 ]
+b e a d c i k r w y 
+Escolhendo no: b
+
+=> LC: 3
+(d ; 3) (i ; 2) (y ; 2) (k ; 1) (w ; 1) 
+[ S:  3 ]
+h u b 
+[ LC:  3 ]
+d i y k w 
+Escolhendo no: d
+
+=> LC: 4
+(k ; 1) (w ; 1) 
+[ S:  4 ]
+h u b d 
+[ LC:  4 ]
+k w 
+Escolhendo no: k
+
+=> LC: 5
+(w ; 1) 
+[ S:  5 ]
+h u b d k 
+[ LC:  5 ]
+w 
+Escolhendo no: w
+
+=> LC: 6
+
+[ S:  6 ]
+h u b d k w 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: h u b d k w 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 21 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.34684        6.57143        46             7              
+0.3       0.342558       6.75           54             8              
+0.5       0.310603       7.44444        67             9              
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: m
+
+=> LC: 1
+(b ; 6) (f ; 6) (u ; 6) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (e ; 4) (p ; 4) (q ; 4) (y ; 4) (o ; 3) (s ; 3) (r ; 2) (t ; 2) (w ; 2) 
+[ S:  1 ]
+m 
+[ LC:  1 ]
+b f u i l n c d e p q y o s r t w 
+Escolhendo no: u
+
+=> LC: 2
+(b ; 5) (d ; 4) (c ; 3) (e ; 3) (i ; 3) (l ; 3) (s ; 3) (y ; 3) (r ; 2) (t ; 1) (w ; 1) 
+[ S:  2 ]
+m u 
+[ LC:  2 ]
+b d c e i l s y r t w 
+Escolhendo no: c
+
+=> LC: 3
+(d ; 3) (l ; 3) (y ; 3) (e ; 2) (s ; 2) (r ; 1) (t ; 1) (w ; 1) 
+[ S:  3 ]
+m u c 
+[ LC:  3 ]
+d l y e s r t w 
+Escolhendo no: l
+
+=> LC: 4
+(d ; 2) (e ; 2) (r ; 1) (t ; 1) (w ; 1) 
+[ S:  4 ]
+m u c l 
+[ LC:  4 ]
+d e r t w 
+Escolhendo no: d
+
+=> LC: 5
+(r ; 1) (t ; 1) (w ; 1) 
+[ S:  5 ]
+m u c l d 
+[ LC:  5 ]
+r t w 
+Escolhendo no: r
+
+=> LC: 6
+(t ; 1) (w ; 1) 
+[ S:  6 ]
+m u c l d r 
+[ LC:  6 ]
+t w 
+Escolhendo no: t
+
+=> LC: 7
+(w ; 1) 
+[ S:  7 ]
+m u c l d r t 
+[ LC:  7 ]
+w 
+Escolhendo no: w
+
+=> LC: 8
+
+[ S:  8 ]
+m u c l d r t w 
+[ LC:  8 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: m u c l d r t w 
+===> Solucao VALIDA! |S| = 8
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 22 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.34684        6.57143        46             7              
+0.3       0.342558       6.88889        62             9              
+0.5       0.310603       7.44444        67             9              
+
+[33mALFA----------------------------------->: 0.5[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: m
+
+=> LC: 1
+(b ; 6) (f ; 6) (u ; 6) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (e ; 4) (p ; 4) (q ; 4) (y ; 4) (o ; 3) (s ; 3) (r ; 2) (t ; 2) (w ; 2) 
+[ S:  1 ]
+m 
+[ LC:  1 ]
+b f u i l n c d e p q y o s r t w 
+Escolhendo no: n
+
+=> LC: 2
+(b ; 5) (f ; 5) (e ; 4) (i ; 4) (l ; 4) (d ; 3) (p ; 3) (q ; 3) (s ; 3) (o ; 2) (r ; 2) (t ; 2) 
+[ S:  2 ]
+m n 
+[ LC:  2 ]
+b f e i l d p q s o r t 
+Escolhendo no: f
+
+=> LC: 3
+(d ; 2) (e ; 2) (q ; 2) (t ; 2) (o ; 1) (r ; 1) (s ; 1) 
+[ S:  3 ]
+m n f 
+[ LC:  3 ]
+d e q t o r s 
+Escolhendo no: d
+
+=> LC: 4
+(q ; 2) (t ; 2) (o ; 1) (r ; 1) (s ; 1) 
+[ S:  4 ]
+m n f d 
+[ LC:  4 ]
+q t o r s 
+Escolhendo no: t
+
+=> LC: 5
+(o ; 1) (r ; 1) (s ; 1) 
+[ S:  5 ]
+m n f d t 
+[ LC:  5 ]
+o r s 
+Escolhendo no: o
+
+=> LC: 6
+(r ; 1) (s ; 1) 
+[ S:  6 ]
+m n f d t o 
+[ LC:  6 ]
+r s 
+Escolhendo no: r
+
+=> LC: 7
+(s ; 1) 
+[ S:  7 ]
+m n f d t o r 
+[ LC:  7 ]
+s 
+Escolhendo no: s
+
+=> LC: 8
+
+[ S:  8 ]
+m n f d t o r s 
+[ LC:  8 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: m n f d t o r s 
+===> Solucao VALIDA! |S| = 8
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 23 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.34684        6.57143        46             7              
+0.3       0.342558       6.88889        62             9              
+0.5       0.310603       7.5            75             10             
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: h
+
+=> LC: 1
+(u ; 7) (x ; 7) (b ; 6) (e ; 6) (n ; 6) (d ; 5) (f ; 5) (i ; 5) (a ; 4) (c ; 4) (k ; 4) (o ; 4) (p ; 4) (y ; 4) (r ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+h 
+[ LC:  1 ]
+u x b e n d f i a c k o p y r w g 
+Escolhendo no: u
+
+=> LC: 2
+(b ; 5) (e ; 5) (a ; 4) (d ; 4) (c ; 3) (i ; 3) (k ; 2) (r ; 2) (w ; 2) (y ; 2) 
+[ S:  2 ]
+h u 
+[ LC:  2 ]
+b e a d c i k r w y 
+Escolhendo no: b
+
+=> LC: 3
+(d ; 3) (i ; 2) (y ; 2) (k ; 1) (w ; 1) 
+[ S:  3 ]
+h u b 
+[ LC:  3 ]
+d i y k w 
+Escolhendo no: d
+
+=> LC: 4
+(k ; 1) (w ; 1) 
+[ S:  4 ]
+h u b d 
+[ LC:  4 ]
+k w 
+Escolhendo no: k
+
+=> LC: 5
+(w ; 1) 
+[ S:  5 ]
+h u b d k 
+[ LC:  5 ]
+w 
+Escolhendo no: w
+
+=> LC: 6
+
+[ S:  6 ]
+h u b d k w 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: h u b d k w 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 24 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.34684        6.5            52             8              
+0.3       0.342558       6.88889        62             9              
+0.5       0.310603       7.5            75             10             
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: b
+
+=> LC: 1
+(x ; 9) (q ; 8) (h ; 7) (m ; 7) (u ; 7) (j ; 5) (k ; 5) (n ; 5) (v ; 5) (y ; 5) (d ; 4) (g ; 4) (i ; 4) (l ; 4) (o ; 4) (t ; 4) (p ; 3) (w ; 2) 
+[ S:  1 ]
+b 
+[ LC:  1 ]
+x q h m u j k n v y d g i l o t p w 
+Escolhendo no: q
+
+=> LC: 2
+(d ; 3) (i ; 3) (m ; 3) (n ; 3) (v ; 3) (y ; 3) (g ; 2) (o ; 2) (p ; 2) (w ; 2) 
+[ S:  2 ]
+b q 
+[ LC:  2 ]
+d i m n v y g o p w 
+Escolhendo no: m
+
+=> LC: 3
+(d ; 3) (i ; 3) (n ; 3) (y ; 3) (o ; 2) (w ; 2) (p ; 1) 
+[ S:  3 ]
+b q m 
+[ LC:  3 ]
+d i n y o w p 
+Escolhendo no: i
+
+=> LC: 4
+(n ; 3) (w ; 2) (y ; 2) (p ; 1) 
+[ S:  4 ]
+b q m i 
+[ LC:  4 ]
+n w y p 
+Escolhendo no: n
+
+=> LC: 5
+(p ; 1) 
+[ S:  5 ]
+b q m i n 
+[ LC:  5 ]
+p 
+Escolhendo no: p
+
+=> LC: 6
+
+[ S:  6 ]
+b q m i n p 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: b q m i n p 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 25 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.34684        6.5            52             8              
+0.3       0.342558       6.8            68             10             
+0.5       0.310603       7.5            75             10             
+
+[36m---------------- Atualizando Probabilidades ----------------[0m
+
+SCORES: 0.923077 ; 0.882353 ; 0.8 ; 
+SUM_SCORES: 2.60543
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.35429        6.5            52             8              
+0.3       0.338659       6.8            68             10             
+0.5       0.307051       7.5            75             10             
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: x
+
+=> LC: 1
+(b ; 6) (a ; 5) (c ; 5) (e ; 5) (f ; 5) (h ; 5) (j ; 5) (i ; 4) (l ; 4) (s ; 4) (t ; 4) (n ; 3) (p ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+x 
+[ LC:  1 ]
+b a c e f h j i l s t n p w g 
+Escolhendo no: b
+
+=> LC: 2
+(h ; 4) (j ; 3) (t ; 3) (g ; 2) (i ; 2) (l ; 2) (n ; 2) (w ; 2) (p ; 1) 
+[ S:  2 ]
+x b 
+[ LC:  2 ]
+h j t g i l n w p 
+Escolhendo no: h
+
+=> LC: 3
+(n ; 2) (w ; 2) (g ; 1) (i ; 1) (p ; 1) 
+[ S:  3 ]
+x b h 
+[ LC:  3 ]
+n w g i p 
+Escolhendo no: n
+
+=> LC: 4
+(g ; 1) (i ; 1) (p ; 1) 
+[ S:  4 ]
+x b h n 
+[ LC:  4 ]
+g i p 
+Escolhendo no: g
+
+=> LC: 5
+(i ; 1) (p ; 1) 
+[ S:  5 ]
+x b h n g 
+[ LC:  5 ]
+i p 
+Escolhendo no: i
+
+=> LC: 6
+(p ; 1) 
+[ S:  6 ]
+x b h n g i 
+[ LC:  6 ]
+p 
+Escolhendo no: p
+
+=> LC: 7
+
+[ S:  7 ]
+x b h n g i p 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: x b h n g i p 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 26 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.35429        6.55556        59             9              
+0.3       0.338659       6.8            68             10             
+0.5       0.307051       7.5            75             10             
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: b
+
+=> LC: 1
+(x ; 9) (q ; 8) (h ; 7) (m ; 7) (u ; 7) (j ; 5) (k ; 5) (n ; 5) (v ; 5) (y ; 5) (d ; 4) (g ; 4) (i ; 4) (l ; 4) (o ; 4) (t ; 4) (p ; 3) (w ; 2) 
+[ S:  1 ]
+b 
+[ LC:  1 ]
+x q h m u j k n v y d g i l o t p w 
+Escolhendo no: h
+
+=> LC: 2
+(u ; 6) (x ; 6) (n ; 5) (d ; 4) (o ; 4) (y ; 4) (i ; 3) (k ; 3) (g ; 2) (p ; 2) (w ; 2) 
+[ S:  2 ]
+b h 
+[ LC:  2 ]
+u x n d o y i k g p w 
+Escolhendo no: u
+
+=> LC: 3
+(d ; 3) (i ; 2) (y ; 2) (k ; 1) (w ; 1) 
+[ S:  3 ]
+b h u 
+[ LC:  3 ]
+d i y k w 
+Escolhendo no: d
+
+=> LC: 4
+(k ; 1) (w ; 1) 
+[ S:  4 ]
+b h u d 
+[ LC:  4 ]
+k w 
+Escolhendo no: k
+
+=> LC: 5
+(w ; 1) 
+[ S:  5 ]
+b h u d k 
+[ LC:  5 ]
+w 
+Escolhendo no: w
+
+=> LC: 6
+
+[ S:  6 ]
+b h u d k w 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: b h u d k w 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 27 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.35429        6.55556        59             9              
+0.3       0.338659       6.72727        74             11             
+0.5       0.307051       7.5            75             10             
+
+[33mALFA----------------------------------->: 0.5[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: f
+
+=> LC: 1
+(x ; 9) (m ; 8) (h ; 7) (k ; 7) (a ; 6) (j ; 6) (q ; 6) (v ; 6) (e ; 5) (n ; 5) (t ; 5) (d ; 4) (y ; 4) (c ; 3) (g ; 3) (r ; 3) (s ; 3) (w ; 3) (o ; 2) 
+[ S:  1 ]
+f 
+[ LC:  1 ]
+x m h k a j q v e n t d y c g r s w o 
+Escolhendo no: v
+
+=> LC: 2
+(k ; 5) (n ; 5) (e ; 4) (j ; 4) (q ; 4) (c ; 3) (d ; 3) (t ; 3) (y ; 3) (g ; 2) (s ; 2) (w ; 2) (o ; 1) 
+[ S:  2 ]
+f v 
+[ LC:  2 ]
+k n e j q c d t y g s w o 
+Escolhendo no: c
+
+=> LC: 3
+(k ; 4) (d ; 3) (e ; 3) (q ; 3) (t ; 3) (g ; 2) (s ; 2) (y ; 2) (o ; 1) (w ; 1) 
+[ S:  3 ]
+f v c 
+[ LC:  3 ]
+k d e q t g s y o w 
+Escolhendo no: t
+
+=> LC: 4
+(d ; 3) (e ; 3) (k ; 3) (s ; 2) (y ; 2) (o ; 1) (w ; 1) 
+[ S:  4 ]
+f v c t 
+[ LC:  4 ]
+d e k s y o w 
+Escolhendo no: e
+
+=> LC: 5
+(o ; 1) (s ; 1) (w ; 1) (y ; 1) 
+[ S:  5 ]
+f v c t e 
+[ LC:  5 ]
+o s w y 
+Escolhendo no: s
+
+=> LC: 6
+(o ; 1) (w ; 1) (y ; 1) 
+[ S:  6 ]
+f v c t e s 
+[ LC:  6 ]
+o w y 
+Escolhendo no: o
+
+=> LC: 7
+(w ; 1) (y ; 1) 
+[ S:  7 ]
+f v c t e s o 
+[ LC:  7 ]
+w y 
+Escolhendo no: w
+
+=> LC: 8
+(y ; 1) 
+[ S:  8 ]
+f v c t e s o w 
+[ LC:  8 ]
+y 
+Escolhendo no: y
+
+=> LC: 9
+
+[ S:  9 ]
+f v c t e s o w y 
+[ LC:  9 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: f v c t e s o w y 
+===> Solucao VALIDA! |S| = 9
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 28 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.35429        6.55556        59             9              
+0.3       0.338659       6.72727        74             11             
+0.5       0.307051       7.63636        84             11             
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: m
+
+=> LC: 1
+(b ; 6) (f ; 6) (u ; 6) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (e ; 4) (p ; 4) (q ; 4) (y ; 4) (o ; 3) (s ; 3) (r ; 2) (t ; 2) (w ; 2) 
+[ S:  1 ]
+m 
+[ LC:  1 ]
+b f u i l n c d e p q y o s r t w 
+Escolhendo no: i
+
+=> LC: 2
+(b ; 4) (l ; 4) (n ; 4) (q ; 4) (u ; 4) (e ; 3) (p ; 3) (s ; 3) (y ; 3) (r ; 2) (t ; 2) (w ; 2) 
+[ S:  2 ]
+m i 
+[ LC:  2 ]
+b l n q u e p s y r t w 
+Escolhendo no: l
+
+=> LC: 3
+(b ; 3) (e ; 3) (n ; 3) (p ; 3) (u ; 3) (r ; 2) (w ; 2) (t ; 1) 
+[ S:  3 ]
+m i l 
+[ LC:  3 ]
+b e n p u r w t 
+Escolhendo no: e
+
+=> LC: 4
+(n ; 3) (u ; 2) (w ; 2) (r ; 1) (t ; 1) 
+[ S:  4 ]
+m i l e 
+[ LC:  4 ]
+n u w r t 
+Escolhendo no: n
+
+=> LC: 5
+(r ; 1) (t ; 1) 
+[ S:  5 ]
+m i l e n 
+[ LC:  5 ]
+r t 
+Escolhendo no: r
+
+=> LC: 6
+(t ; 1) 
+[ S:  6 ]
+m i l e n r 
+[ LC:  6 ]
+t 
+Escolhendo no: t
+
+=> LC: 7
+
+[ S:  7 ]
+m i l e n r t 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: m i l e n r t 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 29 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.35429        6.55556        59             9              
+0.3       0.338659       6.75           81             12             
+0.5       0.307051       7.63636        84             11             
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: h
+
+=> LC: 1
+(u ; 7) (x ; 7) (b ; 6) (e ; 6) (n ; 6) (d ; 5) (f ; 5) (i ; 5) (a ; 4) (c ; 4) (k ; 4) (o ; 4) (p ; 4) (y ; 4) (r ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+h 
+[ LC:  1 ]
+u x b e n d f i a c k o p y r w g 
+Escolhendo no: u
+
+=> LC: 2
+(b ; 5) (e ; 5) (a ; 4) (d ; 4) (c ; 3) (i ; 3) (k ; 2) (r ; 2) (w ; 2) (y ; 2) 
+[ S:  2 ]
+h u 
+[ LC:  2 ]
+b e a d c i k r w y 
+Escolhendo no: b
+
+=> LC: 3
+(d ; 3) (i ; 2) (y ; 2) (k ; 1) (w ; 1) 
+[ S:  3 ]
+h u b 
+[ LC:  3 ]
+d i y k w 
+Escolhendo no: d
+
+=> LC: 4
+(k ; 1) (w ; 1) 
+[ S:  4 ]
+h u b d 
+[ LC:  4 ]
+k w 
+Escolhendo no: k
+
+=> LC: 5
+(w ; 1) 
+[ S:  5 ]
+h u b d k 
+[ LC:  5 ]
+w 
+Escolhendo no: w
+
+=> LC: 6
+
+[ S:  6 ]
+h u b d k w 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: h u b d k w 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 30 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.35429        6.5            65             10             
+0.3       0.338659       6.75           81             12             
+0.5       0.307051       7.63636        84             11             
+
+[36m---------------- Atualizando Probabilidades ----------------[0m
+
+SCORES: 0.923077 ; 0.888889 ; 0.785714 ; 
+SUM_SCORES: 2.59768
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.355347       6.5            65             10             
+0.3       0.342186       6.75           81             12             
+0.5       0.302468       7.63636        84             11             
+
+[33mALFA----------------------------------->: 0.5[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: m
+
+=> LC: 1
+(b ; 6) (f ; 6) (u ; 6) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (e ; 4) (p ; 4) (q ; 4) (y ; 4) (o ; 3) (s ; 3) (r ; 2) (t ; 2) (w ; 2) 
+[ S:  1 ]
+m 
+[ LC:  1 ]
+b f u i l n c d e p q y o s r t w 
+Escolhendo no: d
+
+=> LC: 2
+(u ; 6) (b ; 5) (f ; 5) (l ; 4) (n ; 4) (q ; 4) (c ; 3) (p ; 3) (s ; 3) (o ; 2) (r ; 2) (t ; 2) (w ; 2) 
+[ S:  2 ]
+m d 
+[ LC:  2 ]
+u b f l n q c p s o r t w 
+Escolhendo no: u
+
+=> LC: 3
+(b ; 4) (s ; 3) (c ; 2) (l ; 2) (r ; 2) (t ; 1) (w ; 1) 
+[ S:  3 ]
+m d u 
+[ LC:  3 ]
+b s c l r t w 
+Escolhendo no: s
+
+=> LC: 4
+(c ; 1) (r ; 1) (t ; 1) (w ; 1) 
+[ S:  4 ]
+m d u s 
+[ LC:  4 ]
+c r t w 
+Escolhendo no: c
+
+=> LC: 5
+(r ; 1) (t ; 1) (w ; 1) 
+[ S:  5 ]
+m d u s c 
+[ LC:  5 ]
+r t w 
+Escolhendo no: r
+
+=> LC: 6
+(t ; 1) (w ; 1) 
+[ S:  6 ]
+m d u s c r 
+[ LC:  6 ]
+t w 
+Escolhendo no: t
+
+=> LC: 7
+(w ; 1) 
+[ S:  7 ]
+m d u s c r t 
+[ LC:  7 ]
+w 
+Escolhendo no: w
+
+=> LC: 8
+
+[ S:  8 ]
+m d u s c r t w 
+[ LC:  8 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: m d u s c r t w 
+===> Solucao VALIDA! |S| = 8
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 31 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.355347       6.5            65             10             
+0.3       0.342186       6.75           81             12             
+0.5       0.302468       7.66667        92             12             
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: h
+
+=> LC: 1
+(u ; 7) (x ; 7) (b ; 6) (e ; 6) (n ; 6) (d ; 5) (f ; 5) (i ; 5) (a ; 4) (c ; 4) (k ; 4) (o ; 4) (p ; 4) (y ; 4) (r ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+h 
+[ LC:  1 ]
+u x b e n d f i a c k o p y r w g 
+Escolhendo no: u
+
+=> LC: 2
+(b ; 5) (e ; 5) (a ; 4) (d ; 4) (c ; 3) (i ; 3) (k ; 2) (r ; 2) (w ; 2) (y ; 2) 
+[ S:  2 ]
+h u 
+[ LC:  2 ]
+b e a d c i k r w y 
+Escolhendo no: b
+
+=> LC: 3
+(d ; 3) (i ; 2) (y ; 2) (k ; 1) (w ; 1) 
+[ S:  3 ]
+h u b 
+[ LC:  3 ]
+d i y k w 
+Escolhendo no: d
+
+=> LC: 4
+(k ; 1) (w ; 1) 
+[ S:  4 ]
+h u b d 
+[ LC:  4 ]
+k w 
+Escolhendo no: k
+
+=> LC: 5
+(w ; 1) 
+[ S:  5 ]
+h u b d k 
+[ LC:  5 ]
+w 
+Escolhendo no: w
+
+=> LC: 6
+
+[ S:  6 ]
+h u b d k w 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: h u b d k w 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 32 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.355347       6.45455        71             11             
+0.3       0.342186       6.75           81             12             
+0.5       0.302468       7.66667        92             12             
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: x
+
+=> LC: 1
+(b ; 6) (a ; 5) (c ; 5) (e ; 5) (f ; 5) (h ; 5) (j ; 5) (i ; 4) (l ; 4) (s ; 4) (t ; 4) (n ; 3) (p ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+x 
+[ LC:  1 ]
+b a c e f h j i l s t n p w g 
+Escolhendo no: b
+
+=> LC: 2
+(h ; 4) (j ; 3) (t ; 3) (g ; 2) (i ; 2) (l ; 2) (n ; 2) (w ; 2) (p ; 1) 
+[ S:  2 ]
+x b 
+[ LC:  2 ]
+h j t g i l n w p 
+Escolhendo no: h
+
+=> LC: 3
+(n ; 2) (w ; 2) (g ; 1) (i ; 1) (p ; 1) 
+[ S:  3 ]
+x b h 
+[ LC:  3 ]
+n w g i p 
+Escolhendo no: n
+
+=> LC: 4
+(g ; 1) (i ; 1) (p ; 1) 
+[ S:  4 ]
+x b h n 
+[ LC:  4 ]
+g i p 
+Escolhendo no: g
+
+=> LC: 5
+(i ; 1) (p ; 1) 
+[ S:  5 ]
+x b h n g 
+[ LC:  5 ]
+i p 
+Escolhendo no: i
+
+=> LC: 6
+(p ; 1) 
+[ S:  6 ]
+x b h n g i 
+[ LC:  6 ]
+p 
+Escolhendo no: p
+
+=> LC: 7
+
+[ S:  7 ]
+x b h n g i p 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: x b h n g i p 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 33 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.355347       6.5            78             12             
+0.3       0.342186       6.75           81             12             
+0.5       0.302468       7.66667        92             12             
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: q
+
+=> LC: 1
+(b ; 7) (a ; 6) (e ; 5) (i ; 5) (v ; 5) (c ; 4) (d ; 4) (f ; 4) (m ; 4) (n ; 4) (p ; 4) (r ; 3) (w ; 3) (y ; 3) (g ; 2) (o ; 2) (s ; 2) 
+[ S:  1 ]
+q 
+[ LC:  1 ]
+b a e i v c d f m n p r w y g o s 
+Escolhendo no: b
+
+=> LC: 2
+(d ; 3) (i ; 3) (m ; 3) (n ; 3) (v ; 3) (y ; 3) (g ; 2) (o ; 2) (p ; 2) (w ; 2) 
+[ S:  2 ]
+q b 
+[ LC:  2 ]
+d i m n v y g o p w 
+Escolhendo no: m
+
+=> LC: 3
+(d ; 3) (i ; 3) (n ; 3) (y ; 3) (o ; 2) (w ; 2) (p ; 1) 
+[ S:  3 ]
+q b m 
+[ LC:  3 ]
+d i n y o w p 
+Escolhendo no: d
+
+=> LC: 4
+(n ; 2) (w ; 2) (o ; 1) (p ; 1) 
+[ S:  4 ]
+q b m d 
+[ LC:  4 ]
+n w o p 
+Escolhendo no: n
+
+=> LC: 5
+(o ; 1) (p ; 1) 
+[ S:  5 ]
+q b m d n 
+[ LC:  5 ]
+o p 
+Escolhendo no: o
+
+=> LC: 6
+(p ; 1) 
+[ S:  6 ]
+q b m d n o 
+[ LC:  6 ]
+p 
+Escolhendo no: p
+
+=> LC: 7
+
+[ S:  7 ]
+q b m d n o p 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: q b m d n o p 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 34 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.355347       6.5            78             12             
+0.3       0.342186       6.76923        88             13             
+0.5       0.302468       7.66667        92             12             
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: x
+
+=> LC: 1
+(b ; 6) (a ; 5) (c ; 5) (e ; 5) (f ; 5) (h ; 5) (j ; 5) (i ; 4) (l ; 4) (s ; 4) (t ; 4) (n ; 3) (p ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+x 
+[ LC:  1 ]
+b a c e f h j i l s t n p w g 
+Escolhendo no: b
+
+=> LC: 2
+(h ; 4) (j ; 3) (t ; 3) (g ; 2) (i ; 2) (l ; 2) (n ; 2) (w ; 2) (p ; 1) 
+[ S:  2 ]
+x b 
+[ LC:  2 ]
+h j t g i l n w p 
+Escolhendo no: h
+
+=> LC: 3
+(n ; 2) (w ; 2) (g ; 1) (i ; 1) (p ; 1) 
+[ S:  3 ]
+x b h 
+[ LC:  3 ]
+n w g i p 
+Escolhendo no: n
+
+=> LC: 4
+(g ; 1) (i ; 1) (p ; 1) 
+[ S:  4 ]
+x b h n 
+[ LC:  4 ]
+g i p 
+Escolhendo no: g
+
+=> LC: 5
+(i ; 1) (p ; 1) 
+[ S:  5 ]
+x b h n g 
+[ LC:  5 ]
+i p 
+Escolhendo no: i
+
+=> LC: 6
+(p ; 1) 
+[ S:  6 ]
+x b h n g i 
+[ LC:  6 ]
+p 
+Escolhendo no: p
+
+=> LC: 7
+
+[ S:  7 ]
+x b h n g i p 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: x b h n g i p 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 35 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.355347       6.53846        85             13             
+0.3       0.342186       6.76923        88             13             
+0.5       0.302468       7.66667        92             12             
+
+[36m---------------- Atualizando Probabilidades ----------------[0m
+
+SCORES: 0.917647 ; 0.886364 ; 0.782609 ; 
+SUM_SCORES: 2.58662
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.354767       6.53846        85             13             
+0.3       0.342673       6.76923        88             13             
+0.5       0.30256        7.66667        92             12             
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: b
+
+=> LC: 1
+(x ; 9) (q ; 8) (h ; 7) (m ; 7) (u ; 7) (j ; 5) (k ; 5) (n ; 5) (v ; 5) (y ; 5) (d ; 4) (g ; 4) (i ; 4) (l ; 4) (o ; 4) (t ; 4) (p ; 3) (w ; 2) 
+[ S:  1 ]
+b 
+[ LC:  1 ]
+x q h m u j k n v y d g i l o t p w 
+Escolhendo no: h
+
+=> LC: 2
+(u ; 6) (x ; 6) (n ; 5) (d ; 4) (o ; 4) (y ; 4) (i ; 3) (k ; 3) (g ; 2) (p ; 2) (w ; 2) 
+[ S:  2 ]
+b h 
+[ LC:  2 ]
+u x n d o y i k g p w 
+Escolhendo no: u
+
+=> LC: 3
+(d ; 3) (i ; 2) (y ; 2) (k ; 1) (w ; 1) 
+[ S:  3 ]
+b h u 
+[ LC:  3 ]
+d i y k w 
+Escolhendo no: d
+
+=> LC: 4
+(k ; 1) (w ; 1) 
+[ S:  4 ]
+b h u d 
+[ LC:  4 ]
+k w 
+Escolhendo no: k
+
+=> LC: 5
+(w ; 1) 
+[ S:  5 ]
+b h u d k 
+[ LC:  5 ]
+w 
+Escolhendo no: w
+
+=> LC: 6
+
+[ S:  6 ]
+b h u d k w 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: b h u d k w 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 36 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.354767       6.53846        85             13             
+0.3       0.342673       6.71429        94             14             
+0.5       0.30256        7.66667        92             12             
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: m
+
+=> LC: 1
+(b ; 6) (f ; 6) (u ; 6) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (e ; 4) (p ; 4) (q ; 4) (y ; 4) (o ; 3) (s ; 3) (r ; 2) (t ; 2) (w ; 2) 
+[ S:  1 ]
+m 
+[ LC:  1 ]
+b f u i l n c d e p q y o s r t w 
+Escolhendo no: u
+
+=> LC: 2
+(b ; 5) (d ; 4) (c ; 3) (e ; 3) (i ; 3) (l ; 3) (s ; 3) (y ; 3) (r ; 2) (t ; 1) (w ; 1) 
+[ S:  2 ]
+m u 
+[ LC:  2 ]
+b d c e i l s y r t w 
+Escolhendo no: d
+
+=> LC: 3
+(b ; 4) (s ; 3) (c ; 2) (l ; 2) (r ; 2) (t ; 1) (w ; 1) 
+[ S:  3 ]
+m u d 
+[ LC:  3 ]
+b s c l r t w 
+Escolhendo no: s
+
+=> LC: 4
+(c ; 1) (r ; 1) (t ; 1) (w ; 1) 
+[ S:  4 ]
+m u d s 
+[ LC:  4 ]
+c r t w 
+Escolhendo no: c
+
+=> LC: 5
+(r ; 1) (t ; 1) (w ; 1) 
+[ S:  5 ]
+m u d s c 
+[ LC:  5 ]
+r t w 
+Escolhendo no: r
+
+=> LC: 6
+(t ; 1) (w ; 1) 
+[ S:  6 ]
+m u d s c r 
+[ LC:  6 ]
+t w 
+Escolhendo no: t
+
+=> LC: 7
+(w ; 1) 
+[ S:  7 ]
+m u d s c r t 
+[ LC:  7 ]
+w 
+Escolhendo no: w
+
+=> LC: 8
+
+[ S:  8 ]
+m u d s c r t w 
+[ LC:  8 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: m u d s c r t w 
+===> Solucao VALIDA! |S| = 8
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 37 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.354767       6.53846        85             13             
+0.3       0.342673       6.8            102            15             
+0.5       0.30256        7.66667        92             12             
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: b
+
+=> LC: 1
+(x ; 9) (q ; 8) (h ; 7) (m ; 7) (u ; 7) (j ; 5) (k ; 5) (n ; 5) (v ; 5) (y ; 5) (d ; 4) (g ; 4) (i ; 4) (l ; 4) (o ; 4) (t ; 4) (p ; 3) (w ; 2) 
+[ S:  1 ]
+b 
+[ LC:  1 ]
+x q h m u j k n v y d g i l o t p w 
+Escolhendo no: u
+
+=> LC: 2
+(h ; 6) (m ; 5) (j ; 4) (d ; 3) (i ; 3) (l ; 3) (v ; 3) (y ; 3) (k ; 2) (t ; 2) (w ; 1) 
+[ S:  2 ]
+b u 
+[ LC:  2 ]
+h m j d i l v y k t w 
+Escolhendo no: j
+
+=> LC: 3
+(y ; 3) (d ; 2) (l ; 2) (k ; 1) (t ; 1) (v ; 1) (w ; 1) 
+[ S:  3 ]
+b u j 
+[ LC:  3 ]
+y d l k t v w 
+Escolhendo no: y
+
+=> LC: 4
+(k ; 1) (t ; 1) (v ; 1) (w ; 1) 
+[ S:  4 ]
+b u j y 
+[ LC:  4 ]
+k t v w 
+Escolhendo no: k
+
+=> LC: 5
+(t ; 1) (v ; 1) (w ; 1) 
+[ S:  5 ]
+b u j y k 
+[ LC:  5 ]
+t v w 
+Escolhendo no: t
+
+=> LC: 6
+(v ; 1) (w ; 1) 
+[ S:  6 ]
+b u j y k t 
+[ LC:  6 ]
+v w 
+Escolhendo no: v
+
+=> LC: 7
+(w ; 1) 
+[ S:  7 ]
+b u j y k t v 
+[ LC:  7 ]
+w 
+Escolhendo no: w
+
+=> LC: 8
+
+[ S:  8 ]
+b u j y k t v w 
+[ LC:  8 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: b u j y k t v w 
+===> Solucao VALIDA! |S| = 8
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 38 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.354767       6.53846        85             13             
+0.3       0.342673       6.875          110            16             
+0.5       0.30256        7.66667        92             12             
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: a
+
+=> LC: 1
+(u ; 8) (x ; 8) (q ; 7) (i ; 6) (l ; 6) (f ; 5) (h ; 5) (j ; 5) (k ; 5) (n ; 5) (y ; 5) (c ; 4) (d ; 4) (o ; 4) (s ; 4) (p ; 3) (g ; 2) (r ; 2) 
+[ S:  1 ]
+a 
+[ LC:  1 ]
+u x q i l f h j k n y c d o s p g r 
+Escolhendo no: l
+
+=> LC: 2
+(u ; 6) (x ; 6) (i ; 5) (c ; 4) (n ; 4) (o ; 4) (d ; 3) (j ; 3) (k ; 3) (g ; 2) (p ; 2) (r ; 2) 
+[ S:  2 ]
+a l 
+[ LC:  2 ]
+u x i c n o d j k g p r 
+Escolhendo no: x
+
+=> LC: 3
+(c ; 4) (i ; 3) (j ; 3) (n ; 2) (g ; 1) (p ; 1) 
+[ S:  3 ]
+a l x 
+[ LC:  3 ]
+c i j n g p 
+Escolhendo no: c
+
+=> LC: 4
+(g ; 1) (p ; 1) 
+[ S:  4 ]
+a l x c 
+[ LC:  4 ]
+g p 
+Escolhendo no: g
+
+=> LC: 5
+(p ; 1) 
+[ S:  5 ]
+a l x c g 
+[ LC:  5 ]
+p 
+Escolhendo no: p
+
+=> LC: 6
+
+[ S:  6 ]
+a l x c g p 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: a l x c g p 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 39 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.354767       6.53846        85             13             
+0.3       0.342673       6.82353        116            17             
+0.5       0.30256        7.66667        92             12             
+
+[33mALFA----------------------------------->: 0.5[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: q
+
+=> LC: 1
+(b ; 7) (a ; 6) (e ; 5) (i ; 5) (v ; 5) (c ; 4) (d ; 4) (f ; 4) (m ; 4) (n ; 4) (p ; 4) (r ; 3) (w ; 3) (y ; 3) (g ; 2) (o ; 2) (s ; 2) 
+[ S:  1 ]
+q 
+[ LC:  1 ]
+b a e i v c d f m n p r w y g o s 
+Escolhendo no: e
+
+=> LC: 2
+(i ; 4) (n ; 4) (c ; 3) (m ; 3) (v ; 3) (f ; 2) (g ; 2) (o ; 2) (r ; 2) (w ; 2) (y ; 2) (s ; 1) 
+[ S:  2 ]
+q e 
+[ LC:  2 ]
+i n c m v f g o r w y s 
+Escolhendo no: i
+
+=> LC: 3
+(m ; 3) (n ; 3) (v ; 3) (g ; 2) (r ; 2) (w ; 2) (y ; 2) (s ; 1) 
+[ S:  3 ]
+q e i 
+[ LC:  3 ]
+m n v g r w y s 
+Escolhendo no: v
+
+=> LC: 4
+(n ; 3) (w ; 2) (y ; 2) (g ; 1) (s ; 1) 
+[ S:  4 ]
+q e i v 
+[ LC:  4 ]
+n w y g s 
+Escolhendo no: w
+
+=> LC: 5
+(g ; 1) (s ; 1) (y ; 1) 
+[ S:  5 ]
+q e i v w 
+[ LC:  5 ]
+g s y 
+Escolhendo no: g
+
+=> LC: 6
+(s ; 1) (y ; 1) 
+[ S:  6 ]
+q e i v w g 
+[ LC:  6 ]
+s y 
+Escolhendo no: s
+
+=> LC: 7
+(y ; 1) 
+[ S:  7 ]
+q e i v w g s 
+[ LC:  7 ]
+y 
+Escolhendo no: y
+
+=> LC: 8
+
+[ S:  8 ]
+q e i v w g s y 
+[ LC:  8 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: q e i v w g s y 
+===> Solucao VALIDA! |S| = 8
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 40 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.354767       6.53846        85             13             
+0.3       0.342673       6.82353        116            17             
+0.5       0.30256        7.69231        100            13             
+
+[36m---------------- Atualizando Probabilidades ----------------[0m
+
+SCORES: 0.917647 ; 0.87931 ; 0.78 ; 
+SUM_SCORES: 2.57696
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.356097       6.53846        85             13             
+0.3       0.34122        6.82353        116            17             
+0.5       0.302683       7.69231        100            13             
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: h
+
+=> LC: 1
+(u ; 7) (x ; 7) (b ; 6) (e ; 6) (n ; 6) (d ; 5) (f ; 5) (i ; 5) (a ; 4) (c ; 4) (k ; 4) (o ; 4) (p ; 4) (y ; 4) (r ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+h 
+[ LC:  1 ]
+u x b e n d f i a c k o p y r w g 
+Escolhendo no: u
+
+=> LC: 2
+(b ; 5) (e ; 5) (a ; 4) (d ; 4) (c ; 3) (i ; 3) (k ; 2) (r ; 2) (w ; 2) (y ; 2) 
+[ S:  2 ]
+h u 
+[ LC:  2 ]
+b e a d c i k r w y 
+Escolhendo no: b
+
+=> LC: 3
+(d ; 3) (i ; 2) (y ; 2) (k ; 1) (w ; 1) 
+[ S:  3 ]
+h u b 
+[ LC:  3 ]
+d i y k w 
+Escolhendo no: d
+
+=> LC: 4
+(k ; 1) (w ; 1) 
+[ S:  4 ]
+h u b d 
+[ LC:  4 ]
+k w 
+Escolhendo no: k
+
+=> LC: 5
+(w ; 1) 
+[ S:  5 ]
+h u b d k 
+[ LC:  5 ]
+w 
+Escolhendo no: w
+
+=> LC: 6
+
+[ S:  6 ]
+h u b d k w 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: h u b d k w 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 41 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.356097       6.5            91             14             
+0.3       0.34122        6.82353        116            17             
+0.5       0.302683       7.69231        100            13             
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: x
+
+=> LC: 1
+(b ; 6) (a ; 5) (c ; 5) (e ; 5) (f ; 5) (h ; 5) (j ; 5) (i ; 4) (l ; 4) (s ; 4) (t ; 4) (n ; 3) (p ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+x 
+[ LC:  1 ]
+b a c e f h j i l s t n p w g 
+Escolhendo no: b
+
+=> LC: 2
+(h ; 4) (j ; 3) (t ; 3) (g ; 2) (i ; 2) (l ; 2) (n ; 2) (w ; 2) (p ; 1) 
+[ S:  2 ]
+x b 
+[ LC:  2 ]
+h j t g i l n w p 
+Escolhendo no: h
+
+=> LC: 3
+(n ; 2) (w ; 2) (g ; 1) (i ; 1) (p ; 1) 
+[ S:  3 ]
+x b h 
+[ LC:  3 ]
+n w g i p 
+Escolhendo no: n
+
+=> LC: 4
+(g ; 1) (i ; 1) (p ; 1) 
+[ S:  4 ]
+x b h n 
+[ LC:  4 ]
+g i p 
+Escolhendo no: g
+
+=> LC: 5
+(i ; 1) (p ; 1) 
+[ S:  5 ]
+x b h n g 
+[ LC:  5 ]
+i p 
+Escolhendo no: i
+
+=> LC: 6
+(p ; 1) 
+[ S:  6 ]
+x b h n g i 
+[ LC:  6 ]
+p 
+Escolhendo no: p
+
+=> LC: 7
+
+[ S:  7 ]
+x b h n g i p 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: x b h n g i p 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 42 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.356097       6.53333        98             15             
+0.3       0.34122        6.82353        116            17             
+0.5       0.302683       7.69231        100            13             
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: x
+
+=> LC: 1
+(b ; 6) (a ; 5) (c ; 5) (e ; 5) (f ; 5) (h ; 5) (j ; 5) (i ; 4) (l ; 4) (s ; 4) (t ; 4) (n ; 3) (p ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+x 
+[ LC:  1 ]
+b a c e f h j i l s t n p w g 
+Escolhendo no: c
+
+=> LC: 2
+(a ; 4) (h ; 4) (l ; 4) (t ; 4) (e ; 3) (f ; 3) (p ; 3) (s ; 3) (g ; 2) (w ; 2) 
+[ S:  2 ]
+x c 
+[ LC:  2 ]
+a h l t e f p s g w 
+Escolhendo no: h
+
+=> LC: 3
+(a ; 3) (e ; 3) (p ; 3) (f ; 2) (w ; 2) (g ; 1) 
+[ S:  3 ]
+x c h 
+[ LC:  3 ]
+a e p f w g 
+Escolhendo no: a
+
+=> LC: 4
+(f ; 2) (p ; 2) (g ; 1) 
+[ S:  4 ]
+x c h a 
+[ LC:  4 ]
+f p g 
+Escolhendo no: f
+
+=> LC: 5
+(g ; 1) 
+[ S:  5 ]
+x c h a f 
+[ LC:  5 ]
+g 
+Escolhendo no: g
+
+=> LC: 6
+
+[ S:  6 ]
+x c h a f g 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: x c h a f g 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 43 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.356097       6.53333        98             15             
+0.3       0.34122        6.77778        122            18             
+0.5       0.302683       7.69231        100            13             
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: b
+
+=> LC: 1
+(x ; 9) (q ; 8) (h ; 7) (m ; 7) (u ; 7) (j ; 5) (k ; 5) (n ; 5) (v ; 5) (y ; 5) (d ; 4) (g ; 4) (i ; 4) (l ; 4) (o ; 4) (t ; 4) (p ; 3) (w ; 2) 
+[ S:  1 ]
+b 
+[ LC:  1 ]
+x q h m u j k n v y d g i l o t p w 
+Escolhendo no: m
+
+=> LC: 2
+(u ; 5) (n ; 4) (q ; 4) (y ; 4) (d ; 3) (i ; 3) (l ; 3) (o ; 3) (p ; 2) (t ; 2) (w ; 2) 
+[ S:  2 ]
+b m 
+[ LC:  2 ]
+u n q y d i l o p t w 
+Escolhendo no: u
+
+=> LC: 3
+(d ; 3) (y ; 3) (i ; 2) (l ; 2) (t ; 1) (w ; 1) 
+[ S:  3 ]
+b m u 
+[ LC:  3 ]
+d y i l t w 
+Escolhendo no: d
+
+=> LC: 4
+(l ; 1) (t ; 1) (w ; 1) 
+[ S:  4 ]
+b m u d 
+[ LC:  4 ]
+l t w 
+Escolhendo no: l
+
+=> LC: 5
+(t ; 1) (w ; 1) 
+[ S:  5 ]
+b m u d l 
+[ LC:  5 ]
+t w 
+Escolhendo no: t
+
+=> LC: 6
+(w ; 1) 
+[ S:  6 ]
+b m u d l t 
+[ LC:  6 ]
+w 
+Escolhendo no: w
+
+=> LC: 7
+
+[ S:  7 ]
+b m u d l t w 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: b m u d l t w 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 44 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.356097       6.53333        98             15             
+0.3       0.34122        6.78947        129            19             
+0.5       0.302683       7.69231        100            13             
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: x
+
+=> LC: 1
+(b ; 6) (a ; 5) (c ; 5) (e ; 5) (f ; 5) (h ; 5) (j ; 5) (i ; 4) (l ; 4) (s ; 4) (t ; 4) (n ; 3) (p ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+x 
+[ LC:  1 ]
+b a c e f h j i l s t n p w g 
+Escolhendo no: b
+
+=> LC: 2
+(h ; 4) (j ; 3) (t ; 3) (g ; 2) (i ; 2) (l ; 2) (n ; 2) (w ; 2) (p ; 1) 
+[ S:  2 ]
+x b 
+[ LC:  2 ]
+h j t g i l n w p 
+Escolhendo no: h
+
+=> LC: 3
+(n ; 2) (w ; 2) (g ; 1) (i ; 1) (p ; 1) 
+[ S:  3 ]
+x b h 
+[ LC:  3 ]
+n w g i p 
+Escolhendo no: n
+
+=> LC: 4
+(g ; 1) (i ; 1) (p ; 1) 
+[ S:  4 ]
+x b h n 
+[ LC:  4 ]
+g i p 
+Escolhendo no: g
+
+=> LC: 5
+(i ; 1) (p ; 1) 
+[ S:  5 ]
+x b h n g 
+[ LC:  5 ]
+i p 
+Escolhendo no: i
+
+=> LC: 6
+(p ; 1) 
+[ S:  6 ]
+x b h n g i 
+[ LC:  6 ]
+p 
+Escolhendo no: p
+
+=> LC: 7
+
+[ S:  7 ]
+x b h n g i p 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: x b h n g i p 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 45 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.356097       6.5625         105            16             
+0.3       0.34122        6.78947        129            19             
+0.5       0.302683       7.69231        100            13             
+
+[36m---------------- Atualizando Probabilidades ----------------[0m
+
+SCORES: 0.914286 ; 0.883721 ; 0.78 ; 
+SUM_SCORES: 2.57801
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.354648       6.5625         105            16             
+0.3       0.342792       6.78947        129            19             
+0.5       0.302559       7.69231        100            13             
+
+[33mALFA----------------------------------->: 0.5[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: m
+
+=> LC: 1
+(b ; 6) (f ; 6) (u ; 6) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (e ; 4) (p ; 4) (q ; 4) (y ; 4) (o ; 3) (s ; 3) (r ; 2) (t ; 2) (w ; 2) 
+[ S:  1 ]
+m 
+[ LC:  1 ]
+b f u i l n c d e p q y o s r t w 
+Escolhendo no: l
+
+=> LC: 2
+(b ; 4) (c ; 4) (e ; 4) (i ; 4) (n ; 4) (u ; 4) (d ; 3) (o ; 3) (p ; 3) (r ; 2) (w ; 2) (t ; 1) 
+[ S:  2 ]
+m l 
+[ LC:  2 ]
+b c e i n u d o p r w t 
+Escolhendo no: b
+
+=> LC: 3
+(u ; 4) (i ; 3) (n ; 3) (o ; 3) (d ; 2) (p ; 2) (w ; 2) (t ; 1) 
+[ S:  3 ]
+m l b 
+[ LC:  3 ]
+u i n o d p w t 
+Escolhendo no: u
+
+=> LC: 4
+(d ; 2) (i ; 2) (t ; 1) (w ; 1) 
+[ S:  4 ]
+m l b u 
+[ LC:  4 ]
+d i t w 
+Escolhendo no: d
+
+=> LC: 5
+(t ; 1) (w ; 1) 
+[ S:  5 ]
+m l b u d 
+[ LC:  5 ]
+t w 
+Escolhendo no: t
+
+=> LC: 6
+(w ; 1) 
+[ S:  6 ]
+m l b u d t 
+[ LC:  6 ]
+w 
+Escolhendo no: w
+
+=> LC: 7
+
+[ S:  7 ]
+m l b u d t w 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: m l b u d t w 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 46 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.354648       6.5625         105            16             
+0.3       0.342792       6.78947        129            19             
+0.5       0.302559       7.64286        107            14             
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: h
+
+=> LC: 1
+(u ; 7) (x ; 7) (b ; 6) (e ; 6) (n ; 6) (d ; 5) (f ; 5) (i ; 5) (a ; 4) (c ; 4) (k ; 4) (o ; 4) (p ; 4) (y ; 4) (r ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+h 
+[ LC:  1 ]
+u x b e n d f i a c k o p y r w g 
+Escolhendo no: u
+
+=> LC: 2
+(b ; 5) (e ; 5) (a ; 4) (d ; 4) (c ; 3) (i ; 3) (k ; 2) (r ; 2) (w ; 2) (y ; 2) 
+[ S:  2 ]
+h u 
+[ LC:  2 ]
+b e a d c i k r w y 
+Escolhendo no: b
+
+=> LC: 3
+(d ; 3) (i ; 2) (y ; 2) (k ; 1) (w ; 1) 
+[ S:  3 ]
+h u b 
+[ LC:  3 ]
+d i y k w 
+Escolhendo no: d
+
+=> LC: 4
+(k ; 1) (w ; 1) 
+[ S:  4 ]
+h u b d 
+[ LC:  4 ]
+k w 
+Escolhendo no: k
+
+=> LC: 5
+(w ; 1) 
+[ S:  5 ]
+h u b d k 
+[ LC:  5 ]
+w 
+Escolhendo no: w
+
+=> LC: 6
+
+[ S:  6 ]
+h u b d k w 
+[ LC:  6 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: h u b d k w 
+===> Solucao VALIDA! |S| = 6
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 47 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.354648       6.52941        111            17             
+0.3       0.342792       6.78947        129            19             
+0.5       0.302559       7.64286        107            14             
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: x
+
+=> LC: 1
+(b ; 6) (a ; 5) (c ; 5) (e ; 5) (f ; 5) (h ; 5) (j ; 5) (i ; 4) (l ; 4) (s ; 4) (t ; 4) (n ; 3) (p ; 3) (w ; 3) (g ; 2) 
+[ S:  1 ]
+x 
+[ LC:  1 ]
+b a c e f h j i l s t n p w g 
+Escolhendo no: b
+
+=> LC: 2
+(h ; 4) (j ; 3) (t ; 3) (g ; 2) (i ; 2) (l ; 2) (n ; 2) (w ; 2) (p ; 1) 
+[ S:  2 ]
+x b 
+[ LC:  2 ]
+h j t g i l n w p 
+Escolhendo no: h
+
+=> LC: 3
+(n ; 2) (w ; 2) (g ; 1) (i ; 1) (p ; 1) 
+[ S:  3 ]
+x b h 
+[ LC:  3 ]
+n w g i p 
+Escolhendo no: n
+
+=> LC: 4
+(g ; 1) (i ; 1) (p ; 1) 
+[ S:  4 ]
+x b h n 
+[ LC:  4 ]
+g i p 
+Escolhendo no: g
+
+=> LC: 5
+(i ; 1) (p ; 1) 
+[ S:  5 ]
+x b h n g 
+[ LC:  5 ]
+i p 
+Escolhendo no: i
+
+=> LC: 6
+(p ; 1) 
+[ S:  6 ]
+x b h n g i 
+[ LC:  6 ]
+p 
+Escolhendo no: p
+
+=> LC: 7
+
+[ S:  7 ]
+x b h n g i p 
+[ LC:  7 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: x b h n g i p 
+===> Solucao VALIDA! |S| = 7
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 48 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.354648       6.52941        111            17             
+0.3       0.342792       6.8            136            20             
+0.5       0.302559       7.64286        107            14             
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: m
+
+=> LC: 1
+(b ; 6) (f ; 6) (u ; 6) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (e ; 4) (p ; 4) (q ; 4) (y ; 4) (o ; 3) (s ; 3) (r ; 2) (t ; 2) (w ; 2) 
+[ S:  1 ]
+m 
+[ LC:  1 ]
+b f u i l n c d e p q y o s r t w 
+Escolhendo no: f
+
+=> LC: 2
+(n ; 4) (d ; 3) (y ; 3) (c ; 2) (e ; 2) (q ; 2) (t ; 2) (w ; 2) (o ; 1) (r ; 1) (s ; 1) 
+[ S:  2 ]
+m f 
+[ LC:  2 ]
+n d y c e q t w o r s 
+Escolhendo no: y
+
+=> LC: 3
+(q ; 2) (t ; 2) (c ; 1) (e ; 1) (o ; 1) (r ; 1) (s ; 1) (w ; 1) 
+[ S:  3 ]
+m f y 
+[ LC:  3 ]
+q t c e o r s w 
+Escolhendo no: q
+
+=> LC: 4
+(c ; 1) (e ; 1) (o ; 1) (r ; 1) (s ; 1) (w ; 1) 
+[ S:  4 ]
+m f y q 
+[ LC:  4 ]
+c e o r s w 
+Escolhendo no: c
+
+=> LC: 5
+(e ; 1) (o ; 1) (r ; 1) (s ; 1) (w ; 1) 
+[ S:  5 ]
+m f y q c 
+[ LC:  5 ]
+e o r s w 
+Escolhendo no: e
+
+=> LC: 6
+(o ; 1) (r ; 1) (s ; 1) (w ; 1) 
+[ S:  6 ]
+m f y q c e 
+[ LC:  6 ]
+o r s w 
+Escolhendo no: o
+
+=> LC: 7
+(r ; 1) (s ; 1) (w ; 1) 
+[ S:  7 ]
+m f y q c e o 
+[ LC:  7 ]
+r s w 
+Escolhendo no: r
+
+=> LC: 8
+(s ; 1) (w ; 1) 
+[ S:  8 ]
+m f y q c e o r 
+[ LC:  8 ]
+s w 
+Escolhendo no: s
+
+=> LC: 9
+(w ; 1) 
+[ S:  9 ]
+m f y q c e o r s 
+[ LC:  9 ]
+w 
+Escolhendo no: w
+
+=> LC: 10
+
+[ S:  10 ]
+m f y q c e o r s w 
+[ LC:  10 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: m f y q c e o r s w 
+===> Solucao VALIDA! |S| = 10
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[34m========================================================== i = 49 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.354648       6.52941        111            17             
+0.3       0.342792       6.95238        146            21             
+0.5       0.302559       7.64286        107            14             
+
+[33mALFA----------------------------------->: 0.3[0m
+
+=> LC: 0
+(x ; 9) (h ; 7) (m ; 7) (q ; 7) (u ; 7) (a ; 6) (b ; 6) (e ; 6) (j ; 6) (k ; 6) (v ; 6) (f ; 5) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (p ; 4) (s ; 4) (t ; 4) (y ; 4) (g ; 3) (o ; 3) (r ; 3) (w ; 2) 
+Escolhendo no: m
+
+=> LC: 1
+(b ; 6) (f ; 6) (u ; 6) (i ; 5) (l ; 5) (n ; 5) (c ; 4) (d ; 4) (e ; 4) (p ; 4) (q ; 4) (y ; 4) (o ; 3) (s ; 3) (r ; 2) (t ; 2) (w ; 2) 
+[ S:  1 ]
+m 
+[ LC:  1 ]
+b f u i l n c d e p q y o s r t w 
+Escolhendo no: f
+
+=> LC: 2
+(n ; 4) (d ; 3) (y ; 3) (c ; 2) (e ; 2) (q ; 2) (t ; 2) (w ; 2) (o ; 1) (r ; 1) (s ; 1) 
+[ S:  2 ]
+m f 
+[ LC:  2 ]
+n d y c e q t w o r s 
+Escolhendo no: d
+
+=> LC: 3
+(n ; 3) (c ; 2) (q ; 2) (t ; 2) (w ; 2) (o ; 1) (r ; 1) (s ; 1) 
+[ S:  3 ]
+m f d 
+[ LC:  3 ]
+n c q t w o r s 
+Escolhendo no: n
+
+=> LC: 4
+(q ; 2) (t ; 2) (o ; 1) (r ; 1) (s ; 1) 
+[ S:  4 ]
+m f d n 
+[ LC:  4 ]
+q t o r s 
+Escolhendo no: q
+
+=> LC: 5
+(o ; 1) (r ; 1) (s ; 1) 
+[ S:  5 ]
+m f d n q 
+[ LC:  5 ]
+o r s 
+Escolhendo no: o
+
+=> LC: 6
+(r ; 1) (s ; 1) 
+[ S:  6 ]
+m f d n q o 
+[ LC:  6 ]
+r s 
+Escolhendo no: r
+
+=> LC: 7
+(s ; 1) 
+[ S:  7 ]
+m f d n q o r 
+[ LC:  7 ]
+s 
+Escolhendo no: s
+
+=> LC: 8
+
+[ S:  8 ]
+m f d n q o r s 
+[ LC:  8 ]
+
+Vertices: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Dominados: a b c d e f g h i j k l m n o p q r s t u v w x y 
+Solucao: m f d n q o r s 
+===> Solucao VALIDA! |S| = 8
+
+[32mBEST SOLUTION-------------------------------->: 6[0m
+
+[35mMELHOR SOLUÇÃO: 6
+u j s a d r 
 
 [31m========================================================== FIM ===========================================================[0m
-Tempo de execucao: 0.006 segundos
+Tempo de execucao: 0.031 segundos
