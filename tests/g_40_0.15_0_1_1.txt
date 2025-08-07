@@ -1,0 +1,1725 @@
+TESTE: g_40_0.15_0_1_1.txt
+
+__________________________________________________
+GULOSO
+(D - 10) 
+(M - 10) 
+(s - 9) 
+(G - 8) 
+(w - 8) 
+(a - 8) 
+(c - 8) 
+(L - 8) 
+(u - 8) 
+(E - 7) 
+(z - 7) 
+(i - 7) 
+(d - 7) 
+(v - 7) 
+(C - 7) 
+(p - 7) 
+(B - 7) 
+(n - 7) 
+(j - 6) 
+(A - 6) 
+(J - 6) 
+(q - 6) 
+(b - 5) 
+(g - 5) 
+(H - 5) 
+(x - 5) 
+(k - 5) 
+(f - 5) 
+(o - 5) 
+(l - 5) 
+(K - 5) 
+(h - 4) 
+(t - 4) 
+(N - 4) 
+(y - 3) 
+(m - 3) 
+(e - 3) 
+(r - 3) 
+(I - 2) 
+(F - 1) 
+------------------------
+(M - 8) 
+(s - 8) 
+(u - 8) 
+(G - 7) 
+(a - 7) 
+(i - 7) 
+(B - 6) 
+(n - 6) 
+(w - 5) 
+(E - 5) 
+(j - 5) 
+(J - 5) 
+(q - 5) 
+(o - 5) 
+(c - 4) 
+(C - 4) 
+(x - 4) 
+(K - 4) 
+(h - 4) 
+(b - 3) 
+(H - 3) 
+(f - 3) 
+(l - 3) 
+(t - 3) 
+(e - 3) 
+(y - 2) 
+(r - 2) 
+(I - 2) 
+(F - 1) 
+------------------------
+(i - 6) 
+(o - 5) 
+(G - 4) 
+(B - 4) 
+(x - 4) 
+(E - 3) 
+(J - 3) 
+(c - 3) 
+(b - 3) 
+(n - 2) 
+(w - 2) 
+(K - 2) 
+(f - 2) 
+(l - 2) 
+(y - 2) 
+(r - 2) 
+(I - 2) 
+(H - 1) 
+(t - 1) 
+(F - 1) 
+------------------------
+(B - 3) 
+(c - 2) 
+(w - 2) 
+(K - 2) 
+(y - 2) 
+(r - 2) 
+(I - 2) 
+(x - 1) 
+(E - 1) 
+(f - 1) 
+(l - 1) 
+(t - 1) 
+(H - 0) 
+------------------------
+(K - 2) 
+(r - 2) 
+(I - 2) 
+(y - 1) 
+(x - 1) 
+(f - 1) 
+(t - 1) 
+(l - 0) 
+(H - 0) 
+------------------------
+(y - 1) 
+(f - 1) 
+(x - 0) 
+(t - 0) 
+(l - 0) 
+(H - 0) 
+------------------------
+(x - 0) 
+(t - 0) 
+(l - 0) 
+(H - 0) 
+------------------------
+(t - 0) 
+(l - 0) 
+(H - 0) 
+------------------------
+(l - 0) 
+(H - 0) 
+------------------------
+(H - 0) 
+------------------------
+D - M - i - B - K - y - x - t - l - H - Tempo de execucao: 0.001 segundos
+
+__________________________________________________
+GULOSO RANDOMIZADO
+Alpha: 0.1
+
+[ Iteracao: 1 ]
+
+=> LC: 0
+(D ; 10) (M ; 10) (s ; 9) (G ; 8) (L ; 8) (a ; 8) (c ; 8) (u ; 8) (w ; 8) (B ; 7) (C ; 7) (E ; 7) (d ; 7) (i ; 7) (n ; 7) (p ; 7) (v ; 7) (z ; 7) (A ; 6) (J ; 6) (j ; 6) (q ; 6) (H ; 5) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (k ; 5) (l ; 5) (o ; 5) (x ; 5) (N ; 4) (h ; 4) (t ; 4) (e ; 3) (m ; 3) (r ; 3) (y ; 3) (I ; 2) (F ; 1) 
+Escolhendo no: G
+
+=> LC: 1
+(D ; 10) (C ; 8) (c ; 8) (d ; 8) (E ; 7) (L ; 7) (M ; 7) (p ; 7) (v ; 7) (A ; 6) (u ; 6) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (j ; 5) (k ; 5) (n ; 5) (t ; 5) (w ; 5) (H ; 4) (J ; 4) (N ; 4) (h ; 4) (o ; 4) (y ; 4) (I ; 3) (e ; 3) (m ; 3) (r ; 3) (F ; 1) 
+[ S:  1 ]
+G 
+[ LC:  1 ]
+D C c d E L M p v A u K b f g j k n t w H J N h o y I e m r F 
+Escolhendo no: c
+
+=> LC: 2
+(d ; 7) (C ; 6) (D ; 6) (M ; 5) (b ; 5) (g ; 5) (k ; 5) (n ; 5) (t ; 5) (A ; 4) (E ; 4) (K ; 4) (f ; 4) (h ; 4) (j ; 4) (o ; 4) (H ; 3) (I ; 3) (e ; 3) (m ; 3) (w ; 3) (r ; 2) (F ; 1) 
+[ S:  2 ]
+G c 
+[ LC:  2 ]
+d C D M b g k n t A E K f h j o H I e m w r F 
+Escolhendo no: C
+
+=> LC: 3
+(d ; 6) (n ; 5) (A ; 4) (D ; 4) (E ; 4) (b ; 4) (o ; 4) (H ; 3) (f ; 3) (j ; 3) (m ; 3) (w ; 3) (e ; 2) (h ; 2) (F ; 1) (I ; 1) (r ; 1) 
+[ S:  3 ]
+G c C 
+[ LC:  3 ]
+d n A D E b o H f j m w e h F I r 
+Escolhendo no: d
+
+=> LC: 4
+(E ; 3) (f ; 3) (o ; 3) (A ; 2) (e ; 2) (j ; 2) (m ; 2) (F ; 1) (I ; 1) (h ; 1) (r ; 1) 
+[ S:  4 ]
+G c C d 
+[ LC:  4 ]
+E f o A e j m F I h r 
+Escolhendo no: E
+
+=> LC: 5
+(A ; 2) (f ; 2) (j ; 2) (m ; 2) (F ; 1) (I ; 1) (h ; 1) (r ; 1) 
+[ S:  5 ]
+G c C d E 
+[ LC:  5 ]
+A f j m F I h r 
+Escolhendo no: A
+
+=> LC: 6
+(f ; 2) (j ; 2) (F ; 1) (I ; 1) (h ; 1) (r ; 1) 
+[ S:  6 ]
+G c C d E A 
+[ LC:  6 ]
+f j F I h r 
+Escolhendo no: f
+
+=> LC: 7
+(F ; 1) (I ; 1) (h ; 1) (r ; 1) 
+[ S:  7 ]
+G c C d E A f 
+[ LC:  7 ]
+F I h r 
+Escolhendo no: F
+
+=> LC: 8
+(I ; 1) (h ; 1) (r ; 1) 
+[ S:  8 ]
+G c C d E A f F 
+[ LC:  8 ]
+I h r 
+Escolhendo no: I
+
+=> LC: 9
+(h ; 1) (r ; 1) 
+[ S:  9 ]
+G c C d E A f F I 
+[ LC:  9 ]
+h r 
+Escolhendo no: h
+
+=> LC: 10
+(r ; 1) 
+[ S:  10 ]
+G c C d E A f F I h 
+[ LC:  10 ]
+r 
+Escolhendo no: r
+
+=> LC: 11
+
+[ S:  11 ]
+G c C d E A f F I h r 
+[ LC:  11 ]
+
+Vertices: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Dominados: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Solucao: G c C d E A f F I h r 
+===> Solucao VALIDA! |S| = 11
+
+Alpha: 0.2
+
+[ Iteracao: 1 ]
+
+=> LC: 0
+(D ; 10) (M ; 10) (s ; 9) (G ; 8) (L ; 8) (a ; 8) (c ; 8) (u ; 8) (w ; 8) (B ; 7) (C ; 7) (E ; 7) (d ; 7) (i ; 7) (n ; 7) (p ; 7) (v ; 7) (z ; 7) (A ; 6) (J ; 6) (j ; 6) (q ; 6) (H ; 5) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (k ; 5) (l ; 5) (o ; 5) (x ; 5) (N ; 4) (h ; 4) (t ; 4) (e ; 3) (m ; 3) (r ; 3) (y ; 3) (I ; 2) (F ; 1) 
+Escolhendo no: L
+
+=> LC: 1
+(M ; 9) (s ; 9) (C ; 7) (G ; 7) (a ; 7) (d ; 7) (i ; 7) (w ; 7) (B ; 6) (H ; 6) (J ; 6) (b ; 6) (n ; 6) (x ; 6) (z ; 6) (A ; 5) (f ; 5) (g ; 5) (h ; 5) (o ; 5) (p ; 5) (t ; 5) (u ; 5) (k ; 4) (e ; 3) (m ; 3) (y ; 3) (F ; 2) (I ; 2) (N ; 2) (r ; 2) 
+[ S:  1 ]
+L 
+[ LC:  1 ]
+M s C G a d i w B H J b n x z A f g h o p t u k e m y F I N r 
+Escolhendo no: d
+
+=> LC: 2
+(M ; 9) (G ; 7) (s ; 7) (C ; 6) (J ; 6) (x ; 6) (a ; 5) (i ; 5) (t ; 5) (z ; 5) (A ; 4) (B ; 4) (f ; 4) (h ; 4) (k ; 4) (o ; 4) (p ; 4) (e ; 3) (m ; 3) (u ; 3) (F ; 2) (I ; 2) (N ; 2) (r ; 2) 
+[ S:  2 ]
+L d 
+[ LC:  2 ]
+M G s C J x a i t z A B f h k o p e m u F I N r 
+Escolhendo no: s
+
+=> LC: 3
+(t ; 5) (C ; 4) (f ; 4) (k ; 4) (o ; 4) (x ; 4) (a ; 3) (h ; 3) (i ; 3) (p ; 3) (z ; 3) (A ; 2) (F ; 2) (I ; 2) (N ; 2) (r ; 2) (e ; 1) 
+[ S:  3 ]
+L d s 
+[ LC:  3 ]
+t C f k o x a h i p z A F I N r e 
+Escolhendo no: f
+
+=> LC: 4
+(t ; 4) (C ; 3) (a ; 3) (h ; 3) (x ; 3) (A ; 2) (F ; 2) (I ; 2) (N ; 2) (i ; 2) (p ; 2) (r ; 2) (e ; 1) 
+[ S:  4 ]
+L d s f 
+[ LC:  4 ]
+t C a h x A F I N i p r e 
+Escolhendo no: t
+
+=> LC: 5
+(x ; 3) (A ; 2) (F ; 2) (N ; 2) (a ; 2) (i ; 2) (r ; 2) (e ; 1) (p ; 1) 
+[ S:  5 ]
+L d s f t 
+[ LC:  5 ]
+x A F N a i r e p 
+Escolhendo no: x
+
+=> LC: 6
+(A ; 2) (F ; 2) (a ; 2) (i ; 2) (e ; 1) (p ; 1) 
+[ S:  6 ]
+L d s f t x 
+[ LC:  6 ]
+A F a i e p 
+Escolhendo no: A
+
+=> LC: 7
+(F ; 2) (i ; 2) (e ; 1) (p ; 1) 
+[ S:  7 ]
+L d s f t x A 
+[ LC:  7 ]
+F i e p 
+Escolhendo no: F
+
+=> LC: 8
+(e ; 1) (p ; 1) 
+[ S:  8 ]
+L d s f t x A F 
+[ LC:  8 ]
+e p 
+Escolhendo no: e
+
+=> LC: 9
+(p ; 1) 
+[ S:  9 ]
+L d s f t x A F e 
+[ LC:  9 ]
+p 
+Escolhendo no: p
+
+=> LC: 10
+
+[ S:  10 ]
+L d s f t x A F e p 
+[ LC:  10 ]
+
+Vertices: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Dominados: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Solucao: L d s f t x A F e p 
+===> Solucao VALIDA! |S| = 10
+
+Alpha: 0.3
+
+[ Iteracao: 1 ]
+
+=> LC: 0
+(D ; 10) (M ; 10) (s ; 9) (G ; 8) (L ; 8) (a ; 8) (c ; 8) (u ; 8) (w ; 8) (B ; 7) (C ; 7) (E ; 7) (d ; 7) (i ; 7) (n ; 7) (p ; 7) (v ; 7) (z ; 7) (A ; 6) (J ; 6) (j ; 6) (q ; 6) (H ; 5) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (k ; 5) (l ; 5) (o ; 5) (x ; 5) (N ; 4) (h ; 4) (t ; 4) (e ; 3) (m ; 3) (r ; 3) (y ; 3) (I ; 2) (F ; 1) 
+Escolhendo no: E
+
+=> LC: 1
+(D ; 9) (M ; 9) (C ; 8) (G ; 8) (a ; 8) (p ; 8) (z ; 8) (A ; 7) (J ; 7) (d ; 7) (s ; 7) (v ; 7) (w ; 7) (i ; 6) (k ; 6) (H ; 5) (K ; 5) (b ; 5) (c ; 5) (f ; 5) (g ; 5) (j ; 5) (q ; 5) (t ; 5) (h ; 4) (l ; 4) (m ; 4) (r ; 4) (x ; 4) (y ; 4) (I ; 3) (F ; 2) 
+[ S:  1 ]
+E 
+[ LC:  1 ]
+D M C G a p z A J d s v w i k H K b c f g j q t h l m r x y I F 
+Escolhendo no: p
+
+=> LC: 2
+(G ; 7) (a ; 6) (i ; 6) (s ; 6) (J ; 5) (b ; 5) (d ; 5) (A ; 4) (H ; 4) (K ; 4) (f ; 4) (j ; 4) (k ; 4) (t ; 4) (x ; 4) (I ; 3) (g ; 3) (h ; 3) (l ; 3) (m ; 3) (q ; 3) (r ; 3) (y ; 3) (F ; 2) 
+[ S:  2 ]
+E p 
+[ LC:  2 ]
+G a i s J b d A H K f j k t x I g h l m q r y F 
+Escolhendo no: J
+
+=> LC: 3
+(a ; 5) (d ; 5) (G ; 4) (K ; 4) (b ; 4) (f ; 4) (k ; 4) (t ; 4) (H ; 3) (I ; 3) (g ; 3) (h ; 3) (l ; 3) (q ; 3) (y ; 3) (j ; 2) (r ; 2) (F ; 1) (m ; 1) 
+[ S:  3 ]
+E p J 
+[ LC:  3 ]
+a d G K b f k t H I g h l q y j r F m 
+Escolhendo no: b
+
+=> LC: 4
+(a ; 5) (G ; 4) (K ; 4) (f ; 4) (k ; 4) (t ; 4) (I ; 3) (h ; 3) (l ; 3) (q ; 3) (j ; 2) (r ; 2) (y ; 2) (F ; 1) (m ; 1) 
+[ S:  4 ]
+E p J b 
+[ LC:  4 ]
+a G K f k t I h l q j r y F m 
+Escolhendo no: K
+
+=> LC: 5
+(f ; 4) (k ; 4) (G ; 3) (l ; 3) (t ; 3) (h ; 2) (j ; 2) (q ; 2) (y ; 2) (F ; 1) (m ; 1) 
+[ S:  5 ]
+E p J b K 
+[ LC:  5 ]
+f k G l t h j q y F m 
+Escolhendo no: k
+
+=> LC: 6
+(G ; 2) (q ; 2) (F ; 1) (h ; 1) (j ; 1) (m ; 1) (y ; 1) 
+[ S:  6 ]
+E p J b K k 
+[ LC:  6 ]
+G q F h j m y 
+Escolhendo no: q
+
+=> LC: 7
+(F ; 1) (h ; 1) (j ; 1) (m ; 1) (y ; 1) 
+[ S:  7 ]
+E p J b K k q 
+[ LC:  7 ]
+F h j m y 
+Escolhendo no: F
+
+=> LC: 8
+(h ; 1) (j ; 1) (m ; 1) (y ; 1) 
+[ S:  8 ]
+E p J b K k q F 
+[ LC:  8 ]
+h j m y 
+Escolhendo no: h
+
+=> LC: 9
+(j ; 1) (m ; 1) (y ; 1) 
+[ S:  9 ]
+E p J b K k q F h 
+[ LC:  9 ]
+j m y 
+Escolhendo no: j
+
+=> LC: 10
+(m ; 1) (y ; 1) 
+[ S:  10 ]
+E p J b K k q F h j 
+[ LC:  10 ]
+m y 
+Escolhendo no: m
+
+=> LC: 11
+(y ; 1) 
+[ S:  11 ]
+E p J b K k q F h j m 
+[ LC:  11 ]
+y 
+Escolhendo no: y
+
+=> LC: 12
+
+[ S:  12 ]
+E p J b K k q F h j m y 
+[ LC:  12 ]
+
+Vertices: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Dominados: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Solucao: E p J b K k q F h j m y 
+===> Solucao VALIDA! |S| = 12
+
+Alpha: 0.4
+
+[ Iteracao: 1 ]
+
+=> LC: 0
+(D ; 10) (M ; 10) (s ; 9) (G ; 8) (L ; 8) (a ; 8) (c ; 8) (u ; 8) (w ; 8) (B ; 7) (C ; 7) (E ; 7) (d ; 7) (i ; 7) (n ; 7) (p ; 7) (v ; 7) (z ; 7) (A ; 6) (J ; 6) (j ; 6) (q ; 6) (H ; 5) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (k ; 5) (l ; 5) (o ; 5) (x ; 5) (N ; 4) (h ; 4) (t ; 4) (e ; 3) (m ; 3) (r ; 3) (y ; 3) (I ; 2) (F ; 1) 
+Escolhendo no: a
+
+=> LC: 1
+(D ; 10) (c ; 9) (E ; 7) (L ; 7) (s ; 7) (v ; 7) (B ; 6) (C ; 6) (H ; 6) (J ; 6) (b ; 6) (d ; 6) (f ; 6) (g ; 6) (i ; 6) (k ; 6) (o ; 6) (p ; 6) (u ; 6) (z ; 6) (N ; 5) (j ; 5) (x ; 5) (l ; 4) (t ; 4) (y ; 4) (e ; 3) (m ; 3) (r ; 3) (F ; 2) (I ; 2) 
+[ S:  1 ]
+a 
+[ LC:  1 ]
+D c E L s v B C H J b d f g i k o p u z N j x l t y e m r F I 
+Escolhendo no: c
+
+=> LC: 2
+(D ; 6) (b ; 6) (k ; 6) (o ; 6) (H ; 5) (d ; 5) (f ; 5) (g ; 5) (i ; 5) (C ; 4) (j ; 4) (s ; 4) (t ; 4) (z ; 4) (E ; 3) (m ; 3) (x ; 3) (F ; 2) (I ; 2) (e ; 2) (l ; 2) (r ; 2) 
+[ S:  2 ]
+a c 
+[ LC:  2 ]
+D b k o H d f g i C j s t z E m x F I e l r 
+Escolhendo no: g
+
+=> LC: 3
+(f ; 5) (o ; 5) (i ; 4) (j ; 4) (k ; 4) (s ; 4) (E ; 3) (H ; 3) (t ; 3) (x ; 3) (z ; 3) (F ; 2) (I ; 2) (e ; 2) (l ; 2) (m ; 2) (r ; 2) 
+[ S:  3 ]
+a c g 
+[ LC:  3 ]
+f o i j k s E H t x z F I e l m r 
+Escolhendo no: j
+
+=> LC: 4
+(E ; 3) (k ; 3) (o ; 3) (t ; 3) (x ; 3) (H ; 2) (I ; 2) (e ; 2) (l ; 2) (r ; 2) (z ; 2) (F ; 1) (m ; 1) 
+[ S:  4 ]
+a c g j 
+[ LC:  4 ]
+E k o t x H I e l r z F m 
+Escolhendo no: o
+
+=> LC: 5
+(k ; 3) (t ; 3) (H ; 2) (I ; 2) (l ; 2) (z ; 2) (F ; 1) (e ; 1) (m ; 1) (r ; 1) 
+[ S:  5 ]
+a c g j o 
+[ LC:  5 ]
+k t H I l z F e m r 
+Escolhendo no: k
+
+=> LC: 6
+(H ; 2) (z ; 2) (F ; 1) (I ; 1) (e ; 1) (m ; 1) (r ; 1) 
+[ S:  6 ]
+a c g j o k 
+[ LC:  6 ]
+H z F I e m r 
+Escolhendo no: H
+
+=> LC: 7
+(F ; 1) (I ; 1) (e ; 1) (m ; 1) (r ; 1) 
+[ S:  7 ]
+a c g j o k H 
+[ LC:  7 ]
+F I e m r 
+Escolhendo no: F
+
+=> LC: 8
+(I ; 1) (e ; 1) (m ; 1) (r ; 1) 
+[ S:  8 ]
+a c g j o k H F 
+[ LC:  8 ]
+I e m r 
+Escolhendo no: I
+
+=> LC: 9
+(e ; 1) (m ; 1) (r ; 1) 
+[ S:  9 ]
+a c g j o k H F I 
+[ LC:  9 ]
+e m r 
+Escolhendo no: e
+
+=> LC: 10
+(m ; 1) (r ; 1) 
+[ S:  10 ]
+a c g j o k H F I e 
+[ LC:  10 ]
+m r 
+Escolhendo no: m
+
+=> LC: 11
+(r ; 1) 
+[ S:  11 ]
+a c g j o k H F I e m 
+[ LC:  11 ]
+r 
+Escolhendo no: r
+
+=> LC: 12
+
+[ S:  12 ]
+a c g j o k H F I e m r 
+[ LC:  12 ]
+
+Vertices: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Dominados: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Solucao: a c g j o k H F I e m r 
+===> Solucao VALIDA! |S| = 12
+
+Alpha: 0.5
+
+[ Iteracao: 1 ]
+
+=> LC: 0
+(D ; 10) (M ; 10) (s ; 9) (G ; 8) (L ; 8) (a ; 8) (c ; 8) (u ; 8) (w ; 8) (B ; 7) (C ; 7) (E ; 7) (d ; 7) (i ; 7) (n ; 7) (p ; 7) (v ; 7) (z ; 7) (A ; 6) (J ; 6) (j ; 6) (q ; 6) (H ; 5) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (k ; 5) (l ; 5) (o ; 5) (x ; 5) (N ; 4) (h ; 4) (t ; 4) (e ; 3) (m ; 3) (r ; 3) (y ; 3) (I ; 2) (F ; 1) 
+Escolhendo no: B
+
+=> LC: 1
+(D ; 10) (M ; 9) (C ; 7) (L ; 7) (a ; 7) (i ; 7) (v ; 7) (z ; 7) (A ; 6) (K ; 6) (d ; 6) (f ; 6) (j ; 6) (k ; 6) (n ; 6) (p ; 6) (H ; 5) (J ; 5) (b ; 5) (h ; 5) (o ; 5) (q ; 5) (t ; 5) (u ; 5) (x ; 5) (l ; 4) (r ; 4) (I ; 3) (N ; 3) (m ; 3) (y ; 3) (F ; 2) 
+[ S:  1 ]
+B 
+[ LC:  1 ]
+D M C L a i v z A K d f j k n p H J b h o q t u x l r I N m y F 
+Escolhendo no: A
+
+=> LC: 2
+(M ; 8) (C ; 6) (f ; 6) (i ; 6) (j ; 6) (H ; 5) (K ; 5) (L ; 5) (b ; 5) (d ; 5) (k ; 5) (n ; 5) (o ; 5) (t ; 5) (u ; 5) (z ; 5) (h ; 4) (l ; 4) (p ; 4) (q ; 4) (x ; 4) (I ; 3) (r ; 3) (y ; 3) (F ; 2) (N ; 2) 
+[ S:  2 ]
+B A 
+[ LC:  2 ]
+M C f i j H K L b d k n o t u z h l p q x I r y F N 
+Escolhendo no: b
+
+=> LC: 3
+(M ; 8) (C ; 6) (K ; 5) (L ; 5) (f ; 5) (j ; 5) (k ; 5) (t ; 5) (h ; 4) (l ; 4) (p ; 4) (q ; 4) (u ; 4) (z ; 4) (I ; 3) (n ; 3) (r ; 3) (x ; 3) (N ; 2) (y ; 2) (F ; 1) 
+[ S:  3 ]
+B A b 
+[ LC:  3 ]
+M C K L f j k t h l p q u z I n r x N y F 
+Escolhendo no: K
+
+=> LC: 4
+(M ; 7) (f ; 5) (h ; 4) (j ; 4) (k ; 4) (u ; 4) (z ; 4) (l ; 3) (n ; 3) (p ; 3) (q ; 3) (t ; 3) (N ; 2) (x ; 2) (y ; 2) (F ; 1) 
+[ S:  4 ]
+B A b K 
+[ LC:  4 ]
+M f h j k u z l n p q t N x y F 
+Escolhendo no: M
+
+=> LC: 5
+(k ; 4) (f ; 3) (N ; 2) (l ; 2) (t ; 2) (x ; 2) (y ; 2) (F ; 1) (n ; 1) 
+[ S:  5 ]
+B A b K M 
+[ LC:  5 ]
+k f N l t x y F n 
+Escolhendo no: l
+
+=> LC: 6
+(N ; 2) (f ; 2) (x ; 2) (y ; 2) (F ; 1) (n ; 1) (t ; 1) 
+[ S:  6 ]
+B A b K M l 
+[ LC:  6 ]
+N f x y F n t 
+Escolhendo no: x
+
+=> LC: 7
+(f ; 2) (y ; 2) (F ; 1) (n ; 1) (t ; 1) 
+[ S:  7 ]
+B A b K M l x 
+[ LC:  7 ]
+f y F n t 
+Escolhendo no: y
+
+=> LC: 8
+(F ; 1) (n ; 1) (t ; 1) 
+[ S:  8 ]
+B A b K M l x y 
+[ LC:  8 ]
+F n t 
+Escolhendo no: F
+
+=> LC: 9
+(n ; 1) (t ; 1) 
+[ S:  9 ]
+B A b K M l x y F 
+[ LC:  9 ]
+n t 
+Escolhendo no: n
+
+=> LC: 10
+(t ; 1) 
+[ S:  10 ]
+B A b K M l x y F n 
+[ LC:  10 ]
+t 
+Escolhendo no: t
+
+=> LC: 11
+
+[ S:  11 ]
+B A b K M l x y F n t 
+[ LC:  11 ]
+
+Vertices: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Dominados: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Solucao: B A b K M l x y F n t 
+===> Solucao VALIDA! |S| = 11
+
+Alpha: 0.6
+
+[ Iteracao: 1 ]
+
+=> LC: 0
+(D ; 10) (M ; 10) (s ; 9) (G ; 8) (L ; 8) (a ; 8) (c ; 8) (u ; 8) (w ; 8) (B ; 7) (C ; 7) (E ; 7) (d ; 7) (i ; 7) (n ; 7) (p ; 7) (v ; 7) (z ; 7) (A ; 6) (J ; 6) (j ; 6) (q ; 6) (H ; 5) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (k ; 5) (l ; 5) (o ; 5) (x ; 5) (N ; 4) (h ; 4) (t ; 4) (e ; 3) (m ; 3) (r ; 3) (y ; 3) (I ; 2) (F ; 1) 
+Escolhendo no: w
+
+=> LC: 1
+(D ; 8) (i ; 8) (s ; 8) (C ; 7) (L ; 7) (M ; 7) (j ; 7) (z ; 7) (E ; 6) (J ; 6) (c ; 6) (f ; 6) (n ; 6) (o ; 6) (v ; 6) (x ; 6) (G ; 5) (K ; 5) (N ; 5) (b ; 5) (k ; 5) (t ; 5) (H ; 4) (g ; 4) (h ; 4) (r ; 4) (I ; 3) (e ; 3) (m ; 3) (y ; 3) (F ; 2) 
+[ S:  1 ]
+w 
+[ LC:  1 ]
+D i s C L M j z E J c f n o v x G K N b k t H g h r I e m y F 
+Escolhendo no: K
+
+=> LC: 2
+(i ; 8) (s ; 8) (D ; 7) (z ; 7) (M ; 6) (f ; 6) (j ; 6) (n ; 6) (o ; 6) (E ; 5) (G ; 5) (J ; 5) (N ; 5) (b ; 5) (c ; 5) (x ; 5) (H ; 4) (h ; 4) (k ; 4) (v ; 4) (e ; 3) (g ; 3) (m ; 3) (t ; 3) (y ; 3) (F ; 2) 
+[ S:  2 ]
+w K 
+[ LC:  2 ]
+i s D z M f j n o E G J N b c x H h k v e g m t y F 
+Escolhendo no: s
+
+=> LC: 3
+(D ; 6) (o ; 6) (N ; 5) (f ; 5) (E ; 4) (b ; 4) (c ; 4) (i ; 4) (k ; 4) (v ; 4) (z ; 4) (g ; 3) (t ; 3) (x ; 3) (y ; 3) (F ; 2) (e ; 2) (h ; 2) 
+[ S:  3 ]
+w K s 
+[ LC:  3 ]
+D o N f E b c i k v z g t x y F e h 
+Escolhendo no: i
+
+=> LC: 4
+(D ; 6) (N ; 5) (c ; 4) (f ; 4) (k ; 4) (v ; 4) (z ; 4) (E ; 3) (t ; 3) (y ; 3) (e ; 2) (g ; 2) (h ; 2) (x ; 2) 
+[ S:  4 ]
+w K s i 
+[ LC:  4 ]
+D N c f k v z E t y e g h x 
+Escolhendo no: E
+
+=> LC: 5
+(D ; 5) (f ; 4) (k ; 4) (v ; 4) (z ; 4) (c ; 3) (t ; 3) (y ; 3) (g ; 2) (h ; 2) (x ; 1) 
+[ S:  5 ]
+w K s i E 
+[ LC:  5 ]
+D f k v z c t y g h x 
+Escolhendo no: v
+
+=> LC: 6
+(f ; 3) (k ; 3) (t ; 3) (h ; 2) (y ; 2) (g ; 1) (x ; 1) 
+[ S:  6 ]
+w K s i E v 
+[ LC:  6 ]
+f k t h y g x 
+Escolhendo no: f
+
+=> LC: 7
+(h ; 2) (t ; 2) (g ; 1) (x ; 1) 
+[ S:  7 ]
+w K s i E v f 
+[ LC:  7 ]
+h t g x 
+Escolhendo no: t
+
+=> LC: 8
+(g ; 1) (x ; 1) 
+[ S:  8 ]
+w K s i E v f t 
+[ LC:  8 ]
+g x 
+Escolhendo no: g
+
+=> LC: 9
+(x ; 1) 
+[ S:  9 ]
+w K s i E v f t g 
+[ LC:  9 ]
+x 
+Escolhendo no: x
+
+=> LC: 10
+
+[ S:  10 ]
+w K s i E v f t g x 
+[ LC:  10 ]
+
+Vertices: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Dominados: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Solucao: w K s i E v f t g x 
+===> Solucao VALIDA! |S| = 10
+
+[ Alpha: 0.1 ] 11 
+[ Alpha: 0.2 ] 10 
+[ Alpha: 0.3 ] 12 
+[ Alpha: 0.4 ] 12 
+[ Alpha: 0.5 ] 11 
+[ Alpha: 0.6 ] 10 
+Tempo de execucao: 0.005 segundos
+
+__________________________________________________
+GULOSO REATIVO
+
+[31m========================================================= INICIO ==========================================================[0m
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(D ; 10) (M ; 10) (s ; 9) (G ; 8) (L ; 8) (a ; 8) (c ; 8) (u ; 8) (w ; 8) (B ; 7) (C ; 7) (E ; 7) (d ; 7) (i ; 7) (n ; 7) (p ; 7) (v ; 7) (z ; 7) (A ; 6) (J ; 6) (j ; 6) (q ; 6) (H ; 5) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (k ; 5) (l ; 5) (o ; 5) (x ; 5) (N ; 4) (h ; 4) (t ; 4) (e ; 3) (m ; 3) (r ; 3) (y ; 3) (I ; 2) (F ; 1) 
+Escolhendo no: G
+
+=> LC: 1
+(D ; 10) (C ; 8) (c ; 8) (d ; 8) (E ; 7) (L ; 7) (M ; 7) (p ; 7) (v ; 7) (A ; 6) (u ; 6) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (j ; 5) (k ; 5) (n ; 5) (t ; 5) (w ; 5) (H ; 4) (J ; 4) (N ; 4) (h ; 4) (o ; 4) (y ; 4) (I ; 3) (e ; 3) (m ; 3) (r ; 3) (F ; 1) 
+[ S:  1 ]
+G 
+[ LC:  1 ]
+D C c d E L M p v A u K b f g j k n t w H J N h o y I e m r F 
+Escolhendo no: c
+
+=> LC: 2
+(d ; 7) (C ; 6) (D ; 6) (M ; 5) (b ; 5) (g ; 5) (k ; 5) (n ; 5) (t ; 5) (A ; 4) (E ; 4) (K ; 4) (f ; 4) (h ; 4) (j ; 4) (o ; 4) (H ; 3) (I ; 3) (e ; 3) (m ; 3) (w ; 3) (r ; 2) (F ; 1) 
+[ S:  2 ]
+G c 
+[ LC:  2 ]
+d C D M b g k n t A E K f h j o H I e m w r F 
+Escolhendo no: C
+
+=> LC: 3
+(d ; 6) (n ; 5) (A ; 4) (D ; 4) (E ; 4) (b ; 4) (o ; 4) (H ; 3) (f ; 3) (j ; 3) (m ; 3) (w ; 3) (e ; 2) (h ; 2) (F ; 1) (I ; 1) (r ; 1) 
+[ S:  3 ]
+G c C 
+[ LC:  3 ]
+d n A D E b o H f j m w e h F I r 
+Escolhendo no: d
+
+=> LC: 4
+(E ; 3) (f ; 3) (o ; 3) (A ; 2) (e ; 2) (j ; 2) (m ; 2) (F ; 1) (I ; 1) (h ; 1) (r ; 1) 
+[ S:  4 ]
+G c C d 
+[ LC:  4 ]
+E f o A e j m F I h r 
+Escolhendo no: E
+
+=> LC: 5
+(A ; 2) (f ; 2) (j ; 2) (m ; 2) (F ; 1) (I ; 1) (h ; 1) (r ; 1) 
+[ S:  5 ]
+G c C d E 
+[ LC:  5 ]
+A f j m F I h r 
+Escolhendo no: A
+
+=> LC: 6
+(f ; 2) (j ; 2) (F ; 1) (I ; 1) (h ; 1) (r ; 1) 
+[ S:  6 ]
+G c C d E A 
+[ LC:  6 ]
+f j F I h r 
+Escolhendo no: f
+
+=> LC: 7
+(F ; 1) (I ; 1) (h ; 1) (r ; 1) 
+[ S:  7 ]
+G c C d E A f 
+[ LC:  7 ]
+F I h r 
+Escolhendo no: F
+
+=> LC: 8
+(I ; 1) (h ; 1) (r ; 1) 
+[ S:  8 ]
+G c C d E A f F 
+[ LC:  8 ]
+I h r 
+Escolhendo no: I
+
+=> LC: 9
+(h ; 1) (r ; 1) 
+[ S:  9 ]
+G c C d E A f F I 
+[ LC:  9 ]
+h r 
+Escolhendo no: h
+
+=> LC: 10
+(r ; 1) 
+[ S:  10 ]
+G c C d E A f F I h 
+[ LC:  10 ]
+r 
+Escolhendo no: r
+
+=> LC: 11
+
+[ S:  11 ]
+G c C d E A f F I h r 
+[ LC:  11 ]
+
+Vertices: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Dominados: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Solucao: G c C d E A f F I h r 
+===> Solucao VALIDA! |S| = 11
+
+[33mALFA----------------------------------->: 0.5[0m
+
+=> LC: 0
+(D ; 10) (M ; 10) (s ; 9) (G ; 8) (L ; 8) (a ; 8) (c ; 8) (u ; 8) (w ; 8) (B ; 7) (C ; 7) (E ; 7) (d ; 7) (i ; 7) (n ; 7) (p ; 7) (v ; 7) (z ; 7) (A ; 6) (J ; 6) (j ; 6) (q ; 6) (H ; 5) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (k ; 5) (l ; 5) (o ; 5) (x ; 5) (N ; 4) (h ; 4) (t ; 4) (e ; 3) (m ; 3) (r ; 3) (y ; 3) (I ; 2) (F ; 1) 
+Escolhendo no: D
+
+=> LC: 1
+(M ; 9) (s ; 9) (u ; 9) (G ; 8) (a ; 8) (i ; 8) (B ; 7) (n ; 7) (E ; 6) (J ; 6) (j ; 6) (o ; 6) (q ; 6) (w ; 6) (C ; 5) (K ; 5) (c ; 5) (h ; 5) (x ; 5) (H ; 4) (b ; 4) (e ; 4) (f ; 4) (l ; 4) (t ; 4) (I ; 3) (r ; 3) (y ; 3) (F ; 2) 
+[ S:  1 ]
+D 
+[ LC:  1 ]
+M s u G a i B n E J j o q w C K c h x H b e f l t I r y F 
+Escolhendo no: n
+
+=> LC: 2
+(u ; 7) (B ; 5) (C ; 5) (G ; 5) (M ; 5) (c ; 5) (q ; 5) (w ; 5) (x ; 5) (J ; 4) (K ; 4) (l ; 4) (o ; 4) (H ; 3) (I ; 3) (b ; 3) (e ; 3) (f ; 3) (r ; 3) (t ; 3) (y ; 3) (F ; 1) 
+[ S:  2 ]
+D n 
+[ LC:  2 ]
+u B C G M c q w x J K l o H I b e f r t y F 
+Escolhendo no: C
+
+=> LC: 3
+(u ; 6) (B ; 5) (G ; 5) (w ; 5) (c ; 4) (l ; 4) (o ; 4) (q ; 4) (x ; 4) (H ; 3) (b ; 3) (f ; 3) (y ; 3) (e ; 2) (r ; 2) (F ; 1) (I ; 1) 
+[ S:  3 ]
+D n C 
+[ LC:  3 ]
+u B G w c l o q x H b f y e r F I 
+Escolhendo no: u
+
+=> LC: 4
+(o ; 4) (x ; 4) (B ; 3) (G ; 3) (f ; 3) (b ; 2) (e ; 2) (r ; 2) (y ; 2) (F ; 1) (I ; 1) 
+[ S:  4 ]
+D n C u 
+[ LC:  4 ]
+o x B G f b e r y F I 
+Escolhendo no: G
+
+=> LC: 5
+(f ; 3) (o ; 3) (b ; 2) (y ; 2) (F ; 1) (I ; 1) (e ; 1) (r ; 1) 
+[ S:  5 ]
+D n C u G 
+[ LC:  5 ]
+f o b y F I e r 
+Escolhendo no: o
+
+=> LC: 6
+(F ; 1) (I ; 1) (e ; 1) (r ; 1) (y ; 1) 
+[ S:  6 ]
+D n C u G o 
+[ LC:  6 ]
+F I e r y 
+Escolhendo no: F
+
+=> LC: 7
+(I ; 1) (e ; 1) (r ; 1) (y ; 1) 
+[ S:  7 ]
+D n C u G o F 
+[ LC:  7 ]
+I e r y 
+Escolhendo no: e
+
+=> LC: 8
+(I ; 1) (r ; 1) (y ; 1) 
+[ S:  8 ]
+D n C u G o F e 
+[ LC:  8 ]
+I r y 
+Escolhendo no: I
+
+=> LC: 9
+(r ; 1) (y ; 1) 
+[ S:  9 ]
+D n C u G o F e I 
+[ LC:  9 ]
+r y 
+Escolhendo no: r
+
+=> LC: 10
+(y ; 1) 
+[ S:  10 ]
+D n C u G o F e I r 
+[ LC:  10 ]
+y 
+Escolhendo no: y
+
+=> LC: 11
+
+[ S:  11 ]
+D n C u G o F e I r y 
+[ LC:  11 ]
+
+Vertices: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Dominados: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Solucao: D n C u G o F e I r y 
+===> Solucao VALIDA! |S| = 11
+
+[33mALFA----------------------------------->: 0.9[0m
+
+=> LC: 0
+(D ; 10) (M ; 10) (s ; 9) (G ; 8) (L ; 8) (a ; 8) (c ; 8) (u ; 8) (w ; 8) (B ; 7) (C ; 7) (E ; 7) (d ; 7) (i ; 7) (n ; 7) (p ; 7) (v ; 7) (z ; 7) (A ; 6) (J ; 6) (j ; 6) (q ; 6) (H ; 5) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (k ; 5) (l ; 5) (o ; 5) (x ; 5) (N ; 4) (h ; 4) (t ; 4) (e ; 3) (m ; 3) (r ; 3) (y ; 3) (I ; 2) (F ; 1) 
+Escolhendo no: u
+
+=> LC: 1
+(D ; 11) (i ; 8) (C ; 7) (v ; 7) (A ; 6) (G ; 6) (K ; 6) (a ; 6) (d ; 6) (f ; 6) (g ; 6) (n ; 6) (x ; 6) (z ; 6) (J ; 5) (L ; 5) (b ; 5) (j ; 5) (k ; 5) (o ; 5) (p ; 5) (t ; 5) (B ; 4) (h ; 4) (r ; 4) (I ; 3) (N ; 3) (m ; 3) (y ; 3) (F ; 2) (e ; 2) 
+[ S:  1 ]
+u 
+[ LC:  1 ]
+D i C v A G K a d f g n x z J L b j k o p t B h r I N m y F e 
+Escolhendo no: N
+
+=> LC: 2
+(i ; 8) (C ; 7) (K ; 6) (a ; 6) (f ; 6) (n ; 6) (v ; 6) (A ; 5) (G ; 5) (b ; 5) (d ; 5) (g ; 5) (j ; 5) (t ; 5) (z ; 5) (B ; 4) (J ; 4) (L ; 4) (h ; 4) (k ; 4) (o ; 4) (p ; 4) (I ; 3) (r ; 3) (y ; 3) (F ; 2) (e ; 2) (m ; 2) 
+[ S:  2 ]
+u N 
+[ LC:  2 ]
+i C K a f n v A G b d g j t z B J L h k o p I r y F e m 
+Escolhendo no: y
+
+=> LC: 3
+(i ; 8) (C ; 7) (K ; 6) (a ; 6) (v ; 6) (A ; 5) (G ; 5) (n ; 5) (t ; 5) (B ; 4) (J ; 4) (L ; 4) (b ; 4) (g ; 4) (h ; 4) (j ; 4) (p ; 4) (z ; 4) (I ; 3) (k ; 3) (o ; 3) (r ; 3) (F ; 2) (e ; 2) (m ; 2) 
+[ S:  3 ]
+u N y 
+[ LC:  3 ]
+i C K a v A G n t B J L b g h j p z I k o r F e m 
+Escolhendo no: J
+
+=> LC: 4
+(K ; 5) (a ; 5) (v ; 5) (B ; 4) (G ; 4) (L ; 4) (h ; 4) (n ; 4) (t ; 4) (z ; 4) (I ; 3) (b ; 3) (g ; 3) (j ; 3) (p ; 3) (r ; 3) (e ; 2) (k ; 2) (o ; 2) (F ; 1) (m ; 1) 
+[ S:  4 ]
+u N y J 
+[ LC:  4 ]
+K a v B G L h n t z I b g j p r e k o F m 
+Escolhendo no: I
+
+=> LC: 5
+(v ; 5) (B ; 4) (G ; 4) (a ; 4) (n ; 4) (z ; 4) (L ; 3) (b ; 3) (g ; 3) (h ; 3) (j ; 3) (p ; 3) (e ; 2) (o ; 2) (r ; 2) (F ; 1) (k ; 1) (m ; 1) 
+[ S:  5 ]
+u N y J I 
+[ LC:  5 ]
+v B G a n z L b g h j p e o r F k m 
+Escolhendo no: b
+
+=> LC: 6
+(v ; 5) (G ; 4) (a ; 4) (n ; 4) (z ; 4) (B ; 3) (L ; 3) (h ; 3) (j ; 3) (p ; 3) (e ; 2) (r ; 2) (F ; 1) (k ; 1) (m ; 1) 
+[ S:  6 ]
+u N y J I b 
+[ LC:  6 ]
+v G a n z B L h j p e r F k m 
+Escolhendo no: j
+
+=> LC: 7
+(G ; 4) (v ; 4) (z ; 4) (B ; 3) (a ; 3) (p ; 3) (e ; 2) (h ; 2) (r ; 2) (F ; 1) (k ; 1) (m ; 1) 
+[ S:  7 ]
+u N y J I b j 
+[ LC:  7 ]
+G v z B a p e h r F k m 
+Escolhendo no: z
+
+=> LC: 8
+(B ; 2) (a ; 2) (e ; 2) (h ; 2) (F ; 1) (k ; 1) (m ; 1) (r ; 1) 
+[ S:  8 ]
+u N y J I b j z 
+[ LC:  8 ]
+B a e h F k m r 
+Escolhendo no: m
+
+=> LC: 9
+(B ; 2) (a ; 2) (e ; 2) (h ; 2) (F ; 1) (k ; 1) (r ; 1) 
+[ S:  9 ]
+u N y J I b j z m 
+[ LC:  9 ]
+B a e h F k r 
+Escolhendo no: e
+
+=> LC: 10
+(a ; 2) (h ; 2) (F ; 1) (k ; 1) (r ; 1) 
+[ S:  10 ]
+u N y J I b j z m e 
+[ LC:  10 ]
+a h F k r 
+Escolhendo no: a
+
+=> LC: 11
+(F ; 1) (k ; 1) (r ; 1) 
+[ S:  11 ]
+u N y J I b j z m e a 
+[ LC:  11 ]
+F k r 
+Escolhendo no: k
+
+=> LC: 12
+(F ; 1) (r ; 1) 
+[ S:  12 ]
+u N y J I b j z m e a k 
+[ LC:  12 ]
+F r 
+Escolhendo no: F
+
+=> LC: 13
+(r ; 1) 
+[ S:  13 ]
+u N y J I b j z m e a k F 
+[ LC:  13 ]
+r 
+Escolhendo no: r
+
+=> LC: 14
+
+[ S:  14 ]
+u N y J I b j z m e a k F r 
+[ LC:  14 ]
+
+Vertices: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Dominados: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Solucao: u N y J I b j z m e a k F r 
+===> Solucao VALIDA! |S| = 14
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333333       11             11             1              
+0.5       0.333333       11             11             1              
+0.9       0.333333       14             14             1              
+[34m========================================================== i = 0 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333333       11             11             1              
+0.5       0.333333       11             11             1              
+0.9       0.333333       14             14             1              
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(D ; 10) (M ; 10) (s ; 9) (G ; 8) (L ; 8) (a ; 8) (c ; 8) (u ; 8) (w ; 8) (B ; 7) (C ; 7) (E ; 7) (d ; 7) (i ; 7) (n ; 7) (p ; 7) (v ; 7) (z ; 7) (A ; 6) (J ; 6) (j ; 6) (q ; 6) (H ; 5) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (k ; 5) (l ; 5) (o ; 5) (x ; 5) (N ; 4) (h ; 4) (t ; 4) (e ; 3) (m ; 3) (r ; 3) (y ; 3) (I ; 2) (F ; 1) 
+Escolhendo no: D
+
+=> LC: 1
+(M ; 9) (s ; 9) (u ; 9) (G ; 8) (a ; 8) (i ; 8) (B ; 7) (n ; 7) (E ; 6) (J ; 6) (j ; 6) (o ; 6) (q ; 6) (w ; 6) (C ; 5) (K ; 5) (c ; 5) (h ; 5) (x ; 5) (H ; 4) (b ; 4) (e ; 4) (f ; 4) (l ; 4) (t ; 4) (I ; 3) (r ; 3) (y ; 3) (F ; 2) 
+[ S:  1 ]
+D 
+[ LC:  1 ]
+M s u G a i B n E J j o q w C K c h x H b e f l t I r y F 
+Escolhendo no: M
+
+=> LC: 2
+(i ; 7) (o ; 6) (B ; 5) (G ; 5) (x ; 5) (E ; 4) (J ; 4) (b ; 4) (c ; 4) (I ; 3) (K ; 3) (f ; 3) (l ; 3) (n ; 3) (r ; 3) (w ; 3) (y ; 3) (F ; 2) (H ; 2) (t ; 2) 
+[ S:  2 ]
+D M 
+[ LC:  2 ]
+i o B G x E J b c I K f l n r w y F H t 
+Escolhendo no: i
+
+=> LC: 3
+(B ; 4) (I ; 3) (K ; 3) (c ; 3) (r ; 3) (w ; 3) (y ; 3) (E ; 2) (f ; 2) (l ; 2) (t ; 2) (x ; 2) (H ; 1) 
+[ S:  3 ]
+D M i 
+[ LC:  3 ]
+B I K c r w y E f l t x H 
+Escolhendo no: B
+
+=> LC: 4
+(I ; 3) (K ; 3) (r ; 3) (f ; 2) (t ; 2) (x ; 2) (y ; 2) (H ; 1) (l ; 1) 
+[ S:  4 ]
+D M i B 
+[ LC:  4 ]
+I K r f t x y H l 
+Escolhendo no: I
+
+=> LC: 5
+(f ; 2) (r ; 2) (x ; 2) (y ; 2) (H ; 1) (l ; 1) 
+[ S:  5 ]
+D M i B I 
+[ LC:  5 ]
+f r x y H l 
+Escolhendo no: f
+
+=> LC: 6
+(r ; 2) (x ; 2) (H ; 1) (l ; 1) 
+[ S:  6 ]
+D M i B I f 
+[ LC:  6 ]
+r x H l 
+Escolhendo no: r
+
+=> LC: 7
+(H ; 1) (l ; 1) 
+[ S:  7 ]
+D M i B I f r 
+[ LC:  7 ]
+H l 
+Escolhendo no: H
+
+=> LC: 8
+(l ; 1) 
+[ S:  8 ]
+D M i B I f r H 
+[ LC:  8 ]
+l 
+Escolhendo no: l
+
+=> LC: 9
+
+[ S:  9 ]
+D M i B I f r H l 
+[ LC:  9 ]
+
+Vertices: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Dominados: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Solucao: D M i B I f r H l 
+===> Solucao VALIDA! |S| = 9
+
+[32mBEST SOLUTION-------------------------------->: 9[0m
+
+[34m========================================================== i = 1 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333333       10             20             2              
+0.5       0.333333       11             11             1              
+0.9       0.333333       14             14             1              
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(D ; 10) (M ; 10) (s ; 9) (G ; 8) (L ; 8) (a ; 8) (c ; 8) (u ; 8) (w ; 8) (B ; 7) (C ; 7) (E ; 7) (d ; 7) (i ; 7) (n ; 7) (p ; 7) (v ; 7) (z ; 7) (A ; 6) (J ; 6) (j ; 6) (q ; 6) (H ; 5) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (k ; 5) (l ; 5) (o ; 5) (x ; 5) (N ; 4) (h ; 4) (t ; 4) (e ; 3) (m ; 3) (r ; 3) (y ; 3) (I ; 2) (F ; 1) 
+Escolhendo no: G
+
+=> LC: 1
+(D ; 10) (C ; 8) (c ; 8) (d ; 8) (E ; 7) (L ; 7) (M ; 7) (p ; 7) (v ; 7) (A ; 6) (u ; 6) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (j ; 5) (k ; 5) (n ; 5) (t ; 5) (w ; 5) (H ; 4) (J ; 4) (N ; 4) (h ; 4) (o ; 4) (y ; 4) (I ; 3) (e ; 3) (m ; 3) (r ; 3) (F ; 1) 
+[ S:  1 ]
+G 
+[ LC:  1 ]
+D C c d E L M p v A u K b f g j k n t w H J N h o y I e m r F 
+Escolhendo no: D
+
+=> LC: 2
+(M ; 6) (u ; 6) (C ; 5) (E ; 5) (K ; 4) (c ; 4) (f ; 4) (h ; 4) (j ; 4) (n ; 4) (o ; 4) (t ; 4) (H ; 3) (I ; 3) (J ; 3) (b ; 3) (e ; 3) (y ; 3) (r ; 2) (w ; 2) (F ; 1) 
+[ S:  2 ]
+G D 
+[ LC:  2 ]
+M u C E K c f h j n o t H I J b e y r w F 
+Escolhendo no: M
+
+=> LC: 3
+(o ; 4) (E ; 3) (I ; 3) (K ; 3) (b ; 3) (c ; 3) (f ; 3) (y ; 3) (H ; 2) (J ; 2) (n ; 2) (r ; 2) (t ; 2) (F ; 1) (w ; 1) 
+[ S:  3 ]
+G D M 
+[ LC:  3 ]
+o E I K b c f y H J n r t F w 
+Escolhendo no: o
+
+=> LC: 4
+(I ; 3) (K ; 3) (c ; 3) (J ; 2) (r ; 2) (t ; 2) (y ; 2) (F ; 1) (H ; 1) (n ; 1) (w ; 1) 
+[ S:  4 ]
+G D M o 
+[ LC:  4 ]
+I K c J r t y F H n w 
+Escolhendo no: I
+
+=> LC: 5
+(c ; 3) (J ; 2) (y ; 2) (F ; 1) (H ; 1) (n ; 1) (r ; 1) (w ; 1) 
+[ S:  5 ]
+G D M o I 
+[ LC:  5 ]
+c J y F H n r w 
+Escolhendo no: c
+
+=> LC: 6
+(F ; 1) (H ; 1) (n ; 1) (r ; 1) (w ; 1) 
+[ S:  6 ]
+G D M o I c 
+[ LC:  6 ]
+F H n r w 
+Escolhendo no: F
+
+=> LC: 7
+(H ; 1) (n ; 1) (r ; 1) (w ; 1) 
+[ S:  7 ]
+G D M o I c F 
+[ LC:  7 ]
+H n r w 
+Escolhendo no: H
+
+=> LC: 8
+(n ; 1) (r ; 1) (w ; 1) 
+[ S:  8 ]
+G D M o I c F H 
+[ LC:  8 ]
+n r w 
+Escolhendo no: n
+
+=> LC: 9
+(r ; 1) (w ; 1) 
+[ S:  9 ]
+G D M o I c F H n 
+[ LC:  9 ]
+r w 
+Escolhendo no: r
+
+=> LC: 10
+(w ; 1) 
+[ S:  10 ]
+G D M o I c F H n r 
+[ LC:  10 ]
+w 
+Escolhendo no: w
+
+=> LC: 11
+
+[ S:  11 ]
+G D M o I c F H n r w 
+[ LC:  11 ]
+
+Vertices: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Dominados: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Solucao: G D M o I c F H n r w 
+===> Solucao VALIDA! |S| = 11
+
+[32mBEST SOLUTION-------------------------------->: 9[0m
+
+[34m========================================================== i = 2 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.333333       10.3333        31             3              
+0.5       0.333333       11             11             1              
+0.9       0.333333       14             14             1              
+
+[36m---------------- Atualizando Probabilidades ----------------[0m
+
+SCORES: 0.870968 ; 0.818182 ; 0.642857 ; 
+SUM_SCORES: 2.33201
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.373484       10.3333        31             3              
+0.5       0.350849       11             11             1              
+0.9       0.275667       14             14             1              
+
+[33mALFA----------------------------------->: 0.9[0m
+
+=> LC: 0
+(D ; 10) (M ; 10) (s ; 9) (G ; 8) (L ; 8) (a ; 8) (c ; 8) (u ; 8) (w ; 8) (B ; 7) (C ; 7) (E ; 7) (d ; 7) (i ; 7) (n ; 7) (p ; 7) (v ; 7) (z ; 7) (A ; 6) (J ; 6) (j ; 6) (q ; 6) (H ; 5) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (k ; 5) (l ; 5) (o ; 5) (x ; 5) (N ; 4) (h ; 4) (t ; 4) (e ; 3) (m ; 3) (r ; 3) (y ; 3) (I ; 2) (F ; 1) 
+Escolhendo no: k
+
+=> LC: 1
+(M ; 10) (s ; 10) (a ; 9) (c ; 9) (B ; 8) (E ; 8) (G ; 8) (i ; 8) (n ; 8) (u ; 8) (w ; 8) (L ; 7) (d ; 7) (q ; 7) (v ; 7) (A ; 6) (H ; 6) (J ; 6) (b ; 6) (j ; 6) (p ; 6) (x ; 6) (z ; 6) (K ; 5) (o ; 5) (N ; 4) (e ; 4) (g ; 4) (h ; 4) (r ; 4) (m ; 3) (y ; 3) (F ; 2) (I ; 2) 
+[ S:  1 ]
+k 
+[ LC:  1 ]
+M s a c B E G i n u w L d q v A H J b j p x z K o N e g h r m y F I 
+Escolhendo no: K
+
+=> LC: 2
+(s ; 10) (M ; 9) (B ; 8) (c ; 8) (i ; 8) (u ; 8) (E ; 7) (G ; 7) (d ; 7) (n ; 7) (w ; 7) (H ; 6) (J ; 6) (b ; 6) (p ; 6) (z ; 6) (A ; 5) (j ; 5) (o ; 5) (q ; 5) (v ; 5) (x ; 5) (N ; 4) (e ; 4) (g ; 4) (h ; 3) (m ; 3) (y ; 3) (F ; 2) 
+[ S:  2 ]
+k K 
+[ LC:  2 ]
+s M B c i u E G d n w H J b p z A j o q v x N e g h m y F 
+Escolhendo no: M
+
+=> LC: 3
+(d ; 7) (i ; 7) (B ; 6) (b ; 6) (c ; 6) (A ; 5) (E ; 5) (J ; 5) (o ; 5) (x ; 5) (G ; 4) (N ; 4) (g ; 4) (n ; 4) (w ; 4) (H ; 3) (v ; 3) (y ; 3) (F ; 2) (m ; 2) 
+[ S:  3 ]
+k K M 
+[ LC:  3 ]
+d i B b c A E J o x G N g n w H v y F m 
+Escolhendo no: n
+
+=> LC: 4
+(c ; 6) (A ; 5) (B ; 5) (x ; 5) (J ; 4) (b ; 4) (G ; 3) (N ; 3) (g ; 3) (o ; 3) (v ; 3) (w ; 3) (H ; 2) (m ; 2) (y ; 2) (F ; 1) 
+[ S:  4 ]
+k K M n 
+[ LC:  4 ]
+c A B x J b G N g o v w H m y F 
+Escolhendo no: o
+
+=> LC: 5
+(c ; 6) (A ; 5) (B ; 5) (J ; 3) (v ; 3) (w ; 3) (G ; 2) (N ; 2) (g ; 2) (m ; 2) (y ; 2) (F ; 1) (H ; 1) 
+[ S:  5 ]
+k K M n o 
+[ LC:  5 ]
+c A B J v w G N g m y F H 
+Escolhendo no: y
+
+=> LC: 6
+(A ; 5) (B ; 4) (w ; 3) (G ; 2) (J ; 2) (g ; 2) (m ; 2) (v ; 2) (F ; 1) (H ; 1) (N ; 1) 
+[ S:  6 ]
+k K M n o y 
+[ LC:  6 ]
+A B w G J g m v F H N 
+Escolhendo no: B
+
+=> LC: 7
+(A ; 4) (J ; 2) (m ; 2) (v ; 2) (F ; 1) (H ; 1) (N ; 1) 
+[ S:  7 ]
+k K M n o y B 
+[ LC:  7 ]
+A J m v F H N 
+Escolhendo no: F
+
+=> LC: 8
+(A ; 4) (J ; 2) (m ; 2) (v ; 2) (H ; 1) (N ; 1) 
+[ S:  8 ]
+k K M n o y B F 
+[ LC:  8 ]
+A J m v H N 
+Escolhendo no: H
+
+=> LC: 9
+(A ; 4) (J ; 2) (m ; 2) (v ; 2) (N ; 1) 
+[ S:  9 ]
+k K M n o y B F H 
+[ LC:  9 ]
+A J m v N 
+Escolhendo no: A
+
+=> LC: 10
+(N ; 1) 
+[ S:  10 ]
+k K M n o y B F H A 
+[ LC:  10 ]
+N 
+Escolhendo no: N
+
+=> LC: 11
+
+[ S:  11 ]
+k K M n o y B F H A N 
+[ LC:  11 ]
+
+Vertices: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Dominados: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Solucao: k K M n o y B F H A N 
+===> Solucao VALIDA! |S| = 11
+
+[32mBEST SOLUTION-------------------------------->: 9[0m
+
+[34m========================================================== i = 3 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.373484       10.3333        31             3              
+0.5       0.350849       11             11             1              
+0.9       0.275667       12.5           25             2              
+
+[33mALFA----------------------------------->: 0.9[0m
+
+=> LC: 0
+(D ; 10) (M ; 10) (s ; 9) (G ; 8) (L ; 8) (a ; 8) (c ; 8) (u ; 8) (w ; 8) (B ; 7) (C ; 7) (E ; 7) (d ; 7) (i ; 7) (n ; 7) (p ; 7) (v ; 7) (z ; 7) (A ; 6) (J ; 6) (j ; 6) (q ; 6) (H ; 5) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (k ; 5) (l ; 5) (o ; 5) (x ; 5) (N ; 4) (h ; 4) (t ; 4) (e ; 3) (m ; 3) (r ; 3) (y ; 3) (I ; 2) (F ; 1) 
+Escolhendo no: E
+
+=> LC: 1
+(D ; 9) (M ; 9) (C ; 8) (G ; 8) (a ; 8) (p ; 8) (z ; 8) (A ; 7) (J ; 7) (d ; 7) (s ; 7) (v ; 7) (w ; 7) (i ; 6) (k ; 6) (H ; 5) (K ; 5) (b ; 5) (c ; 5) (f ; 5) (g ; 5) (j ; 5) (q ; 5) (t ; 5) (h ; 4) (l ; 4) (m ; 4) (r ; 4) (x ; 4) (y ; 4) (I ; 3) (F ; 2) 
+[ S:  1 ]
+E 
+[ LC:  1 ]
+D M C G a p z A J d s v w i k H K b c f g j q t h l m r x y I F 
+Escolhendo no: k
+
+=> LC: 2
+(M ; 8) (a ; 8) (G ; 7) (s ; 7) (A ; 6) (J ; 6) (d ; 6) (i ; 6) (p ; 6) (v ; 6) (w ; 6) (z ; 6) (H ; 5) (b ; 5) (c ; 5) (q ; 5) (K ; 4) (j ; 4) (r ; 4) (x ; 4) (g ; 3) (h ; 3) (m ; 3) (y ; 3) (F ; 2) (I ; 2) 
+[ S:  2 ]
+E k 
+[ LC:  2 ]
+M a G s A J d i p v w z H b c q K j r x g h m y F I 
+Escolhendo no: c
+
+=> LC: 3
+(a ; 8) (G ; 7) (M ; 7) (s ; 6) (H ; 5) (b ; 5) (d ; 5) (i ; 5) (q ; 5) (w ; 5) (A ; 4) (K ; 4) (j ; 4) (z ; 4) (g ; 3) (h ; 3) (m ; 3) (r ; 3) (x ; 3) (F ; 2) (I ; 2) 
+[ S:  3 ]
+E k c 
+[ LC:  3 ]
+a G M s H b d i q w A K j z g h m r x F I 
+Escolhendo no: m
+
+=> LC: 4
+(a ; 7) (G ; 6) (M ; 6) (b ; 5) (d ; 5) (i ; 5) (q ; 5) (H ; 4) (K ; 4) (w ; 4) (z ; 4) (g ; 3) (h ; 3) (j ; 3) (r ; 3) (x ; 3) (F ; 2) (I ; 2) 
+[ S:  4 ]
+E k c m 
+[ LC:  4 ]
+a G M b d i q H K w z g h j r x F I 
+Escolhendo no: w
+
+=> LC: 5
+(i ; 5) (G ; 4) (M ; 4) (b ; 4) (z ; 4) (H ; 3) (K ; 3) (j ; 3) (r ; 3) (x ; 3) (F ; 2) (I ; 2) (g ; 2) (h ; 2) 
+[ S:  5 ]
+E k c m w 
+[ LC:  5 ]
+i G M b z H K j r x F I g h 
+Escolhendo no: K
+
+=> LC: 6
+(i ; 5) (G ; 4) (M ; 4) (b ; 4) (z ; 4) (H ; 3) (j ; 3) (F ; 2) (g ; 2) (h ; 2) (x ; 2) 
+[ S:  6 ]
+E k c m w K 
+[ LC:  6 ]
+i G M b z H j F g h x 
+Escolhendo no: F
+
+=> LC: 7
+(M ; 4) (z ; 4) (G ; 3) (H ; 3) (b ; 3) (g ; 2) (h ; 2) (j ; 2) (x ; 2) 
+[ S:  7 ]
+E k c m w K F 
+[ LC:  7 ]
+M z G H b g h j x 
+Escolhendo no: z
+
+=> LC: 8
+(b ; 2) (g ; 2) (h ; 1) (j ; 1) (x ; 1) 
+[ S:  8 ]
+E k c m w K F z 
+[ LC:  8 ]
+b g h j x 
+Escolhendo no: j
+
+=> LC: 9
+(b ; 2) (g ; 2) (h ; 1) (x ; 1) 
+[ S:  9 ]
+E k c m w K F z j 
+[ LC:  9 ]
+b g h x 
+Escolhendo no: b
+
+=> LC: 10
+(h ; 1) (x ; 1) 
+[ S:  10 ]
+E k c m w K F z j b 
+[ LC:  10 ]
+h x 
+Escolhendo no: h
+
+=> LC: 11
+(x ; 1) 
+[ S:  11 ]
+E k c m w K F z j b h 
+[ LC:  11 ]
+x 
+Escolhendo no: x
+
+=> LC: 12
+
+[ S:  12 ]
+E k c m w K F z j b h x 
+[ LC:  12 ]
+
+Vertices: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Dominados: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Solucao: E k c m w K F z j b h x 
+===> Solucao VALIDA! |S| = 12
+
+[32mBEST SOLUTION-------------------------------->: 9[0m
+
+[34m========================================================== i = 4 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.373484       10.3333        31             3              
+0.5       0.350849       11             11             1              
+0.9       0.275667       12.3333        37             3              
+
+[36m---------------- Atualizando Probabilidades ----------------[0m
+
+SCORES: 0.870968 ; 0.818182 ; 0.72973 ; 
+SUM_SCORES: 2.41888
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.360071       10.3333        31             3              
+0.5       0.338248       11             11             1              
+0.9       0.301681       12.3333        37             3              
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(D ; 10) (M ; 10) (s ; 9) (G ; 8) (L ; 8) (a ; 8) (c ; 8) (u ; 8) (w ; 8) (B ; 7) (C ; 7) (E ; 7) (d ; 7) (i ; 7) (n ; 7) (p ; 7) (v ; 7) (z ; 7) (A ; 6) (J ; 6) (j ; 6) (q ; 6) (H ; 5) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (k ; 5) (l ; 5) (o ; 5) (x ; 5) (N ; 4) (h ; 4) (t ; 4) (e ; 3) (m ; 3) (r ; 3) (y ; 3) (I ; 2) (F ; 1) 
+Escolhendo no: M
+
+=> LC: 1
+(D ; 9) (d ; 8) (L ; 7) (c ; 7) (i ; 7) (A ; 6) (B ; 6) (E ; 6) (b ; 6) (o ; 6) (v ; 6) (x ; 6) (G ; 5) (J ; 5) (N ; 5) (g ; 5) (k ; 5) (l ; 5) (w ; 5) (K ; 4) (f ; 4) (n ; 4) (r ; 4) (y ; 4) (H ; 3) (I ; 3) (m ; 3) (t ; 3) (F ; 2) 
+[ S:  1 ]
+M 
+[ LC:  1 ]
+D d L c i A B E b o v x G J N g k l w K f n r y H I m t F 
+Escolhendo no: d
+
+=> LC: 2
+(L ; 6) (c ; 6) (x ; 6) (E ; 5) (G ; 5) (J ; 5) (i ; 5) (o ; 5) (v ; 5) (A ; 4) (B ; 4) (K ; 4) (N ; 4) (k ; 4) (l ; 4) (r ; 4) (I ; 3) (f ; 3) (t ; 3) (F ; 2) (m ; 2) 
+[ S:  2 ]
+M d 
+[ LC:  2 ]
+L c x E G J i o v A B K N k l r I f t F m 
+Escolhendo no: c
+
+=> LC: 3
+(o ; 5) (G ; 4) (i ; 4) (k ; 4) (x ; 4) (I ; 3) (K ; 3) (f ; 3) (l ; 3) (r ; 3) (t ; 3) (A ; 2) (E ; 2) (F ; 2) (m ; 2) 
+[ S:  3 ]
+M d c 
+[ LC:  3 ]
+o G i k x I K f l r t A E F m 
+Escolhendo no: o
+
+=> LC: 4
+(I ; 3) (K ; 3) (k ; 3) (l ; 3) (t ; 3) (A ; 2) (G ; 2) (m ; 2) (r ; 2) (F ; 1) 
+[ S:  4 ]
+M d c o 
+[ LC:  4 ]
+I K k l t A G m r F 
+Escolhendo no: I
+
+=> LC: 5
+(l ; 3) (A ; 2) (G ; 2) (k ; 2) (m ; 2) (F ; 1) (r ; 1) 
+[ S:  5 ]
+M d c o I 
+[ LC:  5 ]
+l A G k m F r 
+Escolhendo no: l
+
+=> LC: 6
+(A ; 2) (m ; 2) (F ; 1) (r ; 1) 
+[ S:  6 ]
+M d c o I l 
+[ LC:  6 ]
+A m F r 
+Escolhendo no: A
+
+=> LC: 7
+(F ; 1) (r ; 1) 
+[ S:  7 ]
+M d c o I l A 
+[ LC:  7 ]
+F r 
+Escolhendo no: F
+
+=> LC: 8
+(r ; 1) 
+[ S:  8 ]
+M d c o I l A F 
+[ LC:  8 ]
+r 
+Escolhendo no: r
+
+=> LC: 9
+
+[ S:  9 ]
+M d c o I l A F r 
+[ LC:  9 ]
+
+Vertices: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Dominados: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Solucao: M d c o I l A F r 
+===> Solucao VALIDA! |S| = 9
+
+[32mBEST SOLUTION-------------------------------->: 9[0m
+
+[34m========================================================== i = 5 ==========================================================[0m
+
+Alfa      Probability    Mean           sum_sols       count          
+------------------------------------------------------------
+0.1       0.360071       10             40             4              
+0.5       0.338248       11             11             1              
+0.9       0.301681       12.3333        37             3              
+
+[33mALFA----------------------------------->: 0.1[0m
+
+=> LC: 0
+(D ; 10) (M ; 10) (s ; 9) (G ; 8) (L ; 8) (a ; 8) (c ; 8) (u ; 8) (w ; 8) (B ; 7) (C ; 7) (E ; 7) (d ; 7) (i ; 7) (n ; 7) (p ; 7) (v ; 7) (z ; 7) (A ; 6) (J ; 6) (j ; 6) (q ; 6) (H ; 5) (K ; 5) (b ; 5) (f ; 5) (g ; 5) (k ; 5) (l ; 5) (o ; 5) (x ; 5) (N ; 4) (h ; 4) (t ; 4) (e ; 3) (m ; 3) (r ; 3) (y ; 3) (I ; 2) (F ; 1) 
+Escolhendo no: D
+
+=> LC: 1
+(M ; 9) (s ; 9) (u ; 9) (G ; 8) (a ; 8) (i ; 8) (B ; 7) (n ; 7) (E ; 6) (J ; 6) (j ; 6) (o ; 6) (q ; 6) (w ; 6) (C ; 5) (K ; 5) (c ; 5) (h ; 5) (x ; 5) (H ; 4) (b ; 4) (e ; 4) (f ; 4) (l ; 4) (t ; 4) (I ; 3) (r ; 3) (y ; 3) (F ; 2) 
+[ S:  1 ]
+D 
+[ LC:  1 ]
+M s u G a i B n E J j o q w C K c h x H b e f l t I r y F 
+Escolhendo no: M
+
+=> LC: 2
+(i ; 7) (o ; 6) (B ; 5) (G ; 5) (x ; 5) (E ; 4) (J ; 4) (b ; 4) (c ; 4) (I ; 3) (K ; 3) (f ; 3) (l ; 3) (n ; 3) (r ; 3) (w ; 3) (y ; 3) (F ; 2) (H ; 2) (t ; 2) 
+[ S:  2 ]
+D M 
+[ LC:  2 ]
+i o B G x E J b c I K f l n r w y F H t 
+Escolhendo no: o
+
+=> LC: 3
+(B ; 4) (c ; 4) (G ; 3) (I ; 3) (K ; 3) (l ; 3) (w ; 3) (J ; 2) (r ; 2) (t ; 2) (y ; 2) (F ; 1) (H ; 1) (n ; 1) 
+[ S:  3 ]
+D M o 
+[ LC:  3 ]
+B c G I K l w J r t y F H n 
+Escolhendo no: B
+
+=> LC: 4
+(I ; 3) (K ; 3) (r ; 2) (t ; 2) (F ; 1) (H ; 1) (J ; 1) (l ; 1) (n ; 1) (y ; 1) 
+[ S:  4 ]
+D M o B 
+[ LC:  4 ]
+I K r t F H J l n y 
+Escolhendo no: I
+
+=> LC: 5
+(F ; 1) (H ; 1) (J ; 1) (l ; 1) (n ; 1) (r ; 1) (y ; 1) 
+[ S:  5 ]
+D M o B I 
+[ LC:  5 ]
+F H J l n r y 
+Escolhendo no: F
+
+=> LC: 6
+(H ; 1) (J ; 1) (l ; 1) (n ; 1) (r ; 1) (y ; 1) 
+[ S:  6 ]
+D M o B I F 
+[ LC:  6 ]
+H J l n r y 
+Escolhendo no: H
+
+=> LC: 7
+(J ; 1) (l ; 1) (n ; 1) (r ; 1) (y ; 1) 
+[ S:  7 ]
+D M o B I F H 
+[ LC:  7 ]
+J l n r y 
+Escolhendo no: J
+
+=> LC: 8
+(l ; 1) (n ; 1) (r ; 1) (y ; 1) 
+[ S:  8 ]
+D M o B I F H J 
+[ LC:  8 ]
+l n r y 
+Escolhendo no: l
+
+=> LC: 9
+(n ; 1) (r ; 1) (y ; 1) 
+[ S:  9 ]
+D M o B I F H J l 
+[ LC:  9 ]
+n r y 
+Escolhendo no: n
+
+=> LC: 10
+(r ; 1) (y ; 1) 
+[ S:  10 ]
+D M o B I F H J l n 
+[ LC:  10 ]
+r y 
+Escolhendo no: r
+
+=> LC: 11
+(y ; 1) 
+[ S:  11 ]
+D M o B I F H J l n r 
+[ LC:  11 ]
+y 
+Escolhendo no: y
+
+=> LC: 12
+
+[ S:  12 ]
+D M o B I F H J l n r y 
+[ LC:  12 ]
+
+Vertices: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Dominados: A B C D E F G H I J K L M N a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Solucao: D M o B I F H J l n r y 
+===> Solucao VALIDA! |S| = 12
+
+[32mBEST SOLUTION-------------------------------->: 9[0m
+
+[35mMELHOR SOLUÇÃO: 9
+D M i B I f r H l 
+
+[31m========================================================== FIM ===========================================================[0m
+Tempo de execucao: 0.011 segundos
