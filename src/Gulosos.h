@@ -14,7 +14,12 @@ class Gulosos {
 public:
 
     // GULOSO
-    void reorganiza(vector<pair<char, int>> &vertice_grau_ordenado);
+    void resetar_dominacao(Grafo* grafo);
+    bool conjunto_independente(const vector<char> &D, Grafo* grafo);
+    No* get_no(char id, Grafo* grafo);
+    vector<char> get_vizinhos(char id_no, Grafo* grafo);
+    bool conjunto_dominante(const vector<char> &D, Grafo* grafo);
+    void reorganiza(vector<pair<char, int>> &vertice_grau_ordenado, Grafo* grafo);
     vector<char> heuristica_gulosa(Grafo* grafo);
 
     // RANDOMIZADO ADAPTATIVO
