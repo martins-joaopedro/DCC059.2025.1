@@ -188,6 +188,8 @@ void Gulosos::heuristica_gulosa(Grafo *grafo, ofstream& file)
         file << i << " - ";
     }
 
+    file << endl;
+    
     file << "|S| " << D.size() << endl;
 
 }
