@@ -188,7 +188,9 @@ void Gulosos::heuristica_gulosa(Grafo *grafo, ofstream& file)
         file << i << " - ";
     }
 
-    file << "|S| " << D.size() << endl;
+    file << endl;
+    
+    file << "[ Conjunto |S| ]: " << D.size() << endl;
 
 }
 
@@ -510,7 +512,7 @@ vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo *grafo, vector
     vector<int> count(m, 0.0);     // contagem de quantas vezes cada alpha foi usado
     int index_alpha = 0;           // index para acessar alfa nos vetores
 
-    srand(time(0)); // inicializa semente com hora atual
+    // srand(time(0)); // inicializa semente com hora atual
     int i = 0;
     bool isValid;
 
@@ -601,7 +603,7 @@ void Gulosos::run_randomized_adaptive_greedy(Grafo *grafo, ofstream& file)
     map<float, vector<int>> sols;
     float alphas[] = {0.1, 0.3, 0.5};
     int MAX_IT = 1;
-    srand(time(0));
+    // srand(time(0));
 
     for (auto alpha : alphas)
     {

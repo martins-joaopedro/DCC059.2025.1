@@ -45,31 +45,6 @@ public:
     vector<char> centro;
     vector<char> periferia;
     bool excentricidades_validas = false;
-
-    // Parte 2 Trabalho
-
-    No* get_no(char id);
-    void resetar_dominacao();
-
-    // Retorna vizinhos de um nó (para saber quem ele domina)
-    vector<char> get_vizinhos(char id_no);
-
-    //  Verifica se um conjunto D domina todos os vértices
-    bool conjunto_dominante(const vector<char> &D);
-
-    // Verifica se um conjunto D é independente (nenhum vértice do conjunto é adjacente entre si)
-    bool conjunto_independente(const vector<char> &D);
-
-    // Heurística gulosa para conjunto dominante mínimo
-    vector<char> heuristica_gulosa();
-
-    void reorganiza(vector<pair<char, int>> &vertice_grau_ordenado);
-    
-    // Heurística gulosa randomizada adaptativa
-    //vector<char> heuristica_gulosa_randomizada_adaptativa(float alpha, int iteracoes);
-
-    // Heurística gulosa randomizada adaptativa reativa
-    //vector<char> heuristica_gulosa_randomizada_adaptativa_reativa(vector<float> alphas, int iteracoes);
 };
 
 #endif // GRAFO_H
