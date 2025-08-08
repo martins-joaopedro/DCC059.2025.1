@@ -486,15 +486,23 @@ void Gerenciador::salvar_letraH(Grafo* grafo, string nome_arquivo){
 void Gerenciador::run_tests(Grafo* grafo, ofstream& file) {
     
     auto medir_tempo = [&](auto func, Grafo* g, ofstream& f) {
-        double soma_tempos = 0.0;
-        for (int i = 0; i < 10; i++) {
-            clock_t start_time = clock();
-            func(g, f);
-            clock_t end_time = clock();
-            soma_tempos += double(end_time - start_time) / CLOCKS_PER_SEC;
-        }
-        return soma_tempos / 10.0;
-    };
+    double soma_tempos = 0.0;
+    for (int i = 0; i < 10; i++) {
+        srand(time(0) ^ clock() ^ i); // semente diferente a cada execução
+
+        // Cria uma cópia limpa do grafo para não vazar estado
+        Grafo copia = *g; // se tiver cópia profunda implementada
+        Gulosos gulosos;
+        gulosos.resetar_dominacao(&copia);
+
+        clock_t start_time = clock();
+        func(&copia, f);
+        clock_t end_time = clock();
+
+        soma_tempos += double(end_time - start_time) / CLOCKS_PER_SEC;
+    }
+    return soma_tempos / 10.0;
+};
 
     file << "\n__________________________________________________" << endl;
     file << "GULOSO" << endl;
