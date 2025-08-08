@@ -190,7 +190,7 @@ void Gulosos::heuristica_gulosa(Grafo *grafo, ofstream& file)
 
     file << endl;
     
-    file << "|S| " << D.size() << endl;
+    file << "[ Conjunto |S| ]: " << D.size() << endl;
 
 }
 
