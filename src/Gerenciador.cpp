@@ -488,7 +488,7 @@ void Gerenciador::run_tests(Grafo* grafo, ofstream& file) {
     auto medir_tempo = [&](auto func, Grafo* g, ofstream& f) {
     double soma_tempos = 0.0;
     for (int i = 0; i < 10; i++) {
-        srand(time(0) ^ clock() ^ i); // semente diferente a cada execução
+        srand(7*i); // semente diferente a cada execução
 
         // Cria uma cópia limpa do grafo para não vazar estado
         Grafo copia = *g; // se tiver cópia profunda implementada
