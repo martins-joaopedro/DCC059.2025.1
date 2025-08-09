@@ -538,37 +538,68 @@ void Gerenciador::salvar_letraH(Grafo* grafo, string nome_arquivo){
 
 void Gerenciador::run_tests(Grafo* grafo, ofstream& file) {
     
-    auto medir_tempo = [&](auto func, Grafo* g, ofstream& f) {
     double soma_tempos = 0.0;
-    for (int i = 0; i < 10; i++) {
-        srand(7*i); // semente diferente a cada execução
+    double soma_sols = 0.0;
 
-        // Cria uma cópia limpa do grafo para não vazar estado
-        Grafo copia = *g; // se tiver cópia profunda implementada
-        Gulosos gulosos;
-        gulosos.resetar_dominacao(&copia);
-
+    ofstream file_stats = ofstream("stats.txt", ios::app);
+    file_stats << "\nESTATÍSTICAS GULOSO" << endl;
+    file_stats <<"SOLUÇÕES: \n";
+    for (int i = 0; i < 10; i++) {     
+        //file_stats << "_________________________________________________" << endl;
+        //file_stats << "ITERAÇÃO: "<< i << endl;
         clock_t start_time = clock();
-        func(&copia, f);
+        vector<char> S = Gulosos::run_greedy(grafo, file);
         clock_t end_time = clock();
-
+        file_stats << S.size() << " ";
+                
         soma_tempos += double(end_time - start_time) / CLOCKS_PER_SEC;
     }
-    return soma_tempos / 10.0;
-};
+    
+    file_stats << "\nMEDIA TEMPO " << soma_tempos/10 << endl;
 
-    file << "\n__________________________________________________" << endl;
-    file << "GULOSO" << endl;
-    double media_guloso = medir_tempo(Gulosos::run_greedy, grafo, file);
-    file << "Tempo medio de execucao: " << media_guloso << " segundos" << endl;
+    //
+    file_stats << "\nESTATÍSTICAS GULOSO RANDOMIZADO" << endl;
+    file.close();
 
-    file << "\n__________________________________________________" << endl;
-    file << "GULOSO RANDOMIZADO" << endl;
-    double media_randomizado = medir_tempo(Gulosos::run_randomized_adaptive_greedy, grafo, file);
-    file << "Tempo medio de execucao: " << media_randomizado << " segundos" << endl;
+    for (int i = 0; i < 10; i++) {     
 
-    file << "\n__________________________________________________" << endl;
-    file << "GULOSO REATIVO" << endl;
-    double media_reativo = medir_tempo(Gulosos::run_randomized_adaptative_reactive_greedy, grafo, file);
-    file << "Tempo medio de execucao: " << media_reativo << " segundos" << endl;
+        ofstream file_stats = ofstream("stats.txt", ios::app);
+        // file_stats << "_________________________________________________" << endl;
+        // file_stats << "ITERAÇÃO: "<< i << endl;
+        file.close();
+
+        clock_t start_time = clock();
+        Gulosos::run_randomized_adaptive_greedy(grafo, file);
+        clock_t end_time = clock();
+                
+    }
+    Gulosos::print_means_randomized_greedy();
+    Gulosos::sols.clear();
+    Gulosos::tempos.clear();
+
+    // REATIVO
+    file_stats = ofstream("stats.txt", ios::app);
+    file_stats << "\nESTATÍSTICAS GULOSO REATIVO" << endl;
+    soma_tempos = 0;
+    soma_sols=0;
+
+    file_stats << "\nSOLUÇÕES: " << endl;
+    for (int i = 0; i < 10; i++) {
+        srand(7*i); // semente diferente a cada execução
+        
+        //file_stats << "_________________________________________________" << endl;
+        //file_stats << "ITERAÇÃO: "<< i << endl;
+        clock_t start_time = clock();
+        vector<char> S = Gulosos::run_randomized_adaptative_reactive_greedy(grafo, file);
+        file_stats << S.size() << " ";
+        clock_t end_time = clock();
+        //soma cada interação p pegar a media
+        soma_sols += S.size();
+        soma_tempos += double(end_time - start_time) / CLOCKS_PER_SEC;
+    }
+
+    file_stats << "\nMEDIA SOLUÇÃO REATIVO: " << soma_sols/10 << endl;
+    file_stats << "MEDIA TEMPO REATIVO: " << soma_tempos/10 << endl;
+
+    file_stats.close();
 }

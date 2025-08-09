@@ -134,8 +134,18 @@ int main(int argc, char *argv[]) {
     
     // while (getline(file, line, '\n')) {
 
+
     //     ofstream output_file = ofstream(output+line);
     //     output_file << "TESTE: " << line << endl;
+
+    // string line;
+    // fstream file = fstream(src);
+
+    // ofstream file_stats = ofstream("stats.txt");
+    // file_stats.close();
+    
+    // while (getline(file, line, '\n')) {
+
 
     //     Grafo * grafo = ler_grafo("../instancias_t2/"+line);
     //     cout << "Grafo atual: " << line << endl;
@@ -144,8 +154,26 @@ int main(int argc, char *argv[]) {
     //     Gerenciador::run_tests(grafo, output_file);
     //     delete grafo;
 
+
     //     output_file.close();
     // }
+
+        // ofstream file_stats = ofstream("stats.txt", ios::app);
+        // file_stats << "\n[==================================================]" << endl;
+        // file_stats << "            GRAFO: " << line << endl << endl;
+        // file_stats << "\n[==================================================]" << endl;
+        // file_stats.close();
+
+        // Grafo * grafo = ler_grafo("../instancias_t2/"+line);
+        // cout << "Grafo atual: " << line << endl;
+        // Gerenciador::imprimir_grafo(grafo);
+        // //Gerenciador::comandos(grafo, line);
+        
+        
+
+        // Gerenciador::run_tests(grafo, output_file);
+        // delete grafo;
+
 
     // file.close();
 

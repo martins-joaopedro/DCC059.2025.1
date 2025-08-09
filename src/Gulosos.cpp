@@ -19,6 +19,15 @@ using namespace std;
 //
 //
 /* GULOSO */
+
+map<float, vector<int>> Gulosos::sols;
+map<float, vector<double>> Gulosos::tempos;
+
+Gulosos::Gulosos() {
+    //sols = map<float, vector<int>>();
+    //tempos = map<float, vector<double>>();
+}
+
 void Gulosos::resetar_dominacao(Grafo *grafo)
 {
     for (auto no : grafo->lista_adj)
@@ -130,13 +139,13 @@ void Gulosos::reorganiza(vector<pair<char, int>> &vertice_grau_ordenado, Grafo *
     }
 
     stable_sort(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(),
-         [](const auto &a, const auto &b)
-         {
-             return a.second > b.second;
-         });
+                [](const auto &a, const auto &b)
+                {
+                    return a.second > b.second;
+                });
 }
 
-void Gulosos::heuristica_gulosa(Grafo *grafo, ofstream& file)
+vector<char> Gulosos::heuristica_gulosa(Grafo *grafo, ofstream &file)
 {
     vector<char> D; // solução vazia inicialmente
 
@@ -147,7 +156,7 @@ void Gulosos::heuristica_gulosa(Grafo *grafo, ofstream& file)
     }
 
     stable_sort(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(), [](const auto &a, const auto &b)
-         { return a.second > b.second; }); // ordena os vértices em ordem decrescente
+                { return a.second > b.second; }); // ordena os vértices em ordem decrescente
 
     int i = 0;
     while (!conjunto_dominante(D, grafo) && !vertice_grau_ordenado.empty())
@@ -189,16 +198,17 @@ void Gulosos::heuristica_gulosa(Grafo *grafo, ofstream& file)
     }
 
     file << endl;
-    
+
     file << "[ Conjunto |S| ]: " << D.size() << endl;
 
+    return D;
 }
 
 //
 //
 //
 /* RANDOMIZADO ADAPTATIVO */
-vector<char> Gulosos::randomized_heuristic(vector<char> LC, map<char, No *> &mapa_nos, int k, ofstream& file)
+vector<char> Gulosos::randomized_heuristic(vector<char> LC, map<char, No *> &mapa_nos, int k, ofstream &file)
 {
 
     map<char, int> degree;
@@ -293,7 +303,7 @@ vector<char> Gulosos::updates_LC(map<char, No *> &mapa_nos, vector<char> LC, vec
 }
 
 // algoritmo adaptativo guloso randomizado
-vector<char> Gulosos::randomized_adaptative_greedy(Grafo *grafo, float alfa, ofstream& file)
+vector<char> Gulosos::randomized_adaptative_greedy(Grafo *grafo, float alfa, ofstream &file)
 {
 
     bool debug = true;
@@ -359,7 +369,7 @@ vector<char> Gulosos::randomized_adaptative_greedy(Grafo *grafo, float alfa, ofs
     return S;
 }
 
-bool Gulosos::check_validity(vector<char> S, Grafo *grafo, ofstream& file)
+bool Gulosos::check_validity(vector<char> S, Grafo *grafo, ofstream &file)
 {
 
     set<char> domain = set<char>();
@@ -418,7 +428,7 @@ bool Gulosos::check_validity(vector<char> S, Grafo *grafo, ofstream& file)
 //
 //
 /* REATIVO */
-void Gulosos::updates_probability(vector<float> &P, vector<float> &M, int m, int solBest_size, ofstream& file)
+void Gulosos::updates_probability(vector<float> &P, vector<float> &M, int m, int solBest_size, ofstream &file)
 {
     file << "\n---------------- Atualizando Probabilidades ----------------\n";
 
@@ -475,7 +485,7 @@ int Gulosos::choose_alpha(vector<float> &P)
     return -1;
 }
 
-void Gulosos::imprime_prob(vector<float> &alphas, vector<float> &P, vector<float> &M, vector<int> &sum_sols, vector<int> &count, int m, ofstream& file)
+void Gulosos::imprime_prob(vector<float> &alphas, vector<float> &P, vector<float> &M, vector<int> &sum_sols, vector<int> &count, int m, ofstream &file)
 {
     file << endl
          << left; // alinha o texto à esquerda
@@ -502,7 +512,7 @@ void Gulosos::imprime_prob(vector<float> &alphas, vector<float> &P, vector<float
 }
 
 // algoritmo randomizado adaptativo reativo
-vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo *grafo, vector<float> &alphas, int m, int nIter, int bloco, ofstream& file)
+vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo *grafo, vector<float> &alphas, int m, int nIter, int bloco, ofstream &file)
 {
 
     vector<char> solBest, s;
@@ -591,27 +601,50 @@ vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo *grafo, vector
 //
 //
 /* EXECUÇÃO */
-void Gulosos::run_greedy(Grafo *grafo, ofstream& file)
+
+vector<char> Gulosos::run_greedy(Grafo *grafo, ofstream &file)
 {
     Gulosos g;
-    g.heuristica_gulosa(grafo, file);
+
+
+
+
+    vector<char> S = g.heuristica_gulosa(grafo, file);
+    return S;
+
+    /* int MAX_IT = 1;
+    //ofstream file_stats = ofstream("stats.txt", ios::app);
+    //file_stats << "\nESTATÍSTICAS GULOSO" << endl;
+    double soma_tempos = 0.0;
+    double soma_sol = 0.0;
+
+    for(int i=0; i<MAX_IT; i++) {
+        clock_t start_time = clock();
+        clock_t end_time = clock();
+        int size = S.size();
+        soma_sol += size;
+        soma_tempos += double(end_time - start_time) / CLOCKS_PER_SEC;
+        file_stats << "T: ";
+        file_stats << double(end_time - start_time) / CLOCKS_PER_SEC << endl;
+    }
+
+    file_stats << "MEDIA SOLUÇÕES " << soma_sol / MAX_IT << endl;
+    file_stats << "MEDIA TEMPO " << soma_tempos / MAX_IT << endl;
+
+    file.close(); */
 }
 
-void Gulosos::run_randomized_adaptive_greedy(Grafo *grafo, ofstream& file)
+void Gulosos::run_randomized_adaptive_greedy(Grafo *grafo, ofstream &file)
 {
+    ofstream file_stats = ofstream("stats.txt", ios::app);
     Gulosos g;
-    map<float, vector<int>> sols;
     float alphas[] = {0.1, 0.3, 0.5};
-    int MAX_IT = 1;
-    // srand(time(0));
+    int MAX_IT = 30;
 
-    for (auto alpha : alphas)
-    {
-        // setColor(1 + alpha * 10);
+    for (auto alpha : alphas) {   
+        clock_t start_time = clock();
         file << "Alpha: " << alpha << endl;
-        sols[alpha] = vector<int>();
-        for (int i = 0; i < MAX_IT; i++)
-        {
+        for (int i = 0; i < MAX_IT; i++) {
             file << "\n[ Iteracao: " << i + 1 << " ]" << endl;
             vector<char> S = g.randomized_adaptative_greedy(grafo, alpha, file);
             bool isValid = g.check_validity(S, grafo, file);
@@ -622,21 +655,48 @@ void Gulosos::run_randomized_adaptive_greedy(Grafo *grafo, ofstream& file)
                 file << "SOLUÇÃO INVALIDA" << endl;
         }
         file << endl;
+        clock_t end_time = clock();
+        
+        tempos[alpha].push_back(double(end_time - start_time) / CLOCKS_PER_SEC);
     }
-
-    for (auto alpha : alphas)
-    {
-        file << "[ Alpha: " << alpha << " ] ";
-        for (auto S_size : sols[alpha])
-            file << S_size << " ";
-        file << endl;
-    }
+    file_stats.close();
 }
 
-void Gulosos::run_randomized_adaptative_reactive_greedy(Grafo *grafo, ofstream& file)
-{
+void Gulosos::print_means_randomized_greedy() {
+
+    ofstream file_stats = ofstream("stats.txt", ios::app);
+    float alphas[] = {0.1, 0.3, 0.5};
+
+    for(auto alpha : alphas) {
+
+        double soma_tempos = 0.0;
+        double soma_sol = 0.0;
+        
+        file_stats << "[ Alpha: " << alpha << " ] ";
+        file_stats << "\nSOLUÇÕES : " << endl;
+        for (auto S_size : sols[alpha]) {
+           
+            file_stats << S_size << " ";
+            soma_sol += S_size;
+        }
+
+        file_stats << "\nTEMPOS : ";
+        for (auto tempo : tempos[alpha]) {
+          
+            file_stats << tempo << " ";
+            soma_tempos += tempo;
+        }
+
+        file_stats << "\nMEDIA SOLUÇÕES " << soma_sol / (30*10) << endl;
+        file_stats << "\nMEDIA TEMPO " << soma_tempos / (30*10) << endl << endl;
+    }
+        
+    file_stats.close();
+}
+
+vector<char> Gulosos::run_randomized_adaptative_reactive_greedy(Grafo *grafo, ofstream &file) {    
     Gulosos g;
-    int m = 3, nIter = 50, bloco = 5;
+    int m = 3, nIter = 300, bloco = 50;
     vector<float> alphas = {0.1, 0.3, 0.5};
 
     // cout << "Numero de iterações: ";
@@ -665,4 +725,6 @@ void Gulosos::run_randomized_adaptative_reactive_greedy(Grafo *grafo, ofstream& 
 
     file << "\n========================================================== FIM"
          << " ===========================================================\n";
+
+    return s;
 }
