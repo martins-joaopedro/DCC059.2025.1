@@ -183,6 +183,7 @@ void Gerenciador::comandos(Grafo* grafo) {
             
             Gulosos::run_greedy(grafo, file);
             
+            
             clock_t end_time = clock();
             double elapsed_time = double(end_time - start_time) / CLOCKS_PER_SEC;
             
