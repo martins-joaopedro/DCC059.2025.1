@@ -13,6 +13,10 @@ using namespace std;
 class Gulosos {
 public:
 
+    Gulosos();
+    static map<float, vector<int>> sols;
+    static map<float, vector<double>> tempos;
+
     // GULOSO
     void resetar_dominacao(Grafo* grafo);
     bool conjunto_independente(const vector<char> &D, Grafo* grafo);
@@ -20,7 +24,7 @@ public:
     vector<char> get_vizinhos(char id_no, Grafo* grafo);
     bool conjunto_dominante(const vector<char> &D, Grafo* grafo);
     void reorganiza(vector<pair<char, int>> &vertice_grau_ordenado, Grafo* grafo);
-    void heuristica_gulosa(Grafo* grafo, ofstream& file);
+    vector<char> heuristica_gulosa(Grafo* grafo, ofstream& file);
 
     // RANDOMIZADO ADAPTATIVO
     bool check_validity(vector<char> S, Grafo* grafo, ofstream& file);
@@ -36,10 +40,10 @@ public:
     int choose_alpha(vector<float>& P);
     vector<char> randomized_adaptative_reactive_greedy(Grafo* grafo, vector<float>& alphas, int m, int nIter, int bloco, ofstream& file);
     
-
     static void run_randomized_adaptive_greedy(Grafo* grafo, ofstream& file);
-    static void run_randomized_adaptative_reactive_greedy(Grafo* grafo, ofstream& file);
-    static void run_greedy(Grafo* grafo, ofstream& file);
+    static vector<char> run_randomized_adaptative_reactive_greedy(Grafo* grafo, ofstream& file);
+    static vector<char> run_greedy(Grafo* grafo, ofstream& file);
+    static void print_means_randomized_greedy();
 };
 
 
