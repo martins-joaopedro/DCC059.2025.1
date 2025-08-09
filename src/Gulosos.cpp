@@ -640,10 +640,7 @@ void Gulosos::run_randomized_adaptive_greedy(Grafo *grafo, ofstream &file)
     for (auto alpha : alphas) {   
         clock_t start_time = clock();
         file << "Alpha: " << alpha << endl;
-        //sols[alpha] = vector<int>();
-        //tempos[alpha] = vector<double>();
         for (int i = 0; i < MAX_IT; i++) {
-            //srand(7*i); // semente diferente a cada execução
             file << "\n[ Iteracao: " << i + 1 << " ]" << endl;
             vector<char> S = g.randomized_adaptative_greedy(grafo, alpha, file);
             bool isValid = g.check_validity(S, grafo, file);
@@ -658,34 +655,6 @@ void Gulosos::run_randomized_adaptive_greedy(Grafo *grafo, ofstream &file)
         
         tempos[alpha].push_back(double(end_time - start_time) / CLOCKS_PER_SEC);
     }
-
-    
-    /* for (auto alpha : alphas) {
-        
-        double soma_tempos = 0.0;
-        double soma_sol = 0.0;
-
-        file_stats << "[ Alpha: " << alpha << " ] ";
-        file << "[ Alpha: " << alpha << " ] ";
-        
-        file_stats << "\nSOLUÇÕES : " << endl;
-        for (auto S_size : sols[alpha]) {
-            file << S_size << " ";
-            file_stats << S_size << " ";
-            soma_sol += S_size;
-        }
-
-        file_stats << "\nTEMPOS : ";
-        for (auto tempo : tempos[alpha]) {
-            file << tempo << " ";
-            file_stats << tempo << " ";
-            soma_tempos += tempo;
-        }
-        file << endl;
-        file_stats << endl;
-
-    } */
-    
     file_stats.close();
 }
 
