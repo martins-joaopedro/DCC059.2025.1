@@ -12,18 +12,19 @@
 #include <set>
 #include <functional>
 #include <algorithm>
+#include <ctime>
+#include <unordered_map>
+#include <unordered_set>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
 #define INF INT_MAX
 
-Grafo::Grafo()
-{
-}
+Grafo::Grafo() {}
 
-Grafo::~Grafo()
-{
-}
+Grafo::~Grafo() {}
 
 void Grafo::aux_fecho_transitivo_direto(map<char, bool> &C, char descendente)
 {
@@ -910,12 +911,6 @@ void Grafo::calcula_caracteristicas()
         return;
     }
 
-    // for (pair<const char, int> &par : excentricidades)
-    // {
-    //     cout << " char: " << par.first << " Num: " << par.second;
-    // }
-    // cout << endl;
-
     // calcula raio e diametro
     this->raio = INT_MAX;
     this->diametro = INT_MIN;
@@ -954,76 +949,113 @@ void Grafo::calcula_caracteristicas()
     }
 }
 
-void Grafo::resetar_dominacao()
-{
-    for (auto no : lista_adj)
-    {
-        no->dominado = false;
+Grafo* Grafo::ler_grafo(string file_name) {
+    
+    Grafo* grafo = new Grafo();
+    
+    fstream file = fstream(file_name);
+    
+    if (!file.is_open()) {
+        cout << "Erro ao abrir o arquivo: " << file_name << endl;
+        return nullptr;
     }
-}
 
-No *Grafo::get_no(char id)
-{
-    for (No *no : lista_adj)
-    {
-        if (no->id == id)
-            return no;
-    }
-    return nullptr;
-}
+    int header = 0;
+    string line;
 
-vector<char> Grafo::get_vizinhos(char id_no)
-{
-    vector<char> vizinhos;
-    No *no = get_no(id_no);
-    if (!no)
-        return vizinhos;
+    int direcionado, ponderado_aresta, ponderado_vertice;
+    int ordem, peso;
+    int k = 0; // contador de vertices lidos
+    char id, id_no_a, id_no_b; 
 
-    for (Aresta *aresta : no->arestas)
-    {
-        vizinhos.push_back(aresta->id_no_alvo);
-    }
-    return vizinhos;
-}
+    while (getline(file, line, '\n'))  {
+        istringstream iss(line);
+        
+        // Lendo informações iniciais do grafo
+        if (header == 0) {
+            cout << "Cabecalho do Grafo: " << endl;
+            iss >> direcionado >> ponderado_aresta >> ponderado_vertice;
 
-bool Grafo::conjunto_dominante(const vector<char> &D)
-{
-    resetar_dominacao();
+            cout << "Grafo " << (direcionado ? "direcionado" : "nao direcionado") << endl;
+            grafo->in_direcionado = direcionado;
 
-    for (char id : D)
-    {
-        No *no = get_no(id);
-        if (no)
-        {
-            no->dominado = true;
-            for (Aresta *aresta : no->arestas)
-            {
-                No *destino = get_no(aresta->id_no_alvo);
-                if (destino)
-                    destino->dominado = true;
+            cout << "Grafo " << (ponderado_aresta ? "ponderado nas arestas" : "nao ponderado nas arestas") << endl;
+            grafo->in_ponderado_aresta = ponderado_aresta;
+            
+            cout << "Grafo " << (ponderado_vertice ? "ponderado nos vertices" : "nao ponderado nos vertices") << endl;
+            grafo->in_ponderado_vertice = ponderado_vertice;
+
+            // Avança para a leitura de outras informações
+            header++;
+        }
+        // Lendo ordem do grafo
+        else if (header == 1) {
+            iss >> ordem;
+
+            grafo->ordem = ordem;
+            cout << "Grafo de Ordem: " << grafo->ordem << endl;
+
+            header++;
+        }
+        // Lendo vertices do grafo
+        else if (header == 2) {
+            iss >> id;
+
+            No* no = new No();//novo no
+            no->id = id;
+
+            if(ponderado_vertice) {
+                iss >> peso;
+                no->peso = peso;
+            } else {
+                no->peso = 1;
             }
+
+            grafo->lista_adj.push_back(no); //adiciona novo vertice no fim da lista
+
+            // Lê todos os vertices
+            k++;
+            if(k == ordem)
+                header++;
         }
+        
+        // Lendo arestas do grafo
+        else if (header == 3) {
+            iss >> id_no_a >> id_no_b;
+
+            Aresta* aresta = new Aresta();
+            
+            //adiciona aresta de a pra b
+            for(No* no : grafo->lista_adj ){
+                if(no->id == id_no_a){                        
+                    aresta->id_no_alvo = id_no_b;
+                    no->arestas.push_back(aresta);
+                }
+            }
+
+            if(ponderado_aresta) {
+                iss >> peso;
+                aresta->peso = peso;
+            } else {
+                aresta->peso = 1;
+            }
+            
+            //se nao direcionado, adiciona aresta de b pra a
+            if(!grafo->in_direcionado){
+                Aresta* aresta_b = new Aresta();
+                
+                for(No* no : grafo->lista_adj){
+                    if(no->id == id_no_b){                        
+                        aresta_b->id_no_alvo = id_no_a;
+                        aresta_b->peso = aresta->peso;
+                        no->arestas.push_back(aresta_b);
+                    }
+                }
+            }
+        }        
     }
-    for (No *no : lista_adj)
-    {
-        if (!no->dominado)
-            return false;
-    }
-    return true;
-}
 
-bool Grafo::conjunto_independente(const vector<char>& D) {
-    set<char> conjunto(D.begin(), D.end());
+    file.close();
 
-    for (char id : D) {
-        No* no = get_no(id);
-        if (!no) continue;
-
-        for (Aresta* aresta : no->arestas) {
-            if (conjunto.count(aresta->id_no_alvo))
-                return false;
-        }
-    }
-
-    return true;
+    return grafo;
 }

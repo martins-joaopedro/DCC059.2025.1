@@ -1,8 +1,15 @@
 #include "Gerenciador.h"
+#include "Gulosos.h"
+#include "Grafo.h"
+
 #include <fstream>
+#include <sstream>
 #include <iostream>
 #include <math.h>
 #include <set>
+#include <ctime>
+
+using namespace std;
 
 void Gerenciador::comandos(Grafo* grafo) {
     cout << "\n----------------------------------------" << endl;
@@ -16,6 +23,11 @@ void Gerenciador::comandos(Grafo* grafo) {
     cout<<"(f) Arvore Geradora Minima (Algoritmo de Kruskal);"<<endl;
     cout<<"(g) Arvore de caminhamento em profundidade;"<<endl;
     cout<<"(h) Raio, diametro, centro e periferia do grafo;"<<endl;
+    cout<<"(i) Algortimo guloso;"<<endl;
+    cout<<"(j) Algortimo guloso randomizado adaptativo;"<<endl;
+    cout<<"(k) Algortimo guloso randomizado adaptativo reativo;"<<endl;
+    cout<<"(l) Gerar arquivo de estatísticas para o grafo atual;"<<endl;
+    cout<<"(m) Gerar arquivo de estatísticas para todas as instancias;"<<endl;
     cout<<"(0) Sair;"<<endl<<endl;
 
     char resp;
@@ -28,8 +40,9 @@ void Gerenciador::comandos(Grafo* grafo) {
             
             imprimir_lista_nos(fecho_transitivo_direto);
 
-                if(pergunta_imprimir_arquivo("fecho_trans_dir.txt")) 
-                    salvar_lista_nos(fecho_transitivo_direto, "fecho_trans_dir.txt");
+            if(pergunta_imprimir_arquivo("fecho_trans_dir.txt")) 
+                salvar_lista_nos(fecho_transitivo_direto, "fecho_trans_dir.txt");
+            
             break;
         }
 
@@ -166,9 +179,123 @@ void Gerenciador::comandos(Grafo* grafo) {
 
             break;
         }
+
+        case 'i': {
+            string output = "output/Guloso.txt";
+            ofstream file = ofstream(output);
+
+            file << "\n__________________________________________________" << endl;
+            file << "GULOSO" << endl;
+            clock_t start_time = clock();
+            
+            Gulosos::run_greedy(grafo, file);
+            
+            clock_t end_time = clock();
+            double elapsed_time = double(end_time - start_time) / CLOCKS_PER_SEC;
+            
+            file << "Tempo de execucao: " << elapsed_time << " segundos" << endl;
+            file.close();
+
+            cout << "\n>>>> Saida em " << output << " <<<<\n";
+
+            break;
+        }
+
+        case 'j': {
+            string output = "output/Randomizado.txt";
+            ofstream file = ofstream(output);
+
+            file << "\n__________________________________________________" << endl;
+            file << "GULOSO RANDOMIZADO" << endl;
+            clock_t start_time = clock();
+            
+            Gulosos::run_randomized_adaptive_greedy(grafo, file);
+            
+            clock_t end_time = clock();
+            double elapsed_time = double(end_time - start_time) / CLOCKS_PER_SEC;
+            
+            file << "Tempo de execucao: " << elapsed_time << " segundos" << endl;
+            file.close();
+
+            cout << "\n>>>> Saida em " << output << " <<<<\n";
+
+            break;
+        }
+
+        case 'k': {
+            string output = "output/Reativo.txt";
+            ofstream file = ofstream(output);
+
+            file << "\n__________________________________________________" << endl;
+            file << "GULOSO REATIVO" << endl;
+            clock_t start_time = clock();
+            
+            Gulosos::run_randomized_adaptative_reactive_greedy(grafo, file);
+            
+            clock_t end_time = clock();
+            double elapsed_time = double(end_time - start_time) / CLOCKS_PER_SEC;
+            
+            file << "Tempo de execucao: " << elapsed_time << " segundos" << endl;
+            file.close();
+
+            cout << "\n>>>> Saida em " << output << " <<<<\n";
+
+            break;
+        }
+
+        case 'l': {
+
+            // recria o arquivo de estatisticas;
+            ofstream file_stats = ofstream("output/stats.txt");
+            file_stats << "\n[==================================================]" << endl;
+            file_stats << "                  GRAFO  " << endl;
+            file_stats << "[==================================================]" << endl << endl;
+            file_stats.close();
+
+            string output = "output/Log_gulosos.txt";
+            ofstream log_file = ofstream(output);
+            run_tests(grafo, log_file);
+            log_file.close();
+
+            cout << "\n>>>> Saida em " << output << " <<<<\n";
+
+            break;
+        }
+
+        case 'm': {
+            string src = "../instancias_t2/";
+            string output = "output/tests_t2/"; 
+            string line;
+            fstream src_file = fstream(src+"files.txt");
+
+            // recria o arquivo de estatisticas;
+            ofstream file_stats = ofstream("output/stats.txt");
+            file_stats.close();
+
+            while (getline(src_file, line, '\n')) {
+                ofstream output_file = ofstream(output+line);
+                
+                ofstream file_stats = ofstream("output/stats.txt", ios::app);
+                file_stats << "\n[==================================================]" << endl;
+                file_stats << "               GRAFO: " << line << endl;
+                file_stats << "[==================================================]" << endl << endl;
+                file_stats.close();
+
+                Grafo * grafo = Grafo::ler_grafo(src+line);
+                Gerenciador::imprimir_grafo(grafo);
+                Gerenciador::run_tests(grafo, output_file);
+                delete grafo;
+
+                output_file.close();
+            }
+
+            break;
+        }
+
         case '0': {
             exit(0);
         }
+
         default: {
             cout<<"Opcao invalida"<<endl;
         }
@@ -462,4 +589,91 @@ void Gerenciador::salvar_letraH(Grafo* grafo, string nome_arquivo){
         cout << "Dados salvos em " << nome_arquivo << endl;
     } else cout << "Grafo vazio." << endl;
     cout << endl;
+}
+
+// gera arquivo de estatísticas para o grafo atual considerando as 10 interações do enunciado
+void Gerenciador::run_tests(Grafo* grafo, ofstream& file) {
+    
+    ofstream file_stats = ofstream("output/stats.txt", ios::app);
+    double soma_tempos = 0.0;
+    double soma_sols = 0.0;
+
+    file_stats << "\nESTATÍSTICAS GULOSO" << endl;    
+    for (int i = 0; i < 10; i++) {     
+        file_stats << "_________________________________________________" << endl;
+        file_stats << "ITERAÇÃO: "<< i << endl;
+
+        clock_t start_time = clock();
+        vector<char> S = Gulosos::run_greedy(grafo, file);
+        clock_t end_time = clock();
+
+        file_stats << "|S|: " << S.size() << endl;
+        
+        double tempo = double(end_time - start_time) / CLOCKS_PER_SEC;
+        file_stats << "T: " << tempo << endl;
+                
+        soma_tempos += tempo;
+        soma_sols += S.size();
+    }
+    
+    file_stats << "\nMEDIA SOLS " << soma_sols / 10 << endl;
+    file_stats << "\nMEDIA TEMPO " << soma_tempos / 10 << endl;
+
+    file_stats << "\nESTATÍSTICAS GULOSO RANDOMIZADO" << endl;
+    for (int i = 0; i < 10; i++) {     
+        file_stats = ofstream("output/stats.txt", ios::app);
+        srand(7*i); // semente diferente a cada execução
+        file_stats << "_________________________________________________" << endl;
+        file_stats << "ITERAÇÃO: "<< i << endl;
+        file_stats.close();
+
+        clock_t start_time = clock();
+        Gulosos::run_randomized_adaptive_greedy(grafo, file);
+        clock_t end_time = clock();
+
+        file_stats = ofstream("output/stats.txt", ios::app);
+        double tempo = double(end_time - start_time) / CLOCKS_PER_SEC;
+        file_stats << "T: " << tempo << endl;             
+        file_stats.close();   
+    }
+
+    // fecha o arquivo para a função de print usar internamente
+    file_stats.close();
+
+    // adiciona os resultados capturados das 10 iterações
+    Gulosos::print_means_randomized_greedy();
+    
+    // limpa as soluções para o caso quando rodamos todos os grafos de instancia
+    Gulosos::sols.clear();
+    Gulosos::tempos.clear();
+
+    file_stats = ofstream("output/stats.txt", ios::app);
+
+    // REATIVO
+    soma_tempos = 0;
+    soma_sols = 0;
+    
+    file_stats << "\nESTATÍSTICAS GULOSO REATIVO" << endl;
+    for (int i = 0; i < 10; i++) {
+        srand(7*i); // semente diferente a cada execução
+        file_stats << "_________________________________________________" << endl;
+        file_stats << "ITERAÇÃO: "<< i << endl;
+        
+        clock_t start_time = clock();
+        vector<char> S = Gulosos::run_randomized_adaptative_reactive_greedy(grafo, file);
+        clock_t end_time = clock();
+
+        file_stats << "|S|: " << S.size() << endl;
+        
+        double tempo = double(end_time - start_time) / CLOCKS_PER_SEC;
+        file_stats << "T: " << tempo << endl;
+        
+        soma_sols += S.size();
+        soma_tempos += double(end_time - start_time) / CLOCKS_PER_SEC;
+    }
+
+    file_stats << "\nMEDIA SOLUÇÃO REATIVO: " << soma_sols/10 << endl;
+    file_stats << "MEDIA TEMPO REATIVO: " << soma_tempos/10 << endl;
+
+    file_stats.close();
 }
