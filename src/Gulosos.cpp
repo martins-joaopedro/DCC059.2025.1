@@ -649,7 +649,7 @@ void Gulosos::run_randomized_adaptive_greedy(Grafo *grafo, ofstream &file)
         file << endl;
         clock_t end_time = clock();
         double tempo = double(end_time - start_time) / CLOCKS_PER_SEC;
-        file_stats << "|T para 30 it|: " << tempo << endl;
+        file_stats << "|T PARA 30 ITERACOES |: " << tempo << endl;
         tempos[alpha].push_back(tempo);
     }
     file_stats.close();
@@ -681,8 +681,8 @@ void Gulosos::print_means_randomized_greedy() {
             soma_tempos += tempo;
         }
 
-        file_stats << "\nMEDIA SOLUÇÕES " << soma_sol / (30*10) << endl;
-        file_stats << "\nMEDIA TEMPO " << soma_tempos / (30*10) << endl << endl;
+        file_stats << "\n\nMEDIA SOLUÇÕES " << soma_sol / (30*10) << endl;
+        file_stats << "MEDIA TEMPO " << soma_tempos / (30*10) << endl << endl;
     }
     file_stats.close();
 }

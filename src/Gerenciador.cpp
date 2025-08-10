@@ -617,7 +617,7 @@ void Gerenciador::run_tests(Grafo* grafo, ofstream& file) {
     }
     
     file_stats << "\nMEDIA SOLS " << soma_sols / 10 << endl;
-    file_stats << "\nMEDIA TEMPO " << soma_tempos / 10 << endl;
+    file_stats << "MEDIA TEMPO " << soma_tempos / 10 << endl;
 
     file_stats << "\nESTATÍSTICAS GULOSO RANDOMIZADO" << endl;
     for (int i = 0; i < 10; i++) {     
