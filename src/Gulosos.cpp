@@ -20,15 +20,14 @@ using namespace std;
 //
 /* GULOSO */
 
+
+//Capturar todas as soluçõe e tempos dos algoritmos gulosos para cada alpha
+//Ajuda a manter os resustados das 30 iterações
 map<float, vector<int>> Gulosos::sols;
 map<float, vector<double>> Gulosos::tempos;
 
-Gulosos::Gulosos() {
-    //sols = map<float, vector<int>>();
-    //tempos = map<float, vector<double>>();
-}
-
-void Gulosos::resetar_dominacao(Grafo *grafo)
+//Transforma dominação de todas os nós para false
+void Gulosos::reset_domain(Grafo *grafo)
 {
     for (auto no : grafo->lista_adj)
     {
@@ -36,7 +35,8 @@ void Gulosos::resetar_dominacao(Grafo *grafo)
     }
 }
 
-No *Gulosos::get_no(char id, Grafo *grafo)
+
+No *Gulosos::get_node(char id, Grafo *grafo)
 {
     for (No *no : grafo->lista_adj)
     {
@@ -46,10 +46,11 @@ No *Gulosos::get_no(char id, Grafo *grafo)
     return nullptr;
 }
 
-vector<char> Gulosos::get_vizinhos(char id_no, Grafo *grafo)
+//Retorna todos os vizinhos de um nó
+vector<char> Gulosos::get_neighbors(char id_no, Grafo *grafo)
 {
     vector<char> vizinhos;
-    No *no = get_no(id_no, grafo);
+    No *no = get_node(id_no, grafo);
     if (!no)
         return vizinhos;
 
@@ -60,19 +61,20 @@ vector<char> Gulosos::get_vizinhos(char id_no, Grafo *grafo)
     return vizinhos;
 }
 
-bool Gulosos::conjunto_dominante(const vector<char> &D, Grafo *grafo)
+//Confere se todos os nós estão dominados ou tem vizinhos dominados
+bool Gulosos::dominant_set(const vector<char> &D, Grafo *grafo)
 {
-    resetar_dominacao(grafo);
-
+    reset_domain(grafo);
+    
     for (char id : D)
     {
-        No *no = get_no(id, grafo);
+        No *no = get_node(id, grafo);
         if (no)
         {
             no->dominado = true;
             for (Aresta *aresta : no->arestas)
             {
-                No *destino = get_no(aresta->id_no_alvo, grafo);
+                No *destino = get_node(aresta->id_no_alvo, grafo);
                 if (destino)
                     destino->dominado = true;
             }
@@ -86,13 +88,14 @@ bool Gulosos::conjunto_dominante(const vector<char> &D, Grafo *grafo)
     return true;
 }
 
-bool Gulosos::conjunto_independente(const vector<char> &D, Grafo *grafo)
+//Confere que dois nós dominantes nao sao adjacentes
+bool Gulosos::independent_set(const vector<char> &D, Grafo *grafo)
 {
     set<char> conjunto(D.begin(), D.end());
 
     for (char id : D)
     {
-        No *no = get_no(id, grafo);
+        No *no = get_node(id, grafo);
         if (!no)
             continue;
 
@@ -105,7 +108,9 @@ bool Gulosos::conjunto_independente(const vector<char> &D, Grafo *grafo)
 
     return true;
 }
-void Gulosos::reorganiza(vector<pair<char, int>> &vertice_grau_ordenado, Grafo *grafo)
+
+//Ordena vetor em ordem decrescente de grau
+void Gulosos::reorganize(vector<pair<char, int>> &vertice_grau_ordenado, Grafo *grafo)
 {
     unordered_map<char, int> novo_grau;
     for (const auto &par : vertice_grau_ordenado)
@@ -145,7 +150,8 @@ void Gulosos::reorganiza(vector<pair<char, int>> &vertice_grau_ordenado, Grafo *
                 });
 }
 
-vector<char> Gulosos::heuristica_gulosa(Grafo *grafo, ofstream &file)
+
+vector<char> Gulosos::greedy_heuristic(Grafo *grafo, ofstream &file)
 {
     vector<char> D; // solução vazia inicialmente
 
@@ -159,10 +165,11 @@ vector<char> Gulosos::heuristica_gulosa(Grafo *grafo, ofstream &file)
                 { return a.second > b.second; }); // ordena os vértices em ordem decrescente
 
     int i = 0;
-    while (!conjunto_dominante(D, grafo) && !vertice_grau_ordenado.empty())
+    //Enquanto o conjunto não é dominano e ainda existem candidatos na lista
+    while (!dominant_set(D, grafo) && !vertice_grau_ordenado.empty())
     {
         if (i != 0)
-            reorganiza(vertice_grau_ordenado, grafo);
+            reorganize(vertice_grau_ordenado, grafo);
 
         for (const auto &pair : vertice_grau_ordenado)
         {
@@ -171,11 +178,12 @@ vector<char> Gulosos::heuristica_gulosa(Grafo *grafo, ofstream &file)
 
         file << "------------------------" << endl;
         pair<char, int> candidato = vertice_grau_ordenado[0];
-        vector<char> vizinhos = get_vizinhos(candidato.first, grafo);
+        vector<char> vizinhos = get_neighbors(candidato.first, grafo);
 
         D.push_back(candidato.first);
         vertice_grau_ordenado.erase(remove(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(), candidato), vertice_grau_ordenado.end());
 
+        //Tira da lista de condidatos os vizinhos do nó colocado no conjunto solução
         if (!vizinhos.empty())
         {
             for (char v : vizinhos)
@@ -258,6 +266,7 @@ vector<char> Gulosos::randomized_heuristic(vector<char> LC, map<char, No *> &map
     return LC;
 }
 
+//Atualiza dominio 
 void Gulosos::updates_domain(map<char, No *> &mapa_nos, vector<char> S)
 {
     for (char no : S)
@@ -428,11 +437,13 @@ bool Gulosos::check_validity(vector<char> S, Grafo *grafo, ofstream &file)
 //
 //
 /* REATIVO */
+
+//atualiza propabilidades
 void Gulosos::updates_probability(vector<float> &P, vector<float> &M, int m, int solBest_size, ofstream &file)
 {
     file << "\n---------------- Atualizando Probabilidades ----------------\n";
 
-    vector<float> scores(m, 0.0); // transfoma media em pontuação, menores medias tem pontuação maior
+    vector<float> scores(m, 0.0); // transfoma media em pontuação, menores medias tem maior pontuação
     float sum_scores = 0.0;       // soma dos scores de todos os alphas
     int i;
 
@@ -460,19 +471,21 @@ void Gulosos::updates_probability(vector<float> &P, vector<float> &M, int m, int
          << "SUM_SCORES: " << sum_scores << endl;
 }
 
+//atualia medias
 void Gulosos::updates_means(vector<float> &M, vector<int> &sum_sols, vector<int> &count, vector<char> &s, int index_alpha)
 {
-    count[index_alpha]++;
-    sum_sols[index_alpha] += s.size();
-    M[index_alpha] = float(sum_sols[index_alpha]) / count[index_alpha];
+    count[index_alpha]++; //incrementa contador do alfa referido
+    sum_sols[index_alpha] += s.size(); //adiciona nova solucao ao somatorio
+    M[index_alpha] = float(sum_sols[index_alpha]) / count[index_alpha]; //calcula media
 }
 
+// escolhe o alfa
 int Gulosos::choose_alpha(vector<float> &P)
 {
     vector<float> P_interval(P.size() + 1); // vetor de intervalo probabilidades
     P_interval[0] = 0.0;
 
-    float r = float(rand() % 100) / 100.0; // numero random de 0 a 1
+    float r = float(rand() % 100) / 100.0; // gera numero random de 0 a 1
 
     for (int i = 0; i < P.size(); i++)
     {
@@ -485,6 +498,7 @@ int Gulosos::choose_alpha(vector<float> &P)
     return -1;
 }
 
+//funcao para imprimir tabela de probabilidades dos alfas
 void Gulosos::imprime_prob(vector<float> &alphas, vector<float> &P, vector<float> &M, vector<int> &sum_sols, vector<int> &count, int m, ofstream &file)
 {
     file << endl
@@ -500,6 +514,7 @@ void Gulosos::imprime_prob(vector<float> &alphas, vector<float> &P, vector<float
 
     file << string(60, '-') << endl;
 
+    //informações
     for (int i = 0; i < m; i++)
     {
         file << setw(10) << alphas[i]
@@ -522,10 +537,12 @@ vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo *grafo, vector
     vector<int> count(m, 0.0);     // contagem de quantas vezes cada alpha foi usado
     int index_alpha = 0;           // index para acessar alfa nos vetores
 
-    // srand(time(0)); // inicializa semente com hora atual
     int i = 0;
     bool isValid;
 
+    /* roda a primeira vez com todos o alfas para garantir que cada um é usado pelo menos uma vez
+        caso contrario teriamos divisoes por zero nno calculo da probabilidade da ja que a media seria zero
+    */
     for (; index_alpha < m; index_alpha++)
     {
         file << "\nALFA----------------------------------->: " << alphas[index_alpha] << endl;
@@ -534,12 +551,8 @@ vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo *grafo, vector
         isValid = check_validity(s, grafo, file);
 
         if (isValid)
-        { // perguntar se tem que calcular mesmo se nao for valida, soluçoes vazias sao validas?
+        {
             updates_means(M, sum_sols, count, s, index_alpha);
-
-            // if(solBest.empty() || s.size() < solBest.size()){
-            //     solBest = s;
-            // }
         }
         else
             file << "SOLUÇÃO INVALIDA" << endl;
@@ -547,7 +560,8 @@ vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo *grafo, vector
 
     // updates_probability(P, M, m, solBest.size());
     imprime_prob(alphas, P, M, sum_sols, count, m, file);
-
+    
+    //laço principal
     while (i < nIter)
     {
         file << "========================================================== i = "
@@ -556,7 +570,7 @@ vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo *grafo, vector
         imprime_prob(alphas, P, M, sum_sols, count, m, file);
 
         if (i != 0 && i % bloco == 0)
-        { // atualiza prob
+        { // atualiza probabilidades a cada bloco de execução
             updates_probability(P, M, m, solBest.size(), file);
             imprime_prob(alphas, P, M, sum_sols, count, m, file);
         }
@@ -566,7 +580,7 @@ vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo *grafo, vector
         file << "\nALFA----------------------------------->: " << alphas[index_alpha] << endl;
 
         if (index_alpha == -1)
-        {
+        {// conferese o indice é valido, se nao pula para proxima iteracao
             file << "Alfa invalido" << endl;
             continue;
         }
@@ -575,7 +589,7 @@ vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo *grafo, vector
         bool isValid = check_validity(s, grafo, file);
 
         if (isValid)
-        { // perguntar se tem que calcular mesmo se nao for valida, soluçoes vazias sao validas?
+        { //checa se a solução gerada é valida
             updates_means(M, sum_sols, count, s, index_alpha);
 
             if (solBest.empty() || s.size() < solBest.size())
@@ -605,38 +619,14 @@ vector<char> Gulosos::randomized_adaptative_reactive_greedy(Grafo *grafo, vector
 vector<char> Gulosos::run_greedy(Grafo *grafo, ofstream &file)
 {
     Gulosos g;
-
-
-
-
-    vector<char> S = g.heuristica_gulosa(grafo, file);
+    vector<char> S = g.greedy_heuristic(grafo, file);
     return S;
-
-    /* int MAX_IT = 1;
-    //ofstream file_stats = ofstream("stats.txt", ios::app);
-    //file_stats << "\nESTATÍSTICAS GULOSO" << endl;
-    double soma_tempos = 0.0;
-    double soma_sol = 0.0;
-
-    for(int i=0; i<MAX_IT; i++) {
-        clock_t start_time = clock();
-        clock_t end_time = clock();
-        int size = S.size();
-        soma_sol += size;
-        soma_tempos += double(end_time - start_time) / CLOCKS_PER_SEC;
-        file_stats << "T: ";
-        file_stats << double(end_time - start_time) / CLOCKS_PER_SEC << endl;
-    }
-
-    file_stats << "MEDIA SOLUÇÕES " << soma_sol / MAX_IT << endl;
-    file_stats << "MEDIA TEMPO " << soma_tempos / MAX_IT << endl;
-
-    file.close(); */
 }
 
 void Gulosos::run_randomized_adaptive_greedy(Grafo *grafo, ofstream &file)
 {
-    ofstream file_stats = ofstream("stats.txt", ios::app);
+    // abre o arquivo para internamente salvar cada solução de cada alpha
+    ofstream file_stats = ofstream("output/stats.txt", ios::app);
     Gulosos g;
     float alphas[] = {0.1, 0.3, 0.5};
     int MAX_IT = 30;
@@ -644,9 +634,11 @@ void Gulosos::run_randomized_adaptive_greedy(Grafo *grafo, ofstream &file)
     for (auto alpha : alphas) {   
         clock_t start_time = clock();
         file << "Alpha: " << alpha << endl;
+        file_stats << "ALPHA: " << alpha << endl;
         for (int i = 0; i < MAX_IT; i++) {
             file << "\n[ Iteracao: " << i + 1 << " ]" << endl;
             vector<char> S = g.randomized_adaptative_greedy(grafo, alpha, file);
+            file_stats << "|S|: " << S.size() << " ";
             bool isValid = g.check_validity(S, grafo, file);
 
             if (isValid)
@@ -656,23 +648,25 @@ void Gulosos::run_randomized_adaptive_greedy(Grafo *grafo, ofstream &file)
         }
         file << endl;
         clock_t end_time = clock();
-        
-        tempos[alpha].push_back(double(end_time - start_time) / CLOCKS_PER_SEC);
+        double tempo = double(end_time - start_time) / CLOCKS_PER_SEC;
+        file_stats << "|T para 30 it|: " << tempo << endl;
+        tempos[alpha].push_back(tempo);
     }
     file_stats.close();
 }
 
+// para cada alfa calcula as médias e tempos ao final das N interações
 void Gulosos::print_means_randomized_greedy() {
 
-    ofstream file_stats = ofstream("stats.txt", ios::app);
+    ofstream file_stats = ofstream("output/stats.txt", ios::app);
     float alphas[] = {0.1, 0.3, 0.5};
 
     for(auto alpha : alphas) {
-
+        
+        file_stats << "[ ALPHA: " << alpha << " ] ";
         double soma_tempos = 0.0;
         double soma_sol = 0.0;
         
-        file_stats << "[ Alpha: " << alpha << " ] ";
         file_stats << "\nSOLUÇÕES : " << endl;
         for (auto S_size : sols[alpha]) {
            
@@ -690,7 +684,6 @@ void Gulosos::print_means_randomized_greedy() {
         file_stats << "\nMEDIA SOLUÇÕES " << soma_sol / (30*10) << endl;
         file_stats << "\nMEDIA TEMPO " << soma_tempos / (30*10) << endl << endl;
     }
-        
     file_stats.close();
 }
 
@@ -698,20 +691,6 @@ vector<char> Gulosos::run_randomized_adaptative_reactive_greedy(Grafo *grafo, of
     Gulosos g;
     int m = 3, nIter = 300, bloco = 50;
     vector<float> alphas = {0.1, 0.3, 0.5};
-
-    // cout << "Numero de iterações: ";
-    // cin >> nIter;
-
-    // cout << "Tamanho do bloco: ";
-    // cin >> bloco;
-
-    // cout << "Quantidade de alfas: ";
-    // cin >> m;
-
-    // for(int i = 0; i < m; i++){
-    //     cout << "Alfa[" << i << "]: ";
-    //     cin >> alphas[i];
-    // }
 
     file << "\n========================================================= INICIO"
          << " ==========================================================\n";

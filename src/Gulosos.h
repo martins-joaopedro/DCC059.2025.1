@@ -13,18 +13,17 @@ using namespace std;
 class Gulosos {
 public:
 
-    Gulosos();
     static map<float, vector<int>> sols;
     static map<float, vector<double>> tempos;
 
     // GULOSO
-    void resetar_dominacao(Grafo* grafo);
-    bool conjunto_independente(const vector<char> &D, Grafo* grafo);
-    No* get_no(char id, Grafo* grafo);
-    vector<char> get_vizinhos(char id_no, Grafo* grafo);
-    bool conjunto_dominante(const vector<char> &D, Grafo* grafo);
-    void reorganiza(vector<pair<char, int>> &vertice_grau_ordenado, Grafo* grafo);
-    vector<char> heuristica_gulosa(Grafo* grafo, ofstream& file);
+    void reset_domain(Grafo* grafo);
+    bool independent_set(const vector<char> &D, Grafo* grafo);
+    No* get_node(char id, Grafo* grafo);
+    vector<char> get_neighbors(char id_no, Grafo* grafo);
+    bool dominant_set(const vector<char> &D, Grafo* grafo);
+    void reorganize(vector<pair<char, int>> &vertice_grau_ordenado, Grafo* grafo);
+    vector<char> greedy_heuristic(Grafo* grafo, ofstream& file);
 
     // RANDOMIZADO ADAPTATIVO
     bool check_validity(vector<char> S, Grafo* grafo, ofstream& file);

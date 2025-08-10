@@ -25,6 +25,7 @@ public:
     Grafo *arvore_geradora_minima_kruskal(vector<char> ids_nos);                                                           // f
     Grafo *arvore_caminhamento_profundidade(int id_no);                                                                    // g
     Grafo *caminho_profundidade(No *no, Grafo *grafo, map<char, bool> &visitados, char pai, map<char, int> &profundidade); //
+    static Grafo* ler_grafo(string file_name);
 
     bool insere_aresta(tuple<int, char, char> &aresta_info, vector<No *> &lista);
     void aux_fecho_transitivo_direto(map<char, bool> &C, char descendente);
