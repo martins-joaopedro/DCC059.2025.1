@@ -109,7 +109,7 @@ bool Gulosos::independent_set(const vector<char> &D, Grafo *grafo)
     return true;
 }
 
-//Ordena vetor em ordem decrescente de grau
+//Ordena vetor em ordem decrescente de grau de dominancia
 void Gulosos::reorganize(vector<pair<char, int>> &vertice_grau_ordenado, Grafo *grafo)
 {
     unordered_map<char, int> novo_grau;
@@ -143,6 +143,7 @@ void Gulosos::reorganize(vector<pair<char, int>> &vertice_grau_ordenado, Grafo *
         par.second = novo_grau[par.first];
     }
 
+    //ordena em ordem decrescente
     stable_sort(vertice_grau_ordenado.begin(), vertice_grau_ordenado.end(),
                 [](const auto &a, const auto &b)
                 {
